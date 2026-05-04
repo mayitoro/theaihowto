@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -249,6 +249,115 @@ ul{list-style:none}
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const TUT_ES = {
+  title: 'Guía Completa de ChatGPT para Principiantes Absolutos',
+  tool: 'ChatGPT',
+  desc: 'Aprende a usar ChatGPT desde cero. Desde la creación de tu cuenta hasta mantener conversaciones productivas, esta guía cubre todo lo que necesitas para empezar hoy.',
+  intro: 'ChatGPT es la herramienta de IA más accesible del mundo y el mejor lugar para comenzar tu viaje con la IA. En esta guía, repasamos todo: desde la creación de la cuenta hasta obtener resultados de calidad profesional desde tu primera conversación.',
+  steps: [('Crea tu cuenta gratuita', "Ve a chat.openai.com y haz clic en 'Registrarse'. Puedes registrarte con tu dirección de email o con una cuenta de Google o Microsoft. El proceso tarda menos de 2 minutos y no se requiere tarjeta de crédito."), ('Entiende la interfaz', 'Una vez conectado, verás una interfaz de chat limpia. El selector de modelo (GPT-5.5, GPT-4.5) está en la parte superior. Tu historial de conversaciones aparece en la barra lateral izquierda. El cuadro de texto está en la parte inferior.'), ('Escribe tu primer prompt', "Escribe una pregunta o tarea simple y pulsa Intro. Por ejemplo: 'Explícame la fotosíntesis en términos simples' o 'Escribe un resumen de 3 puntos sobre gestión de proyectos'. ChatGPT responde en segundos."), ('Aprende a iterar', "Si la primera respuesta no es perfecta, no empieces de nuevo. Responde con ajustes: 'Hazlo más corto', 'Usa un lenguaje más simple' o 'Añade un ejemplo sobre...'. ChatGPT recuerda el contexto completo de la conversación."), ('Sube un archivo o imagen', "Haz clic en el icono de clip para adjuntar un PDF, documento Word, hoja de cálculo o imagen. Luego haz preguntas sobre el archivo: 'Resume este documento' o '¿Cuáles son las cifras clave en esta hoja de cálculo?'"), ('Genera una imagen', "Escribe 'Crea una imagen de...' y describe lo que quieres. ChatGPT usa DALL·E 3 para generar una imagen de alta calidad directamente en el chat."), ('Explora los GPTs personalizados', "Haz clic en 'Explorar GPTs' en la barra lateral para descubrir miles de asistentes de IA especializados para escritura, programación, cocina, planificación de viajes y mucho más.")],
+  tips: ['Sé específico en tus prompts — más detalle = mejores resultados', "Dale a ChatGPT un rol: 'Actúa como un experto en...' mejora significativamente la calidad", 'Usa el botón de regenerar si no te gusta la respuesta — cada generación es diferente', 'Nombra tus chats en la barra lateral para encontrarlos fácilmente más tarde'],
+  mistakes: ['Tratarlo como un motor de búsqueda — ChatGPT sobresale en tareas, no solo en consultas factuales', 'Aceptar la primera respuesta sin iterar', 'Asumir que todo es correcto — verifica siempre los hechos importantes', 'Escribir prompts de una sola palabra — las frases completas con contexto producen resultados mucho mejores'],
+  back: 'Tutoriales',
+  breadHome: 'Inicio', breadTut: 'Tutoriales',
+  whatLearn: 'Lo que aprenderás',
+  intro_label: 'Introducción',
+  steps_label: 'Guía paso a paso',
+  follow_steps: 'Sigue estos',
+  follow_steps2: 'pasos',
+  pro_tips: 'Consejos Pro',
+  do_this: 'Haz',
+  do_this2: 'esto',
+  avoid: 'Errores comunes',
+  avoid2: 'Evita',
+  avoid3: 'estos',
+  next_steps: 'Próximos pasos',
+  continue_learning: 'Continúa',
+  continue_learning2: 'aprendiendo',
+  all_tut: 'Todos los tutoriales',
+  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
+  prompt_lib: 'Biblioteca de prompts',
+  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
+  compare_tools: 'Comparar herramientas',
+  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
+};
+
+const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    // Title
+    const h1 = document.querySelector('.page-h1');
+    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
+    document.title = TUT_ES.title + ' — The AI How To';
+    // Intro
+    const introP = document.querySelector('.art-body p, .section p:first-of-type');
+    // Breadcrumb
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = TUT_ES.breadHome;
+      if (i === 1) a.textContent = TUT_ES.breadTut;
+    });
+    // Nav back
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
+  } else {
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = 'Home';
+      if (i === 1) a.textContent = 'Tutorials';
+    });
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
+  }
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -275,6 +275,115 @@ Output: [AI will now match the exact style and format]</div></div></div><div cla
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const TUT_ES = {
+  title: 'Prompt Engineering: Técnicas Avanzadas que Realmente Funcionan',
+  tool: 'Todos los Modelos IA',
+  desc: 'Domina las técnicas de prompting más poderosas: chain-of-thought, few-shot prompting, role prompting y más. Obtén resultados dramáticamente mejores de cualquier modelo de IA.',
+  intro: 'La diferencia entre una respuesta de IA mediocre y una excepcional a menudo no tiene nada que ver con qué modelo estás usando — tiene que ver completamente con cómo escribes el prompt. Esta guía cubre las técnicas utilizadas por los profesionales de IA para obtener resultados consistentemente sobresalientes.',
+  steps: [('Role prompting', "Dale a la IA una identidad específica antes de tu tarea. Compara: 'Escribe un email de marketing' vs 'Eres un copywriter de respuesta directa con 20 años de experiencia escribiendo emails para empresas SaaS. Escribe un email de marketing anunciando nuestra nueva función...' La segunda versión obtiene resultados dramáticamente mejores."), ('Chain-of-thought (CoT)', "Para tareas de razonamiento complejo, pide a la IA que piense paso a paso. Añadir 'Piensa en esto paso a paso antes de responder' mejora drásticamente la precisión en matemáticas, lógica y problemas de múltiples pasos."), ('Few-shot prompting', 'Muestra a la IA ejemplos de exactamente lo que quieres antes de pedir tu resultado real. Dos o tres ejemplos transforman instrucciones vagas en resultados precisos.'), ('Especificación de restricciones', 'Define exactamente lo que NO quieres además de lo que sí quieres. Las restricciones mejoran dramáticamente la precisión: límites de palabras, requisitos de formato, cosas a evitar y requisitos de tono.'), ('Control del formato de salida', 'Especifica el formato exacto que necesitas: JSON, viñetas, listas numeradas, tablas o una estructura de documento específica. La IA seguirá las instrucciones de formato de manera fiable cuando sean explícitas.'), ('Refinamiento iterativo', 'Trata el prompting como una conversación, no como un intento único. Envía un prompt, evalúa el resultado y refina. Mantén los elementos buenos y corrige los malos.')],
+  tips: ['Más contexto es casi siempre mejor — los modelos de IA no se aburren con el detalle', "Especifica cómo se ve el éxito: 'Una buena respuesta incluirá X, Y y Z'", 'Pídele a la IA que identifique ambigüedades antes de responder preguntas complejas', 'Para tareas creativas, da ejemplos de contenido que admiras como referencia'],
+  mistakes: ['Escribir prompts como consultas de búsqueda en lugar de instrucciones', 'No especificar formato — los prompts vagos obtienen formatos vagos', 'Omitir el contexto de rol para tareas profesionales/técnicas', 'No iterar — tratar cada prompt como un intento único'],
+  back: 'Tutoriales',
+  breadHome: 'Inicio', breadTut: 'Tutoriales',
+  whatLearn: 'Lo que aprenderás',
+  intro_label: 'Introducción',
+  steps_label: 'Guía paso a paso',
+  follow_steps: 'Sigue estos',
+  follow_steps2: 'pasos',
+  pro_tips: 'Consejos Pro',
+  do_this: 'Haz',
+  do_this2: 'esto',
+  avoid: 'Errores comunes',
+  avoid2: 'Evita',
+  avoid3: 'estos',
+  next_steps: 'Próximos pasos',
+  continue_learning: 'Continúa',
+  continue_learning2: 'aprendiendo',
+  all_tut: 'Todos los tutoriales',
+  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
+  prompt_lib: 'Biblioteca de prompts',
+  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
+  compare_tools: 'Comparar herramientas',
+  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
+};
+
+const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    // Title
+    const h1 = document.querySelector('.page-h1');
+    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
+    document.title = TUT_ES.title + ' — The AI How To';
+    // Intro
+    const introP = document.querySelector('.art-body p, .section p:first-of-type');
+    // Breadcrumb
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = TUT_ES.breadHome;
+      if (i === 1) a.textContent = TUT_ES.breadTut;
+    });
+    // Nav back
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
+  } else {
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = 'Home';
+      if (i === 1) a.textContent = 'Tutorials';
+    });
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
+  }
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

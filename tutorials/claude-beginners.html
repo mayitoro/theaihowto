@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -249,6 +249,115 @@ ul{list-style:none}
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const TUT_ES = {
+  title: 'Primeros Pasos con Claude: El Asistente IA Más Inteligente',
+  tool: 'Claude',
+  desc: 'Una guía completa para principiantes sobre Claude de Anthropic. Aprende a analizar documentos, escribir con asistencia de IA y aprovechar la potente ventana de contexto de 200k tokens.',
+  intro: 'Claude es consistentemente valorado como el asistente de IA más inteligente para escritura, análisis y programación. Su ventana de contexto de 200.000 tokens lo distingue — puedes pegar un libro entero y hacer preguntas sobre él. Esta guía te muestra cómo aprovechar todo lo que Claude puede hacer.',
+  steps: [('Regístrate en claude.ai', 'Ve a claude.ai y crea una cuenta gratuita con tu email o cuenta de Google. El plan gratuito de Claude te da acceso a Claude Sonnet, el modelo más capaz para uso cotidiano.'), ('Escribe tu primer mensaje', "Claude funciona mejor con instrucciones detalladas. En lugar de 'escribe un email', prueba: 'Escribe un email profesional pero amigable a mi jefe solicitando una reunión para revisar mi desempeño del Q3. Tono: seguro pero no agresivo. Máximo 100 palabras.'"), ('Sube un documento para análisis', "Haz clic en el icono de clip y sube un PDF, documento Word o cualquier archivo de texto. Luego haz preguntas: '¿Cuáles son los 5 puntos más importantes de este contrato?' o 'Resume este artículo en 3 frases para una audiencia no técnica'."), ('Usa Proyectos para trabajo continuo', "Haz clic en 'Proyectos' en la barra lateral para crear un espacio de trabajo persistente. Añade una descripción del proyecto y Claude recordará tu contexto entre conversaciones."), ('Pídele que escriba y refine', "Claude sobresale en contenido largo. Pídele que escriba un primer borrador y luego itera: 'Haz el intro más atractivo', 'Añade estadísticas para respaldar el punto 3', 'Reduce esto a 500 palabras sin perder los argumentos clave'."), ('Prueba tareas de código', "Claude es excepcional en programación. Describe lo que quieres: 'Escribe una función de Python que tome una lista de emails y valide cada uno, devolviendo listas de válidos e inválidos con mensajes de error'.")],
+  tips: ['Claude sobresale con instrucciones largas y detalladas — no te contengas con el contexto', 'Pega grandes cantidades de texto directamente — la ventana de 200k de Claude lo maneja con facilidad', "Pídele a Claude que explique su razonamiento: 'Piensa paso a paso antes de responder'", 'Claude es más honesto sobre la incertidumbre — si dice que no está seguro, confía en eso'],
+  mistakes: ['Enviar prompts cortos y vagos — Claude recompensa el detalle', 'No usar Proyectos para trabajo continuo — pierdes el contexto entre chats', 'Esperar generación de imágenes — Claude no genera imágenes (usa ChatGPT o Midjourney)', 'No iterar — pídele a Claude que revise, amplíe o simplifique sus propias respuestas'],
+  back: 'Tutoriales',
+  breadHome: 'Inicio', breadTut: 'Tutoriales',
+  whatLearn: 'Lo que aprenderás',
+  intro_label: 'Introducción',
+  steps_label: 'Guía paso a paso',
+  follow_steps: 'Sigue estos',
+  follow_steps2: 'pasos',
+  pro_tips: 'Consejos Pro',
+  do_this: 'Haz',
+  do_this2: 'esto',
+  avoid: 'Errores comunes',
+  avoid2: 'Evita',
+  avoid3: 'estos',
+  next_steps: 'Próximos pasos',
+  continue_learning: 'Continúa',
+  continue_learning2: 'aprendiendo',
+  all_tut: 'Todos los tutoriales',
+  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
+  prompt_lib: 'Biblioteca de prompts',
+  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
+  compare_tools: 'Comparar herramientas',
+  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
+};
+
+const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    // Title
+    const h1 = document.querySelector('.page-h1');
+    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
+    document.title = TUT_ES.title + ' — The AI How To';
+    // Intro
+    const introP = document.querySelector('.art-body p, .section p:first-of-type');
+    // Breadcrumb
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = TUT_ES.breadHome;
+      if (i === 1) a.textContent = TUT_ES.breadTut;
+    });
+    // Nav back
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
+  } else {
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = 'Home';
+      if (i === 1) a.textContent = 'Tutorials';
+    });
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
+  }
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

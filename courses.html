@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -224,6 +224,72 @@ ul{list-style:none}
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const UTIL_ES = {'title_es': 'Cursos de IA — The AI How To', 'h1_es': 'Cursos de IA — Aprendizaje <em>en Profundidad</em>', 'sub_es': 'Cursos estructurados y basados en proyectos que te llevan de principiante a profesional de la IA. Proyectos reales, habilidades reales, resultados reales.', 'waitlist_h2_es': 'Recibe una notificación cuando lancemos los cursos', 'waitlist_p_es': 'Únete a la lista de espera y recibe un descuento de acceso anticipado.'};
+const _oApply = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    if (UTIL_ES.title_es) document.title = UTIL_ES.title_es;
+    const h1 = document.querySelector('.page-h1');
+    if (h1 && UTIL_ES.h1_es) h1.innerHTML = UTIL_ES.h1_es;
+    const sub = document.querySelector('.page-sub');
+    if (sub && UTIL_ES.sub_es) sub.textContent = UTIL_ES.sub_es;
+    document.querySelectorAll('.breadcrumb a:first-child').forEach(a => a.textContent = 'Inicio');
+  } else {
+    document.querySelectorAll('.breadcrumb a:first-child').forEach(a => a.textContent = 'Home');
+  }
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

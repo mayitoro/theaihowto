@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -255,6 +255,115 @@ Email:
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const TUT_ES = {
+  title: 'Automatiza tu Negocio con IA — Sin Escribir Código',
+  tool: 'Make · Zapier · n8n',
+  desc: 'Conecta ChatGPT y Claude a tus herramientas de negocio sin programar. Construye automatizaciones que ahorran horas cada semana usando Make, Zapier o n8n.',
+  intro: 'No necesitas ser desarrollador para construir poderosas automatizaciones con IA. Herramientas como Make, Zapier y n8n te permiten conectar ChatGPT y Claude a Gmail, Slack, Notion, Airtable, Google Sheets y cientos de otras aplicaciones mediante una interfaz visual de arrastrar y soltar.',
+  steps: [('Elige tu plataforma de automatización', 'Zapier: más fácil de usar, mejor biblioteca de apps (6.000+), planes de pago desde 20$/mes. Ideal para principiantes. Make: más potente, constructor de flujos visual, mejor para automatizaciones complejas. Plan gratuito disponible. n8n: código abierto, alojable localmente, flexibilidad ilimitada. Mejor para desarrolladores o quienes quieren control total.'), ('Construye tu primera automatización: Resumen de emails', 'Conecta Gmail → ChatGPT → Slack. Cada email importante que recibas se resume automáticamente y se envía a un canal de Slack.'), ('Crea un respondedor automático', 'Conecta tu formulario de contacto → ChatGPT → envía respuesta personalizada. ChatGPT redacta una respuesta basada en el tema de la consulta, que puedes revisar antes de enviar.'), ('Construye un pipeline de contenido', 'Google Alerts → Make → ChatGPT → Google Docs. Cuando una alerta de noticias se activa para tus palabras clave del sector, ChatGPT resume el artículo y lo añade a un documento Google listo para ti cada mañana.'), ('Automatiza las redes sociales', 'Google Sheets → Make → ChatGPT → Buffer/Hootsuite. Mantén una hoja de cálculo con temas de contenido; la automatización redacta posts para cada plataforma en el formato, tono y longitud correctos.'), ('Conecta a la API de ChatGPT en Make', "En Make, busca 'OpenAI' en la lista de módulos. Conecta tu clave API, selecciona 'Create a Completion' y usa el campo de contenido del mensaje con tu prompt.")],
+  tips: ['Empieza con una automatización simple de 2 pasos antes de construir flujos complejos', 'Añade siempre un manejador de errores para que los pasos fallidos no rompan tu flujo silenciosamente', 'Usa ChatGPT para escribir tus prompts de automatización — el meta-prompting funciona muy bien', 'Prueba con datos reales antes de activar automatizaciones que envíen emails o mensajes'],
+  mistakes: ['Construir automatizaciones complejas antes de probar las simples', 'No manejar errores — añade siempre rutas de error en Make/Zapier', 'Usar prompts de IA vagos en automatizaciones — sé extremadamente específico sobre el formato', 'Olvidar los límites de velocidad — la API de OpenAI tiene límites por minuto'],
+  back: 'Tutoriales',
+  breadHome: 'Inicio', breadTut: 'Tutoriales',
+  whatLearn: 'Lo que aprenderás',
+  intro_label: 'Introducción',
+  steps_label: 'Guía paso a paso',
+  follow_steps: 'Sigue estos',
+  follow_steps2: 'pasos',
+  pro_tips: 'Consejos Pro',
+  do_this: 'Haz',
+  do_this2: 'esto',
+  avoid: 'Errores comunes',
+  avoid2: 'Evita',
+  avoid3: 'estos',
+  next_steps: 'Próximos pasos',
+  continue_learning: 'Continúa',
+  continue_learning2: 'aprendiendo',
+  all_tut: 'Todos los tutoriales',
+  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
+  prompt_lib: 'Biblioteca de prompts',
+  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
+  compare_tools: 'Comparar herramientas',
+  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
+};
+
+const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    // Title
+    const h1 = document.querySelector('.page-h1');
+    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
+    document.title = TUT_ES.title + ' — The AI How To';
+    // Intro
+    const introP = document.querySelector('.art-body p, .section p:first-of-type');
+    // Breadcrumb
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = TUT_ES.breadHome;
+      if (i === 1) a.textContent = TUT_ES.breadTut;
+    });
+    // Nav back
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
+  } else {
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = 'Home';
+      if (i === 1) a.textContent = 'Tutorials';
+    });
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
+  }
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

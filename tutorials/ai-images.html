@@ -127,12 +127,12 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
       <a href="/" class="nav-back">← Home</a>
     </div>
@@ -260,6 +260,115 @@ A confident businesswoman in her 30s walking through a modern city at golden hou
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+const TUT_ES = {
+  title: 'Crea Imágenes Profesionales con IA: La Guía Completa 2026',
+  tool: 'Midjourney · DALL·E · Stable Diffusion',
+  desc: 'Domina la generación de imágenes con IA con Midjourney, DALL·E 3 y Stable Diffusion. Aprende técnicas de prompting profesional, parámetros avanzados y cuándo usar cada herramienta.',
+  intro: 'La generación de imágenes con IA ha madurado hasta el punto en que la usan diseñadores, fotógrafos y profesionales del marketing todos los días. El reto es saber qué herramienta usar y cómo escribir prompts que produzcan de forma fiable lo que visualizas.',
+  steps: [('Elige la herramienta adecuada', 'Midjourney: mejor calidad general para imágenes artísticas y fotorrealistas. Solo de pago. DALL·E 3 (en ChatGPT): mejor para seguir instrucciones precisas y añadir texto. Plan gratuito disponible. Stable Diffusion: gratuito, código abierto, funciona localmente. Máximo control pero mayor curva de aprendizaje.'), ('Estructura tu prompt', 'Un buen prompt de imagen tiene 4 componentes: Sujeto (qué/quién), Contexto (escenario, tiempo), Estilo (estilo artístico, fotógrafo, época), Técnico (iluminación, cámara, ambiente).'), ('Domina los parámetros de Midjourney', 'Parámetros clave: --ar 16:9 (pantalla ancha), --ar 1:1 (cuadrado), --v 7 (última versión), --style raw (modo fotorrealista), --q 2 (máxima calidad), --no texto (eliminar texto).'), ('Usa referencias de estilo', 'En lugar de describir un estilo con palabras, muestra un ejemplo. En Midjourney, usa --sref [URL de imagen de referencia] para coincidir con el estilo visual de cualquier imagen.'), ('Itera de forma sistemática', 'Cuando un resultado no es el correcto, identifica qué está mal antes de regenerar. ¿Es la iluminación? ¿La composición? ¿El sujeto? Corrige un elemento a la vez.'), ('DALL·E para texto en imágenes', 'DALL·E 3 (vía ChatGPT) es la mejor herramienta cuando necesitas texto legible en tu imagen. Otros modelos deforman constantemente el texto.')],
+  tips: ["Referencia fotógrafos o artistas específicos para un estilo consistente: 'al estilo de Annie Leibovitz'", "Las descripciones de iluminación marcan una gran diferencia: 'hora dorada', 'caja de luz', 'iluminación lateral dramática'", 'Para fotos de producto: --style raw + fondo blanco + iluminación de estudio = resultados profesionales', 'Usa prompts negativos (--no en Midjourney) para eliminar elementos no deseados'],
+  mistakes: ["Escribir prompts vagos como 'paisaje bonito' — sé hiper-específico", 'No especificar la relación de aspecto — las imágenes cuadradas rara vez funcionan para la mayoría de casos', 'Intentar añadir texto en modelos que no sean DALL·E 3 — solo DALL·E 3 maneja el texto de manera fiable', 'No usar referencias de estilo — son mucho más precisas que las descripciones verbales'],
+  back: 'Tutoriales',
+  breadHome: 'Inicio', breadTut: 'Tutoriales',
+  whatLearn: 'Lo que aprenderás',
+  intro_label: 'Introducción',
+  steps_label: 'Guía paso a paso',
+  follow_steps: 'Sigue estos',
+  follow_steps2: 'pasos',
+  pro_tips: 'Consejos Pro',
+  do_this: 'Haz',
+  do_this2: 'esto',
+  avoid: 'Errores comunes',
+  avoid2: 'Evita',
+  avoid3: 'estos',
+  next_steps: 'Próximos pasos',
+  continue_learning: 'Continúa',
+  continue_learning2: 'aprendiendo',
+  all_tut: 'Todos los tutoriales',
+  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
+  prompt_lib: 'Biblioteca de prompts',
+  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
+  compare_tools: 'Comparar herramientas',
+  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
+};
+
+const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
+function applyPageLang(l) {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  if (l === 'es') {
+    // Title
+    const h1 = document.querySelector('.page-h1');
+    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
+    document.title = TUT_ES.title + ' — The AI How To';
+    // Intro
+    const introP = document.querySelector('.art-body p, .section p:first-of-type');
+    // Breadcrumb
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = TUT_ES.breadHome;
+      if (i === 1) a.textContent = TUT_ES.breadTut;
+    });
+    // Nav back
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
+  } else {
+    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
+      if (i === 0) a.textContent = 'Home';
+      if (i === 1) a.textContent = 'Tutorials';
+    });
+    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
+  }
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
+  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>

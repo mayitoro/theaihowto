@@ -1838,5 +1838,19 @@ window.addEventListener('scroll', () => {
 })();
 </script>
 
+
+<script>
+// Pass lang param to all internal links
+document.addEventListener('click', function(e) {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href');
+  if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('mailto')) return;
+  if (href.includes('?lang=')) return;
+  e.preventDefault();
+  window.location.href = href + '?lang=' + lang;
+});
+</script>
+
 </body>
 </html>

@@ -127,14 +127,14 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
-      <a href="/" class="nav-back">← Home</a>
+      <a href="/" class="nav-back nav-back-link">← Home</a>
     </div>
   </div>
 </nav>
@@ -144,14 +144,14 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
+        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
+        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
+        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
         <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
+        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
       </div>
-      <a href="/" class="nav-back">← Home</a>
+      <a href="/" class="nav-back nav-back-link">← Home</a>
     </div>
   </div>
 </nav>
@@ -159,7 +159,7 @@ ul{list-style:none}
   <div class="page-hero-orb o1"></div>
   <div class="page-hero-orb o2"></div>
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/#tools">Tools</a><span>›</span><span>Claude</span></div>
+    <div class="breadcrumb"><a href="/" data-bread-home>Home</a><span>›</span><a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a><span>›</span><span>Claude</span></div>
     <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px">
       <div style="width:56px;height:56px;border-radius:14px;background:#c96442;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M17.153 3h-2.958L9.847 14.224h2.958L17.153 3zm-8.306 0H5.889L1.541 14.224H4.5l.806-2.249h4.501l.805 2.249h2.96L9.512 3H8.847zm-.612 6.808 1.458-4.073 1.458 4.073H8.235zm12.224 0c0 2.757-2.234 4.99-4.99 4.99a4.975 4.975 0 01-2.356-.588l-1.458 4.073A7.95 7.95 0 0015.47 21c4.418 0 8-3.582 8-8 0-1.758-.568-3.38-1.527-4.7l-1.484 1.508z"/></svg></div>
       <div>
@@ -258,9 +258,9 @@ ul{list-style:none}
         <li><a href="/#tools">View all →</a></li>
       </ul></div>
       <div class="foot-col"><h4>Learn</h4><ul>
-        <li><a href="/#tutorials">Tutorials</a></li>
+        <li><a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a></li>
         <li><a href="/#prompts">Prompts</a></li>
-        <li><a href="/#compare">Compare</a></li>
+        <li><a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a></li>
         <li><a href="/courses.html">Courses</a></li>
       </ul></div>
       <div class="foot-col"><h4>Company</h4><ul>
@@ -280,6 +280,100 @@ ul{list-style:none}
 <script>
 function faq(el){el.classList.toggle('open')}
 function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+</script>
+
+<script>
+// ── Universal Language System ──
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let pageLang = urlLang || localStorage.getItem('taht-lang') ||
+               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyPageLang(l) {
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  // Swap all elements with data-en / data-es attributes
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Swap placeholder text
+  document.querySelectorAll('[data-ph-es]').forEach(el => {
+    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
+  });
+  // Update lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.classList.toggle('active', l === 'en');
+  if (btnEs) btnEs.classList.toggle('active', l === 'es');
+  // Update all article/forum links to pass lang param
+  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+    const href = a.getAttribute('href');
+    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+      a.href = href.split('?')[0] + '?lang=' + l;
+    }
+  });
+}
+
+function setLang(l) {
+  pageLang = l;
+  localStorage.setItem('taht-lang', l);
+  applyPageLang(l);
+}
+
+// Apply on load
+applyPageLang(pageLang);
+</script>
+
+<script>
+// Spanish translations for this page
+const ES_PAGE = {
+  title: 'Claude — Guía Completa y Análisis 2026',
+  tagline: 'La IA más inteligente para tareas complejas',
+  desc: 'Claude de Anthropic es considerado el asistente de IA más capaz para razonamiento, escritura y programación. Su ventana de contexto de 200.000 tokens le permite analizar libros enteros, grandes bases de código y documentos extensos en una sola sesión.',
+  badge: 'Actualizado mayo 2026',
+  category: 'Chatbot Avanzado',
+  back: 'Herramientas',
+  breadHome: 'Inicio', breadTools: 'Herramientas',
+  tryIt: 'Probar →',
+  features: ['Ventana de contexto de 200k tokens', 'Generación de código de calidad superior', 'Análisis profundo de documentos y PDFs', 'Escritura de textos largos y complejos', 'Búsqueda web en tiempo real', 'Honesto sobre su incertidumbre — menos alucinaciones'],
+  plans: ['Gratis', 'Pro 20$/mes', 'Equipos 30$/mes'],
+  pros: ['Mayor ventana de contexto (200k tokens)', 'Mejor calidad de código', 'Más honesto / menos alucinaciones', 'Excelente escritura de textos largos', 'Fuerte análisis de documentos'],
+  cons: ['No genera imágenes', 'El plan gratuito tiene límites diarios', 'Sin modo de voz todavía', 'Menos integraciones que ChatGPT'],
+  faqQ: ['¿Qué diferencia a Claude de ChatGPT?', '¿Es Claude gratuito?', '¿Puede Claude analizar PDFs?', '¿Qué es la API de Claude?'],
+  faqA: ['La diferencia práctica más grande es la ventana de contexto de 200k tokens — Claude puede procesar mucho más texto a la vez. Claude también tiende a producir código de mayor calidad y escritura más matizada. ChatGPT tiene más integraciones, generación de imágenes y un ecosistema más amplio.', 'Sí, Claude tiene un plan gratuito en claude.ai con límites de mensajes diarios. Claude Pro (20$/mes) da acceso prioritario, límites más altos y acceso a Claude Opus — el modelo más capaz.', 'Sí — arrastra y suelta cualquier PDF en la ventana del chat. Claude leerá el documento completo y responderá tus preguntas sobre él. Con 200k de contexto, puede manejar documentos muy largos.', 'Anthropic ofrece una API de pago para que los desarrolladores construyan aplicaciones con Claude. El precio es por token. La API admite Claude Haiku (más rápido), Claude Sonnet (equilibrado) y Claude Opus (más capaz).'],
+};
+
+const EN_PAGE = {
+  back: 'Tools', breadHome: 'Home', breadTools: 'Tools', tryIt: 'Try it →'
+};
+
+// Override applyPageLang for this page
+const _origApply = typeof applyPageLang !== 'undefined' ? applyPageLang : null;
+function applyPageLang(l) {
+  // Standard data-en/data-es swap
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
+  });
+  // Page-specific swaps
+  const p = l === 'es' ? ES_PAGE : EN_PAGE;
+  document.title = l === 'es' ? ES_PAGE.title : document.title.replace(/[^—]+/, ES_PAGE.title.split('—')[0]);
+  // Nav back
+  document.querySelectorAll('.nav-back, .nav-back-link').forEach(el => {
+    el.textContent = (l === 'es' ? '← ' : '← ') + p.back;
+  });
+  // Breadcrumbs
+  document.querySelectorAll('.breadcrumb a:first-child, [data-bread-home]').forEach(el => el.textContent = p.breadHome);
+  document.querySelectorAll('[data-bread-tools]').forEach(el => el.textContent = p.breadTools);
+  // Try it buttons
+  document.querySelectorAll('.tc-link, [data-try-it]').forEach(el => el.textContent = p.tryIt);
+  // Lang buttons
+  const btnEn = document.getElementById('btn-en');
+  const btnEs = document.getElementById('btn-es');
+  if (btnEn) btnEn.style.background = l === 'en' ? 'var(--teal)' : '';
+  if (btnEs) btnEs.style.background = l === 'es' ? 'var(--teal)' : '';
+  if (btnEn) btnEn.style.color = l === 'en' ? '#fff' : '';
+  if (btnEs) btnEs.style.color = l === 'es' ? '#fff' : '';
+}
+applyPageLang(pageLang);
 </script>
 </body>
 </html>
