@@ -2,368 +2,428 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Automate Your Business with AI — No Coding Required — The AI How To</title>
-<meta name="description" content="Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n."/>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title id="page-title">Automate Your Business with AI — No Coding Required — The AI How To</title>
+<meta name="description" id="page-desc" content="Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px;--fd:'Plus Jakarta Sans',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--fm:'DM Mono',monospace}
+:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:var(--fb);background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-ul{list-style:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
-.container{max-width:1200px;margin:0 auto;padding:0 28px}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.88);border-bottom:1px solid var(--line)}
-.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
+.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
 .logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
-.logo-icon span{z-index:1}
 .logo-name{font-size:.9rem;font-weight:600;letter-spacing:-.02em;color:var(--white)}
-.nav-links{display:flex;gap:20px}.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--terra);color:#fff;font-size:.82rem;font-weight:500;padding:7px 16px;border-radius:7px;transition:background .2s}.nav-cta:hover{background:var(--terra2)}
-.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;transition:gap .2s}.nav-back:hover{gap:9px}
-.page-hero{padding:110px 0 60px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.page-hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.o1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.25),transparent 70%);filter:blur(60px)}
-.o2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.2),transparent 70%);filter:blur(50px)}
-.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-.breadcrumb a{color:var(--teal3);transition:color .2s}.breadcrumb a:hover{color:var(--white)}
-.breadcrumb span{color:var(--dim)}
-.tool-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--muted);font-size:.72rem;padding:4px 13px;border-radius:100px;margin-bottom:18px}
-.page-h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.04em;margin-bottom:16px}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-right{display:flex;align-items:center;gap:8px}
+.lang-sw{display:flex;background:var(--bg3);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang-btn{background:none;border:none;color:var(--muted);padding:5px 11px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.73rem;font-weight:500;cursor:pointer;transition:all .15s}
+.lang-btn.active{background:var(--teal);color:#fff}
+.nav-back{font-size:.82rem;color:var(--teal3);transition:color .2s}
+.nav-back:hover{color:var(--white)}
+
+/* PAGE HERO */
+.page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb-teal{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%);filter:blur(60px)}
+.orb-terra{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%);filter:blur(50px)}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:.75rem;color:var(--dim)}
+.breadcrumb a{color:var(--teal3);transition:color .2s}
+.breadcrumb a:hover{color:var(--white)}
+.bc-sep{color:var(--dim);font-size:.7rem}
+.tool-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.tool-icon-sm{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.tool-name{font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em}
+.level-badge{font-size:.65rem;font-weight:500;padding:2px 9px;border-radius:100px}
+.lv-b{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
+.lv-i{background:rgba(232,133,74,.1);color:var(--orange);border:1px solid rgba(232,133,74,.2)}
+.lv-a{background:rgba(193,101,74,.1);color:var(--terra2);border:1px solid rgba(193,101,74,.2)}
+.tut-meta-info{font-size:.78rem;color:var(--dim)}
+.page-h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}
 .page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.page-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:28px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-main{background:var(--terra);color:#fff;padding:11px 24px;border-radius:8px;font-weight:500;font-size:.9rem;transition:all .2s;box-shadow:0 6px 20px rgba(193,101,74,.25)}
-.btn-main:hover{background:var(--terra2);transform:translateY(-1px)}
-.btn-ghost{border:1px solid var(--line2);color:var(--muted);padding:11px 24px;border-radius:8px;font-weight:400;font-size:.9rem;transition:all .2s}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal3)}
-.section{padding:72px 0}
-.section-alt{background:var(--bg1)}
-.section-border{border-top:1px solid var(--line)}
-.sh{margin-bottom:40px}
-.sk{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px}
-.sh h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.1;letter-spacing:-.04em}
-.sh h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.sh p{margin-top:12px;font-size:.92rem;color:var(--muted);max-width:560px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
-.card h3{font-size:1rem;font-weight:600;margin-bottom:8px;letter-spacing:-.02em}
-.card p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.feat-list{display:flex;flex-direction:column;gap:10px}
-.feat-item{display:flex;align-items:flex-start;gap:10px;padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--line)}
-.feat-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.feat-item h4{font-size:.88rem;font-weight:600;margin-bottom:3px}
-.feat-item p{font-size:.8rem;color:var(--muted);line-height:1.55}
-.step-list{display:flex;flex-direction:column;gap:0}
-.step-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.page-sub{font-size:.97rem;color:var(--muted);line-height:1.7;max-width:640px}
+
+/* CONTENT */
+.content-grid{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding:60px 0}
+.main-content{}
+.tip-box{background:rgba(45,138,138,.07);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:36px;display:flex;gap:12px}
+.tip-box-icon{flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px}
+.section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal2);margin-bottom:10px}
+.section-h2{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;margin-bottom:28px;line-height:1.2}
+.section-h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
+
+/* STEPS */
+.step-list{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
+.step-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .step-item:last-child{border-bottom:none}
-.step-num{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
-.step-body h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
-.step-body p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.code-block{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.7;margin-top:10px;overflow-x:auto}
-.code-block .kw{color:var(--teal3)}
-.code-block .str{color:var(--sage2)}
-.code-block .cmt{color:var(--dim)}
-.tip-box{background:rgba(45,138,138,.08);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.warn-box{background:rgba(232,133,74,.08);border:1px solid rgba(232,133,74,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.pricing-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.price-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;text-align:center}
-.price-card.highlight{border-color:var(--teal);background:rgba(45,138,138,.06)}
-.price-card .plan{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--teal3);margin-bottom:10px}
-.price-card .amount{font-size:2.2rem;font-weight:700;letter-spacing:-.04em;line-height:1}
-.price-card .amount span{font-size:.9rem;font-weight:400;color:var(--muted)}
-.price-card p{font-size:.8rem;color:var(--muted);margin-top:10px;line-height:1.55}
-.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
-.faq-item{border-bottom:1px solid var(--line);padding:18px 22px;cursor:pointer}
-.faq-item:last-child{border-bottom:none}
-.faq-item:hover{background:var(--bg1)}
-.faq-q{font-size:.9rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-.faq-a{font-size:.85rem;color:var(--muted);line-height:1.65;margin-top:10px;display:none}
-.faq-item.open .faq-a{display:block}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-arrow{transition:transform .2s;color:var(--dim)}
-.prompt-box{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.6;border-left:2px solid var(--teal);cursor:pointer;margin-bottom:8px;transition:border-color .2s}
-.prompt-box:hover{border-color:var(--teal3)}
-.prompt-label{font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
-.copy-inline{background:none;border:1px solid var(--line);color:var(--muted);padding:3px 10px;border-radius:5px;font-size:.7rem;cursor:pointer;font-family:var(--fb);transition:all .2s;margin-top:6px}
-.copy-inline:hover{border-color:var(--teal);color:var(--teal3)}
-.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pc-col h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.pc-col ul li{font-size:.84rem;color:var(--muted);padding:6px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid var(--line)}
-.pc-col ul li:last-child{border-bottom:none}
-.pro::before{content:'✓';color:var(--sage2);font-weight:700;flex-shrink:0}
-.con::before{content:'✗';color:var(--terra2);font-weight:700;flex-shrink:0}
-.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.related-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:flex;align-items:center;gap:14px}
-.related-card:hover{border-color:var(--teal);transform:translateY(-2px)}
-.related-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.related-info strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:3px}
-.related-info span{font-size:.76rem;color:var(--muted)}
-.footer{border-top:1px solid var(--line);background:var(--bg1);padding:48px 0 24px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
-.fb-desc{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.7;max-width:240px}
-.foot-col h4{font-size:.72rem;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
-.foot-col ul{display:flex;flex-direction:column;gap:9px}
-.foot-col ul li a{font-size:.82rem;color:var(--muted);transition:color .15s}
-.foot-col ul li a:hover{color:var(--white)}
-.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);flex-wrap:wrap;gap:10px}
+.step-num{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
+.step-body h3{font-size:.97rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
+.step-body p{font-size:.87rem;color:var(--muted);line-height:1.75}
+.step-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:14px 16px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin-top:12px;color:var(--white)}
+.step-body em{color:var(--teal3);font-style:italic}
+.step-body strong{color:var(--white);font-weight:600}
+.step-body a{color:var(--teal3)}
+.step-body a:hover{color:var(--white)}
+
+/* TWO COLS */
+.two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
+.col-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
+.col-card h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.col-card ul{list-style:none}
+.col-card ul li{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
+.col-card ul li:last-child{border-bottom:none;padding-bottom:0}
+.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem}
+.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem}
+
+/* NEXT STEPS */
+.next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.next-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:block}
+.next-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.next-card h4{font-size:.9rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
+.next-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:76px}
+.sb{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
+.sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sb-link{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted);transition:color .2s}
+.sb-link:last-child{border-bottom:none;padding-bottom:0}
+.sb-link:hover{color:var(--teal3)}
+.sb-link-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem}
+
+/* FOOTER */
+footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:0}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
 .foot-links{display:flex;gap:18px}
 .foot-links a:hover{color:var(--muted)}
-.social-row{display:flex;gap:6px;margin-top:14px}
-.s-btn{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .15s}
-.s-btn:hover{border-color:var(--teal);color:var(--teal3)}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--bg3);border:1px solid var(--teal);color:var(--teal3);padding:9px 20px;border-radius:8px;font-size:.82rem;transition:transform .3s;z-index:999}
-.toast.show{transform:translateX(-50%) translateY(0)}
-@media(max-width:768px){.nav-links,.nav-cta{display:none}.grid-2,.grid-3,.pricing-row,.pros-cons,.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+
+@media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static}.two-col-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.nav-links{display:none}.container{padding:0 18px}.next-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<nav class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
-      <div class="nav-links">
-        <a href="/#tools" data-en="Tools" data-es="Herramientas">Tools</a>
-        <a href="/#tutorials" data-en="Tutorials" data-es="Tutoriales">Tutorials</a>
-        <a href="/#articles" data-en="Articles" data-es="Artículos">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare" data-en="Compare" data-es="Comparar">Compare</a>
-        <a href="/#forum" data-en="Forum" data-es="Foro">Forum</a>
-      </div>
-      <a href="/" class="nav-back">← Home</a>
-    </div>
-  </div>
-</nav>
 
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#tools" id="nav-tools">Tools</a>
+        <a href="/#tutorials" id="nav-tutorials">Tutorials</a>
+        <a href="/#articles" id="nav-articles">Articles</a>
+        <a href="/#prompts" id="nav-prompts">Prompts</a>
+        <a href="/#compare" id="nav-compare">Compare</a>
+        <a href="/#forum" id="nav-forum">Forum</a>
       </div>
-      <a href="/" class="nav-back">← Home</a>
+      <div class="nav-right">
+        <div class="lang-sw">
+          <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+        </div>
+        <a href="/#tutorials" class="nav-back" id="nav-back">← Tutorials</a>
+      </div>
     </div>
   </div>
 </nav>
+
 <section class="page-hero">
-  <div class="page-hero-orb o1"></div>
-  <div class="page-hero-orb o2"></div>
+  <div class="hero-orb orb-teal"></div>
+  <div class="hero-orb orb-terra"></div>
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/#tutorials">Tutorials</a><span>›</span><span>Make · Zapier · n8n</span></div>
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
-      <div style="width:40px;height:40px;border-radius:10px;background:#10a37f;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 41 41" fill="none" width="22" height="22"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg></div>
-      <div>
-        <span style="font-size:.72rem;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em">Make · Zapier · n8n</span>
-        <div style="display:flex;gap:8px;margin-top:4px;align-items:center">
-          <span class="tut-level-badge lv-i" style="font-size:.65rem;font-weight:500;padding:2px 8px;border-radius:100px;display:inline-block">Intermediate</span>
-          <span style="font-size:.75rem;color:var(--dim)">⏱ 40 min</span>
-          <span style="font-size:.75rem;color:var(--dim)">👁 31k views</span>
-        </div>
-      </div>
+    <div class="breadcrumb">
+      <a href="/" id="bc-home">Home</a>
+      <span class="bc-sep">›</span>
+      <a href="/#tutorials" id="bc-tutorials">Tutorials</a>
+      <span class="bc-sep">›</span>
+      <span id="bc-tool" style="color:var(--teal3)">Make · Zapier · n8n</span>
     </div>
-    <h1 class="page-h1">Automate Your Business with AI — No Coding Required</h1>
-    <p class="page-sub">Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.</p>
-  </div>
-</section>
-<section class="section">
-  <div class="container" style="max-width:860px">
-    <div class="tip-box" style="margin-bottom:40px">📖 <div><strong>What you'll learn:</strong> Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.</div></div>
-    <div class="sh"><div class="sk">Introduction</div></div>
-    <p style="color:var(--muted);line-height:1.75;margin-bottom:40px">You don't need to be a developer to build powerful AI automations. Tools like Make, Zapier, and n8n let you connect ChatGPT and Claude to Gmail, Slack, Notion, Airtable, Google Sheets, and hundreds of other apps — all through a visual drag-and-drop interface.</p>
-    <div class="sh"><div class="sk">Step-by-step guide</div><h2>Follow these <em>steps</em></h2></div>
-    <div class="step-list"><div class="step-item"><div class="step-num">1</div><div class="step-body"><h3>Choose your automation platform</h3><p><strong>Zapier</strong>: Easiest to use, best app library (6,000+ apps), paid plans from $20/mo. Great for beginners.<br><strong>Make</strong> (formerly Integromat): More powerful, visual flow builder, better for complex multi-step automations. Free tier available.<br><strong>n8n</strong>: Open-source, self-hostable, unlimited flexibility. Best for developers or those who want full control.</p></div></div><div class="step-item"><div class="step-num">2</div><div class="step-body"><h3>Build your first automation: Email summarizer</h3><p>Connect Gmail → ChatGPT → Slack. Every important email you receive gets automatically summarized and sent to a Slack channel.</p><div class='code-block'><span class='cmt'>// ChatGPT prompt for email summarizer</span>
-You are an executive assistant. Summarize this email in exactly 2 sentences:
-1. What the sender wants or is communicating
-2. What action (if any) is required and by when
-
-Email:
-{{email_body}}</div></div></div><div class="step-item"><div class="step-num">3</div><div class="step-body"><h3>Create an auto-responder</h3><p>Connect your contact form → ChatGPT → send personalized reply. ChatGPT drafts a response based on the inquiry topic, which you can review before sending or auto-send for common queries.</p></div></div><div class="step-item"><div class="step-num">4</div><div class="step-body"><h3>Build a content pipeline</h3><p>Google Alerts → Make → ChatGPT → Google Docs. When a news alert triggers for your industry keywords, ChatGPT summarizes the article and adds it to a Google Doc briefing that's ready for you each morning.</p></div></div><div class="step-item"><div class="step-num">5</div><div class="step-body"><h3>Automate social media</h3><p>Google Sheets → Make → ChatGPT → Buffer/Hootsuite. Maintain a spreadsheet of content topics; the automation drafts posts for each platform (LinkedIn, Twitter, Instagram) in the right format, tone, and length.</p></div></div><div class="step-item"><div class="step-num">6</div><div class="step-body"><h3>Connect to ChatGPT API in Make</h3><p>In Make, search for 'OpenAI' in the modules list. Connect your API key, select 'Create a Completion', and use the 'message content' field with your prompt. Map any dynamic data from previous modules into double curly braces: {{email_body}}</p></div></div></div>
-  </div>
-</section>
-<section class="section section-alt section-border">
-  <div class="container" style="max-width:860px">
-    <div class="grid-2">
-      <div>
-        <div class="sh"><div class="sk">Pro tips</div><h2>Do <em>this</em></h2></div>
-        <ul style="list-style:none"><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--sage2);flex-shrink:0">✓</span>Start with a simple 2-step automation before building complex flows</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--sage2);flex-shrink:0">✓</span>Always add an error handler so failed steps don't silently break your workflow</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--sage2);flex-shrink:0">✓</span>Use ChatGPT to write your automation prompts — meta-prompting works great</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--sage2);flex-shrink:0">✓</span>Test with real data before activating automations that send emails or messages</li></ul>
-      </div>
-      <div>
-        <div class="sh"><div class="sk">Common mistakes</div><h2>Avoid <em>these</em></h2></div>
-        <ul style="list-style:none"><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--terra2);flex-shrink:0">✗</span>Building complex automations before testing simple ones</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--terra2);flex-shrink:0">✗</span>Not handling errors — always add error routes in Make/Zapier</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--terra2);flex-shrink:0">✗</span>Using vague AI prompts in automations — be extremely specific about format</li><li style="padding:8px 0;border-bottom:1px solid var(--line);font-size:.85rem;color:var(--muted);display:flex;align-items:flex-start;gap:8px"><span style="color:var(--terra2);flex-shrink:0">✗</span>Forgetting rate limits — the OpenAI API has limits per minute</li></ul>
-      </div>
+    <div class="tool-meta">
+      <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#a259ff,#ff4a00);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <span class="tool-name" id="tool-name">Make · Zapier · n8n</span>
+      <span class="level-badge lv-i" id="level-badge">Intermediate</span>
+      <span class="tut-meta-info">⏱ 40 min</span>
+      <span class="tut-meta-info">👁 31k views</span>
     </div>
-  </div>
-</section>
-<section class="section section-border">
-  <div class="container" style="max-width:860px;text-align:center">
-    <div class="sh center"><div class="sk">Next steps</div><h2>Continue <em>learning</em></h2></div>
-    <div class="grid-3">
-      <a href="/#tutorials" class="card" style="text-align:left;transition:all .2s;display:block"><h3>📚 All tutorials</h3><p style="margin-top:6px">Browse all 120+ tutorials from beginner to advanced.</p></a>
-      <a href="/#prompts" class="card" style="text-align:left;transition:all .2s;display:block"><h3>✍️ Prompt library</h3><p style="margin-top:6px">500+ tested prompts ready to copy and use.</p></a>
-      <a href="/#compare" class="card" style="text-align:left;transition:all .2s;display:block"><h3>⚡ Compare tools</h3><p style="margin-top:6px">Find the right AI tool for your specific needs.</p></a>
-    </div>
+    <h1 class="page-h1" id="page-h1">Automate Your Business with AI — No Coding Required</h1>
+    <p class="page-sub" id="page-sub">Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.</p>
   </div>
 </section>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div>
-        <div class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></div>
-        <p class="fb-desc">The bilingual AI community for English and Spanish speakers.</p>
-        <div class="social-row">
-          <a href="#" class="s-btn">𝕏</a><a href="#" class="s-btn">▶</a><a href="#" class="s-btn">💬</a><a href="#" class="s-btn">in</a>
+<div class="container">
+  <div class="content-grid">
+    <div class="main-content">
+
+      <div class="tip-box" style="margin-top:32px">
+        <span class="tip-box-icon">📖</span>
+        <div><strong id="what-learn">What you'll learn:</strong> <span id="tip-desc">Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.</span></div>
+      </div>
+
+      <div class="section-kicker" id="intro-kicker">Introduction</div>
+      <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">You don't need to be a developer to build powerful AI automations. Tools like Make, Zapier, and n8n let you connect ChatGPT and Claude to Gmail, Slack, Notion, Airtable, Google Sheets, and hundreds of other apps — all through a visual drag-and-drop interface.</p>
+
+      <div class="section-kicker" id="steps-kicker">Step-by-step guide</div>
+      <h2 class="section-h2"><span id="follow-text">Follow these</span> <em id="follow-text2">steps</em></h2>
+      <div class="step-list" id="step-list"><div class="step-item">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Choose your automation platform</h3>
+        <p><strong>Zapier</strong>: Easiest to use, 6,000+ apps, paid from $20/mo. Best for beginners. <strong>Make</strong>: More powerful, visual flow builder, better for complex automations. Free tier available. <strong>n8n</strong>: Open-source, self-hostable, unlimited flexibility. Best for developers.</p>
+      </div>
+    </div><div class="step-item">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Build your first automation: Email summarizer</h3>
+        <p>Connect Gmail → ChatGPT → Slack. Every important email you receive gets automatically summarized and posted to a Slack channel. Prompt: <em>'Summarize this email in 2 sentences: 1) what the sender wants, 2) what action is needed.'</em></p>
+      </div>
+    </div><div class="step-item">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Create an auto-responder</h3>
+        <p>Connect your contact form → ChatGPT → send a personalized reply. ChatGPT drafts a response based on the inquiry topic, which you can review before sending — or auto-send for common queries.</p>
+      </div>
+    </div><div class="step-item">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Build a content pipeline</h3>
+        <p>Google Alerts → Make → ChatGPT → Google Docs. When a news alert triggers for your industry keywords, ChatGPT summarizes the article and adds it to a Google Doc morning briefing.</p>
+      </div>
+    </div><div class="step-item">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Automate social media posts</h3>
+        <p>Google Sheets → Make → ChatGPT → Buffer. Maintain a spreadsheet of content topics. The automation drafts posts for each platform (LinkedIn, X, Instagram) in the right format, tone, and length.</p>
+      </div>
+    </div><div class="step-item">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h3>Connect to the ChatGPT API in Make</h3>
+        <p>In Make, search for <em>OpenAI</em> in the modules list. Connect your API key, select Create a Completion, and map dynamic data from previous modules into your prompt using double curly braces: <code>{{email_body}}</code>.</p>
+      </div>
+    </div></div>
+
+      <div class="two-col-grid">
+        <div class="col-card">
+          <h3 style="color:var(--sage2)" id="pro-tips-title">Pro tips: <span style="font-weight:300" id="do-this">Do this</span></h3>
+          <ul id="tips-list"><li><span class="do-icon">✓</span>Start with a simple 2-step automation before building complex flows</li><li><span class="do-icon">✓</span>Always add an error handler so failed steps don't silently break your workflow</li><li><span class="do-icon">✓</span>Use ChatGPT to write your automation prompts — meta-prompting works great</li><li><span class="do-icon">✓</span>Test with real data before activating automations that send emails or messages</li></ul>
+        </div>
+        <div class="col-card">
+          <h3 style="color:var(--terra2)" id="mistakes-title">Common mistakes: <span style="font-weight:300" id="avoid-these">Avoid these</span></h3>
+          <ul id="mistakes-list"><li><span class="dont-icon">✗</span>Building complex automations before testing simple ones</li><li><span class="dont-icon">✗</span>Not handling errors — always add error routes in Make/Zapier</li><li><span class="dont-icon">✗</span>Using vague AI prompts in automations — be extremely specific about format</li><li><span class="dont-icon">✗</span>Forgetting rate limits — the OpenAI API has limits per minute</li></ul>
         </div>
       </div>
-      <div class="foot-col"><h4>Tools</h4><ul>
-        <li><a href="/tools/chatgpt.html">ChatGPT</a></li>
-        <li><a href="/tools/claude.html">Claude</a></li>
-        <li><a href="/tools/gemini.html">Gemini</a></li>
-        <li><a href="/tools/copilot.html">Copilot</a></li>
-        <li><a href="/#tools">View all →</a></li>
-      </ul></div>
-      <div class="foot-col"><h4>Learn</h4><ul>
-        <li><a href="/#tutorials">Tutorials</a></li>
-        <li><a href="/#prompts">Prompts</a></li>
-        <li><a href="/#compare">Compare</a></li>
-        <li><a href="/courses.html">Courses</a></li>
-      </ul></div>
-      <div class="foot-col"><h4>Company</h4><ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
-      </ul></div>
+
+      <div class="section-kicker" id="next-kicker">Next steps</div>
+      <h2 class="section-h2"><span id="continue-text">Continue</span> <em id="continue-text2">learning</em></h2>
+      <div class="next-grid" id="next-cards"><a href="/tutorials/api-development.html" class="next-card"><h4>Build with the API</h4><p>Go deeper — build fully custom AI apps with the OpenAI and Claude APIs.</p></a><a href="/tools/chatgpt.html" class="next-card"><h4>ChatGPT API Pricing</h4><p>Understand the cost of running AI automations at scale.</p></a><a href="/#prompts" class="next-card"><h4>Business Prompt Library</h4><p>Ready-to-use prompts for email, content, and business automation.</p></a></div>
+
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 The AI How To · All rights reserved</span>
-      <div class="foot-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a></div>
+
+    <div class="sidebar">
+      <div class="sb">
+        <div class="sb-title" id="related-title">Related Resources</div>
+        <div id="related-links"><a href="/tutorials/api-development.html" class="sb-link">
+      <div class="sb-link-icon" style="background:var(--teal)20;color:var(--teal)">→</div>
+      AI API Development Tutorial
+    </a><a href="/tools/chatgpt.html" class="sb-link">
+      <div class="sb-link-icon" style="background:#10a37f20;color:#10a37f">→</div>
+      ChatGPT API Pricing
+    </a><a href="/#prompts" class="sb-link">
+      <div class="sb-link-icon" style="background:var(--bg2)20;color:var(--bg2)">→</div>
+      Business Prompts Library
+    </a></div>
+      </div>
+      <div class="sb" style="background:var(--bg2)">
+        <div class="sb-title" id="also-title">Also Try</div>
+        <a href="/#tutorials" class="sb-link" id="all-tut-link">← All Tutorials</a>
+        <a href="/#prompts" class="sb-link" id="prompt-lib-link">Prompt Library</a>
+        <a href="/#compare" class="sb-link" id="compare-link">Compare All AI</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="foot-inner">
+      <span>© 2026 The AI How To</span>
+      <div class="foot-links">
+        <a href="/">Home</a>
+        <a href="/about.html" id="ft-about">About</a>
+        <a href="/privacy.html" id="ft-privacy">Privacy</a>
+        <a href="/contact.html" id="ft-contact">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
-<div class="toast" id="toast">✓ Copied</div>
-<script>
-function faq(el){el.classList.toggle('open')}
-function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
-</script>
 
 <script>
-// ── Universal Language System ──
+// ── Bilingual data ──
+const CONTENT = {
+  en: {
+    pageTitle: 'Automate Your Business with AI — No Coding Required — The AI How To',
+    pageDesc: 'Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.',
+    h1: 'Automate Your Business with AI — No Coding Required',
+    sub: 'Connect ChatGPT and Claude to your business tools without writing code. Build automations that save hours every week using Make, Zapier, or n8n.',
+    tool: 'Make · Zapier · n8n',
+    level: 'Intermediate',
+    intro: "You don't need to be a developer to build powerful AI automations. Tools like Make, Zapier, and n8n let you connect ChatGPT and Claude to Gmail, Slack, Notion, Airtable, Google Sheets, and hundreds of other apps — all through a visual drag-and-drop interface.",
+    whatLearn: "What you'll learn",
+    introLabel: 'Introduction',
+    stepsLabel: 'Step-by-step guide',
+    follow: 'Follow these', follow2: 'steps',
+    proTips: 'Pro tips', doThis: 'Do', doThis2: 'this',
+    avoid: 'Common mistakes', avoid2: 'Avoid', avoid3: 'these',
+    nextLabel: 'Next steps',
+    continueText: 'Continue', continueText2: 'learning',
+    navTools: 'Tools', navTut: 'Tutorials', navArt: 'Articles',
+    navPro: 'Prompts', navCmp: 'Compare', navFor: 'Forum',
+    navBack: '← Tutorials', bcHome: 'Home', bcTut: 'Tutorials',
+    relatedTitle: 'Related Resources', alsoTitle: 'Also Try',
+    allTut: '← All Tutorials', promptLib: 'Prompt Library', compareAll: 'Compare All AI',
+    ftAbout: 'About', ftPrivacy: 'Privacy', ftContact: 'Contact',
+    steps: [('Choose your automation platform', '<strong>Zapier</strong>: Easiest to use, 6,000+ apps, paid from $20/mo. Best for beginners. <strong>Make</strong>: More powerful, visual flow builder, better for complex automations. Free tier available. <strong>n8n</strong>: Open-source, self-hostable, unlimited flexibility. Best for developers.'), ('Build your first automation: Email summarizer', "Connect Gmail → ChatGPT → Slack. Every important email you receive gets automatically summarized and posted to a Slack channel. Prompt: <em>'Summarize this email in 2 sentences: 1) what the sender wants, 2) what action is needed.'</em>"), ('Create an auto-responder', 'Connect your contact form → ChatGPT → send a personalized reply. ChatGPT drafts a response based on the inquiry topic, which you can review before sending — or auto-send for common queries.'), ('Build a content pipeline', 'Google Alerts → Make → ChatGPT → Google Docs. When a news alert triggers for your industry keywords, ChatGPT summarizes the article and adds it to a Google Doc morning briefing.'), ('Automate social media posts', 'Google Sheets → Make → ChatGPT → Buffer. Maintain a spreadsheet of content topics. The automation drafts posts for each platform (LinkedIn, X, Instagram) in the right format, tone, and length.'), ('Connect to the ChatGPT API in Make', 'In Make, search for <em>OpenAI</em> in the modules list. Connect your API key, select Create a Completion, and map dynamic data from previous modules into your prompt using double curly braces: <code>{{email_body}}</code>.')],
+    tips: ['Start with a simple 2-step automation before building complex flows', "Always add an error handler so failed steps don't silently break your workflow", 'Use ChatGPT to write your automation prompts — meta-prompting works great', 'Test with real data before activating automations that send emails or messages'],
+    mistakes: ['Building complex automations before testing simple ones', 'Not handling errors — always add error routes in Make/Zapier', 'Using vague AI prompts in automations — be extremely specific about format', 'Forgetting rate limits — the OpenAI API has limits per minute'],
+    nextCards: [('/tutorials/api-development.html', 'Build with the API', 'Go deeper — build fully custom AI apps with the OpenAI and Claude APIs.'), ('/tools/chatgpt.html', 'ChatGPT API Pricing', 'Understand the cost of running AI automations at scale.'), ('/#prompts', 'Business Prompt Library', 'Ready-to-use prompts for email, content, and business automation.')],
+    relatedLinks: [('/tutorials/api-development.html', 'var(--teal)', 'AI API Development Tutorial'), ('/tools/chatgpt.html', '#10a37f', 'ChatGPT API Pricing'), ('/#prompts', 'var(--bg2)', 'Business Prompts Library')],
+  },
+  es: {
+    pageTitle: 'Automatiza tu Negocio con IA — Sin Escribir Código — The AI How To',
+    pageDesc: 'Conecta ChatGPT y Claude a tus herramientas de negocio sin programar. Construye automatizaciones que ahorran horas cada semana usando Make, Zapier o n8n.',
+    h1: 'Automatiza tu Negocio con IA — Sin Escribir Código',
+    sub: 'Conecta ChatGPT y Claude a tus herramientas de negocio sin programar. Construye automatizaciones que ahorran horas cada semana usando Make, Zapier o n8n.',
+    tool: 'Make · Zapier · n8n',
+    level: 'Intermedio',
+    intro: 'No necesitas ser desarrollador para construir poderosas automatizaciones con IA. Herramientas como Make, Zapier y n8n te permiten conectar ChatGPT y Claude a Gmail, Slack, Notion, Airtable, Google Sheets y cientos de otras aplicaciones mediante una interfaz visual de arrastrar y soltar.',
+    whatLearn: 'Lo que aprenderás',
+    introLabel: 'Introducción',
+    stepsLabel: 'Guía paso a paso',
+    follow: 'Sigue estos', follow2: 'pasos',
+    proTips: 'Consejos Pro', doThis: 'Haz', doThis2: 'esto',
+    avoid: 'Errores comunes', avoid2: 'Evita', avoid3: 'estos',
+    nextLabel: 'Próximos pasos',
+    continueText: 'Continúa', continueText2: 'aprendiendo',
+    navTools: 'Herramientas', navTut: 'Tutoriales', navArt: 'Artículos',
+    navPro: 'Prompts', navCmp: 'Comparar', navFor: 'Foro',
+    navBack: '← Tutoriales', bcHome: 'Inicio', bcTut: 'Tutoriales',
+    relatedTitle: 'Recursos Relacionados', alsoTitle: 'También Prueba',
+    allTut: '← Todos los Tutoriales', promptLib: 'Biblioteca de Prompts', compareAll: 'Comparar todas las IA',
+    ftAbout: 'Sobre nosotros', ftPrivacy: 'Privacidad', ftContact: 'Contacto',
+    steps: [('Elige tu plataforma de automatización', '<strong>Zapier</strong>: Más fácil de usar, +6.000 apps, pago desde 20$/mes. Mejor para principiantes. <strong>Make</strong>: Más potente, constructor de flujos visual, mejor para automatizaciones complejas. Plan gratuito disponible. <strong>n8n</strong>: Código abierto, alojable localmente, flexibilidad ilimitada. Mejor para desarrolladores.'), ('Construye tu primera automatización: Resumen de emails', "Conecta Gmail → ChatGPT → Slack. Cada email importante que recibas se resume automáticamente y se publica en un canal de Slack. Prompt: <em>'Resume este email en 2 frases: 1) qué quiere el remitente, 2) qué acción se necesita.'</em>"), ('Crea un respondedor automático', 'Conecta tu formulario de contacto → ChatGPT → envía una respuesta personalizada. ChatGPT redacta una respuesta basada en el tema de la consulta, que puedes revisar antes de enviar — o enviar automáticamente para consultas comunes.'), ('Construye un pipeline de contenido', 'Google Alerts → Make → ChatGPT → Google Docs. Cuando una alerta de noticias se activa para tus palabras clave del sector, ChatGPT resume el artículo y lo añade a un briefing matutino en Google Docs.'), ('Automatiza las publicaciones en redes sociales', 'Google Sheets → Make → ChatGPT → Buffer. Mantén una hoja de cálculo con temas de contenido. La automatización redacta posts para cada plataforma (LinkedIn, X, Instagram) en el formato, tono y longitud correctos.'), ('Conecta la API de ChatGPT en Make', 'En Make, busca <em>OpenAI</em> en la lista de módulos. Conecta tu clave API, selecciona Crear una Completación y mapea los datos dinámicos de los módulos anteriores en tu prompt usando llaves dobles: <code>{{email_body}}</code>.')],
+    tips: ['Empieza con una automatización simple de 2 pasos antes de construir flujos complejos', 'Añade siempre un manejador de errores para que los pasos fallidos no rompan tu flujo silenciosamente', 'Usa ChatGPT para escribir tus prompts de automatización — el meta-prompting funciona muy bien', 'Prueba con datos reales antes de activar automatizaciones que envíen emails o mensajes'],
+    mistakes: ['Construir automatizaciones complejas antes de probar las simples', 'No manejar errores — añade siempre rutas de error en Make/Zapier', 'Usar prompts de IA vagos en automatizaciones — sé extremadamente específico sobre el formato', 'Olvidar los límites de velocidad — la API de OpenAI tiene límites por minuto'],
+    nextCards: [('/tutorials/api-development.html', 'Desarrolla con la API', 'Ve más profundo — construye apps de IA completamente personalizadas con las APIs de OpenAI y Claude.'), ('/tools/chatgpt.html', 'Precios de la API de ChatGPT', 'Entiende el coste de ejecutar automatizaciones de IA a escala.'), ('/#prompts', 'Biblioteca de Prompts para Negocios', 'Prompts listos para usar para email, contenido y automatización de negocios.')],
+    relatedLinks: [('/tutorials/api-development.html', 'var(--teal)', 'Tutorial de Desarrollo con APIs de IA'), ('/tools/chatgpt.html', '#10a37f', 'Precios de la API de ChatGPT'), ('/#prompts', 'var(--bg2)', 'Biblioteca de Prompts para Negocios')],
+  }
+};
+
 const urlLang = new URLSearchParams(window.location.search).get('lang');
-let pageLang = urlLang || localStorage.getItem('taht-lang') ||
-               ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+let lang = urlLang || localStorage.getItem('taht-lang') ||
+           ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
 if (urlLang) localStorage.setItem('taht-lang', urlLang);
 
-function applyPageLang(l) {
+function buildStepHTML(steps) {
+  return steps.map((s, i) =>
+    `<div class="step-item">
+      <div class="step-num">${i+1}</div>
+      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
+    </div>`
+  ).join('');
+}
+
+function buildListHTML(items, iconClass, iconChar) {
+  return items.map(item =>
+    `<li><span class="${iconClass}">${iconChar}</span>${item}</li>`
+  ).join('');
+}
+
+function buildNextCards(cards) {
+  return cards.map(([url, title, desc]) =>
+    `<a href="${url}?lang=${lang}" class="next-card"><h4>${title}</h4><p>${desc}</p></a>`
+  ).join('');
+}
+
+function buildRelatedLinks(links) {
+  return links.map(([url, color, label]) =>
+    `<a href="${url}" class="sb-link">
+      <div class="sb-link-icon" style="background:${color}20;color:${color}">→</div>
+      ${label}
+    </a>`
+  ).join('');
+}
+
+function applyLang(l) {
+  const c = CONTENT[l];
   document.documentElement.lang = l === 'es' ? 'es' : 'en';
-  // Swap all elements with data-en / data-es attributes
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
-  });
-  // Swap placeholder text
-  document.querySelectorAll('[data-ph-es]').forEach(el => {
-    el.placeholder = l === 'es' ? el.dataset.phEs : el.dataset.phEn;
-  });
-  // Update lang buttons
-  const btnEn = document.getElementById('btn-en');
-  const btnEs = document.getElementById('btn-es');
-  if (btnEn) btnEn.classList.toggle('active', l === 'en');
-  if (btnEs) btnEs.classList.toggle('active', l === 'es');
-  // Update all article/forum links to pass lang param
-  document.querySelectorAll('a[href*="/articles/"], a[href*="/forum/"]').forEach(a => {
+  document.getElementById('page-title').textContent = c.pageTitle;
+  document.getElementById('page-desc').setAttribute('content', c.pageDesc);
+  document.getElementById('page-h1').textContent = c.h1;
+  document.getElementById('page-sub').textContent = c.sub;
+  document.getElementById('tool-name').textContent = c.tool;
+  document.getElementById('level-badge').textContent = c.level;
+  document.getElementById('bc-tool').textContent = c.tool;
+  document.getElementById('bc-home').textContent = c.bcHome;
+  document.getElementById('bc-tutorials').textContent = c.bcTut;
+  document.getElementById('intro-kicker').textContent = c.introLabel;
+  document.getElementById('intro-text').textContent = c.intro;
+  document.getElementById('steps-kicker').textContent = c.stepsLabel;
+  document.getElementById('follow-text').textContent = c.follow;
+  document.getElementById('follow-text2').textContent = c.follow2;
+  document.getElementById('what-learn').textContent = c.whatLearn + ':';
+  document.getElementById('tip-desc').textContent = c.sub;
+  document.getElementById('step-list').innerHTML = buildStepHTML(c.steps);
+  document.getElementById('tips-list').innerHTML = buildListHTML(c.tips, 'do-icon', '✓');
+  document.getElementById('mistakes-list').innerHTML = buildListHTML(c.mistakes, 'dont-icon', '✗');
+  document.getElementById('pro-tips-title').innerHTML = c.proTips + ': <span style="font-weight:300" id="do-this">' + c.doThis + ' ' + c.doThis2 + '</span>';
+  document.getElementById('mistakes-title').innerHTML = c.avoid + ': <span style="font-weight:300" id="avoid-these">' + c.avoid2 + ' ' + c.avoid3 + '</span>';
+  document.getElementById('next-kicker').textContent = c.nextLabel;
+  document.getElementById('continue-text').textContent = c.continueText;
+  document.getElementById('continue-text2').textContent = c.continueText2;
+  document.getElementById('next-cards').innerHTML = buildNextCards(c.nextCards);
+  document.getElementById('related-links').innerHTML = buildRelatedLinks(c.relatedLinks);
+  document.getElementById('related-title').textContent = c.relatedTitle;
+  document.getElementById('also-title').textContent = c.alsoTitle;
+  document.getElementById('all-tut-link').textContent = c.allTut;
+  document.getElementById('prompt-lib-link').textContent = c.promptLib;
+  document.getElementById('compare-link').textContent = c.compareAll;
+  document.getElementById('nav-tools').textContent = c.navTools;
+  document.getElementById('nav-tutorials').textContent = c.navTut;
+  document.getElementById('nav-articles').textContent = c.navArt;
+  document.getElementById('nav-prompts').textContent = c.navPro;
+  document.getElementById('nav-compare').textContent = c.navCmp;
+  document.getElementById('nav-forum').textContent = c.navFor;
+  document.getElementById('nav-back').textContent = c.navBack;
+  document.getElementById('ft-about').textContent = c.ftAbout;
+  document.getElementById('ft-privacy').textContent = c.ftPrivacy;
+  document.getElementById('ft-contact').textContent = c.ftContact;
+  // Lang buttons
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-es').classList.toggle('active', l === 'es');
+  // Internal links get lang param
+  document.querySelectorAll('a[href^="/"], a[href^="#"]').forEach(a => {
     const href = a.getAttribute('href');
-    if (href && !href.includes('?lang=') && !href.startsWith('javascript')) {
+    if (href && !href.includes('?lang=') && !href.startsWith('#') && href !== '/') {
       a.href = href.split('?')[0] + '?lang=' + l;
     }
   });
 }
 
 function setLang(l) {
-  pageLang = l;
+  lang = l;
   localStorage.setItem('taht-lang', l);
-  applyPageLang(l);
+  applyLang(l);
 }
 
-// Apply on load
-applyPageLang(pageLang);
-</script>
-
-<script>
-const TUT_ES = {
-  title: 'Automatiza tu Negocio con IA — Sin Escribir Código',
-  tool: 'Make · Zapier · n8n',
-  desc: 'Conecta ChatGPT y Claude a tus herramientas de negocio sin programar. Construye automatizaciones que ahorran horas cada semana usando Make, Zapier o n8n.',
-  intro: 'No necesitas ser desarrollador para construir poderosas automatizaciones con IA. Herramientas como Make, Zapier y n8n te permiten conectar ChatGPT y Claude a Gmail, Slack, Notion, Airtable, Google Sheets y cientos de otras aplicaciones mediante una interfaz visual de arrastrar y soltar.',
-  steps: [('Elige tu plataforma de automatización', 'Zapier: más fácil de usar, mejor biblioteca de apps (6.000+), planes de pago desde 20$/mes. Ideal para principiantes. Make: más potente, constructor de flujos visual, mejor para automatizaciones complejas. Plan gratuito disponible. n8n: código abierto, alojable localmente, flexibilidad ilimitada. Mejor para desarrolladores o quienes quieren control total.'), ('Construye tu primera automatización: Resumen de emails', 'Conecta Gmail → ChatGPT → Slack. Cada email importante que recibas se resume automáticamente y se envía a un canal de Slack.'), ('Crea un respondedor automático', 'Conecta tu formulario de contacto → ChatGPT → envía respuesta personalizada. ChatGPT redacta una respuesta basada en el tema de la consulta, que puedes revisar antes de enviar.'), ('Construye un pipeline de contenido', 'Google Alerts → Make → ChatGPT → Google Docs. Cuando una alerta de noticias se activa para tus palabras clave del sector, ChatGPT resume el artículo y lo añade a un documento Google listo para ti cada mañana.'), ('Automatiza las redes sociales', 'Google Sheets → Make → ChatGPT → Buffer/Hootsuite. Mantén una hoja de cálculo con temas de contenido; la automatización redacta posts para cada plataforma en el formato, tono y longitud correctos.'), ('Conecta a la API de ChatGPT en Make', "En Make, busca 'OpenAI' en la lista de módulos. Conecta tu clave API, selecciona 'Create a Completion' y usa el campo de contenido del mensaje con tu prompt.")],
-  tips: ['Empieza con una automatización simple de 2 pasos antes de construir flujos complejos', 'Añade siempre un manejador de errores para que los pasos fallidos no rompan tu flujo silenciosamente', 'Usa ChatGPT para escribir tus prompts de automatización — el meta-prompting funciona muy bien', 'Prueba con datos reales antes de activar automatizaciones que envíen emails o mensajes'],
-  mistakes: ['Construir automatizaciones complejas antes de probar las simples', 'No manejar errores — añade siempre rutas de error en Make/Zapier', 'Usar prompts de IA vagos en automatizaciones — sé extremadamente específico sobre el formato', 'Olvidar los límites de velocidad — la API de OpenAI tiene límites por minuto'],
-  back: 'Tutoriales',
-  breadHome: 'Inicio', breadTut: 'Tutoriales',
-  whatLearn: 'Lo que aprenderás',
-  intro_label: 'Introducción',
-  steps_label: 'Guía paso a paso',
-  follow_steps: 'Sigue estos',
-  follow_steps2: 'pasos',
-  pro_tips: 'Consejos Pro',
-  do_this: 'Haz',
-  do_this2: 'esto',
-  avoid: 'Errores comunes',
-  avoid2: 'Evita',
-  avoid3: 'estos',
-  next_steps: 'Próximos pasos',
-  continue_learning: 'Continúa',
-  continue_learning2: 'aprendiendo',
-  all_tut: 'Todos los tutoriales',
-  all_tut_desc: 'Más de 120 tutoriales de principiante a avanzado.',
-  prompt_lib: 'Biblioteca de prompts',
-  prompt_lib_desc: 'Más de 42 prompts probados y listos para usar.',
-  compare_tools: 'Comparar herramientas',
-  compare_tools_desc: 'Encuentra la herramienta IA adecuada para ti.',
-};
-
-const _origApplyLang = typeof applyPageLang !== 'undefined' ? applyPageLang : function(){};
-function applyPageLang(l) {
-  document.querySelectorAll('[data-en]').forEach(el => {
-    el.innerHTML = l === 'es' ? (el.dataset.es || el.dataset.en) : el.dataset.en;
-  });
-  if (l === 'es') {
-    // Title
-    const h1 = document.querySelector('.page-h1');
-    if (h1) h1.innerHTML = TUT_ES.title.replace(TUT_ES.tool, '<em>' + TUT_ES.tool + '</em>');
-    document.title = TUT_ES.title + ' — The AI How To';
-    // Intro
-    const introP = document.querySelector('.art-body p, .section p:first-of-type');
-    // Breadcrumb
-    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
-      if (i === 0) a.textContent = TUT_ES.breadHome;
-      if (i === 1) a.textContent = TUT_ES.breadTut;
-    });
-    // Nav back
-    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← ' + TUT_ES.back);
-  } else {
-    document.querySelectorAll('.breadcrumb a').forEach((a,i) => {
-      if (i === 0) a.textContent = 'Home';
-      if (i === 1) a.textContent = 'Tutorials';
-    });
-    document.querySelectorAll('.nav-back').forEach(el => el.textContent = '← Tutorials');
-  }
-  // Lang buttons
-  const btnEn = document.getElementById('btn-en');
-  const btnEs = document.getElementById('btn-es');
-  if (btnEn) { btnEn.style.background = l === 'en' ? 'var(--teal)' : ''; btnEn.style.color = l === 'en' ? '#fff' : ''; }
-  if (btnEs) { btnEs.style.background = l === 'es' ? 'var(--teal)' : ''; btnEs.style.color = l === 'es' ? '#fff' : ''; }
-}
-applyPageLang(pageLang);
+applyLang(lang);
 </script>
 </body>
 </html>
