@@ -2,255 +2,496 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Claude vs GPT-5.5 for coding tasks — The AI How To Forum</title>
-<meta name="description" content="Developer comparison: Claude Sonnet 4.5 vs GPT-5.5 for code generation, debugging, and explaining code. Which one wins?"/>
+<title data-i18n="page.title">Claude vs GPT-5.5 for coding tasks — which one wins? — Forum</title>
+<meta name="description" content="Claude vs GPT-5.5 for coding tasks — which one wins?"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
+:root{
+  --black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;
+  --line:rgba(255,255,255,.10);--line2:rgba(255,255,255,.18);
+  --white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;
+  --teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;
+  --sage:#7A9E7A;--sage2:#9FBF9F;
+  --terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;
+  --r:8px;--r-lg:14px;--r-xl:22px;
+  --fd:'Plus Jakarta Sans',sans-serif;
+}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
+body{font-family:var(--fd);background:var(--black);color:var(--white);font-size:15px;line-height:1.7;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
-.container{max-width:1100px;margin:0 auto;padding:0 28px}
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
-.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.logo{display:flex;align-items:center;gap:9px}
-.logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
-.logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
-.logo-name{font-size:.9rem;font-weight:600;color:var(--white)}
-.nav-links{display:flex;gap:20px}
-.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg1)}
+::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
+.container{max-width:1100px;margin:0 auto;padding:0 32px}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(28px);background:rgba(44,52,80,.92);border-bottom:1px solid var(--line)}
+.nav-inner{height:58px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo-icon{width:30px;height:30px;border-radius:8px;background:var(--teal);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:13px;height:13px;border-radius:50%;background:var(--terra);opacity:.9}
+.logo-icon svg{width:14px;height:14px;z-index:1}
+.logo-name{font-size:.92rem;font-weight:600;letter-spacing:-.02em;color:var(--white)}
+.nav-links{display:flex;gap:22px}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s;letter-spacing:.01em}
 .nav-links a:hover{color:var(--white)}
-.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.lang-sw{display:flex;background:var(--bg3);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang-btn{background:none;border:none;color:var(--muted);padding:5px 11px;font-family:var(--fd);font-size:.73rem;font-weight:500;cursor:pointer;transition:all .15s}
+.lang-btn.active{background:var(--teal);color:#fff}
+.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:6px;transition:color .2s;font-weight:400}
 .nav-back:hover{color:var(--white)}
-.main{padding:88px 0 60px}
-.two-col{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
-/* Thread header */
-.thread-header{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;margin-bottom:20px}
-.thread-cat{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.nav-right{display:flex;align-items:center;gap:10px}
+
+/* LAYOUT */
+.main{padding:96px 0 72px}
+.page-layout{display:grid;grid-template-columns:1fr 308px;gap:28px;align-items:start}
+
+/* BREADCRUMB */
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:22px;font-size:.76rem;color:var(--dim)}
+.breadcrumb a{color:var(--teal3);transition:color .2s}
+.breadcrumb a:hover{color:var(--white)}
+.breadcrumb svg{width:10px;height:10px;opacity:.4;flex-shrink:0}
+
+/* THREAD HEADER */
+.thread-header{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-xl);padding:32px 36px;margin-bottom:20px;position:relative;overflow:hidden}
+.thread-header::before{content:'';position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(45,138,138,.12),transparent 70%);pointer-events:none}
+.thread-cat-row{display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.cat-label{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.1em}
 .cat-teal{color:var(--teal3)} .cat-orange{color:var(--orange)} .cat-sage{color:var(--sage2)} .cat-terra{color:var(--terra2)}
-.thread-title{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:16px}
-.thread-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.t-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:600;flex-shrink:0}
-.t-author{font-size:.84rem;color:var(--muted)}
-.t-sep{color:var(--dim)}
-.t-date{font-size:.8rem;color:var(--dim)}
-.t-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px}
-.badge-hot{background:rgba(193,101,74,.15);color:var(--terra2)}
-.badge-solved{background:rgba(122,158,122,.15);color:var(--sage2)}
-.badge-open{background:rgba(45,138,138,.12);color:var(--teal3)}
-.tag-row{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
-.t-tag{font-size:.7rem;padding:3px 10px;border-radius:100px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
-/* Original post */
-.post{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:12px}
-.post-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
-.post-info strong{display:block;font-size:.86rem;font-weight:600;color:var(--white)}
-.post-info span{font-size:.75rem;color:var(--dim)}
-.post-body{padding:20px;font-size:.9rem;color:var(--muted);line-height:1.8}
+.cat-dot{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.dot-teal{background:var(--teal3)} .dot-orange{background:var(--orange)} .dot-sage{background:var(--sage2)} .dot-terra{background:var(--terra2)}
+.thread-title{font-size:1.55rem;font-weight:700;line-height:1.2;letter-spacing:-.03em;margin-bottom:18px}
+.thread-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.t-av{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;letter-spacing:-.01em}
+.meta-author{font-size:.84rem;font-weight:500;color:var(--white)}
+.meta-sep{width:3px;height:3px;border-radius:50%;background:var(--dim);flex-shrink:0}
+.meta-date{font-size:.78rem;color:var(--dim)}
+.status-badge{display:inline-flex;align-items:center;gap:5px;font-size:.68rem;font-weight:500;padding:3px 10px;border-radius:100px;letter-spacing:.03em}
+.badge-hot{background:rgba(193,101,74,.12);color:var(--terra2);border:1px solid rgba(193,101,74,.2)}
+.badge-solved{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
+.badge-open{background:rgba(45,138,138,.1);color:var(--teal3);border:1px solid rgba(45,138,138,.2)}
+.badge-tutorial{background:rgba(61,175,175,.1);color:var(--teal3);border:1px solid rgba(61,175,175,.2)}
+.badge-dot{width:5px;height:5px;border-radius:50%;background:currentColor;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.tag-row{display:flex;gap:7px;margin-top:16px;flex-wrap:wrap}
+.t-tag{font-size:.69rem;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--dim);letter-spacing:.02em}
+
+/* POSTS */
+.post{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:10px;transition:border-color .2s}
+.post:hover{border-color:var(--line2)}
+.post.best-answer{border-color:rgba(122,158,122,.35)}
+.post-header{display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid var(--line)}
+.post-user-info strong{display:block;font-size:.85rem;font-weight:600;color:var(--white);letter-spacing:-.01em}
+.post-user-info span{font-size:.74rem;color:var(--dim)}
+.post-time{margin-left:auto;font-size:.74rem;color:var(--dim)}
+.post-body{padding:22px 22px 18px;font-size:.88rem;color:var(--muted);line-height:1.82}
 .post-body p{margin-bottom:14px}
 .post-body p:last-child{margin-bottom:0}
-.post-body pre{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px;font-family:'DM Mono',monospace;font-size:.78rem;line-height:1.7;overflow-x:auto;margin:14px 0;color:var(--white)}
 .post-body strong{color:var(--white);font-weight:600}
-.post-body a{color:var(--teal3)}
-.post-body a:hover{text-decoration:underline}
-.post-body ul{padding-left:20px;margin:10px 0}
-.post-body ul li{margin-bottom:6px}
-.post-footer{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line)}
-.post-actions{display:flex;gap:8px}
-.post-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:4px 12px;border-radius:6px;font-size:.74rem;cursor:pointer;font-family:inherit;transition:all .2s}
-.post-btn:hover{border-color:var(--teal);color:var(--teal3)}
-.upvote{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--dim)}
-/* Reply count */
-.reply-count{font-size:.8rem;color:var(--dim);margin:20px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.reply-count strong{color:var(--white)}
-/* Best answer */
-.post.best-answer{border-color:rgba(122,158,122,.4)}
-.best-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(122,158,122,.12);color:var(--sage2);font-size:.7rem;font-weight:500;padding:3px 10px;border-radius:100px;margin-bottom:8px}
-/* Sidebar */
-.sb-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:18px}
-.sb-title{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
-.related-thread{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .15s}
-.related-thread:last-child{border-bottom:none;padding-bottom:0}
-.related-thread:hover .rt-title{color:var(--teal3)}
-.rt-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
-.rt-title{font-size:.82rem;color:var(--white);line-height:1.4;transition:color .2s}
-.rt-meta{font-size:.72rem;color:var(--dim);margin-top:3px}
-.useful-link{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg2);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--line);transition:all .2s;font-size:.82rem;color:var(--muted)}
+.post-body a{color:var(--teal3);transition:color .2s}
+.post-body a:hover{color:var(--white)}
+.post-body ul,.post-body ol{padding-left:20px;margin:12px 0}
+.post-body ul li,.post-body ol li{margin-bottom:7px;line-height:1.7}
+.post-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:16px 18px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin:14px 0;color:var(--white)}
+.post-body code{font-family:'DM Mono',monospace;font-size:.82em;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--teal3)}
+
+/* BEST ANSWER BADGE */
+.best-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(122,158,122,.1);color:var(--sage2);font-size:.7rem;font-weight:500;padding:4px 11px;border-radius:100px;border:1px solid rgba(122,158,122,.25);margin-bottom:12px;letter-spacing:.03em}
+.best-badge svg{width:11px;height:11px}
+
+/* POST FOOTER */
+.post-footer{padding:10px 22px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}
+.upvote-btn{display:flex;align-items:center;gap:6px;font-size:.77rem;color:var(--dim);background:none;border:none;cursor:pointer;font-family:var(--fd);padding:4px 10px;border-radius:6px;transition:all .2s}
+.upvote-btn:hover{background:rgba(255,255,255,.04);color:var(--muted)}
+.upvote-btn svg{width:13px;height:13px}
+.post-actions{display:flex;gap:6px}
+.post-action-btn{background:none;border:1px solid var(--line);color:var(--dim);padding:4px 12px;border-radius:6px;font-size:.73rem;cursor:pointer;font-family:var(--fd);transition:all .2s;letter-spacing:.01em}
+.post-action-btn:hover{border-color:var(--teal);color:var(--teal3)}
+
+/* REPLY COUNT */
+.replies-header{display:flex;align-items:center;gap:12px;margin:22px 0 14px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.replies-header h3{font-size:.82rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+.replies-count{font-size:.82rem;font-weight:600;color:var(--white)}
+.replies-sort{margin-left:auto;font-size:.75rem;color:var(--dim)}
+
+/* REPLY FORM */
+.reply-form{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;margin-top:18px}
+.reply-form-title{font-size:.88rem;font-weight:600;margin-bottom:14px;color:var(--white)}
+.reply-input{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--white);padding:13px 16px;border-radius:var(--r);font-family:var(--fd);font-size:.87rem;line-height:1.65;resize:vertical;min-height:96px;outline:none;transition:border-color .2s}
+.reply-input:focus{border-color:var(--teal)}
+.reply-input::placeholder{color:var(--dim)}
+.reply-submit{background:var(--terra);color:#fff;border:none;padding:10px 22px;border-radius:var(--r);font-size:.86rem;font-weight:500;cursor:pointer;font-family:var(--fd);margin-top:10px;transition:background .2s;letter-spacing:.01em}
+.reply-submit:hover{background:var(--terra2)}
+
+/* SIDEBAR */
+.sidebar{display:flex;flex-direction:column;gap:18px}
+.sb-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-xl);padding:22px}
+.sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sb-stat-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--line);font-size:.82rem}
+.sb-stat-row:last-child{border-bottom:none;padding-bottom:0}
+.sb-stat-label{color:var(--muted)}
+.sb-stat-val{font-weight:600;color:var(--white)}
+.sb-stat-online{color:var(--sage2)}
+
+/* RELATED THREADS */
+.related-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .15s}
+.related-item:last-child{border-bottom:none;padding-bottom:0}
+.related-item:hover .ri-title{color:var(--teal3)}
+.ri-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ri-icon svg{width:16px;height:16px}
+.ri-title{font-size:.82rem;color:var(--muted);line-height:1.4;transition:color .2s}
+.ri-meta{font-size:.72rem;color:var(--dim);margin-top:3px}
+
+/* USEFUL LINKS */
+.useful-link{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--bg2);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--line);transition:all .2s;font-size:.82rem;color:var(--muted)}
 .useful-link:last-child{margin-bottom:0}
-.useful-link:hover{border-color:var(--teal);color:var(--teal3)}
-.useful-link-icon{font-size:1rem;flex-shrink:0}
-/* Reply form */
-.reply-form{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;margin-top:20px}
-.reply-form h3{font-size:.88rem;font-weight:600;margin-bottom:14px}
-.reply-form textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--white);padding:12px 14px;border-radius:var(--r);font-family:inherit;font-size:.88rem;line-height:1.65;resize:vertical;min-height:100px;outline:none;transition:border-color .2s}
-.reply-form textarea:focus{border-color:var(--teal)}
-.reply-form textarea::placeholder{color:var(--dim)}
-.btn-reply{background:var(--terra);color:#fff;border:none;padding:10px 22px;border-radius:var(--r);font-size:.88rem;font-weight:500;cursor:pointer;font-family:inherit;margin-top:10px;transition:background .2s}
-.btn-reply:hover{background:var(--terra2)}
-/* Breadcrumb */
-.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
-.breadcrumb a{color:var(--teal3)}
-.breadcrumb a:hover{color:var(--white)}
-/* Forum index banner */
-.forum-banner{background:linear-gradient(135deg,var(--bg1),var(--bg2));border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.forum-banner p{font-size:.84rem;color:var(--muted)}
-.btn-ghost-sm{border:1px solid var(--line2);color:var(--teal3);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s;white-space:nowrap}
-.btn-ghost-sm:hover{background:rgba(45,138,138,.08);border-color:var(--teal)}
-@media(max-width:768px){.nav-links{display:none}.two-col{grid-template-columns:1fr}.sidebar{order:-1}}
+.useful-link:hover{border-color:var(--teal);color:var(--teal3);background:rgba(45,138,138,.06)}
+.useful-link svg{width:15px;height:15px;flex-shrink:0;opacity:.7}
+.useful-link:hover svg{opacity:1}
+.useful-link-arrow{margin-left:auto;opacity:.4;font-size:.8rem}
+
+/* FOOTER */
+.site-footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:60px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{transition:color .2s}
+.footer-links a:hover{color:var(--muted)}
+
+@media(max-width:900px){
+  .page-layout{grid-template-columns:1fr}
+  .sidebar{order:-1;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+}
+@media(max-width:640px){
+  .nav-links,.lang-sw{display:none}
+  .container{padding:0 20px}
+  .thread-header{padding:22px 22px}
+  .thread-title{font-size:1.2rem}
+  .sidebar{grid-template-columns:1fr}
+  .post-body{padding:18px 18px 14px}
+  .post-footer{flex-wrap:wrap}
+}
 </style>
 </head>
 <body>
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
-      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
+      <a href="/" class="logo">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2" style="width:14px;height:14px;z-index:1">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <span class="logo-name">The AI How To</span>
+      </a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#tools" data-i18n="nav.tools">Tools</a>
+        <a href="/#tutorials" data-i18n="nav.tut">Tutorials</a>
+        <a href="/#articles" data-i18n="nav.art">Articles</a>
+        <a href="/#prompts" data-i18n="nav.pro">Prompts</a>
+        <a href="/#forum" data-i18n="nav.for">Forum</a>
       </div>
-      <a href="/#forum" class="nav-back">← Back to Forum</a>
+      <div class="nav-right">
+        <div class="lang-sw">
+          <button class="lang-btn" onclick="setLang('en')" id="btn-en">EN</button>
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">ES</button>
+        </div>
+        <a href="/#forum" class="nav-back">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><polyline points="15 18 9 12 15 6"/></svg>
+          <span data-i18n="back">Back to Forum</span>
+        </a>
+      </div>
     </div>
   </div>
 </nav>
 <main class="main">
   <div class="container">
-
-  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#forum">Forum</a> › <a href="/#forum">New</a> › This thread</div>
-  <div class="thread-header">
-    <div class="thread-cat cat-teal">💻 Coding · Comparison</div>
-    <div class="thread-title">New comparison: Claude vs GPT-5.5 for coding tasks — which wins?</div>
-    <div class="thread-meta">
-      <div class="t-av" style="background:linear-gradient(135deg,#4d2d8a,#7d5abf)">P</div>
-      <span class="t-author">pedro_dev</span>
-      <span class="t-sep">·</span>
-      <span class="t-date">30 min ago</span>
-      <span class="t-badge badge-open">🆕 New · 5 replies</span>
+    <div class="breadcrumb">
+      <a href="/" data-i18n="bread.home">Home</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <a href="/#forum" data-i18n="bread.forum">Forum</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span data-i18n="cat.code" class="cat-teal">Category</span>
     </div>
-    <div class="tag-row">
-      <span class="t-tag">Claude</span><span class="t-tag">ChatGPT</span><span class="t-tag">Coding</span><span class="t-tag">GPT-5.5</span>
+    <div class="thread-header">
+      <div class="thread-cat-row">
+        <span class="cat-dot dot-teal"></span>
+        <span class="cat-label cat-teal" data-i18n="cat.code">Category</span>
+      </div>
+      <div class="thread-title" data-i18n="title.main">Claude vs GPT-5.5 for coding tasks — which one wins?</div>
+      <div class="thread-meta">
+        <div class="t-av" style="background:linear-gradient(135deg,#4d2d8a,#7d5abf)">P</div>
+      <span class="meta-author" data-i18n="author1">pedro_dev</span>
+      <span class="meta-sep"></span>
+      <span class="meta-date" data-i18n="time1">30 min ago</span>
+        <span class="status-badge badge-open"><span class="badge-dot"></span><span data-i18n="badge.new">Status</span></span> 
+      </div>
+      <div class="tag-row">
+        <span class="t-tag">Claude</span><span class="t-tag">ChatGPT</span><span class="t-tag">Coding</span><span class="t-tag">GPT-5.5</span>
+      </div>
     </div>
-  </div>
-  <div class="two-col">
-    <div>
-      <div class="post ">
+    <div class="page-layout">
+      <div class="thread-content">
+        <div class="post " style="border-left:2px solid var(--teal)">
     <div class="post-header">
       <div class="t-av" style="background:linear-gradient(135deg,#4d2d8a,#7d5abf)">P</div>
-      <div class="post-info">
-        <strong>pedro_dev</strong>
-        <span>Member · 67 posts · 30 min ago</span>
+      <div class="post-user-info">
+        <strong data-i18n="author1">Author</strong>
+        <span data-i18n="role1">Member</span>
       </div>
+      <div class="post-time" data-i18n="time1">2h ago</div>
     </div>
     <div class="post-body">
       
-      
-<p>I'm a full-stack developer and have been going back and forth between Claude Sonnet 4.5 and GPT-5.5 for my coding workflow. Wanted to share my experience and get the community's take.</p>
-<p><strong>My experience so far:</strong></p>
-<ul>
-  <li><strong>For code generation from scratch:</strong> Claude wins. Code is cleaner, better commented, follows patterns more consistently.</li>
-  <li><strong>For debugging errors:</strong> Both are excellent. GPT-5.5 might edge ahead slightly for stack trace interpretation.</li>
-  <li><strong>For explaining existing code:</strong> Claude is miles better. GPT-5.5 can be vague; Claude is precise.</li>
-  <li><strong>For long files:</strong> Claude dominates thanks to 200k context. GPT-5.5 starts losing track past ~10k tokens.</li>
-  <li><strong>For React/frontend:</strong> GPT-5.5 feels more up-to-date on new libraries and patterns.</li>
-</ul>
-<p>What do others use for coding? Any tool I'm missing?</p>
-
+      <div data-i18n-html="body1">Content</div>
     </div>
     <div class="post-footer">
-      <div class="upvote">▲ 11 upvotes</div>
+      <button class="upvote-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg> <span>12</span></button>
       <div class="post-actions">
-        <button class="post-btn">👍 Helpful</button>
-        <button class="post-btn">↩ Reply</button>
-        <button class="post-btn">🔗 Quote</button>
+        <button class="post-action-btn" data-i18n="helpful">Helpful</button>
+        <button class="post-action-btn" data-i18n="reply.lbl">Reply</button>
+        <button class="post-action-btn" data-i18n="quote">Quote</button>
       </div>
     </div>
-  </div>
-      <div class="reply-count"><strong>5 replies</strong></div>
-      <div class="post ">
+  </div><div class="post ">
     <div class="post-header">
       <div class="t-av" style="background:linear-gradient(135deg,#2d8a5a,#4dbf8a)">R</div>
-      <div class="post-info">
-        <strong>senior_dev_rox</strong>
-        <span>Senior Member · 892 posts · 20 min ago</span>
+      <div class="post-user-info">
+        <strong data-i18n="author2">Author</strong>
+        <span data-i18n="role2">Member</span>
       </div>
+      <div class="post-time" data-i18n="time2">2h ago</div>
     </div>
     <div class="post-body">
       
-      
-<p>Have you tried GitHub Copilot alongside these? For in-editor suggestions it's still the best because of the IDE integration — it understands your whole codebase, not just what you paste in.</p>
-<p>My stack: GitHub Copilot for autocomplete while typing, Claude for complex architectural decisions and code review, ChatGPT for quick questions and documentation. Each has its place.</p>
-<p>Check the <a href="/tutorials/api-development.html">API Development tutorial</a> here — it goes deep on using both Claude and OpenAI APIs together.</p>
-
+      <div data-i18n-html="body2">Content</div>
     </div>
     <div class="post-footer">
-      <div class="upvote">▲ 8 upvotes</div>
+      <button class="upvote-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg> <span>89</span></button>
       <div class="post-actions">
-        <button class="post-btn">👍 Helpful</button>
-        <button class="post-btn">↩ Reply</button>
-        <button class="post-btn">🔗 Quote</button>
+        <button class="post-action-btn" data-i18n="helpful">Helpful</button>
+        <button class="post-action-btn" data-i18n="reply.lbl">Reply</button>
+        <button class="post-action-btn" data-i18n="quote">Quote</button>
       </div>
     </div>
   </div>
-      <div class="reply-form">
-    <h3>💬 Add your reply</h3>
+        <div class="replies-header">
+          <span class="replies-count" data-i18n="replies.count">5 replies</span>
+          <h3 data-i18n="sort">Sorted by: Most helpful</h3>
+        </div>
+        <div class="reply-form">
+    <div class="reply-form-title" data-i18n="reply.title">Add your reply</div>
     <form onsubmit="submitReply(event)">
-      <textarea placeholder="Write your reply... Be specific and helpful."></textarea>
-      <div>
-        <button type="submit" class="btn-reply">Post reply →</button>
-      </div>
+      <textarea class="reply-input" data-i18n-ph="reply.ph" placeholder="Write your reply..."></textarea>
+      <div><button type="submit" class="reply-submit" data-i18n="reply.btn">Post reply</button></div>
     </form>
   </div>
-    </div>
-    <div class="sidebar">
+      </div>
+      <aside class="sidebar">
     <div class="sb-card">
-      <div class="sb-title">📌 Related Threads</div>
-      <a href="/forum/claude-long-responses.html" class="related-thread">
-      <span class="rt-icon">⚡</span>
-      <div><div class="rt-title">Claude response length tips</div><div class="rt-meta">juandev_99</div></div>
-    </a><a href="/forum/llama-local-ollama.html" class="related-thread">
-      <span class="rt-icon">🦙</span>
-      <div><div class="rt-title">Run Llama locally — full guide</div><div class="rt-meta">alextech</div></div>
-    </a><a href="/forum/claude-api-nodejs.html" class="related-thread">
-      <span class="rt-icon">💻</span>
-      <div><div class="rt-title">Claude API with Node.js</div><div class="rt-meta">noob_dev</div></div>
+      <div class="sb-title" data-i18n="sb.related">Related Threads</div>
+      <a href="/forum/claude-long-responses.html" class="related-item" onclick="this.href='/forum/claude-long-responses.html?lang='+lang">
+      <div class="ri-icon" style="background:rgba(45,138,138,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+      <div>
+        <div class="ri-title" data-i18n="rel.t1">Thread</div>
+        <div class="ri-meta" data-i18n="rel.m1">meta</div>
+      </div>
+    </a><a href="/forum/llama-local-ollama.html" class="related-item" onclick="this.href='/forum/llama-local-ollama.html?lang='+lang">
+      <div class="ri-icon" style="background:rgba(122,158,122,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div>
+        <div class="ri-title" data-i18n="rel.t4">Thread</div>
+        <div class="ri-meta" data-i18n="rel.m4">meta</div>
+      </div>
+    </a><a href="/forum/claude-api-nodejs.html" class="related-item" onclick="this.href='/forum/claude-api-nodejs.html?lang='+lang">
+      <div class="ri-icon" style="background:rgba(61,175,175,.12)"><svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div>
+        <div class="ri-title" data-i18n="rel.t8">Thread</div>
+        <div class="ri-meta" data-i18n="rel.m8">meta</div>
+      </div>
     </a>
     </div>
     <div class="sb-card">
-      <div class="sb-title">🔗 Useful Resources</div>
-      <a href="/tools/github-copilot.html" class="useful-link"><span class="useful-link-icon">👨‍💻</span>GitHub Copilot Guide</a><a href="/tools/claude.html" class="useful-link"><span class="useful-link-icon">⚡</span>Claude Full Review</a><a href="/tools/chatgpt.html" class="useful-link"><span class="useful-link-icon">🤖</span>ChatGPT Full Review</a><a href="/tutorials/api-development.html" class="useful-link"><span class="useful-link-icon">🔧</span>Build with AI APIs</a>
+      <div class="sb-title" data-i18n="sb.links">Useful Resources</div>
+      <a href="/tools/github-copilot.html" class="useful-link">
+      <svg style="width:15px;height:15px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+      <span data-i18n="link.ghc">Resource</span>
+      <span class="useful-link-arrow">›</span>
+    </a><a href="/tools/claude.html" class="useful-link">
+      <svg style="width:15px;height:15px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+      <span data-i18n="link.cl">Resource</span>
+      <span class="useful-link-arrow">›</span>
+    </a><a href="/tools/chatgpt.html" class="useful-link">
+      <svg style="width:15px;height:15px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      <span data-i18n="link.cg">Resource</span>
+      <span class="useful-link-arrow">›</span>
+    </a><a href="/tutorials/api-development.html" class="useful-link">
+      <svg style="width:15px;height:15px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      <span data-i18n="link.api">Resource</span>
+      <span class="useful-link-arrow">›</span>
+    </a>
     </div>
     <div class="sb-card">
-      <div class="sb-title">📊 Forum Stats</div>
-      <div style="display:flex;flex-direction:column;gap:9px;font-size:.82rem">
-        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Members</span><strong>22,431</strong></div>
-        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Threads</span><strong>4,891</strong></div>
-        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Online now</span><strong style="color:var(--sage2)">● 312</strong></div>
-      </div>
+      <div class="sb-title" data-i18n="sb.stats">Forum Stats</div>
+      <div class="sb-stat-row"><span class="sb-stat-label" data-i18n="sb.members">Members</span><strong class="sb-stat-val">22,431</strong></div>
+      <div class="sb-stat-row"><span class="sb-stat-label" data-i18n="sb.threads">Threads</span><strong class="sb-stat-val">4,891</strong></div>
+      <div class="sb-stat-row"><span class="sb-stat-label" data-i18n="sb.online">Online now</span><strong class="sb-stat-val sb-stat-online">312</strong></div>
+    </div>
+  </aside>
     </div>
   </div>
-  </div>
-  </div>
 </main>
-<footer style="border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:60px">
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--dim)">
-    <span>© 2026 The AI How To · <a href="/" style="color:var(--teal3)">Home</a></span>
-    <div style="display:flex;gap:18px">
-      <a href="/about.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">About</a>
-      <a href="/privacy.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Privacy</a>
-      <a href="/contact.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Contact</a>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-inner">
+      <span>© 2026 The AI How To</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/about.html" data-i18n="ft.ab">About</a>
+        <a href="/privacy.html" data-i18n="ft.pr">Privacy</a>
+        <a href="/contact.html" data-i18n="ft.con">Contact</a>
+      </div>
     </div>
   </div>
 </footer>
 <script>
-function submitReply(e){
+const T = {
+  en: {
+    'nav.tools':'Tools','nav.tut':'Tutorials','nav.art':'Articles','nav.pro':'Prompts','nav.for':'Forum',
+    'back':'Back to Forum','ft.ab':'About','ft.pr':'Privacy','ft.con':'Contact',
+    'sort':'Sorted by: Most helpful','reply.title':'Add your reply',
+    'reply.ph':'Write your reply — be specific and helpful.',
+    'reply.btn':'Post reply',
+    'reply.ok':'Your reply has been posted. It will appear once reviewed.',
+    'helpful':'Helpful','reply.lbl':'Reply','quote':'Quote',
+    'sb.stats':'Forum Stats','sb.members':'Members','sb.threads':'Threads',
+    'sb.online':'Online now','sb.related':'Related Threads','sb.links':'Useful Resources',
+    'page.title': `Claude vs GPT-5.5 for coding tasks — which one wins? — Forum`,
+    'page.desc': `Claude vs GPT-5.5 for coding tasks — which one wins?`,
+    'bread.home': `Home`,
+    'bread.forum': `Forum`,
+    'cat.code': `Coding · Comparison`,
+    'title.main': `Claude vs GPT-5.5 for coding tasks — which one wins?`,
+    'badge.hot': `New · 5 replies`,
+    'badge.solved': `Solved`,
+    'badge.tut': `Tutorial`,
+    'badge.new': `New · 5 replies`,
+    'replies.count': `5 replies`,
+    'best': `Best Answer`,
+    'rel.t1': `Stop Claude cutting off responses`,
+    'rel.m1': `juandev_99 · 2h ago`,
+    'rel.t4': `Run Llama locally — full guide`,
+    'rel.m4': `alextech · 1d ago`,
+    'rel.t8': `Claude API with Node.js`,
+    'rel.m8': `noob_dev · 3h ago`,
+    'link.ghc': `GitHub Copilot Guide`,
+    'link.cl': `Claude Full Review`,
+    'link.cg': `ChatGPT Full Review`,
+    'link.api': `Build with AI APIs`,
+    'author1': `pedro_dev`,
+    'role1': `Member · 67 posts`,
+    'time1': `30 min ago`,
+    'author2': `senior_dev_rox`,
+    'role2': `Senior Member · 892 posts`,
+    'time2': `20 min ago`,
+    'body1': `<p>I'm a full-stack developer who has been going back and forth between Claude Sonnet 4.5 and GPT-5.5 for my coding workflow. Sharing my experience:</p>
+<ul>
+  <li><strong>Code generation from scratch:</strong> Claude wins. Cleaner code, better comments, more consistent patterns.</li>
+  <li><strong>Debugging errors:</strong> Both are excellent. GPT-5.5 may edge ahead slightly on stack trace interpretation.</li>
+  <li><strong>Explaining existing code:</strong> Claude is significantly better. GPT-5.5 can be vague; Claude is precise.</li>
+  <li><strong>Long files and codebases:</strong> Claude dominates thanks to 200k context. GPT-5.5 starts losing track past ~10k tokens.</li>
+  <li><strong>Frontend and React:</strong> GPT-5.5 feels slightly more current on new libraries and patterns.</li>
+</ul>
+<p>What do others use for coding? Any tool I'm missing?</p>`,
+    'body2': `<p>Have you tried GitHub Copilot alongside these? For in-editor suggestions it's still unmatched because of the IDE integration — it understands your entire codebase, not just what you paste in.</p>
+<p>My personal stack: GitHub Copilot for autocomplete while typing, Claude for complex architectural decisions and code review, ChatGPT for quick reference and documentation. Each has a distinct place. Check the <a href="/tutorials/api-development.html">API Development tutorial</a> — it goes deep on using both Claude and OpenAI APIs together.</p>`
+  },
+  es: {
+    'nav.tools':'Herramientas','nav.tut':'Tutoriales','nav.art':'Artículos','nav.pro':'Prompts','nav.for':'Foro',
+    'back':'Volver al Foro','ft.ab':'Sobre nosotros','ft.pr':'Privacidad','ft.con':'Contacto',
+    'sort':'Ordenado por: Más útiles','reply.title':'Añade tu respuesta',
+    'reply.ph':'Escribe tu respuesta — sé específico y útil.',
+    'reply.btn':'Publicar respuesta',
+    'reply.ok':'Tu respuesta ha sido publicada. Aparecerá tras revisión.',
+    'helpful':'Útil','reply.lbl':'Responder','quote':'Citar',
+    'sb.stats':'Estadísticas del Foro','sb.members':'Miembros','sb.threads':'Hilos',
+    'sb.online':'Online ahora','sb.related':'Hilos Relacionados','sb.links':'Recursos Útiles',
+    'page.title': `Claude vs GPT-5.5 para tareas de código — ¿cuál gana? — Foro`,
+    'page.desc': `Claude vs GPT-5.5 para tareas de código — ¿cuál gana?`,
+    'bread.home': `Inicio`,
+    'bread.forum': `Foro`,
+    'cat.code': `Código · Comparativa`,
+    'title.main': `Claude vs GPT-5.5 para tareas de código — ¿cuál gana?`,
+    'badge.hot': `Nuevo · 5 respuestas`,
+    'badge.solved': `Resuelto`,
+    'badge.tut': `Tutorial`,
+    'badge.new': `Nuevo · 5 respuestas`,
+    'replies.count': `5 respuestas`,
+    'best': `Mejor Respuesta`,
+    'rel.t1': `Cómo evitar que Claude corte respuestas`,
+    'rel.m1': `juandev_99 · hace 2h`,
+    'rel.t4': `Ejecuta Llama localmente — guía completa`,
+    'rel.m4': `alextech · hace 1d`,
+    'rel.t8': `API de Claude con Node.js`,
+    'rel.m8': `noob_dev · hace 3h`,
+    'link.ghc': `Guía de GitHub Copilot`,
+    'link.cl': `Análisis completo de Claude`,
+    'link.cg': `Análisis completo de ChatGPT`,
+    'link.api': `Desarrolla con APIs de IA`,
+    'author1': `pedro_dev`,
+    'role1': `Miembro · 67 publicaciones`,
+    'time1': `Hace 30 min`,
+    'author2': `senior_dev_rox`,
+    'role2': `Miembro Senior · 892 publicaciones`,
+    'time2': `Hace 20 min`,
+    'body1': `<p>Soy desarrollador full-stack y he estado alternando entre Claude Sonnet 4.5 y GPT-5.5 para mi flujo de trabajo. Comparto mi experiencia:</p>
+<ul>
+  <li><strong>Generación de código desde cero:</strong> Claude gana. Código más limpio, mejores comentarios, patrones más consistentes.</li>
+  <li><strong>Depuración de errores:</strong> Ambos son excelentes. GPT-5.5 puede aventajar ligeramente en interpretación de stack traces.</li>
+  <li><strong>Explicación de código existente:</strong> Claude es significativamente mejor. GPT-5.5 puede ser vago; Claude es preciso.</li>
+  <li><strong>Archivos largos y bases de código:</strong> Claude domina gracias a 200k de contexto. GPT-5.5 empieza a perder el hilo por encima de ~10k tokens.</li>
+  <li><strong>Frontend y React:</strong> GPT-5.5 se siente ligeramente más actualizado en nuevas bibliotecas y patrones.</li>
+</ul>
+<p>¿Qué usan otros para programar? ¿Me falta alguna herramienta?</p>`,
+    'body2': `<p>¿Has probado GitHub Copilot junto a estos? Para sugerencias en el editor sigue sin igual gracias a la integración con el IDE — entiende toda tu base de código, no solo lo que pegas.</p>
+<p>Mi stack personal: GitHub Copilot para autocompletado al escribir, Claude para decisiones arquitectónicas complejas y revisión de código, ChatGPT para consultas rápidas y documentación. Cada uno tiene su lugar. Consulta el <a href="/tutorials/api-development.html">tutorial de desarrollo con APIs</a> — profundiza en el uso conjunto de las APIs de Claude y OpenAI.</p>`
+  }
+};
+
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let lang = urlLang || localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
+if (urlLang) localStorage.setItem('taht-lang', urlLang);
+
+function applyLang(l) {
+  const t = T[l];
+  document.documentElement.lang = l === 'es' ? 'es' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    if (t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    if (t[el.dataset.i18nHtml]) el.innerHTML = t[el.dataset.i18nHtml];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+    if (t[el.dataset.i18nPh]) el.placeholder = t[el.dataset.i18nPh];
+  });
+  document.getElementById('btn-en').classList.toggle('active', l === 'en');
+  document.getElementById('btn-es').classList.toggle('active', l === 'es');
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('taht-lang', l);
+  applyLang(l);
+}
+
+applyLang(lang);
+
+function submitReply(e) {
   e.preventDefault();
-  var ta = e.target.querySelector('textarea');
-  if(!ta.value.trim()) return;
-  var container = e.target.closest('.reply-form');
-  container.innerHTML = '<div style="color:var(--sage2);padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid rgba(122,158,122,.3);font-size:.88rem">✓ Your reply has been posted! It will appear once reviewed by a moderator.</div>';
+  const ta = e.target.querySelector('textarea');
+  if (!ta.value.trim()) return;
+  const form = e.target.closest('.reply-form');
+  form.innerHTML = '<div style="background:rgba(122,158,122,.08);border:1px solid rgba(122,158,122,.25);border-radius:var(--r);padding:16px 20px;font-size:.86rem;color:var(--sage2)">'+T[lang]['reply.ok']+'</div>';
 }
 </script>
 </body>
