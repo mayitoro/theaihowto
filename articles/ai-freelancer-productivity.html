@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>How to Use AI to 3x Your Productivity as a Freelancer — The AI How To</title>
-<meta name="description" content="The exact tools and workflows top freelancers use to earn more while working less."/>
+<title id="page-title">How to Use AI to 3x Your Productivity as a Freelancer — The AI How To</title>
+<meta name="description" id="page-desc" content="The exact tools and workflows top freelancers use to earn more while working less."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px;--fd:'Plus Jakarta Sans',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--fm:'DM Mono',monospace}
@@ -19,106 +19,53 @@ ul{list-style:none}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
 .logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
-.logo-icon span{z-index:1}
 .logo-name{font-size:.9rem;font-weight:600;letter-spacing:-.02em;color:var(--white)}
 .nav-links{display:flex;gap:20px}.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--terra);color:#fff;font-size:.82rem;font-weight:500;padding:7px 16px;border-radius:7px;transition:background .2s}.nav-cta:hover{background:var(--terra2)}
-.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;transition:gap .2s}.nav-back:hover{gap:9px}
-.page-hero{padding:110px 0 60px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.page-hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.o1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.25),transparent 70%);filter:blur(60px)}
-.o2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.2),transparent 70%);filter:blur(50px)}
-.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-.breadcrumb a{color:var(--teal3);transition:color .2s}.breadcrumb a:hover{color:var(--white)}
-.breadcrumb span{color:var(--dim)}
-.tool-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--muted);font-size:.72rem;padding:4px 13px;border-radius:100px;margin-bottom:18px}
-.page-h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.04em;margin-bottom:16px}
-.page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.page-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:28px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-main{background:var(--terra);color:#fff;padding:11px 24px;border-radius:8px;font-weight:500;font-size:.9rem;transition:all .2s;box-shadow:0 6px 20px rgba(193,101,74,.25)}
-.btn-main:hover{background:var(--terra2);transform:translateY(-1px)}
-.btn-ghost{border:1px solid var(--line2);color:var(--muted);padding:11px 24px;border-radius:8px;font-weight:400;font-size:.9rem;transition:all .2s}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal3)}
-.section{padding:72px 0}
-.section-alt{background:var(--bg1)}
-.section-border{border-top:1px solid var(--line)}
-.sh{margin-bottom:40px}
-.sk{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px}
-.sh h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.1;letter-spacing:-.04em}
-.sh h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.sh p{margin-top:12px;font-size:.92rem;color:var(--muted);max-width:560px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
-.card h3{font-size:1rem;font-weight:600;margin-bottom:8px;letter-spacing:-.02em}
-.card p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.feat-list{display:flex;flex-direction:column;gap:10px}
-.feat-item{display:flex;align-items:flex-start;gap:10px;padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--line)}
-.feat-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.feat-item h4{font-size:.88rem;font-weight:600;margin-bottom:3px}
-.feat-item p{font-size:.8rem;color:var(--muted);line-height:1.55}
-.step-list{display:flex;flex-direction:column;gap:0}
-.step-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
-.step-item:last-child{border-bottom:none}
-.step-num{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
-.step-body h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
-.step-body p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.code-block{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.7;margin-top:10px;overflow-x:auto}
-.code-block .kw{color:var(--teal3)}
-.code-block .str{color:var(--sage2)}
-.code-block .cmt{color:var(--dim)}
-.tip-box{background:rgba(45,138,138,.08);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.warn-box{background:rgba(232,133,74,.08);border:1px solid rgba(232,133,74,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.pricing-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.price-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;text-align:center}
-.price-card.highlight{border-color:var(--teal);background:rgba(45,138,138,.06)}
-.price-card .plan{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--teal3);margin-bottom:10px}
-.price-card .amount{font-size:2.2rem;font-weight:700;letter-spacing:-.04em;line-height:1}
-.price-card .amount span{font-size:.9rem;font-weight:400;color:var(--muted)}
-.price-card p{font-size:.8rem;color:var(--muted);margin-top:10px;line-height:1.55}
-.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
-.faq-item{border-bottom:1px solid var(--line);padding:18px 22px;cursor:pointer}
-.faq-item:last-child{border-bottom:none}
-.faq-item:hover{background:var(--bg1)}
-.faq-q{font-size:.9rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-.faq-a{font-size:.85rem;color:var(--muted);line-height:1.65;margin-top:10px;display:none}
-.faq-item.open .faq-a{display:block}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-arrow{transition:transform .2s;color:var(--dim)}
-.prompt-box{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.6;border-left:2px solid var(--teal);cursor:pointer;margin-bottom:8px;transition:border-color .2s}
-.prompt-box:hover{border-color:var(--teal3)}
-.prompt-label{font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
-.copy-inline{background:none;border:1px solid var(--line);color:var(--muted);padding:3px 10px;border-radius:5px;font-size:.7rem;cursor:pointer;font-family:var(--fb);transition:all .2s;margin-top:6px}
-.copy-inline:hover{border-color:var(--teal);color:var(--teal3)}
-.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pc-col h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.pc-col ul li{font-size:.84rem;color:var(--muted);padding:6px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid var(--line)}
-.pc-col ul li:last-child{border-bottom:none}
-.pro::before{content:'✓';color:var(--sage2);font-weight:700;flex-shrink:0}
-.con::before{content:'✗';color:var(--terra2);font-weight:700;flex-shrink:0}
+.lang-sw{display:flex;background:var(--bg3);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang-btn{background:none;border:none;color:var(--muted);padding:5px 10px;font-family:var(--fb);font-size:.73rem;font-weight:500;cursor:pointer;transition:all .15s}
+.lang-btn.active{background:var(--teal);color:#fff}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-sep{width:1px;height:14px;background:var(--line)}
+.nav-cta{background:var(--terra);color:#fff;font-size:.82rem;font-weight:500;padding:7px 16px;border-radius:7px}
+.page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.o1{position:absolute;width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.25),transparent 70%);filter:blur(60px);pointer-events:none}
+.o2{position:absolute;width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.2),transparent 70%);filter:blur(50px);pointer-events:none}
+.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.breadcrumb a{color:var(--teal3)}.breadcrumb span{color:var(--dim)}
+.art-cat{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+.ac-n{color:var(--terra2)}.ac-g{color:var(--teal3)}.ac-c{color:var(--sage2)}.ac-o{color:var(--orange)}
+.page-h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.1;letter-spacing:-.04em;margin:10px 0 16px}
+.art-byline{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--dim)}
+.art-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:500}
+.section{padding:64px 0}
+.art-body{font-size:.95rem;color:var(--muted);line-height:1.85;max-width:760px}
+.art-body h2{font-size:1.3rem;font-weight:700;letter-spacing:-.03em;color:var(--white);margin:36px 0 14px}
+.art-body p{margin-bottom:18px}
+.art-body strong{color:var(--white);font-weight:600}
+.art-body em{color:var(--teal3);font-style:normal}
+.tip-box{background:rgba(45,138,138,.08);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.88rem;color:var(--muted);line-height:1.6;margin:20px 0}
+.share-row{margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.share-label{font-size:.78rem;color:var(--dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:.07em}
+.share-btns{display:flex;gap:8px}
+.share-btn{background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;cursor:pointer;font-family:var(--fb);transition:all .2s}
+.share-btn:hover{border-color:var(--teal);color:var(--teal3)}
+.related-section{background:var(--bg1);border-top:1px solid var(--line);padding:52px 0}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.related-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:flex;align-items:center;gap:14px}
-.related-card:hover{border-color:var(--teal);transform:translateY(-2px)}
-.related-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.related-info strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:3px}
-.related-info span{font-size:.76rem;color:var(--muted)}
-.footer{border-top:1px solid var(--line);background:var(--bg1);padding:48px 0 24px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.rel-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;cursor:pointer;transition:all .2s}
+.rel-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.rel-cat{font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.rel-card h3{font-size:.92rem;font-weight:600;line-height:1.35;color:var(--white)}
+.rel-card p{font-size:.78rem;color:var(--muted);margin-top:6px}
+.footer{border-top:1px solid var(--line);background:var(--bg1);padding:44px 0 22px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
 .fb-desc{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.7;max-width:240px}
 .foot-col h4{font-size:.72rem;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
 .foot-col ul{display:flex;flex-direction:column;gap:9px}
 .foot-col ul li a{font-size:.82rem;color:var(--muted);transition:color .15s}
 .foot-col ul li a:hover{color:var(--white)}
-.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);flex-wrap:wrap;gap:10px}
+.foot-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);flex-wrap:wrap;gap:10px}
 .foot-links{display:flex;gap:18px}
-.foot-links a:hover{color:var(--muted)}
-.social-row{display:flex;gap:6px;margin-top:14px}
-.s-btn{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .15s}
-.s-btn:hover{border-color:var(--teal);color:var(--teal3)}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--bg3);border:1px solid var(--teal);color:var(--teal3);padding:9px 20px;border-radius:8px;font-size:.82rem;transition:transform .3s;z-index:999}
-.toast.show{transform:translateX(-50%) translateY(0)}
-@media(max-width:768px){.nav-links,.nav-cta{display:none}.grid-2,.grid-3,.pricing-row,.pros-cons,.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.lang-sw{display:none}.art-body{font-size:.9rem}.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -127,82 +74,71 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#tools" data-i18n="nav.tools">Tools</a>
+        <a href="/#tutorials" data-i18n="nav.tut">Tutorials</a>
+        <a href="/#articles" data-i18n="nav.art">Articles</a>
+        <a href="/#prompts" data-i18n="nav.pro">Prompts</a>
+        <a href="/#compare" data-i18n="nav.cmp">Compare</a>
       </div>
-      <a href="/" class="nav-back">← Home</a>
+      <div class="nav-right">
+        <div class="lang-sw">
+          <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇺🇸 EN</button>
+          <div class="nav-sep"></div>
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">🇪🇸 ES</button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 
-<nav class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
-      <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
-      </div>
-      <a href="/" class="nav-back">← Home</a>
-    </div>
-  </div>
-</nav>
 <section class="page-hero">
-  <div class="page-hero-orb o1"></div>
+  <div class="o1"></div><div class="o2"></div>
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/#articles">Articles</a><span>›</span><span>Guide</span></div>
-    <span style="font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--terra2)">Guide</span>
-    <h1 class="page-h1" style="margin-top:10px">How to Use AI to 3x Your Productivity as a Freelancer</h1>
-    <div style="display:flex;align-items:center;gap:12px;margin-top:16px;font-size:.82rem;color:var(--dim)">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:500">A</div>
-      <span>Alex T.</span>
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#articles" data-i18n="nav.art">Articles</a><span>›</span>
+      <span class="ac-g" id="art-cat">Guide</span>
+    </div>
+    <h1 class="page-h1" id="art-title">How to Use AI to 3x Your Productivity as a Freelancer</h1>
+    <div class="art-byline">
+      <div class="art-av" style="background:rgba(122,158,122,.2);color:var(--sage2)">A</div>
+      <span id="art-author">Alex T.</span>
       <span>·</span>
-      <span>May 10, 2025</span>
+      <span id="art-date">May 10, 2025</span>
       <span>·</span>
-      <span>10 min read</span>
+      <span id="art-read">10 min read</span>
     </div>
   </div>
 </section>
+
 <section class="section">
-  <div class="container" style="max-width:760px">
-    <div style="font-size:.95rem;color:var(--muted);line-height:1.85">
-      <p>I've interviewed 50 high-earning freelancers over the past year — designers, writers, developers, consultants — and asked them one question: how has AI changed your business? The answers were remarkably consistent. AI hasn't replaced their work. It's multiplied their output.</p>
-<h2>The 3x Framework</h2>
+  <div class="container">
+    <div class="art-body" id="art-body"><h2>The 3x Framework</h2>
 <p>The most successful freelancers use AI at three levels: <strong>Speed</strong> (do existing work faster), <strong>Scale</strong> (take on more clients without proportionally more time), and <strong>Scope</strong> (offer new services you couldn't before).</p>
 <h2>For Writers & Content Creators</h2>
-<p>The freelancers earning the most aren't using AI to write for them — they're using it to dramatically speed up research and ideation. A content writer shared her workflow: 30 minutes of interviews + ChatGPT for transcript analysis + Claude for first draft + human editing = articles in 3 hours instead of 8.</p>
+<p>The freelancers earning the most aren't using AI to write for them — they're using it to dramatically speed up research and ideation. A content writer's workflow: 30 minutes of interviews + ChatGPT for transcript analysis + Claude for first draft + human editing = articles in 3 hours instead of 8.</p>
 <div class="tip-box">💡 <div><strong>Best tools:</strong> Claude for long-form drafting, Perplexity for research with sources, ChatGPT for editing and tone adjustment.</div></div>
 <h2>For Developers</h2>
-<p>GitHub Copilot is table stakes now. The freelancers gaining the biggest advantage are using Claude or ChatGPT for architecture decisions, code review, and writing tests. One developer reported taking on 40% more projects after integrating AI into his workflow.</p>
+<p>GitHub Copilot is table stakes now. The freelancers gaining the biggest advantage are using Claude or ChatGPT for architecture decisions, code review, and writing tests. One developer reported taking on <strong>40% more projects</strong> after integrating AI into his workflow.</p>
 <h2>For Designers</h2>
 <p>Midjourney for concept exploration, ChatGPT for writing copy and UX microcopy, and Claude for writing creative briefs have become standard. The designers who stand out are those who know how to prompt these tools precisely.</p>
 <h2>The Non-Negotiable Tools</h2>
-<p>Regardless of your specialty, these tools pay for themselves immediately: <strong>ChatGPT Plus</strong> ($20/mo) for versatility, <strong>Perplexity</strong> for research, and <strong>Claude</strong> for document-heavy work. That's $40/month that most freelancers recoup in the first hour of use.</p>
-    </div>
-    <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line)">
-      <div style="font-size:.8rem;color:var(--dim);margin-bottom:16px">SHARE THIS ARTICLE</div>
-      <div style="display:flex;gap:8px">
-        <a href="#" style="background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--line)'">Share on X</a>
-        <a href="#" style="background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--line)'">Share on LinkedIn</a>
+<p>Regardless of your specialty, these tools pay for themselves immediately: <strong>ChatGPT Plus</strong> ($20/mo) for versatility, <strong>Perplexity</strong> for research, and <strong>Claude</strong> for document-heavy work. That's $40/month that most freelancers recoup in the first hour of use.</p></div>
+    <div class="share-row">
+      <div class="share-label" data-i18n="share">SHARE THIS ARTICLE</div>
+      <div class="share-btns">
+        <button class="share-btn" onclick="navigator.share && navigator.share({title:document.title,url:window.location.href})">Share on X</button>
+        <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+window.location.href)">LinkedIn</button>
       </div>
     </div>
   </div>
 </section>
-<section class="section section-alt section-border">
-  <div class="container" style="max-width:760px;text-align:center">
-    <div class="sh center"><div class="sk">More articles</div><h2>Keep <em>reading</em></h2></div>
-    <div class="grid-2">
-      <a href="/#articles" class="card" style="text-align:left;display:block"><h3>📰 All articles</h3><p style="margin-top:6px">Browse all our news, guides, and analysis.</p></a>
-      <a href="/#newsletter" class="card" style="text-align:left;display:block"><h3>📬 Newsletter</h3><p style="margin-top:6px">Get the 5 most important AI stories every Monday.</p></a>
-    </div>
+
+<section class="related-section">
+  <div class="container">
+    <div style="font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px" data-i18n="rel.kicker">Keep reading</div>
+    <h2 style="font-size:1.4rem;font-weight:700;letter-spacing:-.04em;margin-bottom:24px" data-i18n="rel.title">Related <span style="font-weight:300;color:var(--teal3)">articles</span></h2>
+    <div class="related-grid" id="rel-grid"><a href="/tutorials/automation.html" class="rel-card"><div class="rel-cat ac-g">Automate with AI</div><h3>No-code AI automation guide</h3></a><a href="/tutorials/prompt-engineering.html" class="rel-card"><div class="rel-cat ac-g">Prompt Engineering</div><h3>Advanced prompting techniques</h3></a><a href="/articles/will-ai-take-my-job.html" class="rel-card"><div class="rel-cat ac-o">Will AI take my job?</div><h3>Honest analysis for 2025</h3></a></div>
   </div>
 </section>
 
@@ -211,41 +147,111 @@ ul{list-style:none}
     <div class="footer-grid">
       <div>
         <div class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></div>
-        <p class="fb-desc">The bilingual AI community for English and Spanish speakers.</p>
-        <div class="social-row">
-          <a href="#" class="s-btn">𝕏</a><a href="#" class="s-btn">▶</a><a href="#" class="s-btn">💬</a><a href="#" class="s-btn">in</a>
-        </div>
+        <p class="fb-desc" data-i18n="ft.d">The bilingual AI community for English and Spanish speakers.</p>
       </div>
-      <div class="foot-col"><h4>Tools</h4><ul>
+      <div class="foot-col"><h4 data-i18n="ft.tools">Tools</h4><ul>
         <li><a href="/tools/chatgpt.html">ChatGPT</a></li>
         <li><a href="/tools/claude.html">Claude</a></li>
         <li><a href="/tools/gemini.html">Gemini</a></li>
-        <li><a href="/tools/copilot.html">Copilot</a></li>
-        <li><a href="/#tools">View all →</a></li>
+        <li><a href="/#tools" data-i18n="ft.all">View all →</a></li>
       </ul></div>
-      <div class="foot-col"><h4>Learn</h4><ul>
-        <li><a href="/#tutorials">Tutorials</a></li>
-        <li><a href="/#prompts">Prompts</a></li>
-        <li><a href="/#compare">Compare</a></li>
-        <li><a href="/courses.html">Courses</a></li>
+      <div class="foot-col"><h4 data-i18n="ft.learn">Learn</h4><ul>
+        <li><a href="/#tutorials" data-i18n="nav.tut">Tutorials</a></li>
+        <li><a href="/#prompts" data-i18n="nav.pro">Prompts</a></li>
+        <li><a href="/#articles" data-i18n="nav.art">Articles</a></li>
       </ul></div>
-      <div class="foot-col"><h4>Company</h4><ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
+      <div class="foot-col"><h4 data-i18n="ft.co">Company</h4><ul>
+        <li><a href="/about.html" data-i18n="ft.ab">About</a></li>
+        <li><a href="/contact.html" data-i18n="ft.con">Contact</a></li>
+        <li><a href="/privacy.html" data-i18n="ft.pr">Privacy</a></li>
       </ul></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2025 The AI How To · All rights reserved</span>
-      <div class="foot-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a></div>
+      <span>© 2025 The AI How To</span>
+      <div class="foot-links"><a href="/privacy.html" data-i18n="ft.pr">Privacy</a><a href="/terms.html" data-i18n="ft.te">Terms</a></div>
     </div>
   </div>
 </footer>
-<div class="toast" id="toast">✓ Copied</div>
+
 <script>
-function faq(el){el.classList.toggle('open')}
-function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+const T = {
+  en: {
+    'nav.tools':'Tools','nav.tut':'Tutorials','nav.art':'Articles','nav.pro':'Prompts','nav.cmp':'Compare',
+    'ft.d':'The bilingual AI community for English and Spanish speakers.',
+    'ft.tools':'Tools','ft.learn':'Learn','ft.co':'Company','ft.all':'View all →',
+    'ft.ab':'About','ft.con':'Contact','ft.pr':'Privacy','ft.te':'Terms',
+    'share':'SHARE THIS ARTICLE','rel.kicker':'Keep reading','rel.title':'Related',
+    'art': {
+      'cat': 'Guide', 'title': `How to Use AI to 3x Your Productivity as a Freelancer`,
+      'author': 'Alex T.', 'date': 'May 10, 2025', 'read': '10 min read',
+      'desc': 'The exact tools and workflows top freelancers use to earn more while working less.',
+      'body': `<h2>The 3x Framework</h2>
+<p>The most successful freelancers use AI at three levels: <strong>Speed</strong> (do existing work faster), <strong>Scale</strong> (take on more clients without proportionally more time), and <strong>Scope</strong> (offer new services you couldn't before).</p>
+<h2>For Writers & Content Creators</h2>
+<p>The freelancers earning the most aren't using AI to write for them — they're using it to dramatically speed up research and ideation. A content writer's workflow: 30 minutes of interviews + ChatGPT for transcript analysis + Claude for first draft + human editing = articles in 3 hours instead of 8.</p>
+<div class="tip-box">💡 <div><strong>Best tools:</strong> Claude for long-form drafting, Perplexity for research with sources, ChatGPT for editing and tone adjustment.</div></div>
+<h2>For Developers</h2>
+<p>GitHub Copilot is table stakes now. The freelancers gaining the biggest advantage are using Claude or ChatGPT for architecture decisions, code review, and writing tests. One developer reported taking on <strong>40% more projects</strong> after integrating AI into his workflow.</p>
+<h2>For Designers</h2>
+<p>Midjourney for concept exploration, ChatGPT for writing copy and UX microcopy, and Claude for writing creative briefs have become standard. The designers who stand out are those who know how to prompt these tools precisely.</p>
+<h2>The Non-Negotiable Tools</h2>
+<p>Regardless of your specialty, these tools pay for themselves immediately: <strong>ChatGPT Plus</strong> ($20/mo) for versatility, <strong>Perplexity</strong> for research, and <strong>Claude</strong> for document-heavy work. That's $40/month that most freelancers recoup in the first hour of use.</p>`,
+      'related': `<a href="/tutorials/automation.html" class="rel-card"><div class="rel-cat ac-g">Automate with AI</div><h3>No-code AI automation guide</h3></a><a href="/tutorials/prompt-engineering.html" class="rel-card"><div class="rel-cat ac-g">Prompt Engineering</div><h3>Advanced prompting techniques</h3></a><a href="/articles/will-ai-take-my-job.html" class="rel-card"><div class="rel-cat ac-o">Will AI take my job?</div><h3>Honest analysis for 2025</h3></a>`
+    }
+  },
+  es: {
+    'nav.tools':'Herramientas','nav.tut':'Tutoriales','nav.art':'Artículos','nav.pro':'Prompts','nav.cmp':'Comparar',
+    'ft.d':'La comunidad de IA bilingüe para hispanohablantes y angloparlantes.',
+    'ft.tools':'Herramientas','ft.learn':'Aprender','ft.co':'Empresa','ft.all':'Ver todas →',
+    'ft.ab':'Sobre nosotros','ft.con':'Contacto','ft.pr':'Privacidad','ft.te':'Términos',
+    'share':'COMPARTIR ESTE ARTÍCULO','rel.kicker':'Seguir leyendo','rel.title':'Artículos',
+    'art': {
+      'cat': 'Guía', 'title': `Cómo Usar la IA para Triplicar tu Productividad como Freelancer`,
+      'author': 'Alex T.', 'date': '10 mayo 2025', 'read': '10 min de lectura',
+      'desc': 'Las herramientas y flujos de trabajo exactos que usan los mejores freelancers para ganar más trabajando menos.',
+      'body': `<h2>El marco de las 3x</h2>
+<p>Los freelancers más exitosos usan la IA en tres niveles: <strong>Velocidad</strong> (hacer el trabajo existente más rápido), <strong>Escala</strong> (aceptar más clientes sin proporcionalmente más tiempo) y <strong>Alcance</strong> (ofrecer nuevos servicios que antes no podías).</p>
+<h2>Para escritores y creadores de contenido</h2>
+<p>Los freelancers que más ganan no usan la IA para escribir por ellos, sino para acelerar dramáticamente la investigación y la ideación. El flujo de trabajo: 30 minutos de entrevistas + ChatGPT para análisis de transcripciones + Claude para el primer borrador + edición humana = artículos en 3 horas en lugar de 8.</p>
+<div class="tip-box">💡 <div><strong>Mejores herramientas:</strong> Claude para borradores extensos, Perplexity para investigación con fuentes, ChatGPT para edición y ajuste de tono.</div></div>
+<h2>Para desarrolladores</h2>
+<p>GitHub Copilot ya es lo mínimo. Los freelancers que más ventaja obtienen usan Claude o ChatGPT para decisiones de arquitectura, revisión de código y escritura de tests. Un desarrollador reportó aceptar un <strong>40% más de proyectos</strong> tras integrar IA en su flujo de trabajo.</p>
+<h2>Para diseñadores</h2>
+<p>Midjourney para exploración de conceptos, ChatGPT para textos de UX y microcopy, y Claude para redactar briefs creativos se han vuelto estándar. Los diseñadores que destacan son los que saben hacer prompts precisos a estas herramientas.</p>
+<h2>Las herramientas imprescindibles</h2>
+<p>Sin importar tu especialidad, estas herramientas se pagan solas de inmediato: <strong>ChatGPT Plus</strong> ($20/mes) por versatilidad, <strong>Perplexity</strong> para investigación y <strong>Claude</strong> para trabajo con documentos. Son $40/mes que la mayoría de freelancers recuperan en la primera hora de uso.</p>`,
+      'related': `<a href="/tutorials/automation.html" class="rel-card"><div class="rel-cat ac-g">Automate with AI</div><h3>Guía de automatización con IA</h3></a><a href="/tutorials/prompt-engineering.html" class="rel-card"><div class="rel-cat ac-g">Prompt Engineering</div><h3>Técnicas avanzadas de prompting</h3></a><a href="/articles/will-ai-take-my-job.html" class="rel-card"><div class="rel-cat ac-o">Will AI take my job?</div><h3>Análisis honesto para 2025</h3></a>`
+    }
+  }
+};
+
+let lang = localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('en') ? 'en' : 'es');
+
+function applyLang(l) {
+  const t = T[l];
+  const a = t.art;
+  document.documentElement.lang = l;
+  document.getElementById('page-title').textContent = a.title + ' — The AI How To';
+  document.getElementById('page-desc').setAttribute('content', a.desc);
+  document.getElementById('art-cat').textContent = a.cat;
+  document.getElementById('art-title').textContent = a.title;
+  document.getElementById('art-author').textContent = a.author;
+  document.getElementById('art-date').textContent = a.date;
+  document.getElementById('art-read').textContent = a.read;
+  document.getElementById('art-body').innerHTML = a.body;
+  document.getElementById('rel-grid').innerHTML = a.related;
+  document.querySelectorAll('[data-i18n]').forEach(el => { if(t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n]; });
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('taht-lang', l);
+  applyLang(l);
+}
+
+applyLang(lang);
 </script>
 </body>
 </html>

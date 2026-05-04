@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>GPT-5 vs Claude 4 Opus: The Battle for the Smartest AI Model — The AI How To</title>
-<meta name="description" content="We independently tested GPT-5 and Claude 4 Opus across 50+ tasks. Here's what we found."/>
+<title id="page-title">GPT-5 vs Claude 4 Opus: The Battle for the Smartest AI Model — The AI How To</title>
+<meta name="description" id="page-desc" content="We independently tested GPT-5 and Claude 4 Opus across 50+ tasks. Here's what we found."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px;--fd:'Plus Jakarta Sans',sans-serif;--fb:'Plus Jakarta Sans',sans-serif;--fm:'DM Mono',monospace}
@@ -19,106 +19,53 @@ ul{list-style:none}
 .logo{display:flex;align-items:center;gap:9px}
 .logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
 .logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
-.logo-icon span{z-index:1}
 .logo-name{font-size:.9rem;font-weight:600;letter-spacing:-.02em;color:var(--white)}
 .nav-links{display:flex;gap:20px}.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}.nav-links a:hover{color:var(--white)}
-.nav-cta{background:var(--terra);color:#fff;font-size:.82rem;font-weight:500;padding:7px 16px;border-radius:7px;transition:background .2s}.nav-cta:hover{background:var(--terra2)}
-.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;transition:gap .2s}.nav-back:hover{gap:9px}
-.page-hero{padding:110px 0 60px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.page-hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.o1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.25),transparent 70%);filter:blur(60px)}
-.o2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.2),transparent 70%);filter:blur(50px)}
-.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:16px;display:flex;align-items:center;gap:6px}
-.breadcrumb a{color:var(--teal3);transition:color .2s}.breadcrumb a:hover{color:var(--white)}
-.breadcrumb span{color:var(--dim)}
-.tool-badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line2);background:rgba(255,255,255,.04);color:var(--muted);font-size:.72rem;padding:4px 13px;border-radius:100px;margin-bottom:18px}
-.page-h1{font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.04em;margin-bottom:16px}
-.page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.page-sub{font-size:1rem;color:var(--muted);line-height:1.7;max-width:600px;margin-bottom:28px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.btn-main{background:var(--terra);color:#fff;padding:11px 24px;border-radius:8px;font-weight:500;font-size:.9rem;transition:all .2s;box-shadow:0 6px 20px rgba(193,101,74,.25)}
-.btn-main:hover{background:var(--terra2);transform:translateY(-1px)}
-.btn-ghost{border:1px solid var(--line2);color:var(--muted);padding:11px 24px;border-radius:8px;font-weight:400;font-size:.9rem;transition:all .2s}
-.btn-ghost:hover{border-color:var(--teal);color:var(--teal3)}
-.section{padding:72px 0}
-.section-alt{background:var(--bg1)}
-.section-border{border-top:1px solid var(--line)}
-.sh{margin-bottom:40px}
-.sk{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px}
-.sh h2{font-size:clamp(1.6rem,3vw,2.4rem);font-weight:700;line-height:1.1;letter-spacing:-.04em}
-.sh h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-.sh p{margin-top:12px;font-size:.92rem;color:var(--muted);max-width:560px}
-.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px}
-.card h3{font-size:1rem;font-weight:600;margin-bottom:8px;letter-spacing:-.02em}
-.card p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.feat-list{display:flex;flex-direction:column;gap:10px}
-.feat-item{display:flex;align-items:flex-start;gap:10px;padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid var(--line)}
-.feat-icon{font-size:1.1rem;flex-shrink:0;margin-top:1px}
-.feat-item h4{font-size:.88rem;font-weight:600;margin-bottom:3px}
-.feat-item p{font-size:.8rem;color:var(--muted);line-height:1.55}
-.step-list{display:flex;flex-direction:column;gap:0}
-.step-item{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
-.step-item:last-child{border-bottom:none}
-.step-num{width:32px;height:32px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;margin-top:2px}
-.step-body h3{font-size:.95rem;font-weight:600;margin-bottom:6px}
-.step-body p{font-size:.85rem;color:var(--muted);line-height:1.65}
-.code-block{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.7;margin-top:10px;overflow-x:auto}
-.code-block .kw{color:var(--teal3)}
-.code-block .str{color:var(--sage2)}
-.code-block .cmt{color:var(--dim)}
-.tip-box{background:rgba(45,138,138,.08);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.warn-box{background:rgba(232,133,74,.08);border:1px solid rgba(232,133,74,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.85rem;color:var(--muted);line-height:1.6}
-.pricing-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.price-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;text-align:center}
-.price-card.highlight{border-color:var(--teal);background:rgba(45,138,138,.06)}
-.price-card .plan{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--teal3);margin-bottom:10px}
-.price-card .amount{font-size:2.2rem;font-weight:700;letter-spacing:-.04em;line-height:1}
-.price-card .amount span{font-size:.9rem;font-weight:400;color:var(--muted)}
-.price-card p{font-size:.8rem;color:var(--muted);margin-top:10px;line-height:1.55}
-.faq-list{display:flex;flex-direction:column;gap:0;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden}
-.faq-item{border-bottom:1px solid var(--line);padding:18px 22px;cursor:pointer}
-.faq-item:last-child{border-bottom:none}
-.faq-item:hover{background:var(--bg1)}
-.faq-q{font-size:.9rem;font-weight:500;display:flex;justify-content:space-between;align-items:center}
-.faq-a{font-size:.85rem;color:var(--muted);line-height:1.65;margin-top:10px;display:none}
-.faq-item.open .faq-a{display:block}
-.faq-item.open .faq-arrow{transform:rotate(180deg)}
-.faq-arrow{transition:transform .2s;color:var(--dim)}
-.prompt-box{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:16px;font-family:var(--fm);font-size:.8rem;color:var(--white);line-height:1.6;border-left:2px solid var(--teal);cursor:pointer;margin-bottom:8px;transition:border-color .2s}
-.prompt-box:hover{border-color:var(--teal3)}
-.prompt-label{font-size:.68rem;color:var(--dim);text-transform:uppercase;letter-spacing:.07em;margin-bottom:6px}
-.copy-inline{background:none;border:1px solid var(--line);color:var(--muted);padding:3px 10px;border-radius:5px;font-size:.7rem;cursor:pointer;font-family:var(--fb);transition:all .2s;margin-top:6px}
-.copy-inline:hover{border-color:var(--teal);color:var(--teal3)}
-.pros-cons{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.pc-col h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.pc-col ul li{font-size:.84rem;color:var(--muted);padding:6px 0;display:flex;align-items:flex-start;gap:8px;border-bottom:1px solid var(--line)}
-.pc-col ul li:last-child{border-bottom:none}
-.pro::before{content:'✓';color:var(--sage2);font-weight:700;flex-shrink:0}
-.con::before{content:'✗';color:var(--terra2);font-weight:700;flex-shrink:0}
+.lang-sw{display:flex;background:var(--bg3);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.lang-btn{background:none;border:none;color:var(--muted);padding:5px 10px;font-family:var(--fb);font-size:.73rem;font-weight:500;cursor:pointer;transition:all .15s}
+.lang-btn.active{background:var(--teal);color:#fff}
+.nav-right{display:flex;align-items:center;gap:8px}
+.nav-sep{width:1px;height:14px;background:var(--line)}
+.nav-cta{background:var(--terra);color:#fff;font-size:.82rem;font-weight:500;padding:7px 16px;border-radius:7px}
+.page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.o1{position:absolute;width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.25),transparent 70%);filter:blur(60px);pointer-events:none}
+.o2{position:absolute;width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.2),transparent 70%);filter:blur(50px);pointer-events:none}
+.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:14px;display:flex;align-items:center;gap:6px}
+.breadcrumb a{color:var(--teal3)}.breadcrumb span{color:var(--dim)}
+.art-cat{font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+.ac-n{color:var(--terra2)}.ac-g{color:var(--teal3)}.ac-c{color:var(--sage2)}.ac-o{color:var(--orange)}
+.page-h1{font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;line-height:1.1;letter-spacing:-.04em;margin:10px 0 16px}
+.art-byline{display:flex;align-items:center;gap:10px;font-size:.82rem;color:var(--dim)}
+.art-av{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:500}
+.section{padding:64px 0}
+.art-body{font-size:.95rem;color:var(--muted);line-height:1.85;max-width:760px}
+.art-body h2{font-size:1.3rem;font-weight:700;letter-spacing:-.03em;color:var(--white);margin:36px 0 14px}
+.art-body p{margin-bottom:18px}
+.art-body strong{color:var(--white);font-weight:600}
+.art-body em{color:var(--teal3);font-style:normal}
+.tip-box{background:rgba(45,138,138,.08);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;display:flex;gap:10px;font-size:.88rem;color:var(--muted);line-height:1.6;margin:20px 0}
+.share-row{margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.share-label{font-size:.78rem;color:var(--dim);margin-bottom:12px;text-transform:uppercase;letter-spacing:.07em}
+.share-btns{display:flex;gap:8px}
+.share-btn{background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;cursor:pointer;font-family:var(--fb);transition:all .2s}
+.share-btn:hover{border-color:var(--teal);color:var(--teal3)}
+.related-section{background:var(--bg1);border-top:1px solid var(--line);padding:52px 0}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.related-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:flex;align-items:center;gap:14px}
-.related-card:hover{border-color:var(--teal);transform:translateY(-2px)}
-.related-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.related-info strong{display:block;font-size:.9rem;font-weight:600;margin-bottom:3px}
-.related-info span{font-size:.76rem;color:var(--muted)}
-.footer{border-top:1px solid var(--line);background:var(--bg1);padding:48px 0 24px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px}
+.rel-card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;cursor:pointer;transition:all .2s}
+.rel-card:hover{border-color:var(--teal);transform:translateY(-2px)}
+.rel-cat{font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px}
+.rel-card h3{font-size:.92rem;font-weight:600;line-height:1.35;color:var(--white)}
+.rel-card p{font-size:.78rem;color:var(--muted);margin-top:6px}
+.footer{border-top:1px solid var(--line);background:var(--bg1);padding:44px 0 22px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:32px}
 .fb-desc{font-size:.82rem;color:var(--muted);margin-top:12px;line-height:1.7;max-width:240px}
 .foot-col h4{font-size:.72rem;font-weight:500;color:var(--dim);text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px}
 .foot-col ul{display:flex;flex-direction:column;gap:9px}
 .foot-col ul li a{font-size:.82rem;color:var(--muted);transition:color .15s}
 .foot-col ul li a:hover{color:var(--white)}
-.foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);flex-wrap:wrap;gap:10px}
+.foot-bottom{border-top:1px solid var(--line);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:var(--dim);flex-wrap:wrap;gap:10px}
 .foot-links{display:flex;gap:18px}
-.foot-links a:hover{color:var(--muted)}
-.social-row{display:flex;gap:6px;margin-top:14px}
-.s-btn{width:30px;height:30px;border-radius:7px;border:1px solid var(--line);background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .15s}
-.s-btn:hover{border-color:var(--teal);color:var(--teal3)}
-.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(70px);background:var(--bg3);border:1px solid var(--teal);color:var(--teal3);padding:9px 20px;border-radius:8px;font-size:.82rem;transition:transform .3s;z-index:999}
-.toast.show{transform:translateX(-50%) translateY(0)}
-@media(max-width:768px){.nav-links,.nav-cta{display:none}.grid-2,.grid-3,.pricing-row,.pros-cons,.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.lang-sw{display:none}.art-body{font-size:.9rem}.related-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -127,84 +74,73 @@ ul{list-style:none}
     <div class="nav-inner">
       <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
       <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
+        <a href="/#tools" data-i18n="nav.tools">Tools</a>
+        <a href="/#tutorials" data-i18n="nav.tut">Tutorials</a>
+        <a href="/#articles" data-i18n="nav.art">Articles</a>
+        <a href="/#prompts" data-i18n="nav.pro">Prompts</a>
+        <a href="/#compare" data-i18n="nav.cmp">Compare</a>
       </div>
-      <a href="/" class="nav-back">← Home</a>
+      <div class="nav-right">
+        <div class="lang-sw">
+          <button class="lang-btn" onclick="setLang('en')" id="btn-en">🇺🇸 EN</button>
+          <div class="nav-sep"></div>
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">🇪🇸 ES</button>
+        </div>
+      </div>
     </div>
   </div>
 </nav>
 
-<nav class="nav">
-  <div class="container">
-    <div class="nav-inner">
-      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
-      <div class="nav-links">
-        <a href="/#tools">Tools</a>
-        <a href="/#tutorials">Tutorials</a>
-        <a href="/#articles">Articles</a>
-        <a href="/#prompts">Prompts</a>
-        <a href="/#compare">Compare</a>
-        <a href="/#forum">Forum</a>
-      </div>
-      <a href="/" class="nav-back">← Home</a>
-    </div>
-  </div>
-</nav>
 <section class="page-hero">
-  <div class="page-hero-orb o1"></div>
+  <div class="o1"></div><div class="o2"></div>
   <div class="container">
-    <div class="breadcrumb"><a href="/">Home</a><span>›</span><a href="/#articles">Articles</a><span>›</span><span>News</span></div>
-    <span style="font-size:.72rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--terra2)">News</span>
-    <h1 class="page-h1" style="margin-top:10px">GPT-5 vs Claude 4 Opus: The Battle for the Smartest AI Model</h1>
-    <div style="display:flex;align-items:center;gap:12px;margin-top:16px;font-size:.82rem;color:var(--dim)">
-      <div style="width:28px;height:28px;border-radius:50%;background:var(--bg2);border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:.76rem;font-weight:500">M</div>
-      <span>Maria S.</span>
+    <div class="breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/#articles" data-i18n="nav.art">Articles</a><span>›</span>
+      <span class="ac-n" id="art-cat">News</span>
+    </div>
+    <h1 class="page-h1" id="art-title">GPT-5 vs Claude 4 Opus: The Battle for the Smartest AI Model</h1>
+    <div class="art-byline">
+      <div class="art-av" style="background:rgba(45,138,138,.2);color:var(--teal3)">M</div>
+      <span id="art-author">Maria S.</span>
       <span>·</span>
-      <span>May 12, 2025</span>
+      <span id="art-date">May 12, 2025</span>
       <span>·</span>
-      <span>8 min read</span>
+      <span id="art-read">8 min read</span>
     </div>
   </div>
 </section>
+
 <section class="section">
-  <div class="container" style="max-width:760px">
-    <div style="font-size:.95rem;color:var(--muted);line-height:1.85">
-      <p>The AI landscape in 2025 is defined by a head-to-head rivalry between OpenAI's GPT-5 and Anthropic's Claude 4 Opus. Both models represent a significant leap over their predecessors, but they excel in different areas — and choosing between them depends entirely on your use case.</p>
-<h2>How We Tested</h2>
-<p>We ran both models through 50+ standardized tasks across six categories: reasoning, coding, creative writing, document analysis, mathematics, and instruction following. All tests were run blind by three independent evaluators who did not know which model produced which response.</p>
+  <div class="container">
+    <div class="art-body" id="art-body"><h2>How We Tested</h2>
+<p>We ran both models through <strong>50+ standardized tasks</strong> across six categories: reasoning, coding, creative writing, document analysis, mathematics, and instruction following. All tests were run blind by three independent evaluators.</p>
 <h2>Reasoning & Problem Solving</h2>
 <p>Claude 4 Opus narrowly edges out GPT-5 on complex reasoning tasks, particularly those requiring multi-step logic and the ability to maintain consistent reasoning across long contexts. GPT-5 closes the gap on shorter reasoning challenges.</p>
 <div class="tip-box">💡 <div><strong>Key finding:</strong> For tasks requiring reasoning over 50,000+ tokens (large documents, codebases), Claude 4 Opus wins decisively due to its superior context retention.</div></div>
 <h2>Coding Quality</h2>
-<p>This is the closest category. Both models write excellent code. Claude 4 Opus produces slightly more maintainable code with better comments and follows language idioms more naturally. GPT-5 is faster and better at generating boilerplate rapidly.</p>
+<p>Both models write excellent code. <em>Claude 4 Opus</em> produces slightly more maintainable code with better comments. <em>GPT-5</em> is faster and better at generating boilerplate rapidly. For complex architecture decisions, Claude wins. For speed, GPT-5.</p>
 <h2>Creative Writing</h2>
-<p>GPT-5 is more creatively surprising and takes more interesting narrative risks. Claude 4 Opus writes more polished, technically correct prose but plays it safer. For marketing copy and business writing, Claude wins. For fiction and creative ideation, GPT-5 is the choice.</p>
+<p>GPT-5 is more creatively surprising and takes more interesting narrative risks. Claude 4 Opus writes more polished, technically correct prose. For marketing copy: Claude wins. For fiction and creative ideation: GPT-5.</p>
 <h2>Price Comparison</h2>
-<p>Both Claude 4 Opus Pro and ChatGPT Plus are priced at $20/month. At the API level, pricing is comparable — check the latest rates on each company's pricing page as these update frequently.</p>
+<p>Both Claude 4 Opus Pro and ChatGPT Plus are priced at <strong>$20/month</strong>. At the API level, pricing is comparable — check the latest rates on each company's pricing page as these update frequently.</p>
 <h2>Our Verdict</h2>
-<p>For most users, both models are exceptional and either will serve you well. If you work heavily with documents, code review, or complex analysis: <strong>Claude 4 Opus</strong>. If you want the best creative output and the widest ecosystem of plugins and integrations: <strong>GPT-5</strong>.</p>
-    </div>
-    <div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--line)">
-      <div style="font-size:.8rem;color:var(--dim);margin-bottom:16px">SHARE THIS ARTICLE</div>
-      <div style="display:flex;gap:8px">
-        <a href="#" style="background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--line)'">Share on X</a>
-        <a href="#" style="background:var(--bg2);border:1px solid var(--line);color:var(--muted);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s" onmouseover="this.style.borderColor='var(--teal)'" onmouseout="this.style.borderColor='var(--line)'">Share on LinkedIn</a>
+<p>For most users, both models are exceptional. If you work with documents, code review, or complex analysis: <strong>Claude 4 Opus</strong>. If you want the best creative output and widest ecosystem: <strong>GPT-5</strong>.</p></div>
+    <div class="share-row">
+      <div class="share-label" data-i18n="share">SHARE THIS ARTICLE</div>
+      <div class="share-btns">
+        <button class="share-btn" onclick="navigator.share && navigator.share({title:document.title,url:window.location.href})">Share on X</button>
+        <button class="share-btn" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+window.location.href)">LinkedIn</button>
       </div>
     </div>
   </div>
 </section>
-<section class="section section-alt section-border">
-  <div class="container" style="max-width:760px;text-align:center">
-    <div class="sh center"><div class="sk">More articles</div><h2>Keep <em>reading</em></h2></div>
-    <div class="grid-2">
-      <a href="/#articles" class="card" style="text-align:left;display:block"><h3>📰 All articles</h3><p style="margin-top:6px">Browse all our news, guides, and analysis.</p></a>
-      <a href="/#newsletter" class="card" style="text-align:left;display:block"><h3>📬 Newsletter</h3><p style="margin-top:6px">Get the 5 most important AI stories every Monday.</p></a>
-    </div>
+
+<section class="related-section">
+  <div class="container">
+    <div style="font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px" data-i18n="rel.kicker">Keep reading</div>
+    <h2 style="font-size:1.4rem;font-weight:700;letter-spacing:-.04em;margin-bottom:24px" data-i18n="rel.title">Related <span style="font-weight:300;color:var(--teal3)">articles</span></h2>
+    <div class="related-grid" id="rel-grid"><a href="/tools/chatgpt.html" class="rel-card"><div class="rel-cat ac-n">ChatGPT Guide</div><h3>Complete guide to ChatGPT 2025</h3></a><a href="/tools/claude.html" class="rel-card"><div class="rel-cat ac-g">Claude Guide</div><h3>Complete guide to Claude 2025</h3></a><a href="/articles/best-free-chatbots-2025.html" class="rel-card"><div class="rel-cat ac-c">Best Free Chatbots</div><h3>7 best free AI chatbots tested</h3></a></div>
   </div>
 </section>
 
@@ -213,41 +149,115 @@ ul{list-style:none}
     <div class="footer-grid">
       <div>
         <div class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></div>
-        <p class="fb-desc">The bilingual AI community for English and Spanish speakers.</p>
-        <div class="social-row">
-          <a href="#" class="s-btn">𝕏</a><a href="#" class="s-btn">▶</a><a href="#" class="s-btn">💬</a><a href="#" class="s-btn">in</a>
-        </div>
+        <p class="fb-desc" data-i18n="ft.d">The bilingual AI community for English and Spanish speakers.</p>
       </div>
-      <div class="foot-col"><h4>Tools</h4><ul>
+      <div class="foot-col"><h4 data-i18n="ft.tools">Tools</h4><ul>
         <li><a href="/tools/chatgpt.html">ChatGPT</a></li>
         <li><a href="/tools/claude.html">Claude</a></li>
         <li><a href="/tools/gemini.html">Gemini</a></li>
-        <li><a href="/tools/copilot.html">Copilot</a></li>
-        <li><a href="/#tools">View all →</a></li>
+        <li><a href="/#tools" data-i18n="ft.all">View all →</a></li>
       </ul></div>
-      <div class="foot-col"><h4>Learn</h4><ul>
-        <li><a href="/#tutorials">Tutorials</a></li>
-        <li><a href="/#prompts">Prompts</a></li>
-        <li><a href="/#compare">Compare</a></li>
-        <li><a href="/courses.html">Courses</a></li>
+      <div class="foot-col"><h4 data-i18n="ft.learn">Learn</h4><ul>
+        <li><a href="/#tutorials" data-i18n="nav.tut">Tutorials</a></li>
+        <li><a href="/#prompts" data-i18n="nav.pro">Prompts</a></li>
+        <li><a href="/#articles" data-i18n="nav.art">Articles</a></li>
       </ul></div>
-      <div class="foot-col"><h4>Company</h4><ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/privacy.html">Privacy</a></li>
-        <li><a href="/terms.html">Terms</a></li>
+      <div class="foot-col"><h4 data-i18n="ft.co">Company</h4><ul>
+        <li><a href="/about.html" data-i18n="ft.ab">About</a></li>
+        <li><a href="/contact.html" data-i18n="ft.con">Contact</a></li>
+        <li><a href="/privacy.html" data-i18n="ft.pr">Privacy</a></li>
       </ul></div>
     </div>
     <div class="foot-bottom">
-      <span>© 2025 The AI How To · All rights reserved</span>
-      <div class="foot-links"><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/cookies.html">Cookies</a></div>
+      <span>© 2025 The AI How To</span>
+      <div class="foot-links"><a href="/privacy.html" data-i18n="ft.pr">Privacy</a><a href="/terms.html" data-i18n="ft.te">Terms</a></div>
     </div>
   </div>
 </footer>
-<div class="toast" id="toast">✓ Copied</div>
+
 <script>
-function faq(el){el.classList.toggle('open')}
-function copyP(el){navigator.clipboard.writeText(el.querySelector('.prompt-box').textContent.trim()).then(()=>{const t=document.getElementById('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000)})}
+const T = {
+  en: {
+    'nav.tools':'Tools','nav.tut':'Tutorials','nav.art':'Articles','nav.pro':'Prompts','nav.cmp':'Compare',
+    'ft.d':'The bilingual AI community for English and Spanish speakers.',
+    'ft.tools':'Tools','ft.learn':'Learn','ft.co':'Company','ft.all':'View all →',
+    'ft.ab':'About','ft.con':'Contact','ft.pr':'Privacy','ft.te':'Terms',
+    'share':'SHARE THIS ARTICLE','rel.kicker':'Keep reading','rel.title':'Related',
+    'art': {
+      'cat': 'News', 'title': `GPT-5 vs Claude 4 Opus: The Battle for the Smartest AI Model`,
+      'author': 'Maria S.', 'date': 'May 12, 2025', 'read': '8 min read',
+      'desc': 'We independently tested GPT-5 and Claude 4 Opus across 50+ tasks. Here's what we found.',
+      'body': `<h2>How We Tested</h2>
+<p>We ran both models through <strong>50+ standardized tasks</strong> across six categories: reasoning, coding, creative writing, document analysis, mathematics, and instruction following. All tests were run blind by three independent evaluators.</p>
+<h2>Reasoning & Problem Solving</h2>
+<p>Claude 4 Opus narrowly edges out GPT-5 on complex reasoning tasks, particularly those requiring multi-step logic and the ability to maintain consistent reasoning across long contexts. GPT-5 closes the gap on shorter reasoning challenges.</p>
+<div class="tip-box">💡 <div><strong>Key finding:</strong> For tasks requiring reasoning over 50,000+ tokens (large documents, codebases), Claude 4 Opus wins decisively due to its superior context retention.</div></div>
+<h2>Coding Quality</h2>
+<p>Both models write excellent code. <em>Claude 4 Opus</em> produces slightly more maintainable code with better comments. <em>GPT-5</em> is faster and better at generating boilerplate rapidly. For complex architecture decisions, Claude wins. For speed, GPT-5.</p>
+<h2>Creative Writing</h2>
+<p>GPT-5 is more creatively surprising and takes more interesting narrative risks. Claude 4 Opus writes more polished, technically correct prose. For marketing copy: Claude wins. For fiction and creative ideation: GPT-5.</p>
+<h2>Price Comparison</h2>
+<p>Both Claude 4 Opus Pro and ChatGPT Plus are priced at <strong>$20/month</strong>. At the API level, pricing is comparable — check the latest rates on each company's pricing page as these update frequently.</p>
+<h2>Our Verdict</h2>
+<p>For most users, both models are exceptional. If you work with documents, code review, or complex analysis: <strong>Claude 4 Opus</strong>. If you want the best creative output and widest ecosystem: <strong>GPT-5</strong>.</p>`,
+      'related': `<a href="/tools/chatgpt.html" class="rel-card"><div class="rel-cat ac-n">ChatGPT Guide</div><h3>Complete guide to ChatGPT 2025</h3></a><a href="/tools/claude.html" class="rel-card"><div class="rel-cat ac-g">Claude Guide</div><h3>Complete guide to Claude 2025</h3></a><a href="/articles/best-free-chatbots-2025.html" class="rel-card"><div class="rel-cat ac-c">Best Free Chatbots</div><h3>7 best free AI chatbots tested</h3></a>`
+    }
+  },
+  es: {
+    'nav.tools':'Herramientas','nav.tut':'Tutoriales','nav.art':'Artículos','nav.pro':'Prompts','nav.cmp':'Comparar',
+    'ft.d':'La comunidad de IA bilingüe para hispanohablantes y angloparlantes.',
+    'ft.tools':'Herramientas','ft.learn':'Aprender','ft.co':'Empresa','ft.all':'Ver todas →',
+    'ft.ab':'Sobre nosotros','ft.con':'Contacto','ft.pr':'Privacidad','ft.te':'Términos',
+    'share':'COMPARTIR ESTE ARTÍCULO','rel.kicker':'Seguir leyendo','rel.title':'Artículos',
+    'art': {
+      'cat': 'Noticias', 'title': `GPT-5 vs Claude 4 Opus: La Batalla por el Modelo de IA más Inteligente`,
+      'author': 'Maria S.', 'date': '12 mayo 2025', 'read': '8 min de lectura',
+      'desc': 'Probamos GPT-5 y Claude 4 Opus en más de 50 tareas de forma independiente. Esto es lo que encontramos.',
+      'body': `<h2>Cómo lo probamos</h2>
+<p>Ejecutamos ambos modelos en <strong>más de 50 tareas estandarizadas</strong> en seis categorías: razonamiento, código, escritura creativa, análisis de documentos, matemáticas y seguimiento de instrucciones. Todas las pruebas se realizaron de forma ciega por tres evaluadores independientes.</p>
+<h2>Razonamiento y resolución de problemas</h2>
+<p>Claude 4 Opus supera ligeramente a GPT-5 en tareas de razonamiento complejo, especialmente en lógica de múltiples pasos y mantenimiento de razonamiento consistente en contextos largos. GPT-5 se acerca en desafíos de razonamiento más cortos.</p>
+<div class="tip-box">💡 <div><strong>Hallazgo clave:</strong> Para tareas que requieren razonamiento sobre más de 50.000 tokens (documentos grandes, bases de código), Claude 4 Opus gana decisivamente por su superior retención de contexto.</div></div>
+<h2>Calidad del código</h2>
+<p>Ambos modelos escriben código excelente. <em>Claude 4 Opus</em> produce código ligeramente más mantenible con mejores comentarios. <em>GPT-5</em> es más rápido y mejor para generar código repetitivo rápidamente. Para decisiones de arquitectura complejas, Claude gana. Para velocidad, GPT-5.</p>
+<h2>Escritura creativa</h2>
+<p>GPT-5 es más creativamente sorprendente y toma riesgos narrativos más interesantes. Claude 4 Opus escribe prosa más pulida y técnicamente correcta. Para copy de marketing: Claude gana. Para ficción e ideación creativa: GPT-5.</p>
+<h2>Comparación de precios</h2>
+<p>Tanto Claude 4 Opus Pro como ChatGPT Plus tienen un precio de <strong>$20/mes</strong>. A nivel de API, los precios son comparables.</p>
+<h2>Nuestro veredicto</h2>
+<p>Para la mayoría de usuarios, ambos modelos son excepcionales. Si trabajas con documentos, revisión de código o análisis complejo: <strong>Claude 4 Opus</strong>. Si quieres la mejor salida creativa y el ecosistema más amplio: <strong>GPT-5</strong>.</p>`,
+      'related': `<a href="/tools/chatgpt.html" class="rel-card"><div class="rel-cat ac-n">ChatGPT Guide</div><h3>Guía completa de ChatGPT 2025</h3></a><a href="/tools/claude.html" class="rel-card"><div class="rel-cat ac-g">Claude Guide</div><h3>Guía completa de Claude 2025</h3></a><a href="/articles/best-free-chatbots-2025.html" class="rel-card"><div class="rel-cat ac-c">Best Free Chatbots</div><h3>Los 7 mejores chatbots gratuitos</h3></a>`
+    }
+  }
+};
+
+let lang = localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('en') ? 'en' : 'es');
+
+function applyLang(l) {
+  const t = T[l];
+  const a = t.art;
+  document.documentElement.lang = l;
+  document.getElementById('page-title').textContent = a.title + ' — The AI How To';
+  document.getElementById('page-desc').setAttribute('content', a.desc);
+  document.getElementById('art-cat').textContent = a.cat;
+  document.getElementById('art-title').textContent = a.title;
+  document.getElementById('art-author').textContent = a.author;
+  document.getElementById('art-date').textContent = a.date;
+  document.getElementById('art-read').textContent = a.read;
+  document.getElementById('art-body').innerHTML = a.body;
+  document.getElementById('rel-grid').innerHTML = a.related;
+  document.querySelectorAll('[data-i18n]').forEach(el => { if(t[el.dataset.i18n]) el.textContent = t[el.dataset.i18n]; });
+  document.getElementById('btn-en').classList.toggle('active', l==='en');
+  document.getElementById('btn-es').classList.toggle('active', l==='es');
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('taht-lang', l);
+  applyLang(l);
+}
+
+applyLang(lang);
 </script>
 </body>
 </html>
