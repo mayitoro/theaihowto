@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title id="page-title">Prompt Engineering: Advanced Techniques That Actually Work — The AI How To</title>
-<meta name="description" id="page-desc" content="Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model."/>
+<meta name="description" content="Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
@@ -13,8 +14,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:va
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
 .container{max-width:1100px;margin:0 auto;padding:0 28px}
-
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
 .nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
@@ -30,19 +29,14 @@ a{color:inherit;text-decoration:none}
 .lang-btn.active{background:var(--teal);color:#fff}
 .nav-back{font-size:.82rem;color:var(--teal3);transition:color .2s}
 .nav-back:hover{color:var(--white)}
-
-/* PAGE HERO */
 .page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.orb-teal{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%);filter:blur(60px)}
-.orb-terra{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%);filter:blur(50px)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+.orb1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%)}
+.orb2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%)}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:.75rem;color:var(--dim)}
-.breadcrumb a{color:var(--teal3);transition:color .2s}
-.breadcrumb a:hover{color:var(--white)}
+.breadcrumb a{color:var(--teal3)}
 .bc-sep{color:var(--dim);font-size:.7rem}
 .tool-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.tool-icon-sm{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tool-name{font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em}
 .level-badge{font-size:.65rem;font-weight:500;padding:2px 9px;border-radius:100px}
 .lv-b{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
 .lv-i{background:rgba(232,133,74,.1);color:var(--orange);border:1px solid rgba(232,133,74,.2)}
@@ -51,67 +45,49 @@ a{color:inherit;text-decoration:none}
 .page-h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}
 .page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
 .page-sub{font-size:.97rem;color:var(--muted);line-height:1.7;max-width:640px}
-
-/* CONTENT */
 .content-grid{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding:60px 0}
-.main-content{}
 .tip-box{background:rgba(45,138,138,.07);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:36px;display:flex;gap:12px}
-.tip-box-icon{flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px}
 .section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal2);margin-bottom:10px}
 .section-h2{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;margin-bottom:28px;line-height:1.2}
 .section-h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-
-/* STEPS */
 .step-list{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
 .step-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .step-item:last-child{border-bottom:none}
-.step-num{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
+.step-num{width:34px;height:34px;min-width:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
 .step-body h3{font-size:.97rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .step-body p{font-size:.87rem;color:var(--muted);line-height:1.75}
 .step-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:14px 16px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin-top:12px;color:var(--white)}
-.step-body em{color:var(--teal3);font-style:italic}
 .step-body strong{color:var(--white);font-weight:600}
 .step-body a{color:var(--teal3)}
-.step-body a:hover{color:var(--white)}
-
-/* TWO COLS */
+.step-body code{font-family:'DM Mono',monospace;font-size:.82em;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--teal3)}
 .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
 .col-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
 .col-card h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--line)}
 .col-card ul{list-style:none}
 .col-card ul li{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
 .col-card ul li:last-child{border-bottom:none;padding-bottom:0}
-.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem}
-.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem}
-
-/* NEXT STEPS */
+.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
+.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
 .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
 .next-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:block}
 .next-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .next-card h4{font-size:.9rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .next-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:76px}
 .sb{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
 .sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sb-link{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted);transition:color .2s}
 .sb-link:last-child{border-bottom:none;padding-bottom:0}
 .sb-link:hover{color:var(--teal3)}
-.sb-link-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem}
-
-/* FOOTER */
-footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:0}
+footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0}
 .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
 .foot-links{display:flex;gap:18px}
 .foot-links a:hover{color:var(--muted)}
-
 @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static}.two-col-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.nav-links{display:none}.container{padding:0 18px}.next-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -134,21 +110,17 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </nav>
-
 <section class="page-hero">
-  <div class="hero-orb orb-teal"></div>
-  <div class="hero-orb orb-terra"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/" id="bc-home">Home</a>
-      <span class="bc-sep">›</span>
-      <a href="/#tutorials" id="bc-tutorials">Tutorials</a>
-      <span class="bc-sep">›</span>
+      <a href="/" id="bc-home">Home</a><span class="bc-sep">›</span>
+      <a href="/#tutorials" id="bc-tutorials">Tutorials</a><span class="bc-sep">›</span>
       <span id="bc-tool" style="color:var(--teal3)">All AI Models</span>
     </div>
     <div class="tool-meta">
       <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#10a37f,#c96442);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
-      <span class="tool-name" id="tool-name">All AI Models</span>
+      <span style="font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em" id="tool-name">All AI Models</span>
       <span class="level-badge lv-i" id="level-badge">Intermediate</span>
       <span class="tut-meta-info">⏱ 25 min</span>
       <span class="tut-meta-info">👁 45k views</span>
@@ -157,100 +129,50 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     <p class="page-sub" id="page-sub">Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model.</p>
   </div>
 </section>
-
 <div class="container">
   <div class="content-grid">
     <div class="main-content">
-
       <div class="tip-box" style="margin-top:32px">
-        <span class="tip-box-icon">📖</span>
+        <span style="flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px">📖</span>
         <div><strong id="what-learn">What you'll learn:</strong> <span id="tip-desc">Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model.</span></div>
       </div>
-
       <div class="section-kicker" id="intro-kicker">Introduction</div>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">The difference between a mediocre and exceptional AI response often has nothing to do with which model you're using — it's entirely about how you write the prompt. This guide covers the techniques used by AI professionals to get consistently outstanding results from any model.</p>
-
-      <div class="section-kicker" id="steps-kicker">The six core techniques</div>
-      <h2 class="section-h2"><span id="follow-text">Master these</span> <em id="follow-text2">techniques</em></h2>
-      <div class="step-list" id="step-list"><div class="step-item">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Role prompting</h3>
-        <p>Give the AI a specific identity before your task. Compare: "Write a marketing email" vs <em>"You are a direct-response copywriter with 20 years of SaaS experience. Write a marketing email for..."</em> The second version gets dramatically better results.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Chain-of-thought (CoT)</h3>
-        <p>For complex reasoning, ask the AI to think step by step. Adding <em>"Think through this step by step before answering"</em> dramatically improves accuracy on math, logic, and multi-step problems.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Few-shot prompting</h3>
-        <p>Show the AI exactly what you want before asking. Two or three examples transform vague instructions into precise results. Example → Output. Example → Output. Now ask for your real task.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Constraint specification</h3>
-        <p>Define what you do NOT want as well as what you do. Word limits, format requirements, things to avoid, and tone requirements dramatically improve precision.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Output format control</h3>
-        <p>Specify the exact format you need: JSON, bullet points, numbered lists, tables. The AI follows format instructions reliably when they are explicit. Add: <em>"Return ONLY a JSON object with this exact structure, no other text"</em>.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>Iterative refinement</h3>
-        <p>Treat prompting as a conversation, not a single shot. Send a prompt, evaluate the result, then refine. Keep good elements and fix bad ones: <em>"Keep the structure but make the tone warmer. Also add a section on..."</em></p>
-      </div>
-    </div></div>
-
+      <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">The difference between a mediocre and exceptional AI response often has nothing to do with which model you use — it is entirely about how you write the prompt. This guide covers the techniques used by AI professionals to get consistently outstanding results from any model.</p>
+      <div class="section-kicker" id="steps-kicker">Step-by-step guide</div>
+      <h2 class="section-h2">
+        <span id="follow-text">Follow these</span> <em id="follow-text2">steps</em>
+      </h2>
+      <div class="step-list" id="step-list"><!-- steps rendered by JS --></div>
       <div class="two-col-grid">
         <div class="col-card">
-          <h3 style="color:var(--sage2)" id="pro-tips-title">Pro tips: <span style="font-weight:300" id="do-this">Do this</span></h3>
-          <ul id="tips-list"><li><span class="do-icon">✓</span>More context is almost always better — AI models don't get bored with detail</li><li><span class="do-icon">✓</span>Specify what success looks like: 'A good response will include X, Y, and Z'</li><li><span class="do-icon">✓</span>Ask the AI to identify ambiguities before answering complex questions</li><li><span class="do-icon">✓</span>For creative tasks, give examples of content you admire as reference</li></ul>
+          <h3 style="color:var(--sage2)" id="tips-h">Pro tips: <span style="font-weight:300">Do this</span></h3>
+          <ul id="tips-list"></ul>
         </div>
         <div class="col-card">
-          <h3 style="color:var(--terra2)" id="mistakes-title">Common mistakes: <span style="font-weight:300" id="avoid-these">Avoid these</span></h3>
-          <ul id="mistakes-list"><li><span class="dont-icon">✗</span>Writing prompts as search queries instead of instructions</li><li><span class="dont-icon">✗</span>Not specifying format — vague prompts get vague formats</li><li><span class="dont-icon">✗</span>Skipping role context for professional/technical tasks</li><li><span class="dont-icon">✗</span>Treating every prompt as a one-shot attempt instead of iterating</li></ul>
+          <h3 style="color:var(--terra2)" id="mistakes-h">Common mistakes: <span style="font-weight:300">Avoid these</span></h3>
+          <ul id="mistakes-list"></ul>
         </div>
       </div>
-
       <div class="section-kicker" id="next-kicker">Next steps</div>
-      <h2 class="section-h2"><span id="continue-text">Continue</span> <em id="continue-text2">learning</em></h2>
-      <div class="next-grid" id="next-cards"><a href="/#prompts" class="next-card"><h4>Prompt Library</h4><p>42 battle-tested prompts to copy and customize right now.</p></a><a href="/tutorials/chatgpt-beginners.html" class="next-card"><h4>ChatGPT Beginner Guide</h4><p>Apply these techniques with the world's most popular AI.</p></a><a href="/tutorials/claude-beginners.html" class="next-card"><h4>Claude Beginner Guide</h4><p>Apply these techniques with Claude — often better for complex tasks.</p></a></div>
-
+      <h2 class="section-h2">
+        <span id="cont-text">Continue</span> <em id="cont-text2">learning</em>
+      </h2>
+      <div class="next-grid" id="next-cards"></div>
     </div>
-
     <div class="sidebar">
       <div class="sb">
         <div class="sb-title" id="related-title">Related Resources</div>
-        <div id="related-links"><a href="/#prompts" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--teal)20;color:var(--teal)">→</div>
-      42 Tested Prompts Library
-    </a><a href="/tutorials/chatgpt-beginners.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#10a37f20;color:#10a37f">→</div>
-      ChatGPT Beginner Guide
-    </a><a href="/#compare" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--bg2)20;color:var(--bg2)">→</div>
-      Compare All AI Tools
-    </a></div>
+        <div id="related-links"></div>
       </div>
       <div class="sb" style="background:var(--bg2)">
         <div class="sb-title" id="also-title">Also Try</div>
         <a href="/#tutorials" class="sb-link" id="all-tut-link">← All Tutorials</a>
-        <a href="/#prompts" class="sb-link" id="prompt-lib-link">Prompt Library</a>
-        <a href="/#compare" class="sb-link" id="compare-link">Compare All AI</a>
+        <a href="/#prompts" class="sb-link" id="plib-link">Prompt Library</a>
+        <a href="/#compare" class="sb-link" id="cmp-link">Compare All AI</a>
       </div>
     </div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="foot-inner">
@@ -264,157 +186,94 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </footer>
-
 <script>
-// ── Bilingual data ──
-const CONTENT = {
-  en: {
-    pageTitle: "Prompt Engineering: Advanced Techniques That Actually Work \u2014 The AI How To",
-    pageDesc: "Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model.",
-    h1: "Prompt Engineering: Advanced Techniques That Actually Work",
-    sub: "Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model.",
-    tool: "All AI Models",
-    level: "Intermediate",
-    intro: "The difference between a mediocre and exceptional AI response often has nothing to do with which model you're using \u2014 it's entirely about how you write the prompt. This guide covers the techniques used by AI professionals to get consistently outstanding results from any model.",
-    whatLearn: "What you'll learn",
-    introLabel: "Introduction",
-    stepsLabel: "The six core techniques",
-    follow: "Master these", follow2: "techniques",
-    proTips: "Pro tips", doThis: "Do", doThis2: "this",
-    avoid: "Common mistakes", avoid2: "Avoid", avoid3: "these",
-    nextLabel: "Next steps",
-    continueText: "Continue", continueText2: "learning",
-    navTools: 'Tools', navTut: 'Tutorials', navArt: 'Articles',
-    navPro: 'Prompts', navCmp: 'Compare', navFor: 'Forum',
-    navBack: '← Tutorials', bcHome: 'Home', bcTut: 'Tutorials',
-    relatedTitle: 'Related Resources', alsoTitle: 'Also Try',
-    allTut: '← All Tutorials', promptLib: 'Prompt Library', compareAll: 'Compare All AI',
-    ftAbout: 'About', ftPrivacy: 'Privacy', ftContact: 'Contact',
-    steps: [('Role prompting', 'Give the AI a specific identity before your task. Compare: "Write a marketing email" vs <em>"You are a direct-response copywriter with 20 years of SaaS experience. Write a marketing email for..."</em> The second version gets dramatically better results.'), ('Chain-of-thought (CoT)', 'For complex reasoning, ask the AI to think step by step. Adding <em>"Think through this step by step before answering"</em> dramatically improves accuracy on math, logic, and multi-step problems.'), ('Few-shot prompting', 'Show the AI exactly what you want before asking. Two or three examples transform vague instructions into precise results. Example → Output. Example → Output. Now ask for your real task.'), ('Constraint specification', 'Define what you do NOT want as well as what you do. Word limits, format requirements, things to avoid, and tone requirements dramatically improve precision.'), ('Output format control', 'Specify the exact format you need: JSON, bullet points, numbered lists, tables. The AI follows format instructions reliably when they are explicit. Add: <em>"Return ONLY a JSON object with this exact structure, no other text"</em>.'), ('Iterative refinement', 'Treat prompting as a conversation, not a single shot. Send a prompt, evaluate the result, then refine. Keep good elements and fix bad ones: <em>"Keep the structure but make the tone warmer. Also add a section on..."</em>')],
-    tips: ["More context is almost always better \u2014 AI models don't get bored with detail", "Specify what success looks like: 'A good response will include X, Y, and Z'", "Ask the AI to identify ambiguities before answering complex questions", "For creative tasks, give examples of content you admire as reference"],
-    mistakes: ["Writing prompts as search queries instead of instructions", "Not specifying format \u2014 vague prompts get vague formats", "Skipping role context for professional/technical tasks", "Treating every prompt as a one-shot attempt instead of iterating"],
-    nextCards: [('/#prompts', 'Prompt Library', '42 battle-tested prompts to copy and customize right now.'), ('/tutorials/chatgpt-beginners.html', 'ChatGPT Beginner Guide', "Apply these techniques with the world's most popular AI."), ('/tutorials/claude-beginners.html', 'Claude Beginner Guide', 'Apply these techniques with Claude — often better for complex tasks.')],
-    relatedLinks: [('/#prompts', 'var(--teal)', '42 Tested Prompts Library'), ('/tutorials/chatgpt-beginners.html', '#10a37f', 'ChatGPT Beginner Guide'), ('/#compare', 'var(--bg2)', 'Compare All AI Tools')],
-  },
-  es: {
-    pageTitle: "Prompt Engineering: T\u00e9cnicas Avanzadas que Realmente Funcionan \u2014 The AI How To",
-    pageDesc: "Domina las t\u00e9cnicas de prompting m\u00e1s poderosas: chain-of-thought, few-shot prompting, role prompting y m\u00e1s. Obt\u00e9n resultados dram\u00e1ticamente mejores de cualquier modelo de IA.",
-    h1: "Prompt Engineering: T\u00e9cnicas Avanzadas que Realmente Funcionan",
-    sub: "Domina las t\u00e9cnicas de prompting m\u00e1s poderosas: chain-of-thought, few-shot prompting, role prompting y m\u00e1s. Obt\u00e9n resultados dram\u00e1ticamente mejores de cualquier modelo de IA.",
-    tool: "Todos los Modelos IA",
-    level: "Intermedio",
-    intro: "La diferencia entre una respuesta de IA mediocre y una excepcional a menudo no tiene nada que ver con qu\u00e9 modelo est\u00e1s usando \u2014 tiene que ver completamente con c\u00f3mo escribes el prompt. Esta gu\u00eda cubre las t\u00e9cnicas utilizadas por los profesionales de IA para obtener resultados consistentemente sobresalientes de cualquier modelo.",
-    whatLearn: "Lo que aprender\u00e1s",
-    introLabel: "Introducci\u00f3n",
-    stepsLabel: "Las seis t\u00e9cnicas fundamentales",
-    follow: "Domina estas", follow2: "t\u00e9cnicas",
-    proTips: "Consejos Pro", doThis: "Haz", doThis2: "esto",
-    avoid: "Errores comunes", avoid2: "Evita", avoid3: "estos",
-    nextLabel: "Pr\u00f3ximos pasos",
-    continueText: "Contin\u00faa", continueText2: "aprendiendo",
-    navTools: 'Herramientas', navTut: 'Tutoriales', navArt: 'Artículos',
-    navPro: 'Prompts', navCmp: 'Comparar', navFor: 'Foro',
-    navBack: '← Tutoriales', bcHome: 'Inicio', bcTut: 'Tutoriales',
-    relatedTitle: 'Recursos Relacionados', alsoTitle: 'También Prueba',
-    allTut: '← Todos los Tutoriales', promptLib: 'Biblioteca de Prompts', compareAll: 'Comparar todas las IA',
-    ftAbout: 'Sobre nosotros', ftPrivacy: 'Privacidad', ftContact: 'Contacto',
-    steps: [('Role prompting', 'Dale a la IA una identidad específica antes de tu tarea. Compara: "Escribe un email de marketing" vs <em>"Eres un copywriter de respuesta directa con 20 años de experiencia en SaaS. Escribe un email de marketing para..."</em> La segunda versión obtiene resultados dramáticamente mejores.'), ('Chain-of-thought (CoT)', 'Para razonamiento complejo, pide a la IA que piense paso a paso. Añadir <em>"Piensa en esto paso a paso antes de responder"</em> mejora drásticamente la precisión en matemáticas, lógica y problemas de múltiples pasos.'), ('Few-shot prompting', 'Muestra a la IA exactamente lo que quieres antes de pedir. Dos o tres ejemplos transforman instrucciones vagas en resultados precisos. Ejemplo → Salida. Ejemplo → Salida. Ahora pide tu tarea real.'), ('Especificación de restricciones', 'Define exactamente lo que NO quieres además de lo que sí quieres. Los límites de palabras, requisitos de formato, cosas a evitar y requisitos de tono mejoran drásticamente la precisión.'), ('Control del formato de salida', 'Especifica el formato exacto que necesitas: JSON, viñetas, listas numeradas, tablas. La IA sigue las instrucciones de formato de manera fiable cuando son explícitas. Añade: <em>"Devuelve SOLO un objeto JSON con esta estructura exacta, sin otro texto"</em>.'), ('Refinamiento iterativo', 'Trata el prompting como una conversación, no como un intento único. Envía un prompt, evalúa el resultado y refina. Mantén los elementos buenos y corrige los malos: <em>"Mantén la estructura pero haz el tono más cálido. Añade también una sección sobre..."</em>')],
-    tips: ["M\u00e1s contexto es casi siempre mejor \u2014 los modelos de IA no se aburren con el detalle", "Especifica c\u00f3mo se ve el \u00e9xito: 'Una buena respuesta incluir\u00e1 X, Y y Z'", "P\u00eddele a la IA que identifique ambig\u00fcedades antes de responder preguntas complejas", "Para tareas creativas, da ejemplos de contenido que admiras como referencia"],
-    mistakes: ["Escribir prompts como consultas de b\u00fasqueda en lugar de instrucciones", "No especificar formato \u2014 los prompts vagos obtienen formatos vagos", "Omitir el contexto de rol para tareas profesionales/t\u00e9cnicas", "Tratar cada prompt como un intento \u00fanico en lugar de iterar"],
-    nextCards: [('/#prompts', 'Biblioteca de Prompts', '42 prompts probados para copiar y personalizar ahora mismo.'), ('/tutorials/chatgpt-beginners.html', 'Guía de ChatGPT para Principiantes', 'Aplica estas técnicas con el AI más popular del mundo.'), ('/tutorials/claude-beginners.html', 'Guía de Claude para Principiantes', 'Aplica estas técnicas con Claude — a menudo mejor para tareas complejas.')],
-    relatedLinks: [('/#prompts', 'var(--teal)', 'Biblioteca de 42 Prompts Probados'), ('/tutorials/chatgpt-beginners.html', '#10a37f', 'Guía de ChatGPT para Principiantes'), ('/#compare', 'var(--bg2)', 'Comparar Todas las IA')],
-  }
-};
+
+const CONTENT = {"en": {"title": "Prompt Engineering: Advanced Techniques That Actually Work", "tool": "All AI Models", "level": "Intermediate", "desc": "Master the most powerful prompting techniques: chain-of-thought, few-shot prompting, role prompting, and more. Get dramatically better results from any AI model.", "intro": "The difference between a mediocre and exceptional AI response often has nothing to do with which model you use — it is entirely about how you write the prompt. This guide covers the techniques used by AI professionals to get consistently outstanding results from any model.", "labels": {"what": "What you'll learn", "intro": "Introduction", "steps": "The six core techniques", "follow": "Master these", "follow2": "techniques", "tips": "Pro tips", "do": "Do this", "avoid": "Common mistakes", "avoid2": "Avoid these", "next": "Next steps", "cont": "Continue", "cont2": "learning", "related": "Related Resources", "also": "Also Try", "allTut": "← All Tutorials", "plib": "Prompt Library", "cmpAll": "Compare All AI", "back": "← Tutorials", "bcHome": "Home", "bcTut": "Tutorials", "navTools": "Tools", "navTut": "Tutorials", "navArt": "Articles", "navPro": "Prompts", "navCmp": "Compare", "navFor": "Forum", "ftAbout": "About", "ftPrivacy": "Privacy", "ftContact": "Contact"}, "steps": [{"t": "Role prompting", "d": "Give the AI a specific identity before your task. Compare: \"Write a marketing email\" vs <em>\"You are a direct-response copywriter with 20 years of SaaS experience. Write a marketing email for...\"</em> — the second version gets dramatically better results."}, {"t": "Chain-of-thought (CoT)", "d": "For complex reasoning, ask the AI to think step by step. Adding <em>\"Think through this step by step before answering\"</em> dramatically improves accuracy on math, logic, and multi-step problems."}, {"t": "Few-shot prompting", "d": "Show the AI exactly what you want before asking. Two or three examples transform vague instructions into precise results. Format: Example input → Expected output. Example input → Expected output. Then ask for your real task."}, {"t": "Constraint specification", "d": "Define what you do NOT want as well as what you do. Word limits, format requirements, things to avoid, and tone requirements dramatically improve precision: <em>'Max 150 words, no bullet points, conversational tone, avoid jargon.'</em>"}, {"t": "Output format control", "d": "Specify the exact format: JSON, bullet points, numbered lists, tables. The AI follows format instructions reliably when they are explicit. Add: <em>\"Return ONLY a JSON object with this exact structure, no other text.\"</em>"}, {"t": "Iterative refinement", "d": "Treat prompting as a conversation, not a single shot. Send a prompt, evaluate, then refine: <em>\"Keep the structure but make the tone warmer. Also add a section on...\"</em> Each iteration gets closer to what you need."}], "tips": ["More context is almost always better — AI models do not get bored with detail", "Specify what success looks like: 'A good response will include X, Y, and Z'", "Ask the AI to identify ambiguities before answering complex questions", "For creative tasks, give examples of content you admire as style reference"], "mistakes": ["Writing prompts as search queries instead of instructions", "Not specifying format — vague prompts get vague formats", "Skipping role context for professional or technical tasks", "Treating every prompt as a one-shot attempt instead of iterating"], "next": [{"url": "/#prompts", "t": "Prompt Library", "d": "42 battle-tested prompts to copy and customize right now."}, {"url": "/tutorials/chatgpt-beginners.html", "t": "ChatGPT Beginner Guide", "d": "Apply these techniques with the world's most popular AI."}, {"url": "/tutorials/claude-beginners.html", "t": "Claude Beginner Guide", "d": "Apply these techniques with Claude — often better for complex tasks."}], "links": [{"url": "/#prompts", "c": "var(--teal)", "l": "42 Tested Prompts Library"}, {"url": "/tutorials/chatgpt-beginners.html", "c": "#10a37f", "l": "ChatGPT Beginner Guide"}, {"url": "/#compare", "c": "var(--bg2)", "l": "Compare All AI Tools"}]}, "es": {"title": "Prompt Engineering: Técnicas Avanzadas que Realmente Funcionan", "tool": "Todos los Modelos IA", "level": "Intermedio", "desc": "Domina las técnicas de prompting más poderosas: chain-of-thought, few-shot prompting, role prompting y más. Obtén resultados dramáticamente mejores de cualquier modelo de IA.", "intro": "La diferencia entre una respuesta de IA mediocre y una excepcional a menudo no tiene nada que ver con qué modelo usas — tiene que ver completamente con cómo escribes el prompt. Esta guía cubre las técnicas utilizadas por los profesionales de IA para obtener resultados consistentemente sobresalientes de cualquier modelo.", "labels": {"what": "Lo que aprenderás", "intro": "Introducción", "steps": "Las seis técnicas fundamentales", "follow": "Domina estas", "follow2": "técnicas", "tips": "Consejos Pro", "do": "Haz esto", "avoid": "Errores comunes", "avoid2": "Evita estos", "next": "Próximos pasos", "cont": "Continúa", "cont2": "aprendiendo", "related": "Recursos Relacionados", "also": "También Prueba", "allTut": "← Todos los Tutoriales", "plib": "Biblioteca de Prompts", "cmpAll": "Comparar todas las IA", "back": "← Tutoriales", "bcHome": "Inicio", "bcTut": "Tutoriales", "navTools": "Herramientas", "navTut": "Tutoriales", "navArt": "Artículos", "navPro": "Prompts", "navCmp": "Comparar", "navFor": "Foro", "ftAbout": "Sobre nosotros", "ftPrivacy": "Privacidad", "ftContact": "Contacto"}, "steps": [{"t": "Role prompting", "d": "Dale a la IA una identidad específica antes de tu tarea. Compara: \"Escribe un email de marketing\" vs <em>\"Eres un copywriter de respuesta directa con 20 años de experiencia en SaaS. Escribe un email de marketing para...\"</em> — la segunda versión obtiene resultados dramáticamente mejores."}, {"t": "Chain-of-thought (CoT)", "d": "Para razonamiento complejo, pide a la IA que piense paso a paso. Añadir <em>\"Piensa en esto paso a paso antes de responder\"</em> mejora drásticamente la precisión en matemáticas, lógica y problemas de múltiples pasos."}, {"t": "Few-shot prompting", "d": "Muestra a la IA exactamente lo que quieres antes de pedir. Dos o tres ejemplos transforman instrucciones vagas en resultados precisos. Formato: Entrada de ejemplo → Salida esperada. Entrada de ejemplo → Salida esperada. Luego pide tu tarea real."}, {"t": "Especificación de restricciones", "d": "Define exactamente lo que NO quieres además de lo que sí quieres. Los límites de palabras, requisitos de formato, cosas a evitar y requisitos de tono mejoran drásticamente la precisión: <em>'Máximo 150 palabras, sin viñetas, tono conversacional, evita tecnicismos.'</em>"}, {"t": "Control del formato de salida", "d": "Especifica el formato exacto: JSON, viñetas, listas numeradas, tablas. La IA sigue las instrucciones de formato de manera fiable cuando son explícitas. Añade: <em>\"Devuelve SOLO un objeto JSON con esta estructura exacta, sin otro texto.\"</em>"}, {"t": "Refinamiento iterativo", "d": "Trata el prompting como una conversación, no como un intento único. Envía un prompt, evalúa y refina: <em>\"Mantén la estructura pero haz el tono más cálido. Añade también una sección sobre...\"</em> Cada iteración se acerca más a lo que necesitas."}], "tips": ["Más contexto es casi siempre mejor — los modelos de IA no se aburren con el detalle", "Especifica cómo se ve el éxito: 'Una buena respuesta incluirá X, Y y Z'", "Pídele a la IA que identifique ambigüedades antes de responder preguntas complejas", "Para tareas creativas, da ejemplos de contenido que admiras como referencia de estilo"], "mistakes": ["Escribir prompts como consultas de búsqueda en lugar de instrucciones", "No especificar formato — los prompts vagos obtienen formatos vagos", "Omitir el contexto de rol para tareas profesionales o técnicas", "Tratar cada prompt como un intento único en lugar de iterar"], "next": [{"url": "/#prompts", "t": "Biblioteca de Prompts", "d": "42 prompts probados para copiar y personalizar ahora mismo."}, {"url": "/tutorials/chatgpt-beginners.html", "t": "Guía de ChatGPT para Principiantes", "d": "Aplica estas técnicas con el AI más popular del mundo."}, {"url": "/tutorials/claude-beginners.html", "t": "Guía de Claude para Principiantes", "d": "Aplica estas técnicas con Claude — a menudo mejor para tareas complejas."}], "links": [{"url": "/#prompts", "c": "var(--teal)", "l": "Biblioteca de 42 Prompts Probados"}, {"url": "/tutorials/chatgpt-beginners.html", "c": "#10a37f", "l": "Guía de ChatGPT para Principiantes"}, {"url": "/#compare", "c": "var(--bg2)", "l": "Comparar Todas las IA"}]}};
 
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 let lang = urlLang || localStorage.getItem('taht-lang') ||
            ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
 if (urlLang) localStorage.setItem('taht-lang', urlLang);
 
-function buildStepHTML(steps) {
-  return steps.map((s, i) =>
-    `<div class="step-item">
-      <div class="step-num">${i+1}</div>
-      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
-    </div>`
-  ).join('');
+function el(id) { return document.getElementById(id); }
+
+function buildSteps(steps) {
+  return steps.map(function(s, i) {
+    return '<div class="step-item">' +
+      '<div class="step-num">' + (i+1) + '</div>' +
+      '<div class="step-body"><h3>' + s.t + '</h3><p>' + s.d + '</p></div>' +
+      '</div>';
+  }).join('');
 }
 
-function buildListHTML(items, iconClass, iconChar) {
-  return items.map(item =>
-    `<li><span class="${iconClass}">${iconChar}</span>${item}</li>`
-  ).join('');
+function buildList(items, cls, icon) {
+  return items.map(function(item) {
+    return '<li><span class="' + cls + '">' + icon + '</span>' + item + '</li>';
+  }).join('');
 }
 
-function buildNextCards(cards) {
-  return cards.map(([url, title, desc]) =>
-    `<a href="${url}?lang=${lang}" class="next-card"><h4>${title}</h4><p>${desc}</p></a>`
-  ).join('');
+function buildNext(cards, l) {
+  return cards.map(function(c) {
+    return '<a href="' + c.url + '?lang=' + l + '" class="next-card">' +
+      '<h4>' + c.t + '</h4><p>' + c.d + '</p></a>';
+  }).join('');
 }
 
-function buildRelatedLinks(links) {
-  return links.map(([url, color, label]) =>
-    `<a href="${url}" class="sb-link">
-      <div class="sb-link-icon" style="background:${color}20;color:${color}">→</div>
-      ${label}
-    </a>`
-  ).join('');
+function buildLinks(links) {
+  return links.map(function(lk) {
+    return '<a href="' + lk.url + '" class="sb-link">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:' + lk.c + '22;color:' + lk.c + ';display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0">→</div>' +
+      lk.l + '</a>';
+  }).join('');
 }
 
 function applyLang(l) {
-  const c = CONTENT[l];
+  var c = CONTENT[l];
+  var lb = c.labels;
   document.documentElement.lang = l === 'es' ? 'es' : 'en';
-  document.getElementById('page-title').textContent = c.pageTitle;
-  document.getElementById('page-desc').setAttribute('content', c.pageDesc);
-  document.getElementById('page-h1').textContent = c.h1;
-  document.getElementById('page-sub').textContent = c.sub;
-  document.getElementById('tool-name').textContent = c.tool;
-  document.getElementById('level-badge').textContent = c.level;
-  document.getElementById('bc-tool').textContent = c.tool;
-  document.getElementById('bc-home').textContent = c.bcHome;
-  document.getElementById('bc-tutorials').textContent = c.bcTut;
-  document.getElementById('intro-kicker').textContent = c.introLabel;
-  document.getElementById('intro-text').textContent = c.intro;
-  document.getElementById('steps-kicker').textContent = c.stepsLabel;
-  document.getElementById('follow-text').textContent = c.follow;
-  document.getElementById('follow-text2').textContent = c.follow2;
-  document.getElementById('what-learn').textContent = c.whatLearn + ':';
-  document.getElementById('tip-desc').textContent = c.sub;
-  document.getElementById('step-list').innerHTML = buildStepHTML(c.steps);
-  document.getElementById('tips-list').innerHTML = buildListHTML(c.tips, 'do-icon', '✓');
-  document.getElementById('mistakes-list').innerHTML = buildListHTML(c.mistakes, 'dont-icon', '✗');
-  document.getElementById('pro-tips-title').innerHTML = c.proTips + ': <span style="font-weight:300" id="do-this">' + c.doThis + ' ' + c.doThis2 + '</span>';
-  document.getElementById('mistakes-title').innerHTML = c.avoid + ': <span style="font-weight:300" id="avoid-these">' + c.avoid2 + ' ' + c.avoid3 + '</span>';
-  document.getElementById('next-kicker').textContent = c.nextLabel;
-  document.getElementById('continue-text').textContent = c.continueText;
-  document.getElementById('continue-text2').textContent = c.continueText2;
-  document.getElementById('next-cards').innerHTML = buildNextCards(c.nextCards);
-  document.getElementById('related-links').innerHTML = buildRelatedLinks(c.relatedLinks);
-  document.getElementById('related-title').textContent = c.relatedTitle;
-  document.getElementById('also-title').textContent = c.alsoTitle;
-  document.getElementById('all-tut-link').textContent = c.allTut;
-  document.getElementById('prompt-lib-link').textContent = c.promptLib;
-  document.getElementById('compare-link').textContent = c.compareAll;
-  document.getElementById('nav-tools').textContent = c.navTools;
-  document.getElementById('nav-tutorials').textContent = c.navTut;
-  document.getElementById('nav-articles').textContent = c.navArt;
-  document.getElementById('nav-prompts').textContent = c.navPro;
-  document.getElementById('nav-compare').textContent = c.navCmp;
-  document.getElementById('nav-forum').textContent = c.navFor;
-  document.getElementById('nav-back').textContent = c.navBack;
-  document.getElementById('ft-about').textContent = c.ftAbout;
-  document.getElementById('ft-privacy').textContent = c.ftPrivacy;
-  document.getElementById('ft-contact').textContent = c.ftContact;
-  // Lang buttons
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  document.getElementById('btn-es').classList.toggle('active', l === 'es');
-  // Internal links get lang param
-  document.querySelectorAll('a[href^="/"], a[href^="#"]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && !href.includes('?lang=') && !href.startsWith('#') && href !== '/') {
-      a.href = href.split('?')[0] + '?lang=' + l;
-    }
-  });
+  document.title = c.title + ' — The AI How To';
+  el('page-title').textContent = c.title + ' — The AI How To';
+  el('page-h1').textContent = c.title;
+  el('page-sub').textContent = c.desc;
+  el('tool-name').textContent = c.tool;
+  el('level-badge').textContent = c.level;
+  el('bc-tool').textContent = c.tool;
+  el('tip-desc').textContent = c.desc;
+  el('intro-text').textContent = c.intro;
+  el('bc-home').textContent = lb.bcHome;
+  el('bc-tutorials').textContent = lb.bcTut;
+  el('nav-back').textContent = lb.back;
+  el('what-learn').textContent = lb.what + ':';
+  el('intro-kicker').textContent = lb.intro;
+  el('steps-kicker').textContent = lb.steps;
+  el('follow-text').textContent = lb.follow;
+  el('follow-text2').textContent = lb.follow2;
+  el('tips-h').innerHTML = lb.tips + ': <span style="font-weight:300">' + lb.do + '</span>';
+  el('mistakes-h').innerHTML = lb.avoid + ': <span style="font-weight:300">' + lb.avoid2 + '</span>';
+  el('step-list').innerHTML = buildSteps(c.steps);
+  el('tips-list').innerHTML = buildList(c.tips, 'do-icon', '✓');
+  el('mistakes-list').innerHTML = buildList(c.mistakes, 'dont-icon', '✗');
+  el('next-kicker').textContent = lb.next;
+  el('cont-text').textContent = lb.cont;
+  el('cont-text2').textContent = lb.cont2;
+  el('next-cards').innerHTML = buildNext(c.next, l);
+  el('related-title').textContent = lb.related;
+  el('also-title').textContent = lb.also;
+  el('related-links').innerHTML = buildLinks(c.links);
+  el('all-tut-link').textContent = lb.allTut;
+  el('plib-link').textContent = lb.plib;
+  el('cmp-link').textContent = lb.cmpAll;
+  el('nav-tools').textContent = lb.navTools;
+  el('nav-tutorials').textContent = lb.navTut;
+  el('nav-articles').textContent = lb.navArt;
+  el('nav-prompts').textContent = lb.navPro;
+  el('nav-compare').textContent = lb.navCmp;
+  el('nav-forum').textContent = lb.navFor;
+  el('ft-about').textContent = lb.ftAbout;
+  el('ft-privacy').textContent = lb.ftPrivacy;
+  el('ft-contact').textContent = lb.ftContact;
+  el('btn-en').classList.toggle('active', l === 'en');
+  el('btn-es').classList.toggle('active', l === 'es');
 }
 
 function setLang(l) {
@@ -424,6 +283,7 @@ function setLang(l) {
 }
 
 applyLang(lang);
+
 </script>
 </body>
 </html>

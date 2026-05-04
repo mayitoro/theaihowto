@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title id="page-title">Build Your Own App with the OpenAI and Claude APIs — The AI How To</title>
-<meta name="description" id="page-desc" content="A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment."/>
+<meta name="description" content="A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
@@ -13,8 +14,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:va
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
 .container{max-width:1100px;margin:0 auto;padding:0 28px}
-
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
 .nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
@@ -30,19 +29,14 @@ a{color:inherit;text-decoration:none}
 .lang-btn.active{background:var(--teal);color:#fff}
 .nav-back{font-size:.82rem;color:var(--teal3);transition:color .2s}
 .nav-back:hover{color:var(--white)}
-
-/* PAGE HERO */
 .page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.orb-teal{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%);filter:blur(60px)}
-.orb-terra{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%);filter:blur(50px)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+.orb1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%)}
+.orb2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%)}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:.75rem;color:var(--dim)}
-.breadcrumb a{color:var(--teal3);transition:color .2s}
-.breadcrumb a:hover{color:var(--white)}
+.breadcrumb a{color:var(--teal3)}
 .bc-sep{color:var(--dim);font-size:.7rem}
 .tool-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.tool-icon-sm{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tool-name{font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em}
 .level-badge{font-size:.65rem;font-weight:500;padding:2px 9px;border-radius:100px}
 .lv-b{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
 .lv-i{background:rgba(232,133,74,.1);color:var(--orange);border:1px solid rgba(232,133,74,.2)}
@@ -51,67 +45,49 @@ a{color:inherit;text-decoration:none}
 .page-h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}
 .page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
 .page-sub{font-size:.97rem;color:var(--muted);line-height:1.7;max-width:640px}
-
-/* CONTENT */
 .content-grid{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding:60px 0}
-.main-content{}
 .tip-box{background:rgba(45,138,138,.07);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:36px;display:flex;gap:12px}
-.tip-box-icon{flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px}
 .section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal2);margin-bottom:10px}
 .section-h2{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;margin-bottom:28px;line-height:1.2}
 .section-h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-
-/* STEPS */
 .step-list{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
 .step-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .step-item:last-child{border-bottom:none}
-.step-num{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
+.step-num{width:34px;height:34px;min-width:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
 .step-body h3{font-size:.97rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .step-body p{font-size:.87rem;color:var(--muted);line-height:1.75}
 .step-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:14px 16px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin-top:12px;color:var(--white)}
-.step-body em{color:var(--teal3);font-style:italic}
 .step-body strong{color:var(--white);font-weight:600}
 .step-body a{color:var(--teal3)}
-.step-body a:hover{color:var(--white)}
-
-/* TWO COLS */
+.step-body code{font-family:'DM Mono',monospace;font-size:.82em;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--teal3)}
 .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
 .col-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
 .col-card h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--line)}
 .col-card ul{list-style:none}
 .col-card ul li{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
 .col-card ul li:last-child{border-bottom:none;padding-bottom:0}
-.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem}
-.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem}
-
-/* NEXT STEPS */
+.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
+.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
 .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
 .next-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:block}
 .next-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .next-card h4{font-size:.9rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .next-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:76px}
 .sb{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
 .sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sb-link{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted);transition:color .2s}
 .sb-link:last-child{border-bottom:none;padding-bottom:0}
 .sb-link:hover{color:var(--teal3)}
-.sb-link-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem}
-
-/* FOOTER */
-footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:0}
+footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0}
 .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
 .foot-links{display:flex;gap:18px}
 .foot-links a:hover{color:var(--muted)}
-
 @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static}.two-col-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.nav-links{display:none}.container{padding:0 18px}.next-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -134,21 +110,17 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </nav>
-
 <section class="page-hero">
-  <div class="hero-orb orb-teal"></div>
-  <div class="hero-orb orb-terra"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/" id="bc-home">Home</a>
-      <span class="bc-sep">›</span>
-      <a href="/#tutorials" id="bc-tutorials">Tutorials</a>
-      <span class="bc-sep">›</span>
+      <a href="/" id="bc-home">Home</a><span class="bc-sep">›</span>
+      <a href="/#tutorials" id="bc-tutorials">Tutorials</a><span class="bc-sep">›</span>
       <span id="bc-tool" style="color:var(--teal3)">OpenAI API · Anthropic API</span>
     </div>
     <div class="tool-meta">
       <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#10a37f,#3DAFAF);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" width="16" height="16"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
-      <span class="tool-name" id="tool-name">OpenAI API · Anthropic API</span>
+      <span style="font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em" id="tool-name">OpenAI API · Anthropic API</span>
       <span class="level-badge lv-a" id="level-badge">Advanced</span>
       <span class="tut-meta-info">⏱ 60 min</span>
       <span class="tut-meta-info">👁 28k views</span>
@@ -157,116 +129,50 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     <p class="page-sub" id="page-sub">A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment.</p>
   </div>
 </section>
-
 <div class="container">
   <div class="content-grid">
     <div class="main-content">
-
       <div class="tip-box" style="margin-top:32px">
-        <span class="tip-box-icon">📖</span>
+        <span style="flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px">📖</span>
         <div><strong id="what-learn">What you'll learn:</strong> <span id="tip-desc">A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment.</span></div>
       </div>
-
       <div class="section-kicker" id="intro-kicker">Introduction</div>
       <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">Building your own AI-powered application gives you unlimited control over the user experience, pricing, and capabilities. This guide walks through everything a developer needs to go from zero to a production-ready AI app using the OpenAI and Anthropic APIs.</p>
-
       <div class="section-kicker" id="steps-kicker">Step-by-step guide</div>
-      <h2 class="section-h2"><span id="follow-text">Follow these</span> <em id="follow-text2">steps</em></h2>
-      <div class="step-list" id="step-list"><div class="step-item">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Get your API keys</h3>
-        <p>For OpenAI: go to <strong>platform.openai.com</strong> → API Keys → Create new secret key. For Anthropic: go to <strong>console.anthropic.com</strong> → API Keys → Create Key. Store these securely — never commit them to git.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Install the SDKs</h3>
-        <p><pre>pip install openai anthropic
-# or with npm:
-npm install openai @anthropic-ai/sdk</pre></p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Your first API call</h3>
-        <p><pre>from openai import OpenAI
-client = OpenAI(api_key='your-key')
-
-response = client.chat.completions.create(
-    model='gpt-4o',
-    messages=[{'role':'user','content':'Hello!'}]
-)
-print(response.choices[0].message.content)</pre></p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Build a chat conversation</h3>
-        <p>Maintain conversation history by passing all previous messages in each request. Store them in an array and append after each turn: user message → API call → assistant reply → append both to array.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Implement streaming</h3>
-        <p>Stream responses word by word for a better UX: <pre>stream = client.chat.completions.create(
-    model='gpt-4o',
-    messages=messages,
-    stream=True
-)
-for chunk in stream:
-    if chunk.choices[0].delta.content:
-        print(chunk.choices[0].delta.content, end='', flush=True)</pre></p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>Deploy to production</h3>
-        <p>Use environment variables, never hardcode keys. Deploy via Vercel, Railway, or Render. Always keep API calls server-side to protect your keys from being exposed in client code.</p>
-      </div>
-    </div></div>
-
+      <h2 class="section-h2">
+        <span id="follow-text">Follow these</span> <em id="follow-text2">steps</em>
+      </h2>
+      <div class="step-list" id="step-list"><!-- steps rendered by JS --></div>
       <div class="two-col-grid">
         <div class="col-card">
-          <h3 style="color:var(--sage2)" id="pro-tips-title">Pro tips: <span style="font-weight:300" id="do-this">Do this</span></h3>
-          <ul id="tips-list"><li><span class="do-icon">✓</span>Always use environment variables — never hardcode API keys in source code</li><li><span class="do-icon">✓</span>Set max_tokens to avoid unexpectedly long (expensive) responses</li><li><span class="do-icon">✓</span>Use a system prompt to define AI behavior consistently across all conversations</li><li><span class="do-icon">✓</span>Cache common responses to reduce API costs and improve response times</li></ul>
+          <h3 style="color:var(--sage2)" id="tips-h">Pro tips: <span style="font-weight:300">Do this</span></h3>
+          <ul id="tips-list"></ul>
         </div>
         <div class="col-card">
-          <h3 style="color:var(--terra2)" id="mistakes-title">Common mistakes: <span style="font-weight:300" id="avoid-these">Avoid these</span></h3>
-          <ul id="mistakes-list"><li><span class="dont-icon">✗</span>Exposing API keys in client-side JavaScript — always keep API calls server-side</li><li><span class="dont-icon">✗</span>Not handling API errors — implement retry logic with exponential backoff</li><li><span class="dont-icon">✗</span>Forgetting to limit context window — very long conversations get expensive fast</li><li><span class="dont-icon">✗</span>Not streaming responses — users expect to see text appear progressively</li></ul>
+          <h3 style="color:var(--terra2)" id="mistakes-h">Common mistakes: <span style="font-weight:300">Avoid these</span></h3>
+          <ul id="mistakes-list"></ul>
         </div>
       </div>
-
       <div class="section-kicker" id="next-kicker">Next steps</div>
-      <h2 class="section-h2"><span id="continue-text">Continue</span> <em id="continue-text2">learning</em></h2>
-      <div class="next-grid" id="next-cards"><a href="/tools/chatgpt.html" class="next-card"><h4>ChatGPT API Pricing</h4><p>Current pricing for GPT-5.5, GPT-4o, and other OpenAI models.</p></a><a href="/tools/claude.html" class="next-card"><h4>Claude API Pricing</h4><p>Current pricing for Claude Sonnet, Haiku, and Opus.</p></a><a href="/tutorials/automation.html" class="next-card"><h4>No-Code Automation</h4><p>Build AI workflows without coding using Make and Zapier.</p></a></div>
-
+      <h2 class="section-h2">
+        <span id="cont-text">Continue</span> <em id="cont-text2">learning</em>
+      </h2>
+      <div class="next-grid" id="next-cards"></div>
     </div>
-
     <div class="sidebar">
       <div class="sb">
         <div class="sb-title" id="related-title">Related Resources</div>
-        <div id="related-links"><a href="/tools/chatgpt.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#10a37f20;color:#10a37f">→</div>
-      OpenAI API Pricing
-    </a><a href="/tools/claude.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#c9644220;color:#c96442">→</div>
-      Claude API Pricing
-    </a><a href="/forum/claude-api-nodejs.html" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--teal)20;color:var(--teal)">→</div>
-      Claude API with Node.js (Forum)
-    </a></div>
+        <div id="related-links"></div>
       </div>
       <div class="sb" style="background:var(--bg2)">
         <div class="sb-title" id="also-title">Also Try</div>
         <a href="/#tutorials" class="sb-link" id="all-tut-link">← All Tutorials</a>
-        <a href="/#prompts" class="sb-link" id="prompt-lib-link">Prompt Library</a>
-        <a href="/#compare" class="sb-link" id="compare-link">Compare All AI</a>
+        <a href="/#prompts" class="sb-link" id="plib-link">Prompt Library</a>
+        <a href="/#compare" class="sb-link" id="cmp-link">Compare All AI</a>
       </div>
     </div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="foot-inner">
@@ -280,157 +186,94 @@ for chunk in stream:
     </div>
   </div>
 </footer>
-
 <script>
-// ── Bilingual data ──
-const CONTENT = {
-  en: {
-    pageTitle: "Build Your Own App with the OpenAI and Claude APIs \u2014 The AI How To",
-    pageDesc: "A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment.",
-    h1: "Build Your Own App with the OpenAI and Claude APIs",
-    sub: "A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment.",
-    tool: "OpenAI API \u00b7 Anthropic API",
-    level: "Advanced",
-    intro: "Building your own AI-powered application gives you unlimited control over the user experience, pricing, and capabilities. This guide walks through everything a developer needs to go from zero to a production-ready AI app using the OpenAI and Anthropic APIs.",
-    whatLearn: "What you'll learn",
-    introLabel: "Introduction",
-    stepsLabel: "Step-by-step guide",
-    follow: "Follow these", follow2: "steps",
-    proTips: "Pro tips", doThis: "Do", doThis2: "this",
-    avoid: "Common mistakes", avoid2: "Avoid", avoid3: "these",
-    nextLabel: "Next steps",
-    continueText: "Continue", continueText2: "learning",
-    navTools: 'Tools', navTut: 'Tutorials', navArt: 'Articles',
-    navPro: 'Prompts', navCmp: 'Compare', navFor: 'Forum',
-    navBack: '← Tutorials', bcHome: 'Home', bcTut: 'Tutorials',
-    relatedTitle: 'Related Resources', alsoTitle: 'Also Try',
-    allTut: '← All Tutorials', promptLib: 'Prompt Library', compareAll: 'Compare All AI',
-    ftAbout: 'About', ftPrivacy: 'Privacy', ftContact: 'Contact',
-    steps: [('Get your API keys', 'For OpenAI: go to <strong>platform.openai.com</strong> → API Keys → Create new secret key. For Anthropic: go to <strong>console.anthropic.com</strong> → API Keys → Create Key. Store these securely — never commit them to git.'), ('Install the SDKs', '<pre>pip install openai anthropic\n# or with npm:\nnpm install openai @anthropic-ai/sdk</pre>'), ('Your first API call', "<pre>from openai import OpenAI\nclient = OpenAI(api_key='your-key')\n\nresponse = client.chat.completions.create(\n    model='gpt-4o',\n    messages=[{'role':'user','content':'Hello!'}]\n)\nprint(response.choices[0].message.content)</pre>"), ('Build a chat conversation', 'Maintain conversation history by passing all previous messages in each request. Store them in an array and append after each turn: user message → API call → assistant reply → append both to array.'), ('Implement streaming', "Stream responses word by word for a better UX: <pre>stream = client.chat.completions.create(\n    model='gpt-4o',\n    messages=messages,\n    stream=True\n)\nfor chunk in stream:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end='', flush=True)</pre>"), ('Deploy to production', 'Use environment variables, never hardcode keys. Deploy via Vercel, Railway, or Render. Always keep API calls server-side to protect your keys from being exposed in client code.')],
-    tips: ["Always use environment variables \u2014 never hardcode API keys in source code", "Set max_tokens to avoid unexpectedly long (expensive) responses", "Use a system prompt to define AI behavior consistently across all conversations", "Cache common responses to reduce API costs and improve response times"],
-    mistakes: ["Exposing API keys in client-side JavaScript \u2014 always keep API calls server-side", "Not handling API errors \u2014 implement retry logic with exponential backoff", "Forgetting to limit context window \u2014 very long conversations get expensive fast", "Not streaming responses \u2014 users expect to see text appear progressively"],
-    nextCards: [('/tools/chatgpt.html', 'ChatGPT API Pricing', 'Current pricing for GPT-5.5, GPT-4o, and other OpenAI models.'), ('/tools/claude.html', 'Claude API Pricing', 'Current pricing for Claude Sonnet, Haiku, and Opus.'), ('/tutorials/automation.html', 'No-Code Automation', 'Build AI workflows without coding using Make and Zapier.')],
-    relatedLinks: [('/tools/chatgpt.html', '#10a37f', 'OpenAI API Pricing'), ('/tools/claude.html', '#c96442', 'Claude API Pricing'), ('/forum/claude-api-nodejs.html', 'var(--teal)', 'Claude API with Node.js (Forum)')],
-  },
-  es: {
-    pageTitle: "Construye tu Propia App con las APIs de OpenAI y Claude \u2014 The AI How To",
-    pageDesc: "Una gu\u00eda completa para desarrolladores sobre la construcci\u00f3n de aplicaciones con IA. Cubre autenticaci\u00f3n de API, completaciones de chat, gesti\u00f3n de tokens, streaming y despliegue en producci\u00f3n.",
-    h1: "Construye tu Propia App con las APIs de OpenAI y Claude",
-    sub: "Una gu\u00eda completa para desarrolladores sobre la construcci\u00f3n de aplicaciones con IA. Cubre autenticaci\u00f3n de API, completaciones de chat, gesti\u00f3n de tokens, streaming y despliegue en producci\u00f3n.",
-    tool: "API de OpenAI \u00b7 API de Anthropic",
-    level: "Avanzado",
-    intro: "Construir tu propia aplicaci\u00f3n con IA te da control ilimitado sobre la experiencia de usuario, los precios y las capacidades. Esta gu\u00eda lleva a los desarrolladores desde cero hasta una app de IA lista para producci\u00f3n usando las APIs de OpenAI y Anthropic.",
-    whatLearn: "Lo que aprender\u00e1s",
-    introLabel: "Introducci\u00f3n",
-    stepsLabel: "Gu\u00eda paso a paso",
-    follow: "Sigue estos", follow2: "pasos",
-    proTips: "Consejos Pro", doThis: "Haz", doThis2: "esto",
-    avoid: "Errores comunes", avoid2: "Evita", avoid3: "estos",
-    nextLabel: "Pr\u00f3ximos pasos",
-    continueText: "Contin\u00faa", continueText2: "aprendiendo",
-    navTools: 'Herramientas', navTut: 'Tutoriales', navArt: 'Artículos',
-    navPro: 'Prompts', navCmp: 'Comparar', navFor: 'Foro',
-    navBack: '← Tutoriales', bcHome: 'Inicio', bcTut: 'Tutoriales',
-    relatedTitle: 'Recursos Relacionados', alsoTitle: 'También Prueba',
-    allTut: '← Todos los Tutoriales', promptLib: 'Biblioteca de Prompts', compareAll: 'Comparar todas las IA',
-    ftAbout: 'Sobre nosotros', ftPrivacy: 'Privacidad', ftContact: 'Contacto',
-    steps: [('Obtén tus claves API', 'Para OpenAI: ve a <strong>platform.openai.com</strong> → API Keys → Crear nueva clave secreta. Para Anthropic: ve a <strong>console.anthropic.com</strong> → API Keys → Crear clave. Guárdalas de forma segura — nunca las subas a git.'), ('Instala los SDKs', '<pre>pip install openai anthropic\n# o con npm:\nnpm install openai @anthropic-ai/sdk</pre>'), ('Tu primera llamada a la API', "<pre>from openai import OpenAI\nclient = OpenAI(api_key='tu-clave')\n\nresponse = client.chat.completions.create(\n    model='gpt-4o',\n    messages=[{'role':'user','content':'¡Hola!'}]\n)\nprint(response.choices[0].message.content)</pre>"), ('Construye una conversación de chat', 'Mantén el historial de conversación pasando todos los mensajes anteriores en cada solicitud. Guárdalos en un array y añade después de cada turno: mensaje de usuario → llamada a la API → respuesta del asistente → añadir ambos al array.'), ('Implementa streaming', "Transmite respuestas palabra a palabra para una mejor experiencia de usuario: <pre>stream = client.chat.completions.create(\n    model='gpt-4o',\n    messages=messages,\n    stream=True\n)\nfor chunk in stream:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end='', flush=True)</pre>"), ('Despliega en producción', 'Usa variables de entorno, nunca código hardcoded. Despliega vía Vercel, Railway o Render. Siempre mantén las llamadas a la API del lado del servidor para proteger tus claves de ser expuestas en el código del cliente.')],
-    tips: ["Usa siempre variables de entorno \u2014 nunca hardcodees claves API en el c\u00f3digo fuente", "Establece max_tokens para evitar respuestas inesperadamente largas (y costosas)", "Usa un prompt de sistema para definir el comportamiento de la IA de manera consistente", "Cachea las respuestas comunes para reducir los costes de API y mejorar los tiempos de respuesta"],
-    mistakes: ["Exponer claves API en JavaScript del lado del cliente \u2014 mant\u00e9n siempre las llamadas del lado del servidor", "No manejar errores de API \u2014 implementa l\u00f3gica de reintento con backoff exponencial", "Olvidar limitar la ventana de contexto \u2014 las conversaciones muy largas se encarecen r\u00e1pido", "No transmitir respuestas \u2014 los usuarios esperan ver el texto aparecer progresivamente"],
-    nextCards: [('/tools/chatgpt.html', 'Precios de la API de ChatGPT', 'Precios actuales de GPT-5.5, GPT-4o y otros modelos de OpenAI.'), ('/tools/claude.html', 'Precios de la API de Claude', 'Precios actuales de Claude Sonnet, Haiku y Opus.'), ('/tutorials/automation.html', 'Automatización Sin Código', 'Construye flujos de trabajo con IA sin programar usando Make y Zapier.')],
-    relatedLinks: [('/tools/chatgpt.html', '#10a37f', 'Precios de la API de OpenAI'), ('/tools/claude.html', '#c96442', 'Precios de la API de Claude'), ('/forum/claude-api-nodejs.html', 'var(--teal)', 'API de Claude con Node.js (Foro)')],
-  }
-};
+
+const CONTENT = {"en": {"title": "Build Your Own App with the OpenAI and Claude APIs", "tool": "OpenAI API · Anthropic API", "level": "Advanced", "desc": "A complete developer guide to building AI-powered applications. Covers API authentication, chat completions, token management, streaming responses, and production deployment.", "intro": "Building your own AI-powered application gives you unlimited control over the user experience, pricing, and capabilities. This guide walks through everything a developer needs to go from zero to a production-ready AI app using the OpenAI and Anthropic APIs.", "labels": {"what": "What you'll learn", "intro": "Introduction", "steps": "Step-by-step guide", "follow": "Follow these", "follow2": "steps", "tips": "Pro tips", "do": "Do this", "avoid": "Common mistakes", "avoid2": "Avoid these", "next": "Next steps", "cont": "Continue", "cont2": "learning", "related": "Related Resources", "also": "Also Try", "allTut": "← All Tutorials", "plib": "Prompt Library", "cmpAll": "Compare All AI", "back": "← Tutorials", "bcHome": "Home", "bcTut": "Tutorials", "navTools": "Tools", "navTut": "Tutorials", "navArt": "Articles", "navPro": "Prompts", "navCmp": "Compare", "navFor": "Forum", "ftAbout": "About", "ftPrivacy": "Privacy", "ftContact": "Contact"}, "steps": [{"t": "Get your API keys", "d": "For OpenAI: go to <strong>platform.openai.com</strong> → API Keys → Create new secret key. For Anthropic: go to <strong>console.anthropic.com</strong> → API Keys → Create Key. Store these securely — never commit API keys to git or include them in client-side code."}, {"t": "Install the SDKs", "d": "<pre>pip install openai anthropic\n# or with npm:\nnpm install openai @anthropic-ai/sdk</pre>"}, {"t": "Your first API call", "d": "<pre>from openai import OpenAI\nclient = OpenAI(api_key='your-key')\n\nresponse = client.chat.completions.create(\n    model='gpt-4o',\n    messages=[{'role':'user','content':'Hello!'}]\n)\nprint(response.choices[0].message.content)</pre>"}, {"t": "Build a chat conversation", "d": "Maintain conversation history by passing all previous messages in each request. Store them in an array: user message → API call → assistant reply → append both to array → repeat for next turn."}, {"t": "Implement streaming", "d": "Stream responses word-by-word for better UX:<pre>stream = client.chat.completions.create(\n    model='gpt-4o',\n    messages=messages,\n    stream=True\n)\nfor chunk in stream:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end='', flush=True)</pre>"}, {"t": "Deploy to production", "d": "Use environment variables, never hardcode keys. Deploy via Vercel, Railway, or Render. Always keep API calls server-side to protect your keys. Set <code>max_tokens</code> to avoid unexpectedly long responses."}], "tips": ["Always use environment variables — never hardcode API keys in source code", "Set max_tokens to avoid unexpectedly long and expensive responses", "Use a system prompt to define AI behavior consistently across all conversations", "Cache common responses to reduce API costs and improve response times"], "mistakes": ["Exposing API keys in client-side JavaScript — always keep API calls server-side", "Not handling API errors — implement retry logic with exponential backoff", "Forgetting to limit context window — very long conversations get expensive fast", "Not streaming responses — users expect to see text appear progressively"], "next": [{"url": "/tools/chatgpt.html", "t": "ChatGPT API Pricing", "d": "Current pricing for GPT-5.5, GPT-4o, and other OpenAI models."}, {"url": "/tools/claude.html", "t": "Claude API Pricing", "d": "Current pricing for Claude Sonnet, Haiku, and Opus."}, {"url": "/tutorials/automation.html", "t": "No-Code Automation", "d": "Build AI workflows without coding using Make and Zapier."}], "links": [{"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "OpenAI API Pricing"}, {"url": "/tools/claude.html", "c": "#c96442", "l": "Claude API Pricing"}, {"url": "/forum/claude-api-nodejs.html", "c": "var(--teal)", "l": "Claude API with Node.js (Forum)"}]}, "es": {"title": "Construye tu Propia App con las APIs de OpenAI y Claude", "tool": "API de OpenAI · API de Anthropic", "level": "Avanzado", "desc": "Una guía completa para desarrolladores sobre la construcción de aplicaciones con IA. Cubre autenticación de API, completaciones de chat, gestión de tokens, streaming y despliegue en producción.", "intro": "Construir tu propia aplicación con IA te da control ilimitado sobre la experiencia de usuario, los precios y las capacidades. Esta guía lleva a los desarrolladores desde cero hasta una app de IA lista para producción usando las APIs de OpenAI y Anthropic.", "labels": {"what": "Lo que aprenderás", "intro": "Introducción", "steps": "Guía paso a paso", "follow": "Sigue estos", "follow2": "pasos", "tips": "Consejos Pro", "do": "Haz esto", "avoid": "Errores comunes", "avoid2": "Evita estos", "next": "Próximos pasos", "cont": "Continúa", "cont2": "aprendiendo", "related": "Recursos Relacionados", "also": "También Prueba", "allTut": "← Todos los Tutoriales", "plib": "Biblioteca de Prompts", "cmpAll": "Comparar todas las IA", "back": "← Tutoriales", "bcHome": "Inicio", "bcTut": "Tutoriales", "navTools": "Herramientas", "navTut": "Tutoriales", "navArt": "Artículos", "navPro": "Prompts", "navCmp": "Comparar", "navFor": "Foro", "ftAbout": "Sobre nosotros", "ftPrivacy": "Privacidad", "ftContact": "Contacto"}, "steps": [{"t": "Obtén tus claves API", "d": "Para OpenAI: ve a <strong>platform.openai.com</strong> → API Keys → Crear nueva clave secreta. Para Anthropic: ve a <strong>console.anthropic.com</strong> → API Keys → Crear clave. Guárdalas de forma segura — nunca las subas a git ni las incluyas en código del lado del cliente."}, {"t": "Instala los SDKs", "d": "<pre>pip install openai anthropic\n# o con npm:\nnpm install openai @anthropic-ai/sdk</pre>"}, {"t": "Tu primera llamada a la API", "d": "<pre>from openai import OpenAI\nclient = OpenAI(api_key='tu-clave')\n\nresponse = client.chat.completions.create(\n    model='gpt-4o',\n    messages=[{'role':'user','content':'¡Hola!'}]\n)\nprint(response.choices[0].message.content)</pre>"}, {"t": "Construye una conversación de chat", "d": "Mantén el historial de conversación pasando todos los mensajes anteriores en cada solicitud. Guárdalos en un array: mensaje de usuario → llamada a la API → respuesta del asistente → añadir ambos al array → repetir para el siguiente turno."}, {"t": "Implementa streaming", "d": "Transmite respuestas palabra a palabra para mejor experiencia de usuario:<pre>stream = client.chat.completions.create(\n    model='gpt-4o',\n    messages=messages,\n    stream=True\n)\nfor chunk in stream:\n    if chunk.choices[0].delta.content:\n        print(chunk.choices[0].delta.content, end='', flush=True)</pre>"}, {"t": "Despliega en producción", "d": "Usa variables de entorno, nunca código hardcoded. Despliega vía Vercel, Railway o Render. Siempre mantén las llamadas a la API del lado del servidor para proteger tus claves. Establece <code>max_tokens</code> para evitar respuestas inesperadamente largas."}], "tips": ["Usa siempre variables de entorno — nunca hardcodees claves API en el código fuente", "Establece max_tokens para evitar respuestas inesperadamente largas y costosas", "Usa un prompt de sistema para definir el comportamiento de la IA de manera consistente", "Cachea las respuestas comunes para reducir los costes de API y mejorar los tiempos de respuesta"], "mistakes": ["Exponer claves API en JavaScript del lado del cliente — mantén siempre las llamadas del lado del servidor", "No manejar errores de API — implementa lógica de reintento con backoff exponencial", "Olvidar limitar la ventana de contexto — las conversaciones muy largas se encarecen rápido", "No transmitir respuestas — los usuarios esperan ver el texto aparecer progresivamente"], "next": [{"url": "/tools/chatgpt.html", "t": "Precios de la API de ChatGPT", "d": "Precios actuales de GPT-5.5, GPT-4o y otros modelos de OpenAI."}, {"url": "/tools/claude.html", "t": "Precios de la API de Claude", "d": "Precios actuales de Claude Sonnet, Haiku y Opus."}, {"url": "/tutorials/automation.html", "t": "Automatización Sin Código", "d": "Construye flujos de trabajo con IA sin programar usando Make y Zapier."}], "links": [{"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "Precios de la API de OpenAI"}, {"url": "/tools/claude.html", "c": "#c96442", "l": "Precios de la API de Claude"}, {"url": "/forum/claude-api-nodejs.html", "c": "var(--teal)", "l": "API de Claude con Node.js (Foro)"}]}};
 
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 let lang = urlLang || localStorage.getItem('taht-lang') ||
            ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
 if (urlLang) localStorage.setItem('taht-lang', urlLang);
 
-function buildStepHTML(steps) {
-  return steps.map((s, i) =>
-    `<div class="step-item">
-      <div class="step-num">${i+1}</div>
-      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
-    </div>`
-  ).join('');
+function el(id) { return document.getElementById(id); }
+
+function buildSteps(steps) {
+  return steps.map(function(s, i) {
+    return '<div class="step-item">' +
+      '<div class="step-num">' + (i+1) + '</div>' +
+      '<div class="step-body"><h3>' + s.t + '</h3><p>' + s.d + '</p></div>' +
+      '</div>';
+  }).join('');
 }
 
-function buildListHTML(items, iconClass, iconChar) {
-  return items.map(item =>
-    `<li><span class="${iconClass}">${iconChar}</span>${item}</li>`
-  ).join('');
+function buildList(items, cls, icon) {
+  return items.map(function(item) {
+    return '<li><span class="' + cls + '">' + icon + '</span>' + item + '</li>';
+  }).join('');
 }
 
-function buildNextCards(cards) {
-  return cards.map(([url, title, desc]) =>
-    `<a href="${url}?lang=${lang}" class="next-card"><h4>${title}</h4><p>${desc}</p></a>`
-  ).join('');
+function buildNext(cards, l) {
+  return cards.map(function(c) {
+    return '<a href="' + c.url + '?lang=' + l + '" class="next-card">' +
+      '<h4>' + c.t + '</h4><p>' + c.d + '</p></a>';
+  }).join('');
 }
 
-function buildRelatedLinks(links) {
-  return links.map(([url, color, label]) =>
-    `<a href="${url}" class="sb-link">
-      <div class="sb-link-icon" style="background:${color}20;color:${color}">→</div>
-      ${label}
-    </a>`
-  ).join('');
+function buildLinks(links) {
+  return links.map(function(lk) {
+    return '<a href="' + lk.url + '" class="sb-link">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:' + lk.c + '22;color:' + lk.c + ';display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0">→</div>' +
+      lk.l + '</a>';
+  }).join('');
 }
 
 function applyLang(l) {
-  const c = CONTENT[l];
+  var c = CONTENT[l];
+  var lb = c.labels;
   document.documentElement.lang = l === 'es' ? 'es' : 'en';
-  document.getElementById('page-title').textContent = c.pageTitle;
-  document.getElementById('page-desc').setAttribute('content', c.pageDesc);
-  document.getElementById('page-h1').textContent = c.h1;
-  document.getElementById('page-sub').textContent = c.sub;
-  document.getElementById('tool-name').textContent = c.tool;
-  document.getElementById('level-badge').textContent = c.level;
-  document.getElementById('bc-tool').textContent = c.tool;
-  document.getElementById('bc-home').textContent = c.bcHome;
-  document.getElementById('bc-tutorials').textContent = c.bcTut;
-  document.getElementById('intro-kicker').textContent = c.introLabel;
-  document.getElementById('intro-text').textContent = c.intro;
-  document.getElementById('steps-kicker').textContent = c.stepsLabel;
-  document.getElementById('follow-text').textContent = c.follow;
-  document.getElementById('follow-text2').textContent = c.follow2;
-  document.getElementById('what-learn').textContent = c.whatLearn + ':';
-  document.getElementById('tip-desc').textContent = c.sub;
-  document.getElementById('step-list').innerHTML = buildStepHTML(c.steps);
-  document.getElementById('tips-list').innerHTML = buildListHTML(c.tips, 'do-icon', '✓');
-  document.getElementById('mistakes-list').innerHTML = buildListHTML(c.mistakes, 'dont-icon', '✗');
-  document.getElementById('pro-tips-title').innerHTML = c.proTips + ': <span style="font-weight:300" id="do-this">' + c.doThis + ' ' + c.doThis2 + '</span>';
-  document.getElementById('mistakes-title').innerHTML = c.avoid + ': <span style="font-weight:300" id="avoid-these">' + c.avoid2 + ' ' + c.avoid3 + '</span>';
-  document.getElementById('next-kicker').textContent = c.nextLabel;
-  document.getElementById('continue-text').textContent = c.continueText;
-  document.getElementById('continue-text2').textContent = c.continueText2;
-  document.getElementById('next-cards').innerHTML = buildNextCards(c.nextCards);
-  document.getElementById('related-links').innerHTML = buildRelatedLinks(c.relatedLinks);
-  document.getElementById('related-title').textContent = c.relatedTitle;
-  document.getElementById('also-title').textContent = c.alsoTitle;
-  document.getElementById('all-tut-link').textContent = c.allTut;
-  document.getElementById('prompt-lib-link').textContent = c.promptLib;
-  document.getElementById('compare-link').textContent = c.compareAll;
-  document.getElementById('nav-tools').textContent = c.navTools;
-  document.getElementById('nav-tutorials').textContent = c.navTut;
-  document.getElementById('nav-articles').textContent = c.navArt;
-  document.getElementById('nav-prompts').textContent = c.navPro;
-  document.getElementById('nav-compare').textContent = c.navCmp;
-  document.getElementById('nav-forum').textContent = c.navFor;
-  document.getElementById('nav-back').textContent = c.navBack;
-  document.getElementById('ft-about').textContent = c.ftAbout;
-  document.getElementById('ft-privacy').textContent = c.ftPrivacy;
-  document.getElementById('ft-contact').textContent = c.ftContact;
-  // Lang buttons
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  document.getElementById('btn-es').classList.toggle('active', l === 'es');
-  // Internal links get lang param
-  document.querySelectorAll('a[href^="/"], a[href^="#"]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && !href.includes('?lang=') && !href.startsWith('#') && href !== '/') {
-      a.href = href.split('?')[0] + '?lang=' + l;
-    }
-  });
+  document.title = c.title + ' — The AI How To';
+  el('page-title').textContent = c.title + ' — The AI How To';
+  el('page-h1').textContent = c.title;
+  el('page-sub').textContent = c.desc;
+  el('tool-name').textContent = c.tool;
+  el('level-badge').textContent = c.level;
+  el('bc-tool').textContent = c.tool;
+  el('tip-desc').textContent = c.desc;
+  el('intro-text').textContent = c.intro;
+  el('bc-home').textContent = lb.bcHome;
+  el('bc-tutorials').textContent = lb.bcTut;
+  el('nav-back').textContent = lb.back;
+  el('what-learn').textContent = lb.what + ':';
+  el('intro-kicker').textContent = lb.intro;
+  el('steps-kicker').textContent = lb.steps;
+  el('follow-text').textContent = lb.follow;
+  el('follow-text2').textContent = lb.follow2;
+  el('tips-h').innerHTML = lb.tips + ': <span style="font-weight:300">' + lb.do + '</span>';
+  el('mistakes-h').innerHTML = lb.avoid + ': <span style="font-weight:300">' + lb.avoid2 + '</span>';
+  el('step-list').innerHTML = buildSteps(c.steps);
+  el('tips-list').innerHTML = buildList(c.tips, 'do-icon', '✓');
+  el('mistakes-list').innerHTML = buildList(c.mistakes, 'dont-icon', '✗');
+  el('next-kicker').textContent = lb.next;
+  el('cont-text').textContent = lb.cont;
+  el('cont-text2').textContent = lb.cont2;
+  el('next-cards').innerHTML = buildNext(c.next, l);
+  el('related-title').textContent = lb.related;
+  el('also-title').textContent = lb.also;
+  el('related-links').innerHTML = buildLinks(c.links);
+  el('all-tut-link').textContent = lb.allTut;
+  el('plib-link').textContent = lb.plib;
+  el('cmp-link').textContent = lb.cmpAll;
+  el('nav-tools').textContent = lb.navTools;
+  el('nav-tutorials').textContent = lb.navTut;
+  el('nav-articles').textContent = lb.navArt;
+  el('nav-prompts').textContent = lb.navPro;
+  el('nav-compare').textContent = lb.navCmp;
+  el('nav-forum').textContent = lb.navFor;
+  el('ft-about').textContent = lb.ftAbout;
+  el('ft-privacy').textContent = lb.ftPrivacy;
+  el('ft-contact').textContent = lb.ftContact;
+  el('btn-en').classList.toggle('active', l === 'en');
+  el('btn-es').classList.toggle('active', l === 'es');
 }
 
 function setLang(l) {
@@ -440,6 +283,7 @@ function setLang(l) {
 }
 
 applyLang(lang);
+
 </script>
 </body>
 </html>

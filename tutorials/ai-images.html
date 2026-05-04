@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title id="page-title">Create Professional AI Images: The Complete 2026 Guide — The AI How To</title>
-<meta name="description" id="page-desc" content="Master AI image generation with Midjourney, DALL·E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool."/>
+<meta name="description" content="Master AI image generation with Midjourney, DALL·E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
@@ -13,8 +14,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:va
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
 .container{max-width:1100px;margin:0 auto;padding:0 28px}
-
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
 .nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
@@ -30,19 +29,14 @@ a{color:inherit;text-decoration:none}
 .lang-btn.active{background:var(--teal);color:#fff}
 .nav-back{font-size:.82rem;color:var(--teal3);transition:color .2s}
 .nav-back:hover{color:var(--white)}
-
-/* PAGE HERO */
 .page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.orb-teal{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%);filter:blur(60px)}
-.orb-terra{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%);filter:blur(50px)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+.orb1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%)}
+.orb2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%)}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:.75rem;color:var(--dim)}
-.breadcrumb a{color:var(--teal3);transition:color .2s}
-.breadcrumb a:hover{color:var(--white)}
+.breadcrumb a{color:var(--teal3)}
 .bc-sep{color:var(--dim);font-size:.7rem}
 .tool-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.tool-icon-sm{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tool-name{font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em}
 .level-badge{font-size:.65rem;font-weight:500;padding:2px 9px;border-radius:100px}
 .lv-b{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
 .lv-i{background:rgba(232,133,74,.1);color:var(--orange);border:1px solid rgba(232,133,74,.2)}
@@ -51,67 +45,49 @@ a{color:inherit;text-decoration:none}
 .page-h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}
 .page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
 .page-sub{font-size:.97rem;color:var(--muted);line-height:1.7;max-width:640px}
-
-/* CONTENT */
 .content-grid{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding:60px 0}
-.main-content{}
 .tip-box{background:rgba(45,138,138,.07);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:36px;display:flex;gap:12px}
-.tip-box-icon{flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px}
 .section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal2);margin-bottom:10px}
 .section-h2{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;margin-bottom:28px;line-height:1.2}
 .section-h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-
-/* STEPS */
 .step-list{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
 .step-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .step-item:last-child{border-bottom:none}
-.step-num{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
+.step-num{width:34px;height:34px;min-width:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
 .step-body h3{font-size:.97rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .step-body p{font-size:.87rem;color:var(--muted);line-height:1.75}
 .step-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:14px 16px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin-top:12px;color:var(--white)}
-.step-body em{color:var(--teal3);font-style:italic}
 .step-body strong{color:var(--white);font-weight:600}
 .step-body a{color:var(--teal3)}
-.step-body a:hover{color:var(--white)}
-
-/* TWO COLS */
+.step-body code{font-family:'DM Mono',monospace;font-size:.82em;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--teal3)}
 .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
 .col-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
 .col-card h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--line)}
 .col-card ul{list-style:none}
 .col-card ul li{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
 .col-card ul li:last-child{border-bottom:none;padding-bottom:0}
-.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem}
-.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem}
-
-/* NEXT STEPS */
+.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
+.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
 .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
 .next-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:block}
 .next-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .next-card h4{font-size:.9rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .next-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:76px}
 .sb{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
 .sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sb-link{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted);transition:color .2s}
 .sb-link:last-child{border-bottom:none;padding-bottom:0}
 .sb-link:hover{color:var(--teal3)}
-.sb-link-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem}
-
-/* FOOTER */
-footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:0}
+footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0}
 .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
 .foot-links{display:flex;gap:18px}
 .foot-links a:hover{color:var(--muted)}
-
 @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static}.two-col-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.nav-links{display:none}.container{padding:0 18px}.next-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -134,21 +110,17 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </nav>
-
 <section class="page-hero">
-  <div class="hero-orb orb-teal"></div>
-  <div class="hero-orb orb-terra"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/" id="bc-home">Home</a>
-      <span class="bc-sep">›</span>
-      <a href="/#tutorials" id="bc-tutorials">Tutorials</a>
-      <span class="bc-sep">›</span>
-      <span id="bc-tool" style="color:var(--teal3)">Midjourney · DALL·E · Stable Diffusion</span>
+      <a href="/" id="bc-home">Home</a><span class="bc-sep">›</span>
+      <a href="/#tutorials" id="bc-tutorials">Tutorials</a><span class="bc-sep">›</span>
+      <span id="bc-tool" style="color:var(--teal3)">Midjourney · DALL·E</span>
     </div>
     <div class="tool-meta">
       <div style="width:32px;height:32px;border-radius:8px;background:#000;border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M5 3l7 18 7-18H5zm7 13.5L8.5 7h7L12 16.5z"/></svg></div>
-      <span class="tool-name" id="tool-name">Midjourney · DALL·E · Stable Diffusion</span>
+      <span style="font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em" id="tool-name">Midjourney · DALL·E</span>
       <span class="level-badge lv-i" id="level-badge">Intermediate</span>
       <span class="tut-meta-info">⏱ 30 min</span>
       <span class="tut-meta-info">👁 38k views</span>
@@ -157,100 +129,50 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     <p class="page-sub" id="page-sub">Master AI image generation with Midjourney, DALL·E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool.</p>
   </div>
 </section>
-
 <div class="container">
   <div class="content-grid">
     <div class="main-content">
-
       <div class="tip-box" style="margin-top:32px">
-        <span class="tip-box-icon">📖</span>
+        <span style="flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px">📖</span>
         <div><strong id="what-learn">What you'll learn:</strong> <span id="tip-desc">Master AI image generation with Midjourney, DALL·E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool.</span></div>
       </div>
-
       <div class="section-kicker" id="intro-kicker">Introduction</div>
-      <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">AI image generation has matured to the point where it's used by professional designers, photographers, and marketers every day. The challenge is knowing which tool to use and how to write prompts that reliably produce what you envision.</p>
-
+      <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">AI image generation is now used by professional designers, photographers, and marketers every day. The challenge is knowing which tool to use and how to write prompts that reliably produce what you envision.</p>
       <div class="section-kicker" id="steps-kicker">Step-by-step guide</div>
-      <h2 class="section-h2"><span id="follow-text">Follow these</span> <em id="follow-text2">steps</em></h2>
-      <div class="step-list" id="step-list"><div class="step-item">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Choose the right tool</h3>
-        <p><strong>Midjourney</strong>: Best overall quality for artistic and photorealistic images. Paid only. <strong>DALL·E 3</strong> (in ChatGPT): Best for precise instructions and text in images. Free tier available. <strong>Stable Diffusion</strong>: Free, open-source, runs locally. Most control but steepest learning curve.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Structure your prompt</h3>
-        <p>A strong image prompt has 4 components: <strong>Subject</strong> (what/who), <strong>Context</strong> (setting, time), <strong>Style</strong> (art style, photographer, era), <strong>Technical</strong> (lighting, camera, mood). Be specific about each.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Master Midjourney parameters</h3>
-        <p>Key parameters: <code>--ar 16:9</code> (widescreen), <code>--ar 1:1</code> (square), <code>--v 7</code> (latest version), <code>--style raw</code> (photorealistic), <code>--q 2</code> (highest quality), <code>--no text</code> (remove text elements).</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Use style references</h3>
-        <p>Instead of describing a style in words, show an example. In Midjourney, use <code>--sref [URL]</code> to match the visual style of any image. This is one of the most powerful techniques for consistent branded content.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Iterate systematically</h3>
-        <p>When a result isn't right, identify what's wrong before regenerating. Is it the lighting? Composition? Subject? Fix one element at a time. Use V1–V4 to explore variations before starting completely fresh.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>DALL·E for text in images</h3>
-        <p>DALL·E 3 (via ChatGPT) is the best tool when you need readable text in your image. Other models consistently mangle text. Ask: <em>'Create a poster with the headline [text] in large bold letters'</em>.</p>
-      </div>
-    </div></div>
-
+      <h2 class="section-h2">
+        <span id="follow-text">Follow these</span> <em id="follow-text2">steps</em>
+      </h2>
+      <div class="step-list" id="step-list"><!-- steps rendered by JS --></div>
       <div class="two-col-grid">
         <div class="col-card">
-          <h3 style="color:var(--sage2)" id="pro-tips-title">Pro tips: <span style="font-weight:300" id="do-this">Do this</span></h3>
-          <ul id="tips-list"><li><span class="do-icon">✓</span>Reference specific photographers or artists for consistent style: 'in the style of Annie Leibovitz'</li><li><span class="do-icon">✓</span>Lighting descriptions make a huge difference: 'golden hour', 'soft box', 'dramatic side lighting'</li><li><span class="do-icon">✓</span>For product photos: --style raw + white background + studio lighting = professional results</li><li><span class="do-icon">✓</span>Use negative prompts (--no in Midjourney) to remove unwanted elements</li></ul>
+          <h3 style="color:var(--sage2)" id="tips-h">Pro tips: <span style="font-weight:300">Do this</span></h3>
+          <ul id="tips-list"></ul>
         </div>
         <div class="col-card">
-          <h3 style="color:var(--terra2)" id="mistakes-title">Common mistakes: <span style="font-weight:300" id="avoid-these">Avoid these</span></h3>
-          <ul id="mistakes-list"><li><span class="dont-icon">✗</span>Writing vague prompts like 'nice landscape' — be hyper-specific</li><li><span class="dont-icon">✗</span>Not specifying aspect ratio — square images rarely work for most use cases</li><li><span class="dont-icon">✗</span>Trying to put text in non-DALL·E models — only DALL·E 3 handles text reliably</li><li><span class="dont-icon">✗</span>Not using style references — they're far more precise than verbal style descriptions</li></ul>
+          <h3 style="color:var(--terra2)" id="mistakes-h">Common mistakes: <span style="font-weight:300">Avoid these</span></h3>
+          <ul id="mistakes-list"></ul>
         </div>
       </div>
-
       <div class="section-kicker" id="next-kicker">Next steps</div>
-      <h2 class="section-h2"><span id="continue-text">Continue</span> <em id="continue-text2">learning</em></h2>
-      <div class="next-grid" id="next-cards"><a href="/tools/midjourney.html" class="next-card"><h4>Midjourney Full Review</h4><p>Full guide, pricing, and advanced techniques for Midjourney.</p></a><a href="/tools/chatgpt.html" class="next-card"><h4>ChatGPT + DALL·E Guide</h4><p>Use DALL·E 3 for free inside ChatGPT.</p></a><a href="/#prompts" class="next-card"><h4>Image Prompt Templates</h4><p>Ready-to-use Midjourney prompts for portraits, products, and logos.</p></a></div>
-
+      <h2 class="section-h2">
+        <span id="cont-text">Continue</span> <em id="cont-text2">learning</em>
+      </h2>
+      <div class="next-grid" id="next-cards"></div>
     </div>
-
     <div class="sidebar">
       <div class="sb">
         <div class="sb-title" id="related-title">Related Resources</div>
-        <div id="related-links"><a href="/tools/midjourney.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#00020;color:#000">→</div>
-      Midjourney Guide
-    </a><a href="/tools/chatgpt.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#10a37f20;color:#10a37f">→</div>
-      ChatGPT + DALL·E Guide
-    </a><a href="/#prompts" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--teal)20;color:var(--teal)">→</div>
-      Image Prompts Library
-    </a></div>
+        <div id="related-links"></div>
       </div>
       <div class="sb" style="background:var(--bg2)">
         <div class="sb-title" id="also-title">Also Try</div>
         <a href="/#tutorials" class="sb-link" id="all-tut-link">← All Tutorials</a>
-        <a href="/#prompts" class="sb-link" id="prompt-lib-link">Prompt Library</a>
-        <a href="/#compare" class="sb-link" id="compare-link">Compare All AI</a>
+        <a href="/#prompts" class="sb-link" id="plib-link">Prompt Library</a>
+        <a href="/#compare" class="sb-link" id="cmp-link">Compare All AI</a>
       </div>
     </div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="foot-inner">
@@ -264,157 +186,94 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </footer>
-
 <script>
-// ── Bilingual data ──
-const CONTENT = {
-  en: {
-    pageTitle: "Create Professional AI Images: The Complete 2026 Guide \u2014 The AI How To",
-    pageDesc: "Master AI image generation with Midjourney, DALL\u00b7E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool.",
-    h1: "Create Professional AI Images: The Complete 2026 Guide",
-    sub: "Master AI image generation with Midjourney, DALL\u00b7E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool.",
-    tool: "Midjourney \u00b7 DALL\u00b7E \u00b7 Stable Diffusion",
-    level: "Intermediate",
-    intro: "AI image generation has matured to the point where it's used by professional designers, photographers, and marketers every day. The challenge is knowing which tool to use and how to write prompts that reliably produce what you envision.",
-    whatLearn: "What you'll learn",
-    introLabel: "Introduction",
-    stepsLabel: "Step-by-step guide",
-    follow: "Follow these", follow2: "steps",
-    proTips: "Pro tips", doThis: "Do", doThis2: "this",
-    avoid: "Common mistakes", avoid2: "Avoid", avoid3: "these",
-    nextLabel: "Next steps",
-    continueText: "Continue", continueText2: "learning",
-    navTools: 'Tools', navTut: 'Tutorials', navArt: 'Articles',
-    navPro: 'Prompts', navCmp: 'Compare', navFor: 'Forum',
-    navBack: '← Tutorials', bcHome: 'Home', bcTut: 'Tutorials',
-    relatedTitle: 'Related Resources', alsoTitle: 'Also Try',
-    allTut: '← All Tutorials', promptLib: 'Prompt Library', compareAll: 'Compare All AI',
-    ftAbout: 'About', ftPrivacy: 'Privacy', ftContact: 'Contact',
-    steps: [('Choose the right tool', '<strong>Midjourney</strong>: Best overall quality for artistic and photorealistic images. Paid only. <strong>DALL·E 3</strong> (in ChatGPT): Best for precise instructions and text in images. Free tier available. <strong>Stable Diffusion</strong>: Free, open-source, runs locally. Most control but steepest learning curve.'), ('Structure your prompt', 'A strong image prompt has 4 components: <strong>Subject</strong> (what/who), <strong>Context</strong> (setting, time), <strong>Style</strong> (art style, photographer, era), <strong>Technical</strong> (lighting, camera, mood). Be specific about each.'), ('Master Midjourney parameters', 'Key parameters: <code>--ar 16:9</code> (widescreen), <code>--ar 1:1</code> (square), <code>--v 7</code> (latest version), <code>--style raw</code> (photorealistic), <code>--q 2</code> (highest quality), <code>--no text</code> (remove text elements).'), ('Use style references', 'Instead of describing a style in words, show an example. In Midjourney, use <code>--sref [URL]</code> to match the visual style of any image. This is one of the most powerful techniques for consistent branded content.'), ('Iterate systematically', "When a result isn't right, identify what's wrong before regenerating. Is it the lighting? Composition? Subject? Fix one element at a time. Use V1–V4 to explore variations before starting completely fresh."), ('DALL·E for text in images', "DALL·E 3 (via ChatGPT) is the best tool when you need readable text in your image. Other models consistently mangle text. Ask: <em>'Create a poster with the headline [text] in large bold letters'</em>.")],
-    tips: ["Reference specific photographers or artists for consistent style: 'in the style of Annie Leibovitz'", "Lighting descriptions make a huge difference: 'golden hour', 'soft box', 'dramatic side lighting'", "For product photos: --style raw + white background + studio lighting = professional results", "Use negative prompts (--no in Midjourney) to remove unwanted elements"],
-    mistakes: ["Writing vague prompts like 'nice landscape' \u2014 be hyper-specific", "Not specifying aspect ratio \u2014 square images rarely work for most use cases", "Trying to put text in non-DALL\u00b7E models \u2014 only DALL\u00b7E 3 handles text reliably", "Not using style references \u2014 they're far more precise than verbal style descriptions"],
-    nextCards: [('/tools/midjourney.html', 'Midjourney Full Review', 'Full guide, pricing, and advanced techniques for Midjourney.'), ('/tools/chatgpt.html', 'ChatGPT + DALL·E Guide', 'Use DALL·E 3 for free inside ChatGPT.'), ('/#prompts', 'Image Prompt Templates', 'Ready-to-use Midjourney prompts for portraits, products, and logos.')],
-    relatedLinks: [('/tools/midjourney.html', '#000', 'Midjourney Guide'), ('/tools/chatgpt.html', '#10a37f', 'ChatGPT + DALL·E Guide'), ('/#prompts', 'var(--teal)', 'Image Prompts Library')],
-  },
-  es: {
-    pageTitle: "Crea Im\u00e1genes Profesionales con IA: La Gu\u00eda Completa 2026 \u2014 The AI How To",
-    pageDesc: "Domina la generaci\u00f3n de im\u00e1genes con IA con Midjourney, DALL\u00b7E 3 y Stable Diffusion. Aprende t\u00e9cnicas de prompting profesional, par\u00e1metros avanzados y cu\u00e1ndo usar cada herramienta.",
-    h1: "Crea Im\u00e1genes Profesionales con IA: La Gu\u00eda Completa 2026",
-    sub: "Domina la generaci\u00f3n de im\u00e1genes con IA con Midjourney, DALL\u00b7E 3 y Stable Diffusion. Aprende t\u00e9cnicas de prompting profesional, par\u00e1metros avanzados y cu\u00e1ndo usar cada herramienta.",
-    tool: "Midjourney \u00b7 DALL\u00b7E \u00b7 Stable Diffusion",
-    level: "Intermedio",
-    intro: "La generaci\u00f3n de im\u00e1genes con IA ha madurado hasta el punto en que la usan dise\u00f1adores, fot\u00f3grafos y profesionales del marketing todos los d\u00edas. El reto es saber qu\u00e9 herramienta usar y c\u00f3mo escribir prompts que produzcan de forma fiable lo que visualizas.",
-    whatLearn: "Lo que aprender\u00e1s",
-    introLabel: "Introducci\u00f3n",
-    stepsLabel: "Gu\u00eda paso a paso",
-    follow: "Sigue estos", follow2: "pasos",
-    proTips: "Consejos Pro", doThis: "Haz", doThis2: "esto",
-    avoid: "Errores comunes", avoid2: "Evita", avoid3: "estos",
-    nextLabel: "Pr\u00f3ximos pasos",
-    continueText: "Contin\u00faa", continueText2: "aprendiendo",
-    navTools: 'Herramientas', navTut: 'Tutoriales', navArt: 'Artículos',
-    navPro: 'Prompts', navCmp: 'Comparar', navFor: 'Foro',
-    navBack: '← Tutoriales', bcHome: 'Inicio', bcTut: 'Tutoriales',
-    relatedTitle: 'Recursos Relacionados', alsoTitle: 'También Prueba',
-    allTut: '← Todos los Tutoriales', promptLib: 'Biblioteca de Prompts', compareAll: 'Comparar todas las IA',
-    ftAbout: 'Sobre nosotros', ftPrivacy: 'Privacidad', ftContact: 'Contacto',
-    steps: [('Elige la herramienta adecuada', '<strong>Midjourney</strong>: Mejor calidad general para imágenes artísticas y fotorrealistas. Solo de pago. <strong>DALL·E 3</strong> (en ChatGPT): Mejor para instrucciones precisas y texto en imágenes. Plan gratuito disponible. <strong>Stable Diffusion</strong>: Gratuito, código abierto, funciona localmente. Máximo control pero mayor curva de aprendizaje.'), ('Estructura tu prompt', 'Un buen prompt de imagen tiene 4 componentes: <strong>Sujeto</strong> (qué/quién), <strong>Contexto</strong> (escenario, tiempo), <strong>Estilo</strong> (estilo artístico, fotógrafo, época), <strong>Técnico</strong> (iluminación, cámara, ambiente). Sé específico en cada uno.'), ('Domina los parámetros de Midjourney', 'Parámetros clave: <code>--ar 16:9</code> (pantalla ancha), <code>--ar 1:1</code> (cuadrado), <code>--v 7</code> (última versión), <code>--style raw</code> (fotorrealista), <code>--q 2</code> (máxima calidad), <code>--no text</code> (eliminar texto).'), ('Usa referencias de estilo', 'En lugar de describir un estilo con palabras, muestra un ejemplo. En Midjourney, usa <code>--sref [URL]</code> para coincidir con el estilo visual de cualquier imagen. Es una de las técnicas más potentes para contenido de marca consistente.'), ('Itera de forma sistemática', 'Cuando un resultado no es el correcto, identifica qué está mal antes de regenerar. ¿Es la iluminación? ¿La composición? ¿El sujeto? Corrige un elemento a la vez. Usa V1–V4 para explorar variaciones antes de empezar de cero.'), ('DALL·E para texto en imágenes', "DALL·E 3 (vía ChatGPT) es la mejor herramienta cuando necesitas texto legible en tu imagen. Otros modelos deforman constantemente el texto. Pide: <em>'Crea un póster con el titular [texto] en letras grandes y en negrita'</em>.")],
-    tips: ["Referencia fot\u00f3grafos o artistas espec\u00edficos para un estilo consistente: 'al estilo de Annie Leibovitz'", "Las descripciones de iluminaci\u00f3n marcan una gran diferencia: 'hora dorada', 'caja de luz suave', 'iluminaci\u00f3n lateral dram\u00e1tica'", "Para fotos de producto: --style raw + fondo blanco + iluminaci\u00f3n de estudio = resultados profesionales", "Usa prompts negativos (--no en Midjourney) para eliminar elementos no deseados"],
-    mistakes: ["Escribir prompts vagos como 'paisaje bonito' \u2014 s\u00e9 hiper-espec\u00edfico", "No especificar la relaci\u00f3n de aspecto \u2014 las im\u00e1genes cuadradas rara vez funcionan para la mayor\u00eda de casos", "Intentar a\u00f1adir texto en modelos que no sean DALL\u00b7E 3 \u2014 solo DALL\u00b7E 3 maneja el texto de manera fiable", "No usar referencias de estilo \u2014 son mucho m\u00e1s precisas que las descripciones verbales"],
-    nextCards: [('/tools/midjourney.html', 'Análisis Completo de Midjourney', 'Guía completa, precios y técnicas avanzadas para Midjourney.'), ('/tools/chatgpt.html', 'Guía de ChatGPT + DALL·E', 'Usa DALL·E 3 gratis dentro de ChatGPT.'), ('/#prompts', 'Plantillas de Prompts para Imágenes', 'Prompts de Midjourney listos para usar para retratos, productos y logos.')],
-    relatedLinks: [('/tools/midjourney.html', '#000', 'Guía de Midjourney'), ('/tools/chatgpt.html', '#10a37f', 'Guía de ChatGPT + DALL·E'), ('/#prompts', 'var(--teal)', 'Biblioteca de Prompts para Imágenes')],
-  }
-};
+
+const CONTENT = {"en": {"title": "Create Professional AI Images: The Complete 2026 Guide", "tool": "Midjourney · DALL·E", "level": "Intermediate", "desc": "Master AI image generation with Midjourney, DALL·E 3, and Stable Diffusion. Learn professional prompting techniques, advanced parameters, and when to use each tool.", "intro": "AI image generation is now used by professional designers, photographers, and marketers every day. The challenge is knowing which tool to use and how to write prompts that reliably produce what you envision.", "labels": {"what": "What you'll learn", "intro": "Introduction", "steps": "Step-by-step guide", "follow": "Follow these", "follow2": "steps", "tips": "Pro tips", "do": "Do this", "avoid": "Common mistakes", "avoid2": "Avoid these", "next": "Next steps", "cont": "Continue", "cont2": "learning", "related": "Related Resources", "also": "Also Try", "allTut": "← All Tutorials", "plib": "Prompt Library", "cmpAll": "Compare All AI", "back": "← Tutorials", "bcHome": "Home", "bcTut": "Tutorials", "navTools": "Tools", "navTut": "Tutorials", "navArt": "Articles", "navPro": "Prompts", "navCmp": "Compare", "navFor": "Forum", "ftAbout": "About", "ftPrivacy": "Privacy", "ftContact": "Contact"}, "steps": [{"t": "Choose the right tool", "d": "<strong>Midjourney</strong>: Best quality for artistic and photorealistic images. Paid only. <strong>DALL·E 3</strong> (in ChatGPT): Best for precise instructions and text in images. Free tier available. <strong>Stable Diffusion</strong>: Free, open-source, runs locally. Most control but steepest learning curve."}, {"t": "Structure your prompt", "d": "A strong image prompt has 4 components: <strong>Subject</strong> (what/who), <strong>Context</strong> (setting, time), <strong>Style</strong> (art style, photographer, era), <strong>Technical</strong> (lighting, camera, mood). Be specific about each one."}, {"t": "Master Midjourney parameters", "d": "Key parameters: <code>--ar 16:9</code> (widescreen), <code>--ar 1:1</code> (square), <code>--v 7</code> (latest version), <code>--style raw</code> (photorealistic mode), <code>--q 2</code> (highest quality), <code>--no text</code> (remove text elements)."}, {"t": "Use style references", "d": "Instead of describing a style in words, show an example. In Midjourney, use <code>--sref [URL]</code> to match the visual style of any image. This is one of the most powerful techniques for consistent branded content."}, {"t": "Iterate systematically", "d": "When a result is not right, identify what is wrong before regenerating. Is it the lighting? Composition? Subject? Fix one element at a time. Use V1-V4 to explore variations before starting fresh."}, {"t": "DALL·E for text in images", "d": "DALL·E 3 (via ChatGPT) is the best tool when you need readable text in your image. Other models consistently mangle text. Ask: <em>'Create a poster with the headline [text] in large bold letters.'</em>"}], "tips": ["Reference specific photographers or artists for consistent style: 'in the style of Annie Leibovitz'", "Lighting descriptions make a huge difference: 'golden hour', 'soft box', 'dramatic side lighting'", "For product photos: --style raw + white background + studio lighting = professional results", "Use negative prompts (--no in Midjourney) to remove unwanted elements"], "mistakes": ["Writing vague prompts like 'nice landscape' — be hyper-specific", "Not specifying aspect ratio — square images rarely work for most use cases", "Trying to put text in non-DALL·E models — only DALL·E 3 handles text reliably", "Not using style references — they are far more precise than verbal descriptions"], "next": [{"url": "/tools/midjourney.html", "t": "Midjourney Full Review", "d": "Full guide, pricing, and advanced techniques for Midjourney."}, {"url": "/tools/chatgpt.html", "t": "ChatGPT + DALL·E Guide", "d": "Use DALL·E 3 for free inside ChatGPT."}, {"url": "/#prompts", "t": "Image Prompt Templates", "d": "Ready-to-use prompts for portraits, products, and logos."}], "links": [{"url": "/tools/midjourney.html", "c": "#000", "l": "Midjourney Guide"}, {"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "ChatGPT + DALL·E Guide"}, {"url": "/#prompts", "c": "var(--teal)", "l": "Image Prompts Library"}]}, "es": {"title": "Crea Imágenes Profesionales con IA: La Guía Completa 2026", "tool": "Midjourney · DALL·E", "level": "Intermedio", "desc": "Domina la generación de imágenes con IA con Midjourney, DALL·E 3 y Stable Diffusion. Aprende técnicas de prompting profesional, parámetros avanzados y cuándo usar cada herramienta.", "intro": "La generación de imágenes con IA ahora la usan diseñadores, fotógrafos y profesionales del marketing todos los días. El reto es saber qué herramienta usar y cómo escribir prompts que produzcan de forma fiable lo que visualizas.", "labels": {"what": "Lo que aprenderás", "intro": "Introducción", "steps": "Guía paso a paso", "follow": "Sigue estos", "follow2": "pasos", "tips": "Consejos Pro", "do": "Haz esto", "avoid": "Errores comunes", "avoid2": "Evita estos", "next": "Próximos pasos", "cont": "Continúa", "cont2": "aprendiendo", "related": "Recursos Relacionados", "also": "También Prueba", "allTut": "← Todos los Tutoriales", "plib": "Biblioteca de Prompts", "cmpAll": "Comparar todas las IA", "back": "← Tutoriales", "bcHome": "Inicio", "bcTut": "Tutoriales", "navTools": "Herramientas", "navTut": "Tutoriales", "navArt": "Artículos", "navPro": "Prompts", "navCmp": "Comparar", "navFor": "Foro", "ftAbout": "Sobre nosotros", "ftPrivacy": "Privacidad", "ftContact": "Contacto"}, "steps": [{"t": "Elige la herramienta adecuada", "d": "<strong>Midjourney</strong>: Mejor calidad para imágenes artísticas y fotorrealistas. Solo de pago. <strong>DALL·E 3</strong> (en ChatGPT): Mejor para instrucciones precisas y texto en imágenes. Plan gratuito disponible. <strong>Stable Diffusion</strong>: Gratuito, código abierto, funciona localmente. Máximo control pero mayor curva de aprendizaje."}, {"t": "Estructura tu prompt", "d": "Un buen prompt de imagen tiene 4 componentes: <strong>Sujeto</strong> (qué/quién), <strong>Contexto</strong> (escenario, tiempo), <strong>Estilo</strong> (estilo artístico, fotógrafo, época), <strong>Técnico</strong> (iluminación, cámara, ambiente). Sé específico en cada uno."}, {"t": "Domina los parámetros de Midjourney", "d": "Parámetros clave: <code>--ar 16:9</code> (pantalla ancha), <code>--ar 1:1</code> (cuadrado), <code>--v 7</code> (última versión), <code>--style raw</code> (modo fotorrealista), <code>--q 2</code> (máxima calidad), <code>--no text</code> (eliminar texto)."}, {"t": "Usa referencias de estilo", "d": "En lugar de describir un estilo con palabras, muestra un ejemplo. En Midjourney, usa <code>--sref [URL]</code> para coincidir con el estilo visual de cualquier imagen. Es una de las técnicas más potentes para contenido de marca consistente."}, {"t": "Itera de forma sistemática", "d": "Cuando un resultado no es el correcto, identifica qué está mal antes de regenerar. ¿Es la iluminación? ¿La composición? ¿El sujeto? Corrige un elemento a la vez. Usa V1-V4 para explorar variaciones antes de empezar de cero."}, {"t": "DALL·E para texto en imágenes", "d": "DALL·E 3 (vía ChatGPT) es la mejor herramienta cuando necesitas texto legible en tu imagen. Otros modelos deforman constantemente el texto. Pide: <em>'Crea un póster con el titular [texto] en letras grandes y en negrita.'</em>"}], "tips": ["Referencia fotógrafos o artistas específicos para un estilo consistente: 'al estilo de Annie Leibovitz'", "Las descripciones de iluminación marcan una gran diferencia: 'hora dorada', 'caja de luz suave', 'iluminación lateral dramática'", "Para fotos de producto: --style raw + fondo blanco + iluminación de estudio = resultados profesionales", "Usa prompts negativos (--no en Midjourney) para eliminar elementos no deseados"], "mistakes": ["Escribir prompts vagos como 'paisaje bonito' — sé hiper-específico", "No especificar la relación de aspecto — las imágenes cuadradas rara vez funcionan para la mayoría de casos", "Intentar añadir texto en modelos que no sean DALL·E 3 — solo DALL·E 3 maneja el texto de manera fiable", "No usar referencias de estilo — son mucho más precisas que las descripciones verbales"], "next": [{"url": "/tools/midjourney.html", "t": "Análisis Completo de Midjourney", "d": "Guía completa, precios y técnicas avanzadas para Midjourney."}, {"url": "/tools/chatgpt.html", "t": "Guía de ChatGPT + DALL·E", "d": "Usa DALL·E 3 gratis dentro de ChatGPT."}, {"url": "/#prompts", "t": "Plantillas de Prompts para Imágenes", "d": "Prompts listos para usar para retratos, productos y logos."}], "links": [{"url": "/tools/midjourney.html", "c": "#000", "l": "Guía de Midjourney"}, {"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "Guía de ChatGPT + DALL·E"}, {"url": "/#prompts", "c": "var(--teal)", "l": "Biblioteca de Prompts para Imágenes"}]}};
 
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 let lang = urlLang || localStorage.getItem('taht-lang') ||
            ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
 if (urlLang) localStorage.setItem('taht-lang', urlLang);
 
-function buildStepHTML(steps) {
-  return steps.map((s, i) =>
-    `<div class="step-item">
-      <div class="step-num">${i+1}</div>
-      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
-    </div>`
-  ).join('');
+function el(id) { return document.getElementById(id); }
+
+function buildSteps(steps) {
+  return steps.map(function(s, i) {
+    return '<div class="step-item">' +
+      '<div class="step-num">' + (i+1) + '</div>' +
+      '<div class="step-body"><h3>' + s.t + '</h3><p>' + s.d + '</p></div>' +
+      '</div>';
+  }).join('');
 }
 
-function buildListHTML(items, iconClass, iconChar) {
-  return items.map(item =>
-    `<li><span class="${iconClass}">${iconChar}</span>${item}</li>`
-  ).join('');
+function buildList(items, cls, icon) {
+  return items.map(function(item) {
+    return '<li><span class="' + cls + '">' + icon + '</span>' + item + '</li>';
+  }).join('');
 }
 
-function buildNextCards(cards) {
-  return cards.map(([url, title, desc]) =>
-    `<a href="${url}?lang=${lang}" class="next-card"><h4>${title}</h4><p>${desc}</p></a>`
-  ).join('');
+function buildNext(cards, l) {
+  return cards.map(function(c) {
+    return '<a href="' + c.url + '?lang=' + l + '" class="next-card">' +
+      '<h4>' + c.t + '</h4><p>' + c.d + '</p></a>';
+  }).join('');
 }
 
-function buildRelatedLinks(links) {
-  return links.map(([url, color, label]) =>
-    `<a href="${url}" class="sb-link">
-      <div class="sb-link-icon" style="background:${color}20;color:${color}">→</div>
-      ${label}
-    </a>`
-  ).join('');
+function buildLinks(links) {
+  return links.map(function(lk) {
+    return '<a href="' + lk.url + '" class="sb-link">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:' + lk.c + '22;color:' + lk.c + ';display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0">→</div>' +
+      lk.l + '</a>';
+  }).join('');
 }
 
 function applyLang(l) {
-  const c = CONTENT[l];
+  var c = CONTENT[l];
+  var lb = c.labels;
   document.documentElement.lang = l === 'es' ? 'es' : 'en';
-  document.getElementById('page-title').textContent = c.pageTitle;
-  document.getElementById('page-desc').setAttribute('content', c.pageDesc);
-  document.getElementById('page-h1').textContent = c.h1;
-  document.getElementById('page-sub').textContent = c.sub;
-  document.getElementById('tool-name').textContent = c.tool;
-  document.getElementById('level-badge').textContent = c.level;
-  document.getElementById('bc-tool').textContent = c.tool;
-  document.getElementById('bc-home').textContent = c.bcHome;
-  document.getElementById('bc-tutorials').textContent = c.bcTut;
-  document.getElementById('intro-kicker').textContent = c.introLabel;
-  document.getElementById('intro-text').textContent = c.intro;
-  document.getElementById('steps-kicker').textContent = c.stepsLabel;
-  document.getElementById('follow-text').textContent = c.follow;
-  document.getElementById('follow-text2').textContent = c.follow2;
-  document.getElementById('what-learn').textContent = c.whatLearn + ':';
-  document.getElementById('tip-desc').textContent = c.sub;
-  document.getElementById('step-list').innerHTML = buildStepHTML(c.steps);
-  document.getElementById('tips-list').innerHTML = buildListHTML(c.tips, 'do-icon', '✓');
-  document.getElementById('mistakes-list').innerHTML = buildListHTML(c.mistakes, 'dont-icon', '✗');
-  document.getElementById('pro-tips-title').innerHTML = c.proTips + ': <span style="font-weight:300" id="do-this">' + c.doThis + ' ' + c.doThis2 + '</span>';
-  document.getElementById('mistakes-title').innerHTML = c.avoid + ': <span style="font-weight:300" id="avoid-these">' + c.avoid2 + ' ' + c.avoid3 + '</span>';
-  document.getElementById('next-kicker').textContent = c.nextLabel;
-  document.getElementById('continue-text').textContent = c.continueText;
-  document.getElementById('continue-text2').textContent = c.continueText2;
-  document.getElementById('next-cards').innerHTML = buildNextCards(c.nextCards);
-  document.getElementById('related-links').innerHTML = buildRelatedLinks(c.relatedLinks);
-  document.getElementById('related-title').textContent = c.relatedTitle;
-  document.getElementById('also-title').textContent = c.alsoTitle;
-  document.getElementById('all-tut-link').textContent = c.allTut;
-  document.getElementById('prompt-lib-link').textContent = c.promptLib;
-  document.getElementById('compare-link').textContent = c.compareAll;
-  document.getElementById('nav-tools').textContent = c.navTools;
-  document.getElementById('nav-tutorials').textContent = c.navTut;
-  document.getElementById('nav-articles').textContent = c.navArt;
-  document.getElementById('nav-prompts').textContent = c.navPro;
-  document.getElementById('nav-compare').textContent = c.navCmp;
-  document.getElementById('nav-forum').textContent = c.navFor;
-  document.getElementById('nav-back').textContent = c.navBack;
-  document.getElementById('ft-about').textContent = c.ftAbout;
-  document.getElementById('ft-privacy').textContent = c.ftPrivacy;
-  document.getElementById('ft-contact').textContent = c.ftContact;
-  // Lang buttons
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  document.getElementById('btn-es').classList.toggle('active', l === 'es');
-  // Internal links get lang param
-  document.querySelectorAll('a[href^="/"], a[href^="#"]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && !href.includes('?lang=') && !href.startsWith('#') && href !== '/') {
-      a.href = href.split('?')[0] + '?lang=' + l;
-    }
-  });
+  document.title = c.title + ' — The AI How To';
+  el('page-title').textContent = c.title + ' — The AI How To';
+  el('page-h1').textContent = c.title;
+  el('page-sub').textContent = c.desc;
+  el('tool-name').textContent = c.tool;
+  el('level-badge').textContent = c.level;
+  el('bc-tool').textContent = c.tool;
+  el('tip-desc').textContent = c.desc;
+  el('intro-text').textContent = c.intro;
+  el('bc-home').textContent = lb.bcHome;
+  el('bc-tutorials').textContent = lb.bcTut;
+  el('nav-back').textContent = lb.back;
+  el('what-learn').textContent = lb.what + ':';
+  el('intro-kicker').textContent = lb.intro;
+  el('steps-kicker').textContent = lb.steps;
+  el('follow-text').textContent = lb.follow;
+  el('follow-text2').textContent = lb.follow2;
+  el('tips-h').innerHTML = lb.tips + ': <span style="font-weight:300">' + lb.do + '</span>';
+  el('mistakes-h').innerHTML = lb.avoid + ': <span style="font-weight:300">' + lb.avoid2 + '</span>';
+  el('step-list').innerHTML = buildSteps(c.steps);
+  el('tips-list').innerHTML = buildList(c.tips, 'do-icon', '✓');
+  el('mistakes-list').innerHTML = buildList(c.mistakes, 'dont-icon', '✗');
+  el('next-kicker').textContent = lb.next;
+  el('cont-text').textContent = lb.cont;
+  el('cont-text2').textContent = lb.cont2;
+  el('next-cards').innerHTML = buildNext(c.next, l);
+  el('related-title').textContent = lb.related;
+  el('also-title').textContent = lb.also;
+  el('related-links').innerHTML = buildLinks(c.links);
+  el('all-tut-link').textContent = lb.allTut;
+  el('plib-link').textContent = lb.plib;
+  el('cmp-link').textContent = lb.cmpAll;
+  el('nav-tools').textContent = lb.navTools;
+  el('nav-tutorials').textContent = lb.navTut;
+  el('nav-articles').textContent = lb.navArt;
+  el('nav-prompts').textContent = lb.navPro;
+  el('nav-compare').textContent = lb.navCmp;
+  el('nav-forum').textContent = lb.navFor;
+  el('ft-about').textContent = lb.ftAbout;
+  el('ft-privacy').textContent = lb.ftPrivacy;
+  el('ft-contact').textContent = lb.ftContact;
+  el('btn-en').classList.toggle('active', l === 'en');
+  el('btn-es').classList.toggle('active', l === 'es');
 }
 
 function setLang(l) {
@@ -424,6 +283,7 @@ function setLang(l) {
 }
 
 applyLang(lang);
+
 </script>
 </body>
 </html>

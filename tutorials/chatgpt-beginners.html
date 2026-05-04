@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title id="page-title">Complete ChatGPT Guide for Absolute Beginners — The AI How To</title>
-<meta name="description" id="page-desc" content="Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today."/>
+<meta name="description" content="Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
@@ -13,8 +14,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:va
 a{color:inherit;text-decoration:none}
 ::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
 .container{max-width:1100px;margin:0 auto;padding:0 28px}
-
-/* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
 .nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
 .logo{display:flex;align-items:center;gap:9px}
@@ -30,19 +29,14 @@ a{color:inherit;text-decoration:none}
 .lang-btn.active{background:var(--teal);color:#fff}
 .nav-back{font-size:.82rem;color:var(--teal3);transition:color .2s}
 .nav-back:hover{color:var(--white)}
-
-/* PAGE HERO */
 .page-hero{padding:100px 0 52px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.hero-orb{position:absolute;border-radius:50%;pointer-events:none}
-.orb-teal{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%);filter:blur(60px)}
-.orb-terra{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%);filter:blur(50px)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(60px)}
+.orb1{width:500px;height:500px;top:-150px;right:-100px;background:radial-gradient(circle,rgba(45,138,138,.2),transparent 70%)}
+.orb2{width:300px;height:300px;bottom:-80px;left:-60px;background:radial-gradient(circle,rgba(193,101,74,.15),transparent 70%)}
 .breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;font-size:.75rem;color:var(--dim)}
-.breadcrumb a{color:var(--teal3);transition:color .2s}
-.breadcrumb a:hover{color:var(--white)}
+.breadcrumb a{color:var(--teal3)}
 .bc-sep{color:var(--dim);font-size:.7rem}
 .tool-meta{display:flex;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
-.tool-icon-sm{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.tool-name{font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em}
 .level-badge{font-size:.65rem;font-weight:500;padding:2px 9px;border-radius:100px}
 .lv-b{background:rgba(122,158,122,.12);color:var(--sage2);border:1px solid rgba(122,158,122,.2)}
 .lv-i{background:rgba(232,133,74,.1);color:var(--orange);border:1px solid rgba(232,133,74,.2)}
@@ -51,67 +45,49 @@ a{color:inherit;text-decoration:none}
 .page-h1{font-size:clamp(1.9rem,3.5vw,2.8rem);font-weight:700;line-height:1.15;letter-spacing:-.04em;margin-bottom:14px}
 .page-h1 em{font-style:normal;font-weight:300;color:var(--teal3)}
 .page-sub{font-size:.97rem;color:var(--muted);line-height:1.7;max-width:640px}
-
-/* CONTENT */
 .content-grid{display:grid;grid-template-columns:1fr 280px;gap:32px;align-items:start;padding:60px 0}
-.main-content{}
 .tip-box{background:rgba(45,138,138,.07);border:1px solid rgba(45,138,138,.2);border-radius:var(--r);padding:16px 18px;font-size:.87rem;color:var(--muted);line-height:1.7;margin-bottom:36px;display:flex;gap:12px}
-.tip-box-icon{flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px}
 .section-kicker{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--teal2);margin-bottom:10px}
 .section-h2{font-size:1.5rem;font-weight:700;letter-spacing:-.04em;margin-bottom:28px;line-height:1.2}
 .section-h2 em{font-style:normal;font-weight:300;color:var(--teal3)}
-
-/* STEPS */
 .step-list{display:flex;flex-direction:column;gap:0;margin-bottom:48px}
 .step-item{display:flex;gap:20px;padding:24px 0;border-bottom:1px solid var(--line)}
 .step-item:last-child{border-bottom:none}
-.step-num{width:34px;height:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
+.step-num{width:34px;height:34px;min-width:34px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.8rem;font-weight:700;flex-shrink:0;margin-top:2px;color:#fff}
 .step-body h3{font-size:.97rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .step-body p{font-size:.87rem;color:var(--muted);line-height:1.75}
 .step-body pre{background:var(--bg2);border:1px solid var(--line2);border-left:2px solid var(--teal);border-radius:var(--r);padding:14px 16px;font-family:'DM Mono',monospace;font-size:.77rem;line-height:1.7;overflow-x:auto;margin-top:12px;color:var(--white)}
-.step-body em{color:var(--teal3);font-style:italic}
 .step-body strong{color:var(--white);font-weight:600}
 .step-body a{color:var(--teal3)}
-.step-body a:hover{color:var(--white)}
-
-/* TWO COLS */
+.step-body code{font-family:'DM Mono',monospace;font-size:.82em;background:var(--bg2);padding:1px 5px;border-radius:4px;color:var(--teal3)}
 .two-col-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:48px}
 .col-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px}
 .col-card h3{font-size:.88rem;font-weight:600;margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--line)}
 .col-card ul{list-style:none}
 .col-card ul li{font-size:.84rem;color:var(--muted);padding:7px 0;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:8px;line-height:1.55}
 .col-card ul li:last-child{border-bottom:none;padding-bottom:0}
-.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem}
-.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem}
-
-/* NEXT STEPS */
+.do-icon{color:var(--sage2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
+.dont-icon{color:var(--terra2);font-weight:700;flex-shrink:0;font-size:.8rem;margin-top:1px}
 .next-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
 .next-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;transition:all .2s;display:block}
 .next-card:hover{border-color:var(--teal);transform:translateY(-2px)}
 .next-card h4{font-size:.9rem;font-weight:600;margin-bottom:7px;letter-spacing:-.02em}
 .next-card p{font-size:.8rem;color:var(--muted);line-height:1.55}
-
-/* SIDEBAR */
 .sidebar{display:flex;flex-direction:column;gap:18px;position:sticky;top:76px}
 .sb{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px}
 .sb-title{font-size:.72rem;font-weight:600;color:var(--dim);text-transform:uppercase;letter-spacing:.1em;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
 .sb-link{display:flex;align-items:center;gap:8px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.82rem;color:var(--muted);transition:color .2s}
 .sb-link:last-child{border-bottom:none;padding-bottom:0}
 .sb-link:hover{color:var(--teal3)}
-.sb-link-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem}
-
-/* FOOTER */
-footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:0}
+footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0}
 .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.77rem;color:var(--dim)}
 .foot-links{display:flex;gap:18px}
 .foot-links a:hover{color:var(--muted)}
-
 @media(max-width:900px){.content-grid{grid-template-columns:1fr}.sidebar{position:static}.two-col-grid{grid-template-columns:1fr}}
 @media(max-width:640px){.nav-links{display:none}.container{padding:0 18px}.next-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-
 <nav class="nav">
   <div class="container">
     <div class="nav-inner">
@@ -134,21 +110,17 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </nav>
-
 <section class="page-hero">
-  <div class="hero-orb orb-teal"></div>
-  <div class="hero-orb orb-terra"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="container">
     <div class="breadcrumb">
-      <a href="/" id="bc-home">Home</a>
-      <span class="bc-sep">›</span>
-      <a href="/#tutorials" id="bc-tutorials">Tutorials</a>
-      <span class="bc-sep">›</span>
+      <a href="/" id="bc-home">Home</a><span class="bc-sep">›</span>
+      <a href="/#tutorials" id="bc-tutorials">Tutorials</a><span class="bc-sep">›</span>
       <span id="bc-tool" style="color:var(--teal3)">ChatGPT</span>
     </div>
     <div class="tool-meta">
       <div style="width:32px;height:32px;border-radius:8px;background:#10a37f;display:flex;align-items:center;justify-content:center;flex-shrink:0"><svg viewBox="0 0 41 41" fill="none" width="18" height="18"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg></div>
-      <span class="tool-name" id="tool-name">ChatGPT</span>
+      <span style="font-size:.72rem;font-weight:500;color:var(--teal3);text-transform:uppercase;letter-spacing:.07em" id="tool-name">ChatGPT</span>
       <span class="level-badge lv-b" id="level-badge">Beginner</span>
       <span class="tut-meta-info">⏱ 15 min</span>
       <span class="tut-meta-info">👁 34k views</span>
@@ -157,106 +129,50 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     <p class="page-sub" id="page-sub">Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today.</p>
   </div>
 </section>
-
 <div class="container">
   <div class="content-grid">
     <div class="main-content">
-
       <div class="tip-box" style="margin-top:32px">
-        <span class="tip-box-icon">📖</span>
+        <span style="flex-shrink:0;color:var(--teal3);font-size:1rem;margin-top:1px">📖</span>
         <div><strong id="what-learn">What you'll learn:</strong> <span id="tip-desc">Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today.</span></div>
       </div>
-
       <div class="section-kicker" id="intro-kicker">Introduction</div>
       <p style="font-size:.92rem;color:var(--muted);line-height:1.8;margin-bottom:40px" id="intro-text">ChatGPT is the most accessible AI tool in the world and the best place to start your AI journey. In this guide, we walk through everything from account creation to getting professional-quality results from your very first conversation.</p>
-
       <div class="section-kicker" id="steps-kicker">Step-by-step guide</div>
-      <h2 class="section-h2"><span id="follow-text">Follow these</span> <em id="follow-text2">steps</em></h2>
-      <div class="step-list" id="step-list"><div class="step-item">
-      <div class="step-num">1</div>
-      <div class="step-body">
-        <h3>Create your free account</h3>
-        <p>Go to <strong>chat.openai.com</strong> and click Sign up. Register with your email or Google/Microsoft account. The process takes under 2 minutes and no credit card is required.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">2</div>
-      <div class="step-body">
-        <h3>Understand the interface</h3>
-        <p>Once logged in you'll see a clean chat interface. The model selector (GPT-5.5, GPT-4.5) is at the top. Your conversation history is in the left sidebar. The text input is at the bottom.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">3</div>
-      <div class="step-body">
-        <h3>Write your first prompt</h3>
-        <p>Type a simple question and press Enter. For example: <em>'Explain photosynthesis in simple terms'</em> or <em>'Write a 3-bullet summary of project management best practices'</em>. ChatGPT responds within seconds.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">4</div>
-      <div class="step-body">
-        <h3>Learn to iterate</h3>
-        <p>If the first response isn't right, don't start over. Reply with refinements: <em>'Make it shorter'</em>, <em>'Use simpler language'</em>, or <em>'Add an example about...'</em>. ChatGPT remembers the full conversation context.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">5</div>
-      <div class="step-body">
-        <h3>Upload a file or image</h3>
-        <p>Click the paperclip icon to attach a PDF, Word document, spreadsheet, or image. Then ask: <em>'Summarize this document'</em> or <em>'What are the key numbers in this spreadsheet?'</em></p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">6</div>
-      <div class="step-body">
-        <h3>Generate an image</h3>
-        <p>Type <em>'Create an image of...'</em> and describe what you want. ChatGPT uses DALL·E 3 to generate a high-quality image directly in the chat.</p>
-      </div>
-    </div><div class="step-item">
-      <div class="step-num">7</div>
-      <div class="step-body">
-        <h3>Explore Custom GPTs</h3>
-        <p>Click <em>Explore GPTs</em> in the sidebar to discover thousands of specialized AI assistants for writing, coding, cooking, travel planning, and much more.</p>
-      </div>
-    </div></div>
-
+      <h2 class="section-h2">
+        <span id="follow-text">Follow these</span> <em id="follow-text2">steps</em>
+      </h2>
+      <div class="step-list" id="step-list"><!-- steps rendered by JS --></div>
       <div class="two-col-grid">
         <div class="col-card">
-          <h3 style="color:var(--sage2)" id="pro-tips-title">Pro tips: <span style="font-weight:300" id="do-this">Do this</span></h3>
-          <ul id="tips-list"><li><span class="do-icon">✓</span>Be specific — more detail in your prompt = better results</li><li><span class="do-icon">✓</span>Give ChatGPT a role: 'Act as an expert in...' significantly improves quality</li><li><span class="do-icon">✓</span>Use the regenerate button if you don't like the response</li><li><span class="do-icon">✓</span>Name your chats in the sidebar to find them easily later</li></ul>
+          <h3 style="color:var(--sage2)" id="tips-h">Pro tips: <span style="font-weight:300">Do this</span></h3>
+          <ul id="tips-list"></ul>
         </div>
         <div class="col-card">
-          <h3 style="color:var(--terra2)" id="mistakes-title">Common mistakes: <span style="font-weight:300" id="avoid-these">Avoid these</span></h3>
-          <ul id="mistakes-list"><li><span class="dont-icon">✗</span>Treating it like a search engine — ChatGPT excels at tasks, not just factual queries</li><li><span class="dont-icon">✗</span>Accepting the first response without iterating</li><li><span class="dont-icon">✗</span>Assuming everything is correct — always verify important facts</li><li><span class="dont-icon">✗</span>Writing single-word prompts — full sentences with context produce much better results</li></ul>
+          <h3 style="color:var(--terra2)" id="mistakes-h">Common mistakes: <span style="font-weight:300">Avoid these</span></h3>
+          <ul id="mistakes-list"></ul>
         </div>
       </div>
-
       <div class="section-kicker" id="next-kicker">Next steps</div>
-      <h2 class="section-h2"><span id="continue-text">Continue</span> <em id="continue-text2">learning</em></h2>
-      <div class="next-grid" id="next-cards"><a href="/tutorials/prompt-engineering.html" class="next-card"><h4>Prompt Engineering</h4><p>Master advanced prompting techniques that dramatically improve results.</p></a><a href="/tutorials/claude-beginners.html" class="next-card"><h4>Getting Started with Claude</h4><p>Try the top alternative to ChatGPT — often better for documents.</p></a><a href="/#prompts" class="next-card"><h4>Prompt Library</h4><p>42 tested, ready-to-copy prompts organized by category.</p></a></div>
-
+      <h2 class="section-h2">
+        <span id="cont-text">Continue</span> <em id="cont-text2">learning</em>
+      </h2>
+      <div class="next-grid" id="next-cards"></div>
     </div>
-
     <div class="sidebar">
       <div class="sb">
         <div class="sb-title" id="related-title">Related Resources</div>
-        <div id="related-links"><a href="/tools/chatgpt.html" class="sb-link">
-      <div class="sb-link-icon" style="background:#10a37f20;color:#10a37f">→</div>
-      ChatGPT Full Review
-    </a><a href="/tutorials/prompt-engineering.html" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--teal)20;color:var(--teal)">→</div>
-      Prompt Engineering Guide
-    </a><a href="/#compare" class="sb-link">
-      <div class="sb-link-icon" style="background:var(--bg2)20;color:var(--bg2)">→</div>
-      Compare All AI Tools
-    </a></div>
+        <div id="related-links"></div>
       </div>
       <div class="sb" style="background:var(--bg2)">
         <div class="sb-title" id="also-title">Also Try</div>
         <a href="/#tutorials" class="sb-link" id="all-tut-link">← All Tutorials</a>
-        <a href="/#prompts" class="sb-link" id="prompt-lib-link">Prompt Library</a>
-        <a href="/#compare" class="sb-link" id="compare-link">Compare All AI</a>
+        <a href="/#prompts" class="sb-link" id="plib-link">Prompt Library</a>
+        <a href="/#compare" class="sb-link" id="cmp-link">Compare All AI</a>
       </div>
     </div>
   </div>
 </div>
-
 <footer>
   <div class="container">
     <div class="foot-inner">
@@ -270,157 +186,94 @@ footer{border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;mar
     </div>
   </div>
 </footer>
-
 <script>
-// ── Bilingual data ──
-const CONTENT = {
-  en: {
-    pageTitle: "Complete ChatGPT Guide for Absolute Beginners \u2014 The AI How To",
-    pageDesc: "Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today.",
-    h1: "Complete ChatGPT Guide for Absolute Beginners",
-    sub: "Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today.",
-    tool: "ChatGPT",
-    level: "Beginner",
-    intro: "ChatGPT is the most accessible AI tool in the world and the best place to start your AI journey. In this guide, we walk through everything from account creation to getting professional-quality results from your very first conversation.",
-    whatLearn: "What you'll learn",
-    introLabel: "Introduction",
-    stepsLabel: "Step-by-step guide",
-    follow: "Follow these", follow2: "steps",
-    proTips: "Pro tips", doThis: "Do", doThis2: "this",
-    avoid: "Common mistakes", avoid2: "Avoid", avoid3: "these",
-    nextLabel: "Next steps",
-    continueText: "Continue", continueText2: "learning",
-    navTools: 'Tools', navTut: 'Tutorials', navArt: 'Articles',
-    navPro: 'Prompts', navCmp: 'Compare', navFor: 'Forum',
-    navBack: '← Tutorials', bcHome: 'Home', bcTut: 'Tutorials',
-    relatedTitle: 'Related Resources', alsoTitle: 'Also Try',
-    allTut: '← All Tutorials', promptLib: 'Prompt Library', compareAll: 'Compare All AI',
-    ftAbout: 'About', ftPrivacy: 'Privacy', ftContact: 'Contact',
-    steps: [('Create your free account', 'Go to <strong>chat.openai.com</strong> and click Sign up. Register with your email or Google/Microsoft account. The process takes under 2 minutes and no credit card is required.'), ('Understand the interface', "Once logged in you'll see a clean chat interface. The model selector (GPT-5.5, GPT-4.5) is at the top. Your conversation history is in the left sidebar. The text input is at the bottom."), ('Write your first prompt', "Type a simple question and press Enter. For example: <em>'Explain photosynthesis in simple terms'</em> or <em>'Write a 3-bullet summary of project management best practices'</em>. ChatGPT responds within seconds."), ('Learn to iterate', "If the first response isn't right, don't start over. Reply with refinements: <em>'Make it shorter'</em>, <em>'Use simpler language'</em>, or <em>'Add an example about...'</em>. ChatGPT remembers the full conversation context."), ('Upload a file or image', "Click the paperclip icon to attach a PDF, Word document, spreadsheet, or image. Then ask: <em>'Summarize this document'</em> or <em>'What are the key numbers in this spreadsheet?'</em>"), ('Generate an image', "Type <em>'Create an image of...'</em> and describe what you want. ChatGPT uses DALL·E 3 to generate a high-quality image directly in the chat."), ('Explore Custom GPTs', 'Click <em>Explore GPTs</em> in the sidebar to discover thousands of specialized AI assistants for writing, coding, cooking, travel planning, and much more.')],
-    tips: ["Be specific \u2014 more detail in your prompt = better results", "Give ChatGPT a role: 'Act as an expert in...' significantly improves quality", "Use the regenerate button if you don't like the response", "Name your chats in the sidebar to find them easily later"],
-    mistakes: ["Treating it like a search engine \u2014 ChatGPT excels at tasks, not just factual queries", "Accepting the first response without iterating", "Assuming everything is correct \u2014 always verify important facts", "Writing single-word prompts \u2014 full sentences with context produce much better results"],
-    nextCards: [('/tutorials/prompt-engineering.html', 'Prompt Engineering', 'Master advanced prompting techniques that dramatically improve results.'), ('/tutorials/claude-beginners.html', 'Getting Started with Claude', 'Try the top alternative to ChatGPT — often better for documents.'), ('/#prompts', 'Prompt Library', '42 tested, ready-to-copy prompts organized by category.')],
-    relatedLinks: [('/tools/chatgpt.html', '#10a37f', 'ChatGPT Full Review'), ('/tutorials/prompt-engineering.html', 'var(--teal)', 'Prompt Engineering Guide'), ('/#compare', 'var(--bg2)', 'Compare All AI Tools')],
-  },
-  es: {
-    pageTitle: "Gu\u00eda Completa de ChatGPT para Principiantes Absolutos \u2014 The AI How To",
-    pageDesc: "Aprende a usar ChatGPT desde cero. Desde la creaci\u00f3n de tu cuenta hasta mantener conversaciones productivas, esta gu\u00eda cubre todo lo que necesitas para empezar hoy.",
-    h1: "Gu\u00eda Completa de ChatGPT para Principiantes Absolutos",
-    sub: "Aprende a usar ChatGPT desde cero. Desde la creaci\u00f3n de tu cuenta hasta mantener conversaciones productivas, esta gu\u00eda cubre todo lo que necesitas para empezar hoy.",
-    tool: "ChatGPT",
-    level: "Principiante",
-    intro: "ChatGPT es la herramienta de IA m\u00e1s accesible del mundo y el mejor lugar para comenzar tu viaje con la inteligencia artificial. En esta gu\u00eda repasamos todo: desde la creaci\u00f3n de la cuenta hasta obtener resultados de calidad profesional desde tu primera conversaci\u00f3n.",
-    whatLearn: "Lo que aprender\u00e1s",
-    introLabel: "Introducci\u00f3n",
-    stepsLabel: "Gu\u00eda paso a paso",
-    follow: "Sigue estos", follow2: "pasos",
-    proTips: "Consejos Pro", doThis: "Haz", doThis2: "esto",
-    avoid: "Errores comunes", avoid2: "Evita", avoid3: "estos",
-    nextLabel: "Pr\u00f3ximos pasos",
-    continueText: "Contin\u00faa", continueText2: "aprendiendo",
-    navTools: 'Herramientas', navTut: 'Tutoriales', navArt: 'Artículos',
-    navPro: 'Prompts', navCmp: 'Comparar', navFor: 'Foro',
-    navBack: '← Tutoriales', bcHome: 'Inicio', bcTut: 'Tutoriales',
-    relatedTitle: 'Recursos Relacionados', alsoTitle: 'También Prueba',
-    allTut: '← Todos los Tutoriales', promptLib: 'Biblioteca de Prompts', compareAll: 'Comparar todas las IA',
-    ftAbout: 'Sobre nosotros', ftPrivacy: 'Privacidad', ftContact: 'Contacto',
-    steps: [('Crea tu cuenta gratuita', 'Ve a <strong>chat.openai.com</strong> y haz clic en Registrarse. Regístrate con tu email o cuenta de Google/Microsoft. El proceso tarda menos de 2 minutos y no se requiere tarjeta de crédito.'), ('Entiende la interfaz', 'Una vez conectado verás una interfaz de chat limpia. El selector de modelo (GPT-5.5, GPT-4.5) está en la parte superior. Tu historial de conversaciones está en la barra lateral izquierda. El cuadro de texto está en la parte inferior.'), ('Escribe tu primer prompt', "Escribe una pregunta simple y pulsa Intro. Por ejemplo: <em>'Explícame la fotosíntesis en términos simples'</em> o <em>'Escribe un resumen de 3 puntos sobre gestión de proyectos'</em>. ChatGPT responde en segundos."), ('Aprende a iterar', "Si la primera respuesta no es perfecta, no empieces de nuevo. Responde con ajustes: <em>'Hazlo más corto'</em>, <em>'Usa un lenguaje más simple'</em> o <em>'Añade un ejemplo sobre...'</em>. ChatGPT recuerda el contexto completo de la conversación."), ('Sube un archivo o imagen', "Haz clic en el icono de clip para adjuntar un PDF, documento Word, hoja de cálculo o imagen. Luego pregunta: <em>'Resume este documento'</em> o <em>'¿Cuáles son las cifras clave en esta hoja de cálculo?'</em>"), ('Genera una imagen', "Escribe <em>'Crea una imagen de...'</em> y describe lo que quieres. ChatGPT usa DALL·E 3 para generar una imagen de alta calidad directamente en el chat."), ('Explora los GPTs personalizados', 'Haz clic en <em>Explorar GPTs</em> en la barra lateral para descubrir miles de asistentes de IA especializados para escritura, programación, cocina, planificación de viajes y mucho más.')],
-    tips: ["S\u00e9 espec\u00edfico \u2014 m\u00e1s detalle en tu prompt = mejores resultados", "Dale un rol a ChatGPT: 'Act\u00faa como un experto en...' mejora significativamente la calidad", "Usa el bot\u00f3n de regenerar si no te gusta la respuesta", "Nombra tus chats en la barra lateral para encontrarlos f\u00e1cilmente m\u00e1s tarde"],
-    mistakes: ["Tratarlo como un motor de b\u00fasqueda \u2014 ChatGPT sobresale en tareas, no solo en consultas factuales", "Aceptar la primera respuesta sin iterar", "Asumir que todo es correcto \u2014 verifica siempre los hechos importantes", "Escribir prompts de una sola palabra \u2014 las frases completas con contexto producen resultados mucho mejores"],
-    nextCards: [('/tutorials/prompt-engineering.html', 'Prompt Engineering', 'Domina técnicas avanzadas de prompting que mejoran drásticamente los resultados.'), ('/tutorials/claude-beginners.html', 'Primeros Pasos con Claude', 'Prueba la mejor alternativa a ChatGPT — a menudo superior para documentos.'), ('/#prompts', 'Biblioteca de Prompts', '42 prompts probados y listos para copiar organizados por categoría.')],
-    relatedLinks: [('/tools/chatgpt.html', '#10a37f', 'Análisis Completo de ChatGPT'), ('/tutorials/prompt-engineering.html', 'var(--teal)', 'Guía de Prompt Engineering'), ('/#compare', 'var(--bg2)', 'Comparar todas las IA')],
-  }
-};
+
+const CONTENT = {"en": {"title": "Complete ChatGPT Guide for Absolute Beginners", "tool": "ChatGPT", "level": "Beginner", "desc": "Learn how to use ChatGPT from scratch. From creating your account to having productive conversations, this guide covers everything you need to get started today.", "intro": "ChatGPT is the most accessible AI tool in the world and the best place to start your AI journey. In this guide, we walk through everything from account creation to getting professional-quality results from your very first conversation.", "labels": {"what": "What you'll learn", "intro": "Introduction", "steps": "Step-by-step guide", "follow": "Follow these", "follow2": "steps", "tips": "Pro tips", "do": "Do this", "avoid": "Common mistakes", "avoid2": "Avoid these", "next": "Next steps", "cont": "Continue", "cont2": "learning", "related": "Related Resources", "also": "Also Try", "allTut": "← All Tutorials", "plib": "Prompt Library", "cmpAll": "Compare All AI", "back": "← Tutorials", "bcHome": "Home", "bcTut": "Tutorials", "navTools": "Tools", "navTut": "Tutorials", "navArt": "Articles", "navPro": "Prompts", "navCmp": "Compare", "navFor": "Forum", "ftAbout": "About", "ftPrivacy": "Privacy", "ftContact": "Contact"}, "steps": [{"t": "Create your free account", "d": "Go to <strong>chat.openai.com</strong> and click Sign up. Register with your email or Google/Microsoft account. The process takes under 2 minutes and no credit card is required."}, {"t": "Understand the interface", "d": "Once logged in you'll see a clean chat interface. The model selector (GPT-5.5, GPT-4.5) is at the top. Your conversation history is in the left sidebar. The text input is at the bottom."}, {"t": "Write your first prompt", "d": "Type a simple question and press Enter. For example: <em>'Explain photosynthesis in simple terms'</em> or <em>'Write a 3-bullet summary of project management best practices'</em>. ChatGPT responds within seconds."}, {"t": "Learn to iterate", "d": "If the first response isn't right, don't start over. Reply with refinements: <em>'Make it shorter'</em>, <em>'Use simpler language'</em>, or <em>'Add an example about...'</em>. ChatGPT remembers the full conversation context."}, {"t": "Upload a file or image", "d": "Click the paperclip icon to attach a PDF, Word document, spreadsheet, or image. Then ask: <em>'Summarize this document'</em> or <em>'What are the key numbers in this spreadsheet?'</em>"}, {"t": "Generate an image", "d": "Type <em>'Create an image of...'</em> and describe what you want. ChatGPT uses DALL·E 3 to generate a high-quality image directly in the chat. Ask for revisions or variations."}, {"t": "Explore Custom GPTs", "d": "Click <em>Explore GPTs</em> in the sidebar to discover thousands of specialized AI assistants for writing, coding, cooking, travel planning, and much more — all built on ChatGPT."}], "tips": ["Be specific — more detail in your prompt = better results", "Give ChatGPT a role: 'Act as an expert in...' significantly improves quality", "Use the regenerate button if you don't like the response", "Name your chats in the sidebar to find them easily later"], "mistakes": ["Treating it like a search engine — ChatGPT excels at tasks, not just factual queries", "Accepting the first response without iterating", "Assuming everything is correct — always verify important facts", "Writing single-word prompts — full sentences with context produce much better results"], "next": [{"url": "/tutorials/prompt-engineering.html", "t": "Prompt Engineering", "d": "Master advanced prompting techniques that dramatically improve results."}, {"url": "/tutorials/claude-beginners.html", "t": "Getting Started with Claude", "d": "Try the top alternative — often better for documents and coding."}, {"url": "/#prompts", "t": "Prompt Library", "d": "42 tested, ready-to-copy prompts organized by category."}], "links": [{"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "ChatGPT Full Review"}, {"url": "/tutorials/prompt-engineering.html", "c": "var(--teal)", "l": "Prompt Engineering Guide"}, {"url": "/#compare", "c": "var(--bg2)", "l": "Compare All AI Tools"}]}, "es": {"title": "Guía Completa de ChatGPT para Principiantes Absolutos", "tool": "ChatGPT", "level": "Principiante", "desc": "Aprende a usar ChatGPT desde cero. Desde la creación de tu cuenta hasta mantener conversaciones productivas, esta guía cubre todo lo que necesitas para empezar hoy.", "intro": "ChatGPT es la herramienta de IA más accesible del mundo y el mejor lugar para comenzar tu viaje con la inteligencia artificial. En esta guía repasamos todo: desde la creación de la cuenta hasta obtener resultados de calidad profesional desde tu primera conversación.", "labels": {"what": "Lo que aprenderás", "intro": "Introducción", "steps": "Guía paso a paso", "follow": "Sigue estos", "follow2": "pasos", "tips": "Consejos Pro", "do": "Haz esto", "avoid": "Errores comunes", "avoid2": "Evita estos", "next": "Próximos pasos", "cont": "Continúa", "cont2": "aprendiendo", "related": "Recursos Relacionados", "also": "También Prueba", "allTut": "← Todos los Tutoriales", "plib": "Biblioteca de Prompts", "cmpAll": "Comparar todas las IA", "back": "← Tutoriales", "bcHome": "Inicio", "bcTut": "Tutoriales", "navTools": "Herramientas", "navTut": "Tutoriales", "navArt": "Artículos", "navPro": "Prompts", "navCmp": "Comparar", "navFor": "Foro", "ftAbout": "Sobre nosotros", "ftPrivacy": "Privacidad", "ftContact": "Contacto"}, "steps": [{"t": "Crea tu cuenta gratuita", "d": "Ve a <strong>chat.openai.com</strong> y haz clic en Registrarse. Regístrate con tu email o cuenta de Google/Microsoft. El proceso tarda menos de 2 minutos y no se requiere tarjeta de crédito."}, {"t": "Entiende la interfaz", "d": "Una vez conectado verás una interfaz de chat limpia. El selector de modelo (GPT-5.5, GPT-4.5) está en la parte superior. Tu historial de conversaciones está en la barra lateral izquierda. El cuadro de texto está en la parte inferior."}, {"t": "Escribe tu primer prompt", "d": "Escribe una pregunta simple y pulsa Intro. Por ejemplo: <em>'Explícame la fotosíntesis en términos simples'</em> o <em>'Escribe un resumen de 3 puntos sobre gestión de proyectos'</em>. ChatGPT responde en segundos."}, {"t": "Aprende a iterar", "d": "Si la primera respuesta no es perfecta, no empieces de nuevo. Responde con ajustes: <em>'Hazlo más corto'</em>, <em>'Usa un lenguaje más simple'</em> o <em>'Añade un ejemplo sobre...'</em>. ChatGPT recuerda el contexto completo de la conversación."}, {"t": "Sube un archivo o imagen", "d": "Haz clic en el icono de clip para adjuntar un PDF, documento Word, hoja de cálculo o imagen. Luego pregunta: <em>'Resume este documento'</em> o <em>'¿Cuáles son las cifras clave en esta hoja de cálculo?'</em>"}, {"t": "Genera una imagen", "d": "Escribe <em>'Crea una imagen de...'</em> y describe lo que quieres. ChatGPT usa DALL·E 3 para generar una imagen de alta calidad directamente en el chat. Pide revisiones o variaciones."}, {"t": "Explora los GPTs personalizados", "d": "Haz clic en <em>Explorar GPTs</em> en la barra lateral para descubrir miles de asistentes de IA especializados para escritura, programación, cocina, planificación de viajes y mucho más."}], "tips": ["Sé específico — más detalle en tu prompt = mejores resultados", "Dale un rol a ChatGPT: 'Actúa como un experto en...' mejora significativamente la calidad", "Usa el botón de regenerar si no te gusta la respuesta", "Nombra tus chats en la barra lateral para encontrarlos fácilmente más tarde"], "mistakes": ["Tratarlo como un motor de búsqueda — ChatGPT sobresale en tareas, no solo en consultas factuales", "Aceptar la primera respuesta sin iterar", "Asumir que todo es correcto — verifica siempre los hechos importantes", "Escribir prompts de una sola palabra — las frases completas con contexto producen resultados mucho mejores"], "next": [{"url": "/tutorials/prompt-engineering.html", "t": "Prompt Engineering", "d": "Domina técnicas avanzadas de prompting que mejoran drásticamente los resultados."}, {"url": "/tutorials/claude-beginners.html", "t": "Primeros Pasos con Claude", "d": "Prueba la mejor alternativa — a menudo superior para documentos."}, {"url": "/#prompts", "t": "Biblioteca de Prompts", "d": "42 prompts probados y listos para copiar organizados por categoría."}], "links": [{"url": "/tools/chatgpt.html", "c": "#10a37f", "l": "Análisis Completo de ChatGPT"}, {"url": "/tutorials/prompt-engineering.html", "c": "var(--teal)", "l": "Guía de Prompt Engineering"}, {"url": "/#compare", "c": "var(--bg2)", "l": "Comparar todas las IA"}]}};
 
 const urlLang = new URLSearchParams(window.location.search).get('lang');
 let lang = urlLang || localStorage.getItem('taht-lang') ||
            ((navigator.language||'en').toLowerCase().startsWith('es') ? 'es' : 'en');
 if (urlLang) localStorage.setItem('taht-lang', urlLang);
 
-function buildStepHTML(steps) {
-  return steps.map((s, i) =>
-    `<div class="step-item">
-      <div class="step-num">${i+1}</div>
-      <div class="step-body"><h3>${s[0]}</h3><p>${s[1]}</p></div>
-    </div>`
-  ).join('');
+function el(id) { return document.getElementById(id); }
+
+function buildSteps(steps) {
+  return steps.map(function(s, i) {
+    return '<div class="step-item">' +
+      '<div class="step-num">' + (i+1) + '</div>' +
+      '<div class="step-body"><h3>' + s.t + '</h3><p>' + s.d + '</p></div>' +
+      '</div>';
+  }).join('');
 }
 
-function buildListHTML(items, iconClass, iconChar) {
-  return items.map(item =>
-    `<li><span class="${iconClass}">${iconChar}</span>${item}</li>`
-  ).join('');
+function buildList(items, cls, icon) {
+  return items.map(function(item) {
+    return '<li><span class="' + cls + '">' + icon + '</span>' + item + '</li>';
+  }).join('');
 }
 
-function buildNextCards(cards) {
-  return cards.map(([url, title, desc]) =>
-    `<a href="${url}?lang=${lang}" class="next-card"><h4>${title}</h4><p>${desc}</p></a>`
-  ).join('');
+function buildNext(cards, l) {
+  return cards.map(function(c) {
+    return '<a href="' + c.url + '?lang=' + l + '" class="next-card">' +
+      '<h4>' + c.t + '</h4><p>' + c.d + '</p></a>';
+  }).join('');
 }
 
-function buildRelatedLinks(links) {
-  return links.map(([url, color, label]) =>
-    `<a href="${url}" class="sb-link">
-      <div class="sb-link-icon" style="background:${color}20;color:${color}">→</div>
-      ${label}
-    </a>`
-  ).join('');
+function buildLinks(links) {
+  return links.map(function(lk) {
+    return '<a href="' + lk.url + '" class="sb-link">' +
+      '<div style="width:22px;height:22px;border-radius:5px;background:' + lk.c + '22;color:' + lk.c + ';display:flex;align-items:center;justify-content:center;font-size:.75rem;flex-shrink:0">→</div>' +
+      lk.l + '</a>';
+  }).join('');
 }
 
 function applyLang(l) {
-  const c = CONTENT[l];
+  var c = CONTENT[l];
+  var lb = c.labels;
   document.documentElement.lang = l === 'es' ? 'es' : 'en';
-  document.getElementById('page-title').textContent = c.pageTitle;
-  document.getElementById('page-desc').setAttribute('content', c.pageDesc);
-  document.getElementById('page-h1').textContent = c.h1;
-  document.getElementById('page-sub').textContent = c.sub;
-  document.getElementById('tool-name').textContent = c.tool;
-  document.getElementById('level-badge').textContent = c.level;
-  document.getElementById('bc-tool').textContent = c.tool;
-  document.getElementById('bc-home').textContent = c.bcHome;
-  document.getElementById('bc-tutorials').textContent = c.bcTut;
-  document.getElementById('intro-kicker').textContent = c.introLabel;
-  document.getElementById('intro-text').textContent = c.intro;
-  document.getElementById('steps-kicker').textContent = c.stepsLabel;
-  document.getElementById('follow-text').textContent = c.follow;
-  document.getElementById('follow-text2').textContent = c.follow2;
-  document.getElementById('what-learn').textContent = c.whatLearn + ':';
-  document.getElementById('tip-desc').textContent = c.sub;
-  document.getElementById('step-list').innerHTML = buildStepHTML(c.steps);
-  document.getElementById('tips-list').innerHTML = buildListHTML(c.tips, 'do-icon', '✓');
-  document.getElementById('mistakes-list').innerHTML = buildListHTML(c.mistakes, 'dont-icon', '✗');
-  document.getElementById('pro-tips-title').innerHTML = c.proTips + ': <span style="font-weight:300" id="do-this">' + c.doThis + ' ' + c.doThis2 + '</span>';
-  document.getElementById('mistakes-title').innerHTML = c.avoid + ': <span style="font-weight:300" id="avoid-these">' + c.avoid2 + ' ' + c.avoid3 + '</span>';
-  document.getElementById('next-kicker').textContent = c.nextLabel;
-  document.getElementById('continue-text').textContent = c.continueText;
-  document.getElementById('continue-text2').textContent = c.continueText2;
-  document.getElementById('next-cards').innerHTML = buildNextCards(c.nextCards);
-  document.getElementById('related-links').innerHTML = buildRelatedLinks(c.relatedLinks);
-  document.getElementById('related-title').textContent = c.relatedTitle;
-  document.getElementById('also-title').textContent = c.alsoTitle;
-  document.getElementById('all-tut-link').textContent = c.allTut;
-  document.getElementById('prompt-lib-link').textContent = c.promptLib;
-  document.getElementById('compare-link').textContent = c.compareAll;
-  document.getElementById('nav-tools').textContent = c.navTools;
-  document.getElementById('nav-tutorials').textContent = c.navTut;
-  document.getElementById('nav-articles').textContent = c.navArt;
-  document.getElementById('nav-prompts').textContent = c.navPro;
-  document.getElementById('nav-compare').textContent = c.navCmp;
-  document.getElementById('nav-forum').textContent = c.navFor;
-  document.getElementById('nav-back').textContent = c.navBack;
-  document.getElementById('ft-about').textContent = c.ftAbout;
-  document.getElementById('ft-privacy').textContent = c.ftPrivacy;
-  document.getElementById('ft-contact').textContent = c.ftContact;
-  // Lang buttons
-  document.getElementById('btn-en').classList.toggle('active', l === 'en');
-  document.getElementById('btn-es').classList.toggle('active', l === 'es');
-  // Internal links get lang param
-  document.querySelectorAll('a[href^="/"], a[href^="#"]').forEach(a => {
-    const href = a.getAttribute('href');
-    if (href && !href.includes('?lang=') && !href.startsWith('#') && href !== '/') {
-      a.href = href.split('?')[0] + '?lang=' + l;
-    }
-  });
+  document.title = c.title + ' — The AI How To';
+  el('page-title').textContent = c.title + ' — The AI How To';
+  el('page-h1').textContent = c.title;
+  el('page-sub').textContent = c.desc;
+  el('tool-name').textContent = c.tool;
+  el('level-badge').textContent = c.level;
+  el('bc-tool').textContent = c.tool;
+  el('tip-desc').textContent = c.desc;
+  el('intro-text').textContent = c.intro;
+  el('bc-home').textContent = lb.bcHome;
+  el('bc-tutorials').textContent = lb.bcTut;
+  el('nav-back').textContent = lb.back;
+  el('what-learn').textContent = lb.what + ':';
+  el('intro-kicker').textContent = lb.intro;
+  el('steps-kicker').textContent = lb.steps;
+  el('follow-text').textContent = lb.follow;
+  el('follow-text2').textContent = lb.follow2;
+  el('tips-h').innerHTML = lb.tips + ': <span style="font-weight:300">' + lb.do + '</span>';
+  el('mistakes-h').innerHTML = lb.avoid + ': <span style="font-weight:300">' + lb.avoid2 + '</span>';
+  el('step-list').innerHTML = buildSteps(c.steps);
+  el('tips-list').innerHTML = buildList(c.tips, 'do-icon', '✓');
+  el('mistakes-list').innerHTML = buildList(c.mistakes, 'dont-icon', '✗');
+  el('next-kicker').textContent = lb.next;
+  el('cont-text').textContent = lb.cont;
+  el('cont-text2').textContent = lb.cont2;
+  el('next-cards').innerHTML = buildNext(c.next, l);
+  el('related-title').textContent = lb.related;
+  el('also-title').textContent = lb.also;
+  el('related-links').innerHTML = buildLinks(c.links);
+  el('all-tut-link').textContent = lb.allTut;
+  el('plib-link').textContent = lb.plib;
+  el('cmp-link').textContent = lb.cmpAll;
+  el('nav-tools').textContent = lb.navTools;
+  el('nav-tutorials').textContent = lb.navTut;
+  el('nav-articles').textContent = lb.navArt;
+  el('nav-prompts').textContent = lb.navPro;
+  el('nav-compare').textContent = lb.navCmp;
+  el('nav-forum').textContent = lb.navFor;
+  el('ft-about').textContent = lb.ftAbout;
+  el('ft-privacy').textContent = lb.ftPrivacy;
+  el('ft-contact').textContent = lb.ftContact;
+  el('btn-en').classList.toggle('active', l === 'en');
+  el('btn-es').classList.toggle('active', l === 'es');
 }
 
 function setLang(l) {
@@ -430,6 +283,7 @@ function setLang(l) {
 }
 
 applyLang(lang);
+
 </script>
 </body>
 </html>
