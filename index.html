@@ -1073,8 +1073,8 @@
           <div class="sb-title" data-i18n="sb.top">🔥 Most read this week</div>
           <div class="top-list">
             <a href="/tools/claude.html" class="top-item" style="text-decoration:none"><span class="top-n">01</span><div class="top-info"><h4 data-i18n="tp1">How to use Claude API free tier</h4><span>8.4k</span></div></a>
-            <a href="/#compare" class="top-item" style="text-decoration:none"><span class="top-n">02</span><div class="top-info"><h4 data-i18n="tp2">ChatGPT vs Gemini vs Claude comparison</h4><span>7.1k</span></div></a>
-            <a href="/#prompts" class="top-item" style="text-decoration:none"><span class="top-n">03</span><div class="top-info"><h4 data-i18n="tp3">Best 50 prompts for developers</h4><span>6.8k</span></div></a>
+            <a href="#compare" onclick="document.getElementById('compare').scrollIntoView({behavior:'smooth'});return false;" class="top-item" style="text-decoration:none"><span class="top-n">02</span><div class="top-info"><h4 data-i18n="tp2">ChatGPT vs Gemini vs Claude comparison</h4><span>7.1k</span></div></a>
+            <a href="#prompts" onclick="document.getElementById('prompts').scrollIntoView({behavior:'smooth'});return false;" class="top-item" style="text-decoration:none"><span class="top-n">03</span><div class="top-info"><h4 data-i18n="tp3">Best 50 prompts for developers</h4><span>6.8k</span></div></a>
             <a href="/tutorials/automation.html" class="top-item" style="text-decoration:none"><span class="top-n">04</span><div class="top-info"><h4 data-i18n="tp4">Automate with Make + ChatGPT</h4><span>5.2k</span></div></a>
           </div>
         </div>
@@ -1849,6 +1849,8 @@ document.addEventListener('click', function(e) {
   const href = a.getAttribute('href');
   if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('javascript') || href.startsWith('mailto')) return;
   if (href.includes('?lang=')) return;
+  // Skip pure anchor links like /#section - let browser handle them natively
+  if (href.match(/^\/?#/)) return;
   e.preventDefault();
   window.location.href = href + '?lang=' + lang;
 });
