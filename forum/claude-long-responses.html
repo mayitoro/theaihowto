@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>How do I stop Claude from cutting off long responses? — The AI How To Forum</title>
+<meta name="description" content="Community solutions for Claude truncating long outputs. Learn the best prompts and techniques to get complete responses every time."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
+.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
+.logo-name{font-size:.9rem;font-weight:600;color:var(--white)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-back:hover{color:var(--white)}
+.main{padding:88px 0 60px}
+.two-col{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+/* Thread header */
+.thread-header{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;margin-bottom:20px}
+.thread-cat{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.cat-teal{color:var(--teal3)} .cat-orange{color:var(--orange)} .cat-sage{color:var(--sage2)} .cat-terra{color:var(--terra2)}
+.thread-title{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:16px}
+.thread-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.t-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:600;flex-shrink:0}
+.t-author{font-size:.84rem;color:var(--muted)}
+.t-sep{color:var(--dim)}
+.t-date{font-size:.8rem;color:var(--dim)}
+.t-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px}
+.badge-hot{background:rgba(193,101,74,.15);color:var(--terra2)}
+.badge-solved{background:rgba(122,158,122,.15);color:var(--sage2)}
+.badge-open{background:rgba(45,138,138,.12);color:var(--teal3)}
+.tag-row{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.t-tag{font-size:.7rem;padding:3px 10px;border-radius:100px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+/* Original post */
+.post{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:12px}
+.post-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.post-info strong{display:block;font-size:.86rem;font-weight:600;color:var(--white)}
+.post-info span{font-size:.75rem;color:var(--dim)}
+.post-body{padding:20px;font-size:.9rem;color:var(--muted);line-height:1.8}
+.post-body p{margin-bottom:14px}
+.post-body p:last-child{margin-bottom:0}
+.post-body pre{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px;font-family:'DM Mono',monospace;font-size:.78rem;line-height:1.7;overflow-x:auto;margin:14px 0;color:var(--white)}
+.post-body strong{color:var(--white);font-weight:600}
+.post-body a{color:var(--teal3)}
+.post-body a:hover{text-decoration:underline}
+.post-body ul{padding-left:20px;margin:10px 0}
+.post-body ul li{margin-bottom:6px}
+.post-footer{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line)}
+.post-actions{display:flex;gap:8px}
+.post-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:4px 12px;border-radius:6px;font-size:.74rem;cursor:pointer;font-family:inherit;transition:all .2s}
+.post-btn:hover{border-color:var(--teal);color:var(--teal3)}
+.upvote{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--dim)}
+/* Reply count */
+.reply-count{font-size:.8rem;color:var(--dim);margin:20px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.reply-count strong{color:var(--white)}
+/* Best answer */
+.post.best-answer{border-color:rgba(122,158,122,.4)}
+.best-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(122,158,122,.12);color:var(--sage2);font-size:.7rem;font-weight:500;padding:3px 10px;border-radius:100px;margin-bottom:8px}
+/* Sidebar */
+.sb-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:18px}
+.sb-title{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.related-thread{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .15s}
+.related-thread:last-child{border-bottom:none;padding-bottom:0}
+.related-thread:hover .rt-title{color:var(--teal3)}
+.rt-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.rt-title{font-size:.82rem;color:var(--white);line-height:1.4;transition:color .2s}
+.rt-meta{font-size:.72rem;color:var(--dim);margin-top:3px}
+.useful-link{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg2);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--line);transition:all .2s;font-size:.82rem;color:var(--muted)}
+.useful-link:last-child{margin-bottom:0}
+.useful-link:hover{border-color:var(--teal);color:var(--teal3)}
+.useful-link-icon{font-size:1rem;flex-shrink:0}
+/* Reply form */
+.reply-form{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;margin-top:20px}
+.reply-form h3{font-size:.88rem;font-weight:600;margin-bottom:14px}
+.reply-form textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--white);padding:12px 14px;border-radius:var(--r);font-family:inherit;font-size:.88rem;line-height:1.65;resize:vertical;min-height:100px;outline:none;transition:border-color .2s}
+.reply-form textarea:focus{border-color:var(--teal)}
+.reply-form textarea::placeholder{color:var(--dim)}
+.btn-reply{background:var(--terra);color:#fff;border:none;padding:10px 22px;border-radius:var(--r);font-size:.88rem;font-weight:500;cursor:pointer;font-family:inherit;margin-top:10px;transition:background .2s}
+.btn-reply:hover{background:var(--terra2)}
+/* Breadcrumb */
+.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.breadcrumb a{color:var(--teal3)}
+.breadcrumb a:hover{color:var(--white)}
+/* Forum index banner */
+.forum-banner{background:linear-gradient(135deg,var(--bg1),var(--bg2));border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.forum-banner p{font-size:.84rem;color:var(--muted)}
+.btn-ghost-sm{border:1px solid var(--line2);color:var(--teal3);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s;white-space:nowrap}
+.btn-ghost-sm:hover{background:rgba(45,138,138,.08);border-color:var(--teal)}
+@media(max-width:768px){.nav-links{display:none}.two-col{grid-template-columns:1fr}.sidebar{order:-1}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
+      <div class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/#tutorials">Tutorials</a>
+        <a href="/#articles">Articles</a>
+        <a href="/#prompts">Prompts</a>
+        <a href="/#forum">Forum</a>
+      </div>
+      <a href="/#forum" class="nav-back">← Back to Forum</a>
+    </div>
+  </div>
+</nav>
+<main class="main">
+  <div class="container">
+
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#forum">Forum</a> › <a href="/#forum">Claude</a> › This thread</div>
+  <div class="thread-header">
+    <div class="thread-cat cat-teal">💬 Claude · AI Tools</div>
+    <div class="thread-title">How do I stop Claude from cutting off long responses?</div>
+    <div class="thread-meta">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d6a8a,#3d9faf)">J</div> 
+      <span class="t-author">juandev_99</span>
+      <span class="t-sep">·</span>
+      <span class="t-date">2 hours ago</span>
+      <span class="t-badge badge-hot">🔥 Hot · 47 replies</span>
+      <span class="t-badge badge-solved">✓ Solved</span>
+    </div>
+    <div class="tag-row">
+      <span class="t-tag">Claude</span><span class="t-tag">Long Responses</span><span class="t-tag">Prompting</span><span class="t-tag">Tips</span>
+    </div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d6a8a,#3d9faf)">J</div>
+      <div class="post-info">
+        <strong>juandev_99</strong>
+        <span>Member · 34 posts · 2 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Hi everyone, I've been using Claude heavily for writing long documents and I keep running into the same issue: Claude cuts off its response mid-sentence, especially when I ask it to write something long like a detailed report or a full chapter.</p>
+<p>I'm on the free tier. Is this a plan limitation? A context window issue? Is there a prompting trick to avoid it?</p>
+<p>For example, I ask: <em>"Write a 2,000-word guide on Python best practices"</em> and it stops at around 800 words every time.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 12 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-count"><strong>47 replies</strong> · Sorted by: Most helpful</div>
+      <div class="post best-answer">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#7a5a9e,#9b7abf)">M</div>
+      <div class="post-info">
+        <strong>maria_ai_pro</strong>
+        <span>Senior Member · 412 posts · 1 hour 45 min ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      <div class="best-badge">✓ Best Answer</div>
+      
+<div class="best-badge">✓ Best Answer</div>
+<p>This is one of the most common Claude questions! There are several things you can try:</p>
+<ul>
+  <li><strong>1. Explicitly ask it to continue:</strong> When it stops, just reply "Please continue from where you left off." Claude will pick up exactly where it stopped.</li>
+  <li><strong>2. Set an output target:</strong> Instead of "write 2,000 words", try "Write a detailed guide in 5 sections. Each section should be at least 300 words. Do not stop until all 5 sections are complete."</li>
+  <li><strong>3. Use "Continue..." at the end of your prompt:</strong> Add "Do not truncate this response. If you reach a limit, write [CONTINUED] and I will ask you to continue." at the end of your prompt.</li>
+  <li><strong>4. Break it into parts:</strong> For very long content, ask Claude to first create an outline, then fill in each section one at a time. This is actually the most reliable method.</li>
+</ul>
+<p>The free tier does have shorter output limits. <a href="/tools/claude.html">Claude Pro ($20/mo)</a> gives you significantly longer responses and fewer interruptions.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 89 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#1d5a8a,#2d7abf)">C</div>
+      <div class="post-info">
+        <strong>dev_carlos</strong>
+        <span>Member · 156 posts · 1 hour 30 min ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Adding to the best answer above — the most reliable trick I've found is the <strong>"chunk method"</strong>:</p>
+<pre>Write Section 1 of 5 of my Python guide: [topic].
+Once done, stop and wait for me to say "next" before writing section 2.</pre>
+<p>This way you control the pacing and Claude never runs out of steam in the middle of a section. Works 100% of the time for me.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 34 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#8a5a2d,#bf8a4d)">A</div>
+      <div class="post-info">
+        <strong>techwriter_ana</strong>
+        <span>Moderator · 1,203 posts · 1 hour ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Also worth noting: Claude's output limits are per-response, not per-conversation. The context window (200k tokens) is about how much it can <em>read</em>, not how much it can write in one go.</p>
+<p>My workflow for long documents:</p>
+<ul>
+  <li>Ask for an outline first (fast, no truncation)</li>
+  <li>Paste the outline back and ask for section 1</li>
+  <li>When done, paste section 1 + outline and ask for section 2</li>
+  <li>This keeps context clean and responses complete</li>
+</ul>
+<p>Related: <a href="/tutorials/claude-beginners.html">Getting started with Claude guide</a> covers this in detail.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 27 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-form">
+    <h3>💬 Add your reply</h3>
+    <form onsubmit="submitReply(event)">
+      <textarea placeholder="Write your reply... Be specific and helpful."></textarea>
+      <div>
+        <button type="submit" class="btn-reply">Post reply →</button>
+      </div>
+    </form>
+  </div>
+    </div>
+    <div class="sidebar">
+    <div class="sb-card">
+      <div class="sb-title">📌 Related Threads</div>
+      <a href="/forum/ai-content-workflow.html" class="related-thread">
+      <span class="rt-icon">✍️</span>
+      <div><div class="rt-title">My complete AI content workflow</div><div class="rt-meta">sara_content · 5h ago</div></div>
+    </a><a href="/forum/claude-api-nodejs.html" class="related-thread">
+      <span class="rt-icon">💻</span>
+      <div><div class="rt-title">How to use Claude API with Node.js</div><div class="rt-meta">noob_dev · 3h ago</div></div>
+    </a><a href="/forum/prompt-comparison-6-tools.html" class="related-thread">
+      <span class="rt-icon">🔍</span>
+      <div><div class="rt-title">Same prompt in 6 AI tools — results</div><div class="rt-meta">carmen_t · 2d ago</div></div>
+    </a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">🔗 Useful Resources</div>
+      <a href="/tutorials/claude-beginners.html" class="useful-link"><span class="useful-link-icon">⚡</span>Claude Beginner's Guide</a><a href="/tools/claude.html" class="useful-link"><span class="useful-link-icon">⚡</span>Claude Full Review & Pricing</a><a href="/tutorials/prompt-engineering.html" class="useful-link"><span class="useful-link-icon">✍️</span>Prompt Engineering Techniques</a><a href="/#prompts" class="useful-link"><span class="useful-link-icon">📋</span>Prompt Library (42 tested prompts)</a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">📊 Forum Stats</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:.82rem">
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Members</span><strong>22,431</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Threads</span><strong>4,891</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Online now</span><strong style="color:var(--sage2)">● 312</strong></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</main>
+<footer style="border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:60px">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--dim)">
+    <span>© 2026 The AI How To · <a href="/" style="color:var(--teal3)">Home</a></span>
+    <div style="display:flex;gap:18px">
+      <a href="/about.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">About</a>
+      <a href="/privacy.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Privacy</a>
+      <a href="/contact.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>
+function submitReply(e){
+  e.preventDefault();
+  var ta = e.target.querySelector('textarea');
+  if(!ta.value.trim()) return;
+  var container = e.target.closest('.reply-form');
+  container.innerHTML = '<div style="color:var(--sage2);padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid rgba(122,158,122,.3);font-size:.88rem">✓ Your reply has been posted! It will appear once reviewed by a moderator.</div>';
+}
+</script>
+</body>
+</html>

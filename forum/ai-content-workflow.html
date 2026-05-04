@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>My complete AI content creation workflow — The AI How To Forum</title>
+<meta name="description" content="Step-by-step AI content workflow using Perplexity, Claude and ChatGPT to create blog posts 65% faster."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
+.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
+.logo-name{font-size:.9rem;font-weight:600;color:var(--white)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-back:hover{color:var(--white)}
+.main{padding:88px 0 60px}
+.two-col{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+/* Thread header */
+.thread-header{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;margin-bottom:20px}
+.thread-cat{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.cat-teal{color:var(--teal3)} .cat-orange{color:var(--orange)} .cat-sage{color:var(--sage2)} .cat-terra{color:var(--terra2)}
+.thread-title{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:16px}
+.thread-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.t-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:600;flex-shrink:0}
+.t-author{font-size:.84rem;color:var(--muted)}
+.t-sep{color:var(--dim)}
+.t-date{font-size:.8rem;color:var(--dim)}
+.t-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px}
+.badge-hot{background:rgba(193,101,74,.15);color:var(--terra2)}
+.badge-solved{background:rgba(122,158,122,.15);color:var(--sage2)}
+.badge-open{background:rgba(45,138,138,.12);color:var(--teal3)}
+.tag-row{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.t-tag{font-size:.7rem;padding:3px 10px;border-radius:100px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+/* Original post */
+.post{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:12px}
+.post-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.post-info strong{display:block;font-size:.86rem;font-weight:600;color:var(--white)}
+.post-info span{font-size:.75rem;color:var(--dim)}
+.post-body{padding:20px;font-size:.9rem;color:var(--muted);line-height:1.8}
+.post-body p{margin-bottom:14px}
+.post-body p:last-child{margin-bottom:0}
+.post-body pre{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px;font-family:'DM Mono',monospace;font-size:.78rem;line-height:1.7;overflow-x:auto;margin:14px 0;color:var(--white)}
+.post-body strong{color:var(--white);font-weight:600}
+.post-body a{color:var(--teal3)}
+.post-body a:hover{text-decoration:underline}
+.post-body ul{padding-left:20px;margin:10px 0}
+.post-body ul li{margin-bottom:6px}
+.post-footer{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line)}
+.post-actions{display:flex;gap:8px}
+.post-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:4px 12px;border-radius:6px;font-size:.74rem;cursor:pointer;font-family:inherit;transition:all .2s}
+.post-btn:hover{border-color:var(--teal);color:var(--teal3)}
+.upvote{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--dim)}
+/* Reply count */
+.reply-count{font-size:.8rem;color:var(--dim);margin:20px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.reply-count strong{color:var(--white)}
+/* Best answer */
+.post.best-answer{border-color:rgba(122,158,122,.4)}
+.best-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(122,158,122,.12);color:var(--sage2);font-size:.7rem;font-weight:500;padding:3px 10px;border-radius:100px;margin-bottom:8px}
+/* Sidebar */
+.sb-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:18px}
+.sb-title{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.related-thread{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .15s}
+.related-thread:last-child{border-bottom:none;padding-bottom:0}
+.related-thread:hover .rt-title{color:var(--teal3)}
+.rt-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.rt-title{font-size:.82rem;color:var(--white);line-height:1.4;transition:color .2s}
+.rt-meta{font-size:.72rem;color:var(--dim);margin-top:3px}
+.useful-link{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg2);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--line);transition:all .2s;font-size:.82rem;color:var(--muted)}
+.useful-link:last-child{margin-bottom:0}
+.useful-link:hover{border-color:var(--teal);color:var(--teal3)}
+.useful-link-icon{font-size:1rem;flex-shrink:0}
+/* Reply form */
+.reply-form{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;margin-top:20px}
+.reply-form h3{font-size:.88rem;font-weight:600;margin-bottom:14px}
+.reply-form textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--white);padding:12px 14px;border-radius:var(--r);font-family:inherit;font-size:.88rem;line-height:1.65;resize:vertical;min-height:100px;outline:none;transition:border-color .2s}
+.reply-form textarea:focus{border-color:var(--teal)}
+.reply-form textarea::placeholder{color:var(--dim)}
+.btn-reply{background:var(--terra);color:#fff;border:none;padding:10px 22px;border-radius:var(--r);font-size:.88rem;font-weight:500;cursor:pointer;font-family:inherit;margin-top:10px;transition:background .2s}
+.btn-reply:hover{background:var(--terra2)}
+/* Breadcrumb */
+.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.breadcrumb a{color:var(--teal3)}
+.breadcrumb a:hover{color:var(--white)}
+/* Forum index banner */
+.forum-banner{background:linear-gradient(135deg,var(--bg1),var(--bg2));border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.forum-banner p{font-size:.84rem;color:var(--muted)}
+.btn-ghost-sm{border:1px solid var(--line2);color:var(--teal3);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s;white-space:nowrap}
+.btn-ghost-sm:hover{background:rgba(45,138,138,.08);border-color:var(--teal)}
+@media(max-width:768px){.nav-links{display:none}.two-col{grid-template-columns:1fr}.sidebar{order:-1}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
+      <div class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/#tutorials">Tutorials</a>
+        <a href="/#articles">Articles</a>
+        <a href="/#prompts">Prompts</a>
+        <a href="/#forum">Forum</a>
+      </div>
+      <a href="/#forum" class="nav-back">← Back to Forum</a>
+    </div>
+  </div>
+</nav>
+<main class="main">
+  <div class="container">
+
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#forum">Forum</a> › <a href="/#forum">Productivity</a> › This thread</div>
+  <div class="thread-header">
+    <div class="thread-cat cat-sage">✍️ Productivity · Content Creation</div>
+    <div class="thread-title">My complete AI content creation workflow (sharing everything)</div>
+    <div class="thread-meta">
+      <div class="t-av" style="background:linear-gradient(135deg,#2a7a5a,#4aaf8a)">S</div>
+      <span class="t-author">sara_content</span>
+      <span class="t-sep">·</span>
+      <span class="t-date">5 hours ago</span>
+      <span class="t-badge badge-hot">🔥 Hot · 89 replies</span>
+    </div>
+    <div class="tag-row">
+      <span class="t-tag">Workflow</span><span class="t-tag">Content</span><span class="t-tag">ChatGPT</span><span class="t-tag">Claude</span><span class="t-tag">Productivity</span>
+    </div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2a7a5a,#4aaf8a)">S</div>
+      <div class="post-info">
+        <strong>sara_content</strong>
+        <span>Senior Member · 287 posts · 5 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Hey community! I've been experimenting with AI tools for content for the past 8 months and finally have a workflow that's cut my production time by 65%. Sharing everything because this community has helped me so much.</p>
+<p><strong>My full workflow for a 1,500-word blog post:</strong></p>
+<ul>
+  <li><strong>Step 1 — Research (10 min):</strong> Use <a href="/tools/perplexity.html">Perplexity AI</a> to research the topic. It cites sources, so I get real data fast. Prompt: "Research [topic] and give me 5 surprising statistics, key debates, and the 3 most authoritative sources."</li>
+  <li><strong>Step 2 — Outline (5 min):</strong> Paste the research into <a href="/tools/claude.html">Claude</a> and ask for a detailed SEO-optimized outline. Claude is better at structure than ChatGPT in my experience.</li>
+  <li><strong>Step 3 — First draft (15 min):</strong> Give Claude the outline + research and ask for a full draft. I use this prompt from the <a href="/#prompts">prompt library</a>: the SEO Blog Post one.</li>
+  <li><strong>Step 4 — Humanize (10 min):</strong> I paste into ChatGPT-5.5 and ask it to make it sound more like me. "Rewrite this in a conversational tone, add 2 personal anecdotes I can fill in later, remove all corporate buzzwords."</li>
+  <li><strong>Step 5 — Images (5 min):</strong> Use <a href="/tools/midjourney.html">Midjourney</a> for featured images. The product photo prompt from our library works great for tech content.</li>
+</ul>
+<p>Total time: ~45 minutes vs 3-4 hours before AI. Happy to answer questions!</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 156 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-count"><strong>89 replies</strong> · Sorted by: Most helpful</div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#8a2d5a,#bf4d8a)">M</div>
+      <div class="post-info">
+        <strong>freelance_miguel</strong>
+        <span>Member · 89 posts · 4 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>This is gold, thank you! One question: do you worry about duplicate content / Google penalizing AI-written articles?</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 23 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2a7a5a,#4aaf8a)">S</div>
+      <div class="post-info">
+        <strong>sara_content</strong>
+        <span>Senior Member · 287 posts · 3 hours 45 min ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Great question! The short answer: <strong>no, as long as you edit it</strong>. Google cares about quality and originality of ideas, not how you wrote the first draft.</p>
+<p>My rule: every article I publish, I add:</p>
+<ul>
+  <li>At least 2 personal stories or original examples</li>
+  <li>My own opinion section</li>
+  <li>Original research or data when possible</li>
+</ul>
+<p>The AI gives me a scaffold. I build the house. No penalties in 8 months and actually rankings have improved because I publish more consistently now.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 45 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#5a2d8a,#8a5abf)">L</div>
+      <div class="post-info">
+        <strong>seo_expert_lara</strong>
+        <span>SEO Specialist · 634 posts · 2 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>SEO specialist here. Confirming what Sara said — Google's stance is that AI content is fine as long as it's helpful, accurate, and original. The <a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank">Google helpful content guidelines</a> don't discriminate by how content was created.</p>
+<p>What does get penalized: thin content, keyword stuffing, copied content. All things AI makes WORSE if you're not careful, and BETTER if you use it right.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 67 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-form">
+    <h3>💬 Add your reply</h3>
+    <form onsubmit="submitReply(event)">
+      <textarea placeholder="Write your reply... Be specific and helpful."></textarea>
+      <div>
+        <button type="submit" class="btn-reply">Post reply →</button>
+      </div>
+    </form>
+  </div>
+    </div>
+    <div class="sidebar">
+    <div class="sb-card">
+      <div class="sb-title">📌 Related Threads</div>
+      <a href="/forum/claude-long-responses.html" class="related-thread">
+      <span class="rt-icon">⚡</span>
+      <div><div class="rt-title">Stop Claude cutting off responses</div><div class="rt-meta">juandev_99 · 2h ago</div></div>
+    </a><a href="/articles/ai-freelancer-productivity.html" class="related-thread">
+      <span class="rt-icon">💼</span>
+      <div><div class="rt-title">3x your freelance productivity</div><div class="rt-meta">article</div></div>
+    </a><a href="/forum/prompt-comparison-6-tools.html" class="related-thread">
+      <span class="rt-icon">🔍</span>
+      <div><div class="rt-title">Same prompt in 6 AI tools</div><div class="rt-meta">carmen_t · 2d ago</div></div>
+    </a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">🔗 Useful Resources</div>
+      <a href="/tutorials/prompt-engineering.html" class="useful-link"><span class="useful-link-icon">✍️</span>Prompt Engineering Guide</a><a href="/tools/perplexity.html" class="useful-link"><span class="useful-link-icon">🔍</span>Perplexity AI for Research</a><a href="/tutorials/automation.html" class="useful-link"><span class="useful-link-icon">⚡</span>Automate Your Workflow</a><a href="/#prompts" class="useful-link"><span class="useful-link-icon">📋</span>SEO Blog Prompt Template</a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">📊 Forum Stats</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:.82rem">
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Members</span><strong>22,431</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Threads</span><strong>4,891</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Online now</span><strong style="color:var(--sage2)">● 312</strong></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</main>
+<footer style="border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:60px">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--dim)">
+    <span>© 2026 The AI How To · <a href="/" style="color:var(--teal3)">Home</a></span>
+    <div style="display:flex;gap:18px">
+      <a href="/about.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">About</a>
+      <a href="/privacy.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Privacy</a>
+      <a href="/contact.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>
+function submitReply(e){
+  e.preventDefault();
+  var ta = e.target.querySelector('textarea');
+  if(!ta.value.trim()) return;
+  var container = e.target.closest('.reply-form');
+  container.innerHTML = '<div style="color:var(--sage2);padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid rgba(122,158,122,.3);font-size:.88rem">✓ Your reply has been posted! It will appear once reviewed by a moderator.</div>';
+}
+</script>
+</body>
+</html>

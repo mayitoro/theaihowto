@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Same prompt tested in 6 different AI tools — The AI How To Forum</title>
+<meta name="description" content="Real experiment: the same marketing prompt was sent to ChatGPT, Claude, Gemini, Copilot, Perplexity and Grok. See the surprising results."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--black:#2C3450;--bg1:#323A5C;--bg2:#384068;--bg3:#3E4772;--line:rgba(255,255,255,.13);--line2:rgba(255,255,255,.21);--white:#F0EBE0;--muted:#C8CCD8;--dim:#9095A8;--teal:#2D8A8A;--teal2:#3DAFAF;--teal3:#6FCFCF;--sage:#7A9E7A;--sage2:#9FBF9F;--terra:#C1654A;--terra2:#D4785D;--orange:#E8854A;--r:8px;--r-lg:14px}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--black);color:var(--white);font-size:16px;line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg1)}::-webkit-scrollbar-thumb{background:var(--bg2);border-radius:2px}
+.container{max-width:1100px;margin:0 auto;padding:0 28px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(24px);background:rgba(44,52,80,.9);border-bottom:1px solid var(--line)}
+.nav-inner{height:56px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:9px}
+.logo-icon{width:28px;height:28px;border-radius:7px;background:var(--teal);display:flex;align-items:center;justify-content:center;font-size:.85rem;position:relative;overflow:hidden}
+.logo-icon::after{content:'';position:absolute;bottom:-3px;right:-3px;width:12px;height:12px;border-radius:50%;background:var(--terra);opacity:.9}
+.logo-name{font-size:.9rem;font-weight:600;color:var(--white)}
+.nav-links{display:flex;gap:20px}
+.nav-links a{font-size:.82rem;color:var(--muted);transition:color .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-back{font-size:.82rem;color:var(--teal3);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.nav-back:hover{color:var(--white)}
+.main{padding:88px 0 60px}
+.two-col{display:grid;grid-template-columns:1fr 320px;gap:28px;align-items:start}
+/* Thread header */
+.thread-header{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;margin-bottom:20px}
+.thread-cat{font-size:.7rem;font-weight:500;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.cat-teal{color:var(--teal3)} .cat-orange{color:var(--orange)} .cat-sage{color:var(--sage2)} .cat-terra{color:var(--terra2)}
+.thread-title{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;line-height:1.2;margin-bottom:16px}
+.thread-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.t-av{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.88rem;font-weight:600;flex-shrink:0}
+.t-author{font-size:.84rem;color:var(--muted)}
+.t-sep{color:var(--dim)}
+.t-date{font-size:.8rem;color:var(--dim)}
+.t-badge{font-size:.68rem;font-weight:500;padding:2px 9px;border-radius:100px}
+.badge-hot{background:rgba(193,101,74,.15);color:var(--terra2)}
+.badge-solved{background:rgba(122,158,122,.15);color:var(--sage2)}
+.badge-open{background:rgba(45,138,138,.12);color:var(--teal3)}
+.tag-row{display:flex;gap:7px;margin-top:14px;flex-wrap:wrap}
+.t-tag{font-size:.7rem;padding:3px 10px;border-radius:100px;background:var(--bg2);border:1px solid var(--line);color:var(--muted)}
+/* Original post */
+.post{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);margin-bottom:12px}
+.post-header{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.post-info strong{display:block;font-size:.86rem;font-weight:600;color:var(--white)}
+.post-info span{font-size:.75rem;color:var(--dim)}
+.post-body{padding:20px;font-size:.9rem;color:var(--muted);line-height:1.8}
+.post-body p{margin-bottom:14px}
+.post-body p:last-child{margin-bottom:0}
+.post-body pre{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r);padding:14px;font-family:'DM Mono',monospace;font-size:.78rem;line-height:1.7;overflow-x:auto;margin:14px 0;color:var(--white)}
+.post-body strong{color:var(--white);font-weight:600}
+.post-body a{color:var(--teal3)}
+.post-body a:hover{text-decoration:underline}
+.post-body ul{padding-left:20px;margin:10px 0}
+.post-body ul li{margin-bottom:6px}
+.post-footer{padding:12px 20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line)}
+.post-actions{display:flex;gap:8px}
+.post-btn{background:none;border:1px solid var(--line);color:var(--muted);padding:4px 12px;border-radius:6px;font-size:.74rem;cursor:pointer;font-family:inherit;transition:all .2s}
+.post-btn:hover{border-color:var(--teal);color:var(--teal3)}
+.upvote{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--dim)}
+/* Reply count */
+.reply-count{font-size:.8rem;color:var(--dim);margin:20px 0 12px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.reply-count strong{color:var(--white)}
+/* Best answer */
+.post.best-answer{border-color:rgba(122,158,122,.4)}
+.best-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(122,158,122,.12);color:var(--sage2);font-size:.7rem;font-weight:500;padding:3px 10px;border-radius:100px;margin-bottom:8px}
+/* Sidebar */
+.sb-card{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:18px}
+.sb-title{font-size:.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.related-thread{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:all .15s}
+.related-thread:last-child{border-bottom:none;padding-bottom:0}
+.related-thread:hover .rt-title{color:var(--teal3)}
+.rt-icon{font-size:1rem;flex-shrink:0;margin-top:1px}
+.rt-title{font-size:.82rem;color:var(--white);line-height:1.4;transition:color .2s}
+.rt-meta{font-size:.72rem;color:var(--dim);margin-top:3px}
+.useful-link{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--bg2);border-radius:var(--r);margin-bottom:8px;border:1px solid var(--line);transition:all .2s;font-size:.82rem;color:var(--muted)}
+.useful-link:last-child{margin-bottom:0}
+.useful-link:hover{border-color:var(--teal);color:var(--teal3)}
+.useful-link-icon{font-size:1rem;flex-shrink:0}
+/* Reply form */
+.reply-form{background:var(--bg1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;margin-top:20px}
+.reply-form h3{font-size:.88rem;font-weight:600;margin-bottom:14px}
+.reply-form textarea{width:100%;background:var(--bg2);border:1px solid var(--line2);color:var(--white);padding:12px 14px;border-radius:var(--r);font-family:inherit;font-size:.88rem;line-height:1.65;resize:vertical;min-height:100px;outline:none;transition:border-color .2s}
+.reply-form textarea:focus{border-color:var(--teal)}
+.reply-form textarea::placeholder{color:var(--dim)}
+.btn-reply{background:var(--terra);color:#fff;border:none;padding:10px 22px;border-radius:var(--r);font-size:.88rem;font-weight:500;cursor:pointer;font-family:inherit;margin-top:10px;transition:background .2s}
+.btn-reply:hover{background:var(--terra2)}
+/* Breadcrumb */
+.breadcrumb{font-size:.75rem;color:var(--dim);margin-bottom:18px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.breadcrumb a{color:var(--teal3)}
+.breadcrumb a:hover{color:var(--white)}
+/* Forum index banner */
+.forum-banner{background:linear-gradient(135deg,var(--bg1),var(--bg2));border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.forum-banner p{font-size:.84rem;color:var(--muted)}
+.btn-ghost-sm{border:1px solid var(--line2);color:var(--teal3);padding:7px 16px;border-radius:7px;font-size:.8rem;transition:all .2s;white-space:nowrap}
+.btn-ghost-sm:hover{background:rgba(45,138,138,.08);border-color:var(--teal)}
+@media(max-width:768px){.nav-links{display:none}.two-col{grid-template-columns:1fr}.sidebar{order:-1}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="/" class="logo"><div class="logo-icon"><span>✦</span></div><span class="logo-name">The AI How To</span></a>
+      <div class="nav-links">
+        <a href="/#tools">Tools</a>
+        <a href="/#tutorials">Tutorials</a>
+        <a href="/#articles">Articles</a>
+        <a href="/#prompts">Prompts</a>
+        <a href="/#forum">Forum</a>
+      </div>
+      <a href="/#forum" class="nav-back">← Back to Forum</a>
+    </div>
+  </div>
+</nav>
+<main class="main">
+  <div class="container">
+
+  <div class="breadcrumb"><a href="/">Home</a> › <a href="/#forum">Forum</a> › <a href="/#forum">Prompts</a> › This thread</div>
+  <div class="thread-header">
+    <div class="thread-cat cat-teal">🔬 Experiments · Prompts</div>
+    <div class="thread-title">Same prompt tested in 6 different AI tools — surprising results</div>
+    <div class="thread-meta">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d8a6a,#4dbf9a)">C</div>
+      <span class="t-author">carmen_t</span>
+      <span class="t-sep">·</span>
+      <span class="t-date">2 days ago</span>
+      <span class="t-badge badge-hot">🔥 Hot · 203 replies</span>
+    </div>
+    <div class="tag-row">
+      <span class="t-tag">Comparison</span><span class="t-tag">Prompts</span><span class="t-tag">Experiment</span><span class="t-tag">ChatGPT</span><span class="t-tag">Claude</span><span class="t-tag">Gemini</span>
+    </div>
+  </div>
+  <div class="two-col">
+    <div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d8a6a,#4dbf9a)">C</div>
+      <div class="post-info">
+        <strong>carmen_t</strong>
+        <span>Senior Member · 389 posts · 2 days ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>I ran the same prompt through 6 different AI tools and documented everything. The prompt:</p>
+<pre>"You are a marketing consultant. 
+Write a 3-email welcome sequence for a new subscriber 
+to a newsletter about personal finance. 
+Each email should be under 200 words."</pre>
+<p><strong>Results summary:</strong></p>
+<ul>
+  <li><strong>Claude Sonnet 4.5 🥇</strong> — Best overall. Most human-sounding copy, great structure, followed instructions perfectly (all under 200 words). Had the best subject lines by far.</li>
+  <li><strong>ChatGPT-5.5 🥈</strong> — Very good but slightly more generic. Subject lines were clickbait-y. Email 3 was 217 words (exceeded limit).</li>
+  <li><strong>Gemini 3 Pro 🥉</strong> — Solid but too formal. Good for corporate brands, wrong for personal finance newsletters. Did follow the word count.</li>
+  <li><strong>Copilot (GPT-5.5 base)</strong> — Similar to ChatGPT but with some weird formatting quirks. Good enough for most uses.</li>
+  <li><strong>Perplexity</strong> — Not really designed for this. Output was fine but it kept adding research citations to a creative writing task.</li>
+  <li><strong>Grok 4</strong> — Surprisingly good! Had the most personality of any model. Email 1 was excellent. Emails 2 and 3 dropped off in quality.</li>
+</ul>
+<p><strong>Takeaway: Use the right tool for the job.</strong> For creative/marketing copy: Claude or Grok. For technical tasks: Claude wins consistently. For research: Perplexity. For daily general use: ChatGPT or Copilot.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 234 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-count"><strong>203 replies</strong></div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#5a8a2d,#8abf4d)">N</div>
+      <div class="post-info">
+        <strong>prompt_nerd</strong>
+        <span>Member · 234 posts · 2 days ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Fascinating! Did you use the same API/web interface for all? And did you try any prompt engineering techniques or just sent it raw?</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 18 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d8a6a,#4dbf9a)">C</div>
+      <div class="post-info">
+        <strong>carmen_t</strong>
+        <span>Senior Member · 389 posts · 1 day 22 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>All via web interface, not API. And raw prompt, no additional engineering — that was the point, to test default behavior.</p>
+<p>I'm planning a follow-up experiment where I apply prompt engineering techniques to each tool (system prompts, few-shot examples, etc.) to see how much the gap closes. My hypothesis: with good prompting, most tools get much closer to Claude's default quality.</p>
+<p>Check our <a href="/tutorials/prompt-engineering.html">prompt engineering guide</a> for the techniques I'll be testing.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 56 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#8a2d2d,#bf4d4d)">S</div>
+      <div class="post-info">
+        <strong>ai_skeptic</strong>
+        <span>Member · 45 posts · 1 day 15 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>Interesting experiment but I'd argue for creative tasks, the "best" answer is subjective. What you think sounds human might feel generic to me. Have you considered running a blind test with people who don't know which AI wrote which?</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 29 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="post ">
+    <div class="post-header">
+      <div class="t-av" style="background:linear-gradient(135deg,#2d8a6a,#4dbf9a)">C</div>
+      <div class="post-info">
+        <strong>carmen_t</strong>
+        <span>Senior Member · 389 posts · 1 day 10 hours ago</span>
+      </div>
+    </div>
+    <div class="post-body">
+      
+      
+<p>That's a great point and exactly what I did! I sent the outputs to 5 colleagues without labeling them and asked them to rank by quality. The ranking was identical to mine in 4 out of 5 cases. So it's not just my subjective preference.</p>
+<p>That said, "best" does vary by use case. For a personal brand with a casual voice, Grok might actually win over Claude. Context matters a lot.</p>
+
+    </div>
+    <div class="post-footer">
+      <div class="upvote">▲ 41 upvotes</div>
+      <div class="post-actions">
+        <button class="post-btn">👍 Helpful</button>
+        <button class="post-btn">↩ Reply</button>
+        <button class="post-btn">🔗 Quote</button>
+      </div>
+    </div>
+  </div>
+      <div class="reply-form">
+    <h3>💬 Add your reply</h3>
+    <form onsubmit="submitReply(event)">
+      <textarea placeholder="Write your reply... Be specific and helpful."></textarea>
+      <div>
+        <button type="submit" class="btn-reply">Post reply →</button>
+      </div>
+    </form>
+  </div>
+    </div>
+    <div class="sidebar">
+    <div class="sb-card">
+      <div class="sb-title">📌 Related Threads</div>
+      <a href="/forum/ai-content-workflow.html" class="related-thread">
+      <span class="rt-icon">✍️</span>
+      <div><div class="rt-title">Complete AI content workflow</div><div class="rt-meta">sara_content</div></div>
+    </a><a href="/forum/chatgpt-plus-worth-it.html" class="related-thread">
+      <span class="rt-icon">💰</span>
+      <div><div class="rt-title">ChatGPT Plus worth it?</div><div class="rt-meta">miguel_ia</div></div>
+    </a><a href="/articles/gpt5-vs-claude4.html" class="related-thread">
+      <span class="rt-icon">📰</span>
+      <div><div class="rt-title">GPT-5 vs Claude 4 full review</div><div class="rt-meta">article</div></div>
+    </a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">🔗 Useful Resources</div>
+      <a href="/tutorials/prompt-engineering.html" class="useful-link"><span class="useful-link-icon">✍️</span>Prompt Engineering Deep Dive</a><a href="/#prompts" class="useful-link"><span class="useful-link-icon">📋</span>42 Tested Prompts Library</a><a href="/#compare" class="useful-link"><span class="useful-link-icon">⚡</span>Full AI Tool Comparison Table</a><a href="/tools/claude.html" class="useful-link"><span class="useful-link-icon">⚡</span>Claude Review</a>
+    </div>
+    <div class="sb-card">
+      <div class="sb-title">📊 Forum Stats</div>
+      <div style="display:flex;flex-direction:column;gap:9px;font-size:.82rem">
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Members</span><strong>22,431</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Threads</span><strong>4,891</strong></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--muted)">Online now</span><strong style="color:var(--sage2)">● 312</strong></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+</main>
+<footer style="border-top:1px solid var(--line);background:var(--bg1);padding:32px 0;margin-top:60px">
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:.78rem;color:var(--dim)">
+    <span>© 2026 The AI How To · <a href="/" style="color:var(--teal3)">Home</a></span>
+    <div style="display:flex;gap:18px">
+      <a href="/about.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">About</a>
+      <a href="/privacy.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Privacy</a>
+      <a href="/contact.html" style="color:var(--dim);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--dim)'">Contact</a>
+    </div>
+  </div>
+</footer>
+<script>
+function submitReply(e){
+  e.preventDefault();
+  var ta = e.target.querySelector('textarea');
+  if(!ta.value.trim()) return;
+  var container = e.target.closest('.reply-form');
+  container.innerHTML = '<div style="color:var(--sage2);padding:14px;background:var(--bg2);border-radius:var(--r);border:1px solid rgba(122,158,122,.3);font-size:.88rem">✓ Your reply has been posted! It will appear once reviewed by a moderator.</div>';
+}
+</script>
+</body>
+</html>
