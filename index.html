@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The AI How To — Learn AI Tools Step by Step</title>
+  <meta name="description" content="Discover, learn and master AI tools: ChatGPT, Claude, Gemini and more. Step-by-step tutorials, comparisons, prompts and community."/>
+  <link rel="canonical" href="https://theaihowto.com/"/>
+  <link rel="alternate" hreflang="en" href="https://theaihowto.com/"/>
+  <link rel="alternate" hreflang="es" href="https://theaihowto.com/es/"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Pangram Sans (commercial) — if licensed, add @font-face here and replace 'Plus Jakarta Sans' below -->
+  <style>
+    /* If you own Pangram Sans, add your font files and use:
+       font-family: 'Pangram Sans', 'Plus Jakarta Sans', sans-serif; */
+  </style>
+  <style>
+    /* ─── TOKENS ─── */
+    :root {
+      --black:  #2C3450;
+      --bg1:    #323A5C;
+      --bg2:    #384068;
+      --bg3:    #3E4772;
+      --line:   rgba(255,255,255,0.13);
+      --line2:  rgba(255,255,255,0.21);
+      --white:  #F0EBE0;
+      --muted:  #C8CCD8;
+      --dim:    #9095A8;
+      --teal:   #2D8A8A;
+      --teal2:  #3DAFAF;
+      --teal3:  #6FCFCF;
+      --sage:   #7A9E7A;
+      --sage2:  #9FBF9F;
+      --terra:  #C1654A;
+      --terra2: #D4785D;
+      --orange: #E8854A;
+      --sand:   #F2E8D6;
+      --r:      8px;
+      --r-lg:   14px;
+      --fd:     'Plus Jakarta Sans', 'Pangram Sans', sans-serif;
+      --fb:     'Plus Jakarta Sans', 'Pangram Sans', sans-serif;
+      --fm:     'DM Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--fb); background: var(--black); color: var(--white); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg1); }
+    ::-webkit-scrollbar-thumb { background: var(--dim); border-radius: 2px; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 28px; }
+
+    /* ─── ORBS ─── */
+    .orb {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; z-index: 0;
+    }
+    .orb-teal  { background: radial-gradient(circle, rgba(45,138,138,.55) 0%, transparent 70%); filter: blur(60px); }
+    .orb-terra { background: radial-gradient(circle, rgba(193,101,74,.45) 0%, transparent 70%); filter: blur(70px); }
+    .orb-sage  { background: radial-gradient(circle, rgba(122,158,122,.35) 0%, transparent 70%); filter: blur(65px); }
+    .orb-orange{ background: radial-gradient(circle, rgba(232,133,74,.3) 0%, transparent 70%); filter: blur(75px); }
+
+    /* ─── NAV ─── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(24px);
+      background: rgba(5,6,8,.8);
+    }
+    .nav-inner {
+      height: 56px; display: flex; align-items: center;
+      justify-content: space-between; gap: 32px;
+    }
+    .logo { display: flex; align-items: center; gap: 9px; }
+    .logo-icon {
+      width: 28px; height: 28px; border-radius: 7px;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center; font-size: .85rem;
+      position: relative; overflow: hidden;
+    }
+    .logo-icon::after {
+      content: ''; position: absolute; bottom: -3px; right: -3px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--terra); opacity: .9;
+    }
+    .logo-icon span { z-index: 1; }
+    .logo-name { font-size: .9rem; font-weight: 600; letter-spacing: -.02em; color: var(--white); }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: .82rem; color: var(--muted); transition: color .2s; font-weight: 400; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .lang-sw { display: flex; background: var(--bg3); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+    .lang-btn { background: none; border: none; color: var(--muted); padding: 5px 10px; font-family: var(--fb); font-size: .73rem; font-weight: 500; cursor: pointer; transition: all .15s; }
+    .lang-btn.active { background: var(--teal); color: #fff; }
+    .nav-sep { width: 1px; height: 14px; background: var(--line); }
+    .nav-signin { font-size: .82rem; color: var(--muted); padding: 6px 12px; transition: color .2s; }
+    .nav-signin:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--terra); color: #fff;
+      font-size: .82rem; font-weight: 500;
+      padding: 7px 16px; border-radius: 7px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--terra2); }
+    .nav-mob { display: none; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
+
+    /* ─── MOBILE MENU ─── */
+    .mob-menu { display: none; position: fixed; inset: 0; z-index: 200; background: var(--bg1); flex-direction: column; padding: 68px 28px 28px; overflow-y: auto; }
+    .mob-menu.open { display: flex; }
+    .mob-menu a { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 1rem; color: var(--muted); }
+    .mob-close { position: absolute; top: 16px; right: 22px; background: none; border: none; color: var(--white); font-size: 1.3rem; cursor: pointer; }
+    .mob-lang { display: flex; gap: 10px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .mob-lang-btn { flex: 1; padding: 9px; border-radius: 7px; font-family: var(--fb); font-size: .85rem; font-weight: 500; cursor: pointer; border: 1px solid var(--line); background: var(--bg3); color: var(--muted); text-align: center; transition: all .2s; }
+    .mob-lang-btn.active { background: var(--teal); color: #fff; border-color: var(--teal); }
+
+    /* ─── SECTION LABEL ─── */
+    .section-label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .7rem; font-weight: 500; color: var(--muted);
+      letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .section-label .sl-icon {
+      width: 16px; height: 16px; border-radius: 4px;
+      background: var(--teal); display: flex; align-items: center;
+      justify-content: center; font-size: .55rem; flex-shrink: 0;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding: 100px 0 80px; position: relative; overflow: hidden;
+      text-align: center;
+    }
+    .hero-orbs { position: absolute; inset: 0; pointer-events: none; }
+    .ho-1 { width: 700px; height: 700px; top: -200px; left: 50%; transform: translateX(-50%); }
+    .ho-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; }
+    .ho-3 { width: 350px; height: 350px; bottom: 0; right: -80px; }
+    .ho-4 { width: 250px; height: 250px; top: 30%; right: 5%; }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 70% at 50% 40%, black 20%, transparent 70%);
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 7px;
+      border: 1px solid var(--line2); background: rgba(255,255,255,.04);
+      color: var(--muted); font-size: .72rem; font-weight: 400;
+      letter-spacing: .06em; padding: 5px 14px; border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .hero-badge .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--teal3); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .hero h1 {
+      font-family: var(--fd);
+      font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+      font-weight: 700; line-height: 1.0;
+      letter-spacing: -.04em;
+      margin-bottom: 28px;
+    }
+    .hero h1 .italic { font-style: normal; font-weight: 300; color: var(--teal3); letter-spacing: -.02em; }
+    .hero h1 .terra { color: var(--terra); font-weight: 700; }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--muted); line-height: 1.7;
+      margin-bottom: 40px; max-width: 540px; margin-left: auto; margin-right: auto;
+    }
+    .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-main {
+      background: var(--terra); color: #fff;
+      padding: 12px 28px; border-radius: 8px;
+      font-weight: 500; font-size: .92rem;
+      transition: all .2s;
+      box-shadow: 0 0 24px rgba(193,101,74,.3);
+    }
+    .btn-main:hover { background: var(--terra2); box-shadow: 0 0 36px rgba(193,101,74,.4); }
+    .btn-ghost {
+      border: 1px solid var(--line2); color: var(--muted);
+      padding: 12px 28px; border-radius: 8px;
+      font-weight: 400; font-size: .92rem;
+      transition: all .2s;
+    }
+    .btn-ghost:hover { border-color: var(--teal); color: var(--teal3); background: rgba(45,138,138,.06); }
+
+    /* ─── METRICS ROW ─── */
+    .metrics {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--bg1);
+    }
+    .metrics-inner {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      divide-x: 1px solid var(--line);
+    }
+    .metric-item {
+      padding: 28px 32px;
+      border-right: 1px solid var(--line);
+      display: flex; flex-direction: column; gap: 4px;
+    }
+    .metric-item:last-child { border-right: none; }
+    .metric-num {
+      font-family: var(--fd);
+      font-size: 2.4rem; font-weight: 700;
+      letter-spacing: -.04em; line-height: 1;
+      color: var(--white);
+    }
+    .metric-num .accent { color: var(--teal3); }
+    .metric-label { font-size: .78rem; color: var(--muted); font-weight: 400; }
+
+    /* ─── LOGO TICKER ─── */
+    .ticker-section {
+      padding: 40px 0; border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .ticker-label {
+      text-align: center; font-size: .7rem; color: var(--dim);
+      letter-spacing: .1em; text-transform: uppercase; margin-bottom: 24px;
+    }
+    .ticker-track { display: flex; gap: 0; width: max-content; animation: ticker 30s linear infinite; }
+    .ticker-track:hover { animation-play-state: paused; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    .ticker-item {
+      display: flex; align-items: center; gap: 8px;
+      padding: 10px 32px; border-right: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .ticker-item-icon { font-size: 1.2rem; display: flex; align-items: center; }
+    .ticker-item-icon img { width: 16px; height: 16px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.55; }
+    .ticker-item-name { font-size: .88rem; color: var(--muted); font-weight: 400; }
+
+    /* ─── SECTIONS ─── */
+    .section { padding: 100px 0; position: relative; overflow: hidden; }
+    .section-dark { background: var(--bg1); }
+    .section-border-t { border-top: 1px solid var(--line); }
+
+    /* ─── SECTION HEADING ─── */
+    .sh { margin-bottom: 56px; }
+    .sh h2 {
+      font-family: var(--fd);
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      font-weight: 700; line-height: 1.1;
+      letter-spacing: -.04em;
+    }
+    .sh h2 .italic { font-style: normal; font-weight: 300; color: var(--teal3); }
+    .sh p { margin-top: 14px; font-size: .95rem; color: var(--muted); max-width: 500px; line-height: 1.7; }
+    .sh.center { text-align: center; }
+    .sh.center p { margin-left: auto; margin-right: auto; }
+
+    /* ─── TOOL GRID ─── */
+    .tool-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .tool-cell {
+      background: var(--bg1); padding: 28px 24px;
+      transition: background .2s; cursor: pointer;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .tool-cell:hover { background: var(--bg2); }
+    .tc-top { display: flex; justify-content: space-between; align-items: flex-start; }
+    .tc-icon { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tc-icon svg { width: 26px; height: 26px; }
+    .tc-tag { font-size: .65rem; font-weight: 500; padding: 2px 8px; border-radius: 100px; letter-spacing: .04em; }
+    .t-free { background: rgba(122,158,122,.12); color: var(--sage2); border: 1px solid rgba(122,158,122,.2); }
+    .t-frem { background: rgba(232,133,74,.1); color: var(--orange); border: 1px solid rgba(232,133,74,.2); }
+    .t-paid { background: rgba(193,101,74,.1); color: var(--terra2); border: 1px solid rgba(193,101,74,.2); }
+    .t-top  { background: rgba(45,138,138,.1); color: var(--teal3); border: 1px solid rgba(45,138,138,.2); }
+    .tc-name { font-family: var(--fd); font-size: 1.05rem; font-weight: 600; letter-spacing: -.02em; }
+    .tc-company { font-size: .72rem; color: var(--dim); margin-top: 1px; letter-spacing: .02em; }
+    .tc-desc { font-size: .82rem; color: var(--muted); line-height: 1.6; }
+    .tc-feats { display: flex; flex-direction: column; gap: 5px; }
+    .tc-feat { font-size: .77rem; color: var(--muted); display: flex; align-items: center; gap: 7px; }
+    .tc-feat::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: var(--teal); flex-shrink: 0; }
+    .tc-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--line); padding-top: 14px; margin-top: auto; }
+    .tc-rating { font-size: .75rem; color: var(--muted); display: flex; align-items: center; gap: 5px; }
+    .stars { color: var(--orange); font-size: .7rem; }
+    .tc-link { font-size: .77rem; color: var(--teal3); transition: gap .15s; display: flex; align-items: center; gap: 4px; }
+    .tc-link:hover { gap: 8px; }
+
+    /* ─── FILTER ─── */
+    .filter-bar { display: flex; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; margin-bottom: 28px; width: fit-content; }
+    .f-btn { background: var(--bg2); border: none; color: var(--muted); padding: 8px 18px; font-size: .78rem; font-family: var(--fb); font-weight: 400; cursor: pointer; transition: all .15s; }
+    .f-btn.active, .f-btn:hover { background: var(--bg3); color: var(--white); }
+    .f-btn.active { color: var(--teal3); }
+
+    /* ─── TUTORIAL STACK ─── */
+    .tut-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .tut-cell {
+      background: var(--bg1); padding: 30px 26px;
+      transition: background .2s; cursor: pointer;
+      display: flex; flex-direction: column; gap: 12px;
+      position: relative;
+    }
+    .tut-cell:hover { background: var(--bg2); }
+    .tut-layer {
+      font-family: var(--fm); font-size: .65rem; color: var(--dim);
+      letter-spacing: .06em;
+    }
+    .tut-level-badge {
+      display: inline-block; font-size: .63rem; font-weight: 500;
+      padding: 2px 8px; border-radius: 100px; width: fit-content;
+    }
+    .lv-b { background: rgba(122,158,122,.12); color: var(--sage2); border: 1px solid rgba(122,158,122,.2); }
+    .lv-i { background: rgba(232,133,74,.1); color: var(--orange); border: 1px solid rgba(232,133,74,.2); }
+    .lv-a { background: rgba(193,101,74,.1); color: var(--terra2); border: 1px solid rgba(193,101,74,.2); }
+    .tut-tool { font-size: .7rem; color: var(--teal3); text-transform: uppercase; letter-spacing: .07em; }
+    .tut-tool-row { display: flex; align-items: center; gap: 8px; }
+    .tut-tool-icon { width: 24px; height: 24px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .tut-tool-icon svg { width: 14px; height: 14px; }
+    .tut-cell h3 { font-family: var(--fd); font-size: 1rem; font-weight: 600; line-height: 1.3; letter-spacing: -.02em; }
+    .tut-cell p { font-size: .8rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .tut-meta { display: flex; justify-content: space-between; font-size: .72rem; color: var(--dim); padding-top: 12px; border-top: 1px solid var(--line); }
+
+    /* ─── ARTICLES ─── */
+    .art-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .art-cell {
+      background: var(--bg1); padding: 30px 26px;
+      display: flex; flex-direction: column; gap: 12px;
+      transition: background .2s; cursor: pointer;
+    }
+    .art-cell:hover { background: var(--bg2); }
+    .art-cell.featured { border-right: 1px solid var(--line); }
+    .art-cat { font-size: .67rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; }
+    .ac-n { color: var(--terra2); }
+    .ac-g { color: var(--teal3); }
+    .ac-c { color: var(--sage2); }
+    .ac-o { color: var(--orange); }
+    .art-cell h3 { font-family: var(--fd); font-size: 1.1rem; font-weight: 600; line-height: 1.25; letter-spacing: -.02em; }
+    .art-cell.featured h3 { font-size: 1.5rem; }
+    .art-cell p { font-size: .8rem; color: var(--muted); line-height: 1.65; flex: 1; }
+    .art-meta { display: flex; align-items: center; gap: 8px; font-size: .72rem; color: var(--dim); margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
+    .art-av { width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .68rem; font-weight: 500; flex-shrink: 0; }
+    .read-l { margin-left: auto; color: var(--teal3); font-size: .75rem; }
+
+    /* ─── PROMPT LIB ─── */
+    .prompt-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .p-cell {
+      background: var(--bg1); padding: 24px;
+      transition: background .2s;
+    }
+    .p-cell:hover { background: var(--bg2); }
+    .p-label { font-size: .67rem; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 8px; }
+    .p-text {
+      font-family: var(--fm); font-size: .77rem; color: var(--white);
+      line-height: 1.6; background: var(--bg2); border-radius: 6px;
+      padding: 12px 14px; margin-bottom: 10px;
+      border-left: 2px solid var(--teal); cursor: pointer;
+    }
+    .p-meta { display: flex; align-items: center; justify-content: space-between; }
+    .p-tags { display: flex; gap: 5px; }
+    .ptag { font-size: .63rem; padding: 2px 7px; border-radius: 100px; background: var(--bg3); color: var(--dim); border: 1px solid var(--line); }
+    .copy-btn { background: none; border: 1px solid var(--line); color: var(--muted); padding: 4px 11px; border-radius: 5px; font-size: .7rem; cursor: pointer; font-family: var(--fb); transition: all .2s; }
+    .copy-btn:hover { border-color: var(--teal); color: var(--teal3); }
+    .copy-btn.copied { border-color: var(--sage); color: var(--sage2); }
+
+    /* ─── COMPARE TABLE ─── */
+    .cmp-wrap { border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .cmp-table { width: 100%; border-collapse: collapse; font-size: .83rem; }
+    .cmp-table th { background: var(--bg2); padding: 14px 18px; text-align: center; font-weight: 500; border-bottom: 1px solid var(--line); white-space: nowrap; font-size: .78rem; color: var(--muted); }
+    .cmp-table th:first-child { text-align: left; }
+    .cmp-table td { padding: 12px 18px; border-bottom: 1px solid var(--line); text-align: center; color: var(--muted); }
+    .cmp-table td:first-child { text-align: left; color: var(--white); font-weight: 400; }
+    .cmp-table tr:hover td { background: rgba(255,255,255,.02); }
+    .cmp-table tr:last-child td { border-bottom: none; }
+    .hl { background: rgba(45,138,138,.04); }
+    .chk { color: var(--sage2); }
+    .crs { color: var(--dim); }
+    .prt { color: var(--orange); }
+
+    /* ─── TESTIMONIALS ─── */
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .test-cell {
+      background: var(--bg1); padding: 32px 28px;
+      display: flex; flex-direction: column; gap: 16px;
+      transition: background .2s;
+    }
+    .test-cell:hover { background: var(--bg2); }
+    .test-quote { font-family: var(--fd); font-size: .95rem; font-weight: 300; line-height: 1.65; color: var(--white); flex: 1; }
+    .test-quote::before { content: '"'; color: var(--teal3); font-size: 1.5rem; line-height: .5; display: block; margin-bottom: 8px; }
+    .test-author { display: flex; align-items: center; gap: 10px; }
+    .test-av { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 500; flex-shrink: 0; }
+    .test-info strong { display: block; font-size: .82rem; font-weight: 500; color: var(--white); }
+    .test-info span { font-size: .72rem; color: var(--dim); }
+
+    /* ─── FORUM ─── */
+    .forum-list { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+    .fi {
+      display: flex; align-items: center; gap: 16px; padding: 18px 22px;
+      border-bottom: 1px solid var(--line); background: var(--bg1);
+      transition: background .15s; cursor: pointer;
+    }
+    .fi:last-child { border-bottom: none; }
+    .fi:hover { background: var(--bg2); }
+    .fi-av { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: .85rem; font-weight: 500; flex-shrink: 0; }
+    .fi-body { flex: 1; min-width: 0; }
+    .fi-title { font-size: .87rem; font-weight: 400; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .fi-sub { font-size: .72rem; color: var(--dim); margin-top: 2px; }
+    .fi-stat { font-size: .72rem; color: var(--dim); flex-shrink: 0; }
+    .fi-hot { font-size: .63rem; font-weight: 500; padding: 2px 7px; border-radius: 100px; background: rgba(193,101,74,.12); color: var(--terra2); margin-left: 6px; }
+
+    /* ─── SIDEBAR LAYOUT ─── */
+    .with-sidebar { display: grid; grid-template-columns: 1fr 280px; gap: 28px; align-items: start; }
+    .sidebar { display: flex; flex-direction: column; gap: 20px; }
+    .sb { background: var(--bg1); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px; }
+    .sb-title { font-size: .75rem; font-weight: 500; color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 11px; }
+    .tag-cloud { display: flex; flex-wrap: wrap; gap: 6px; }
+    .sb-tag { font-size: .72rem; padding: 3px 10px; border-radius: 100px; border: 1px solid var(--line); color: var(--muted); cursor: pointer; transition: all .15s; background: var(--bg2); }
+    .sb-tag:hover { border-color: var(--teal); color: var(--teal3); }
+    .top-list { display: flex; flex-direction: column; gap: 12px; }
+    .top-item { display: flex; gap: 10px; align-items: flex-start; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+    .top-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .top-n { font-family: var(--fd); font-size: 1.1rem; color: var(--dim); min-width: 20px; }
+    .top-info h4 { font-size: .82rem; color: var(--white); line-height: 1.35; }
+    .top-info span { font-size: .7rem; color: var(--dim); }
+
+    /* ─── AD SLOTS ─── */
+    .ad-slot { border-radius: var(--r); overflow: hidden; }
+    .ad-banner { height: 88px; }
+    .ad-sq { height: 250px; }
+
+    /* ─── TABS ─── */
+    .tabs { display: flex; gap: 0; border-bottom: 1px solid var(--line); margin-bottom: 24px; }
+    .tab-btn { background: none; border: none; color: var(--dim); padding: 10px 18px; font-family: var(--fb); font-size: .82rem; cursor: pointer; border-bottom: 2px solid transparent; transition: all .15s; margin-bottom: -1px; }
+    .tab-btn.active { color: var(--teal3); border-color: var(--teal); }
+    .tab-btn:hover { color: var(--muted); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ─── NEWSLETTER ─── */
+    .nl-wrap {
+      border: 1px solid var(--line); border-radius: var(--r-lg);
+      padding: 60px; text-align: center; position: relative; overflow: hidden;
+      background: var(--bg1);
+    }
+    .nl-orbs { position: absolute; inset: 0; pointer-events: none; }
+    .nl-o1 { width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+    .nl-o2 { width: 200px; height: 200px; bottom: -50px; right: -30px; }
+    .nl-content { position: relative; z-index: 2; }
+    .nl-label { display: inline-flex; align-items: center; gap: 7px; border: 1px solid var(--line2); color: var(--muted); font-size: .7rem; letter-spacing: .07em; padding: 4px 12px; border-radius: 100px; margin-bottom: 20px; }
+    .nl-wrap h2 { font-family: var(--fd); font-size: clamp(1.9rem, 3.8vw, 2.9rem); font-weight: 700; line-height: 1.15; margin-bottom: 14px; letter-spacing: -.04em; }
+    .nl-wrap h2 em { font-style: normal; font-weight: 300; color: var(--teal3); }
+    .nl-wrap p { color: var(--muted); font-size: .92rem; margin-bottom: 32px; }
+    .nl-form { display: flex; gap: 8px; max-width: 400px; margin: 0 auto; }
+    .nl-form input { flex: 1; background: var(--bg2); border: 1px solid var(--line2); color: var(--white); padding: 10px 16px; border-radius: 7px; font-family: var(--fb); font-size: .85rem; outline: none; transition: border-color .2s; }
+    .nl-form input::placeholder { color: var(--dim); }
+    .nl-form input:focus { border-color: var(--teal); }
+    .nl-form button { background: var(--terra); color: #fff; border: none; padding: 10px 20px; border-radius: 7px; font-weight: 500; font-size: .85rem; cursor: pointer; font-family: var(--fb); transition: background .2s; white-space: nowrap; }
+    .nl-form button:hover { background: var(--terra2); }
+    .nl-note { font-size: .7rem; color: var(--dim); margin-top: 14px; }
+
+    /* ─── FOOTER ─── */
+    .footer { border-top: 1px solid var(--line); background: var(--bg1); padding: 56px 0 28px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 48px; }
+    .fb-desc { font-size: .82rem; color: var(--muted); margin-top: 12px; line-height: 1.7; max-width: 240px; }
+    .foot-col h4 { font-size: .72rem; font-weight: 500; color: var(--dim); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 14px; }
+    .foot-col ul { display: flex; flex-direction: column; gap: 9px; }
+    .foot-col ul li a { font-size: .82rem; color: var(--muted); transition: color .15s; }
+    .foot-col ul li a:hover { color: var(--white); }
+    .foot-bottom { border-top: 1px solid var(--line); padding-top: 22px; display: flex; justify-content: space-between; align-items: center; font-size: .75rem; color: var(--dim); flex-wrap: wrap; gap: 10px; }
+    .foot-links { display: flex; gap: 18px; }
+    .foot-links a:hover { color: var(--muted); }
+    .social-row { display: flex; gap: 6px; margin-top: 14px; }
+    .s-btn { width: 30px; height: 30px; border-radius: 7px; border: 1px solid var(--line); background: var(--bg2); display: flex; align-items: center; justify-content: center; font-size: .75rem; transition: all .15s; }
+    .s-btn:hover { border-color: var(--teal); color: var(--teal3); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up { opacity: 0; transform: translateY(18px); transition: opacity .55s ease, transform .55s ease; }
+    .fade-up.vis { opacity: 1; transform: translateY(0); }
+
+    /* ─── TOAST ─── */
+    .toast { position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%) translateY(70px); background: var(--bg3); border: 1px solid var(--teal); color: var(--teal3); padding: 9px 20px; border-radius: 8px; font-size: .82rem; transition: transform .3s; z-index: 999; }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ─── SEARCH ─── */
+    .search-row { display: flex; gap: 0; max-width: 440px; margin-bottom: 28px; }
+    .search-row input { flex: 1; background: var(--bg2); border: 1px solid var(--line); border-right: none; color: var(--white); padding: 10px 16px; border-radius: 7px 0 0 7px; font-family: var(--fb); font-size: .84rem; outline: none; transition: border-color .2s; }
+    .search-row input:focus { border-color: var(--teal); }
+    .search-row input::placeholder { color: var(--dim); }
+    .search-row button { background: var(--teal); color: #fff; border: none; padding: 10px 16px; border-radius: 0 7px 7px 0; cursor: pointer; transition: background .2s; }
+    .search-row button:hover { background: var(--teal2); }
+
+    /* ─── RESPONSIVE ─── */
+    @media(max-width:1024px) {
+      .tool-grid { grid-template-columns: repeat(2,1fr); }
+      .tut-grid { grid-template-columns: repeat(2,1fr); }
+      .test-grid { grid-template-columns: 1fr 1fr; }
+      .metrics-inner { grid-template-columns: repeat(2,1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .with-sidebar { grid-template-columns: 1fr; }
+      .art-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media(max-width:768px) {
+      .nav-links, .nav-right .nav-cta, .nav-right .nav-signin { display: none; }
+      .lang-sw { display: none; }
+      .nav-mob { display: block; }
+      .tool-grid, .tut-grid, .test-grid { grid-template-columns: 1fr; }
+      .art-grid { grid-template-columns: 1fr; }
+      .prompt-grid { grid-template-columns: 1fr; }
+      .metrics-inner { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .nl-wrap { padding: 36px 22px; }
+      .nl-form { flex-direction: column; }
+      .sidebar { display: flex; }
+      .with-sidebar { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════ NAV ══════ -->
+<nav class="nav">
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon"><span>✦</span></div>
+        <span class="logo-name">The AI How To</span>
+      </a>
+      <div class="nav-links">
+        <a href="#tools" data-i18n="nav.tools">Tools</a>
+        <a href="#tutorials" data-i18n="nav.tut">Tutorials</a>
+        <a href="#articles" data-i18n="nav.art">Articles</a>
+        <a href="#prompts" data-i18n="nav.pro">Prompts</a>
+        <a href="#compare" data-i18n="nav.cmp">Compare</a>
+        <a href="#forum" data-i18n="nav.for">Forum</a>
+      </div>
+      <div class="nav-right">
+        <div class="lang-sw">
+          <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇺🇸 EN</button>
+          <div class="nav-sep"></div>
+          <button class="lang-btn" onclick="setLang('es')" id="btn-es">🇪🇸 ES</button>
+        </div>
+        <a href="#" class="nav-signin" data-i18n="nav.si">Sign in</a>
+        <a href="#newsletter" class="nav-cta" data-i18n="nav.cta">Get started</a>
+      </div>
+      <button class="nav-mob" onclick="openMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-close" onclick="closeMenu()">✕</button>
+  <div class="mob-lang">
+    <div class="mob-lang-btn active" onclick="setLang('en');closeMenu()" id="mob-en">🇺🇸 English</div>
+    <div class="mob-lang-btn" onclick="setLang('es');closeMenu()" id="mob-es">🇪🇸 Español</div>
+  </div>
+  <a href="#tools" onclick="closeMenu()" data-i18n="nav.tools">Tools</a>
+  <a href="#tutorials" onclick="closeMenu()" data-i18n="nav.tut">Tutorials</a>
+  <a href="#articles" onclick="closeMenu()" data-i18n="nav.art">Articles</a>
+  <a href="#prompts" onclick="closeMenu()" data-i18n="nav.pro">Prompts</a>
+  <a href="#compare" onclick="closeMenu()" data-i18n="nav.cmp">Compare</a>
+  <a href="#forum" onclick="closeMenu()" data-i18n="nav.for">Forum</a>
+  <a href="#newsletter" onclick="closeMenu()" data-i18n="nav.cta">Get started</a>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-orbs">
+    <div class="orb orb-teal ho-1"></div>
+    <div class="orb orb-terra ho-2"></div>
+    <div class="orb orb-sage ho-3"></div>
+    <div class="orb orb-orange ho-4"></div>
+  </div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span data-i18n="hero.badge">Updated May 2025 · Bilingual EN / ES</span>
+      </div>
+      <h1 data-i18n-html="hero.h1">Your Step-by-Step Guide<br>to <span class="italic">Mastering</span> <span class="terra">AI</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">Compare tools. Follow tutorials from beginner to advanced. Join 22,000+ members who use AI to work smarter every day.</p>
+      <div class="hero-actions">
+        <a href="#tools" class="btn-main" data-i18n="hero.c1">Explore AI Tools →</a>
+        <a href="#tutorials" class="btn-ghost" data-i18n="hero.c2">View tutorials</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ METRICS ══════ -->
+<div class="metrics">
+  <div class="container">
+    <div class="metrics-inner">
+      <div class="metric-item">
+        <div class="metric-num">40<span class="accent">+</span></div>
+        <div class="metric-label" data-i18n="m1">AI Tools reviewed</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">120<span class="accent">+</span></div>
+        <div class="metric-label" data-i18n="m2">Step-by-step tutorials</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">22<span class="accent">k</span></div>
+        <div class="metric-label" data-i18n="m3">Active community members</div>
+      </div>
+      <div class="metric-item">
+        <div class="metric-num">500<span class="accent">+</span></div>
+        <div class="metric-label" data-i18n="m4">Tested AI prompts</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TICKER ══════ -->
+<div class="ticker-section">
+  <div class="container">
+    <p class="ticker-label" data-i18n="tick.label">Tools covered in depth</p>
+  </div>
+  <div style="overflow:hidden">
+    <div class="ticker-track" id="tickerTrack">
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#10a37f;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="white"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="white" stroke-width="2"/></svg></span><span class="ticker-item-name">ChatGPT</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#c96442;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:11px;font-weight:700;color:white">A</span><span class="ticker-item-name">Claude</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:linear-gradient(135deg,#4285f4,#0f9d58);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:11px;font-weight:700;color:white">G</span><span class="ticker-item-name">Gemini</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#0078d4;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">M</span><span class="ticker-item-name">Microsoft Copilot</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#1b1b1e;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">P</span><span class="ticker-item-name">Perplexity AI</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">MJ</span><span class="ticker-item-name">Midjourney</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#24292f;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">GH</span><span class="ticker-item-name">GitHub Copilot</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">S</span><span class="ticker-item-name">Suno AI</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#e41b23;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">R</span><span class="ticker-item-name">Runway ML</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:10px;font-weight:700;color:white">𝕏</span><span class="ticker-item-name">Grok</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#0082fb;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">M</span><span class="ticker-item-name">Llama (Meta)</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#663399;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">SD</span><span class="ticker-item-name">Stable Diffusion</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#10a37f;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 24 24" width="12" height="12" fill="white"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><path d="M8 12h8M12 8v8" stroke="white" stroke-width="2"/></svg></span><span class="ticker-item-name">ChatGPT</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#c96442;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:11px;font-weight:700;color:white">A</span><span class="ticker-item-name">Claude</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:linear-gradient(135deg,#4285f4,#0f9d58);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:11px;font-weight:700;color:white">G</span><span class="ticker-item-name">Gemini</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#0078d4;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">M</span><span class="ticker-item-name">Microsoft Copilot</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#1b1b1e;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">P</span><span class="ticker-item-name">Perplexity AI</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">MJ</span><span class="ticker-item-name">Midjourney</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#24292f;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">GH</span><span class="ticker-item-name">GitHub Copilot</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">S</span><span class="ticker-item-name">Suno AI</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#e41b23;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">R</span><span class="ticker-item-name">Runway ML</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:10px;font-weight:700;color:white">𝕏</span><span class="ticker-item-name">Grok</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#0082fb;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">M</span><span class="ticker-item-name">Llama (Meta)</span></div>
+      <div class="ticker-item"><span class="ticker-item-icon" style="background:#663399;width:20px;height:20px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-family:sans-serif;font-size:9px;font-weight:700;color:white">SD</span><span class="ticker-item-name">Stable Diffusion</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Ad banner -->
+<div class="container" style="padding:8px 28px">
+  <div class="ad-slot ad-banner">
+    <div style="width:100%;height:88px;background:linear-gradient(90deg,#1a2a4a 0%,#2d3a6a 40%,#1a3a4a 100%);display:flex;align-items:center;justify-content:space-between;padding:0 32px;border-radius:var(--r);border:1px solid rgba(111,207,207,0.15);position:relative;overflow:hidden">
+      <div style="position:absolute;top:-30px;right:180px;width:120px;height:120px;background:radial-gradient(circle,rgba(45,138,138,.35),transparent 70%);pointer-events:none"></div>
+      <div style="position:absolute;top:-20px;right:80px;width:80px;height:80px;background:radial-gradient(circle,rgba(193,101,74,.25),transparent 70%);pointer-events:none"></div>
+      <div style="display:flex;align-items:center;gap:16px">
+        <div style="width:40px;height:40px;border-radius:10px;background:#10a37f;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+          <svg width="22" height="22" viewBox="0 0 41 41" fill="none"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-7.549 3.98l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105z" fill="white"/></svg>
+        </div>
+        <div>
+          <div style="font-size:.82rem;font-weight:600;color:#F0EBE0;font-family:'Plus Jakarta Sans',sans-serif">Try ChatGPT Plus — Get GPT-4o, DALL·E & more</div>
+          <div style="font-size:.72rem;color:#9095A8;margin-top:2px">Start with a free account · No credit card required</div>
+        </div>
+      </div>
+      <a href="https://chat.openai.com" target="_blank" rel="noopener" style="background:#10a37f;color:#fff;font-size:.78rem;font-weight:600;padding:8px 18px;border-radius:7px;white-space:nowrap;font-family:'Plus Jakarta Sans',sans-serif;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Try free →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════ TOOLS ══════ -->
+<section class="section section-dark section-border-t" id="tools">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">✦</div>
+      <span data-i18n="tl.kicker">Complete AI directory</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="tl.h">The Best <span class="italic">AI Tools</span> of 2025</h2>
+      <p data-i18n="tl.d">From chatbots to image generators, coding assistants, video and audio AI — every tool reviewed and compared.</p>
+    </div>
+    <div class="search-row">
+      <input type="search" id="toolSearch" data-i18n-ph="tl.search" placeholder="Search AI tools..."/>
+      <button>🔍</button>
+    </div>
+    <div class="filter-bar">
+      <button class="f-btn active" onclick="filterTools(this,'all')" data-i18n="f.all">All</button>
+      <button class="f-btn" onclick="filterTools(this,'chat')" data-i18n="f.chat">Chatbots</button>
+      <button class="f-btn" onclick="filterTools(this,'image')" data-i18n="f.img">Images</button>
+      <button class="f-btn" onclick="filterTools(this,'code')" data-i18n="f.code">Coding</button>
+      <button class="f-btn" onclick="filterTools(this,'video')" data-i18n="f.vid">Video</button>
+      <button class="f-btn" onclick="filterTools(this,'audio')" data-i18n="f.aud">Audio</button>
+      <button class="f-btn" onclick="filterTools(this,'free')" data-i18n="f.free">Free</button>
+    </div>
+    <div class="tool-grid" id="toolsGrid">
+
+      <div class="tool-cell fade-up" data-cat="chat">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#10a37f">
+            <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg>
+          </div>
+          <div style="display:flex;gap:4px"><span class="tc-tag t-frem">Freemium</span><span class="tc-tag t-top" data-i18n="b.top">★ Top</span></div>
+        </div>
+        <div><div class="tc-name">ChatGPT</div><div class="tc-company">OpenAI</div></div>
+        <p class="tc-desc" data-i18n="cg.d">World's most used AI chatbot. GPT-4o combines text, images and code in one powerful interface.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="cg.f1">Free GPT-4o with daily limit</div>
+          <div class="tc-feat" data-i18n="cg.f2">Image generation via DALL·E</div>
+          <div class="tc-feat" data-i18n="cg.f3">Custom GPTs & persistent memory</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★★</span> 4.8</div>
+<<<<<<< HEAD
+          <a href="https://chat.openai.com" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/chatgpt.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="chat">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#c96442">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.153 3h-2.958L9.847 14.224h2.958L17.153 3zm-8.306 0H5.889L1.541 14.224H4.5l.806-2.249h4.501l.805 2.249h2.96L9.512 3H8.847zm-.612 6.808 1.458-4.073 1.458 4.073H8.235zm12.224 0c0 2.757-2.234 4.99-4.99 4.99a4.975 4.975 0 01-2.356-.588l-1.458 4.073A7.95 7.95 0 0015.47 21c4.418 0 8-3.582 8-8 0-1.758-.568-3.38-1.527-4.7l-1.484 1.508z"/></svg>
+          </div>
+          <span class="tc-tag t-frem">Freemium</span>
+        </div>
+        <div><div class="tc-name">Claude</div><div class="tc-company">Anthropic</div></div>
+        <p class="tc-desc" data-i18n="cl.d">200k token context window, superior document analysis and exceptional code generation. Best for complex tasks.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="cl.f1">200k token context window</div>
+          <div class="tc-feat" data-i18n="cl.f2">PDF & document analysis</div>
+          <div class="tc-feat" data-i18n="cl.f3">Top-quality code generation</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★★</span> 4.9</div>
+<<<<<<< HEAD
+          <a href="https://claude.ai" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/claude.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="chat">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:linear-gradient(135deg,#4285f4,#0f9d58)">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" fill="white" opacity="0"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="white" opacity="0"/><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm4.5 12.5l-1.5-1.5-1.5 1.5L12 14l-1.5 1.5L9 14l-1.5 1.5L6 14V8.5L7.5 7 9 8.5 10.5 7 12 8.5 13.5 7 15 8.5 16.5 7 18 8.5v5.5l-1.5 1.5z" fill="white" opacity="0"/>
+            <text x="12" y="16" text-anchor="middle" font-family="sans-serif" font-weight="700" font-size="13" fill="white">G</text></svg>
+          </div>
+          <span class="tc-tag t-frem">Freemium</span>
+        </div>
+        <div><div class="tc-name">Gemini</div><div class="tc-company">Google</div></div>
+        <p class="tc-desc" data-i18n="gm.d">Google's multimodal AI with native real-time web search and deep Google Workspace integration.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="gm.f1">Real-time web search built in</div>
+          <div class="tc-feat" data-i18n="gm.f2">Google Workspace integration</div>
+          <div class="tc-feat" data-i18n="gm.f3">Free with any Google account</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★☆</span> 4.5</div>
+<<<<<<< HEAD
+          <a href="https://gemini.google.com" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/gemini.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="chat code free">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#0078d4">
+            <svg viewBox="0 0 23 23" xmlns="http://www.w3.org/2000/svg"><path fill="#fff" d="M1 1h10v10H1z"/><path fill="rgba(255,255,255,0.7)" d="M12 1h10v10H12z"/><path fill="rgba(255,255,255,0.7)" d="M1 12h10v10H1z"/><path fill="rgba(255,255,255,0.5)" d="M12 12h10v10H12z"/></svg>
+          </div>
+          <span class="tc-tag t-free" data-i18n="b.free">Free</span>
+        </div>
+        <div><div class="tc-name">Microsoft Copilot</div><div class="tc-company">Microsoft</div></div>
+        <p class="tc-desc" data-i18n="cp.d">GPT-4o built into Windows, Edge and Office 365. Free image generation included with DALL·E 3.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="cp.f1">Completely free GPT-4o access</div>
+          <div class="tc-feat" data-i18n="cp.f2">Native Microsoft Office integration</div>
+          <div class="tc-feat" data-i18n="cp.f3">Bing-powered real-time search</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★☆</span> 4.3</div>
+<<<<<<< HEAD
+          <a href="https://copilot.microsoft.com" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/copilot.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="chat free">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#1b1b1e;border:1px solid rgba(255,255,255,0.15)">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <span class="tc-tag t-frem">Freemium</span>
+        </div>
+        <div><div class="tc-name">Perplexity AI</div><div class="tc-company">Perplexity</div></div>
+        <p class="tc-desc" data-i18n="px.d">AI-powered search engine that answers with verified, cited sources in real time. Perfect for research.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="px.f1">Answers with cited sources</div>
+          <div class="tc-feat" data-i18n="px.f2">Deep Research mode</div>
+          <div class="tc-feat" data-i18n="px.f3">Access to multiple AI models</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★☆</span> 4.6</div>
+<<<<<<< HEAD
+          <a href="https://perplexity.ai" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/perplexity.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="image">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#000000;border:1px solid rgba(255,255,255,0.15)">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l7 18 7-18H5zm7 13.5L8.5 7h7L12 16.5z"/></svg>
+          </div>
+          <span class="tc-tag t-paid" data-i18n="b.paid">Paid</span>
+        </div>
+        <div><div class="tc-name">Midjourney</div><div class="tc-company">Midjourney Inc.</div></div>
+        <p class="tc-desc" data-i18n="mj.d">Highest-quality AI image generator. Professional-grade artistic output with V7 precise control.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="mj.f1">Industry-leading image quality</div>
+          <div class="tc-feat" data-i18n="mj.f2">V7 with precise style control</div>
+          <div class="tc-feat" data-i18n="mj.f3">Web app + Discord interface</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★★</span> 4.9</div>
+<<<<<<< HEAD
+          <a href="https://midjourney.com" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/midjourney.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="code">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#24292f">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <span class="tc-tag t-frem">Freemium</span>
+        </div>
+        <div><div class="tc-name">GitHub Copilot</div><div class="tc-company">GitHub / Microsoft</div></div>
+        <p class="tc-desc" data-i18n="gh.d">The most widely used AI coding assistant. Integrated into VS Code, JetBrains and GitHub.com.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="gh.f1">Intelligent code autocomplete</div>
+          <div class="tc-feat" data-i18n="gh.f2">In-editor AI chat</div>
+          <div class="tc-feat" data-i18n="gh.f3">Free for verified students</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★☆</span> 4.6</div>
+<<<<<<< HEAD
+          <a href="https://github.com/features/copilot" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/github-copilot.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+      <div class="tool-cell fade-up" data-cat="audio">
+        <div class="tc-top">
+          <div class="tc-icon" style="background:#000000;border:1px solid rgba(255,255,255,0.15)">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 18V5l12-2v13" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="white"/><circle cx="18" cy="16" r="3" fill="white"/></svg>
+          </div>
+          <span class="tc-tag t-frem">Freemium</span>
+        </div>
+        <div><div class="tc-name">Suno AI</div><div class="tc-company">Suno</div></div>
+        <p class="tc-desc" data-i18n="su.d">Generate complete songs with realistic vocals and instrumentation from a simple text prompt.</p>
+        <div class="tc-feats">
+          <div class="tc-feat" data-i18n="su.f1">Full songs from text prompts</div>
+          <div class="tc-feat" data-i18n="su.f2">All genres supported</div>
+          <div class="tc-feat" data-i18n="su.f3">50 free credits per day</div>
+        </div>
+        <div class="tc-footer">
+          <div class="tc-rating"><span class="stars">★★★★☆</span> 4.5</div>
+<<<<<<< HEAD
+          <a href="https://suno.com" target="_blank" rel="noopener" class="tc-link" data-i18n="t.try">Try it →</a>
+=======
+          <a href="/tools/suno.html" class="tc-link" data-i18n="t.try">Try it →</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TUTORIALS ══════ -->
+<section class="section section-border-t" id="tutorials">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">📚</div>
+      <span data-i18n="tu.kicker">Learn step by step</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="tu.h">Tutorials: <span class="italic">Beginner</span> to Expert</h2>
+      <p data-i18n="tu.d">From your first AI conversation to building your own apps with AI APIs and automating your entire workflow.</p>
+    </div>
+    <div class="tut-grid">
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/chatgpt-beginners.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L0</div>
+          <span class="tut-level-badge lv-b" data-i18n="lv.b">Beginner</span>
+        </div>
+<<<<<<< HEAD
+        <div class="tut-tool-row">
+=======
+        <div class="tut-tool-row" data-url="/tutorials/chatgpt-beginners.html">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+          <div class="tut-tool-icon" style="background:#10a37f">
+            <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg>
+          </div>
+          <span class="tut-tool">ChatGPT</span>
+        </div>
+        <h3 data-i18n="t1.h">Complete ChatGPT guide for absolute beginners</h3>
+        <p data-i18n="t1.d">Sign up, start your first conversation, and get the most out of ChatGPT from day one.</p>
+        <div class="tut-meta"><span>⏱ 15 min</span><span>👁 34k views</span></div>
+      </div>
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/claude-beginners.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L0</div>
+          <span class="tut-level-badge lv-b" data-i18n="lv.b">Beginner</span>
+        </div>
+        <div class="tut-tool-row">
+          <div class="tut-tool-icon" style="background:#c96442">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.153 3h-2.958L9.847 14.224h2.958L17.153 3zm-8.306 0H5.889L1.541 14.224H4.5l.806-2.249h4.501l.805 2.249h2.96L9.512 3H8.847zm-.612 6.808 1.458-4.073 1.458 4.073H8.235zm12.224 0c0 2.757-2.234 4.99-4.99 4.99a4.975 4.975 0 01-2.356-.588l-1.458 4.073A7.95 7.95 0 0015.47 21c4.418 0 8-3.582 8-8 0-1.758-.568-3.38-1.527-4.7l-1.484 1.508z"/></svg>
+          </div>
+          <span class="tut-tool">Claude</span>
+        </div>
+        <h3 data-i18n="t2.h">Getting started with Claude: the smartest AI assistant</h3>
+        <p data-i18n="t2.d">Analyze documents, write complex texts and leverage the powerful 200k token context window.</p>
+        <div class="tut-meta"><span>⏱ 12 min</span><span>👁 21k views</span></div>
+      </div>
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/prompt-engineering.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L1</div>
+          <span class="tut-level-badge lv-i" data-i18n="lv.i">Intermediate</span>
+        </div>
+<<<<<<< HEAD
+        <div class="tut-tool-row">
+=======
+        <div class="tut-tool-row" data-url="/tutorials/claude-beginners.html">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+          <div class="tut-tool-icon" style="background:#10a37f">
+            <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg>
+          </div>
+          <div class="tut-tool-icon" style="background:#c96442">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.153 3h-2.958L9.847 14.224h2.958L17.153 3zm-8.306 0H5.889L1.541 14.224H4.5l.806-2.249h4.501l.805 2.249h2.96L9.512 3H8.847zm-.612 6.808 1.458-4.073 1.458 4.073H8.235zm12.224 0c0 2.757-2.234 4.99-4.99 4.99a4.975 4.975 0 01-2.356-.588l-1.458 4.073A7.95 7.95 0 0015.47 21c4.418 0 8-3.582 8-8 0-1.758-.568-3.38-1.527-4.7l-1.484 1.508z"/></svg>
+          </div>
+          <span class="tut-tool">Prompt Engineering</span>
+        </div>
+        <h3 data-i18n="t3.h">Prompt engineering: advanced techniques that actually work</h3>
+        <p data-i18n="t3.d">Chain-of-thought, few-shot prompting, role prompting and more to get extraordinary results from any AI.</p>
+        <div class="tut-meta"><span>⏱ 25 min</span><span>👁 45k views</span></div>
+      </div>
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/ai-images.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L1</div>
+          <span class="tut-level-badge lv-i" data-i18n="lv.i">Intermediate</span>
+        </div>
+        <div class="tut-tool-row">
+          <div class="tut-tool-icon" style="background:#000;border:1px solid rgba(255,255,255,.2)">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M5 3l7 18 7-18H5zm7 13.5L8.5 7h7L12 16.5z"/></svg>
+          </div>
+          <div class="tut-tool-icon" style="background:#10a37f">
+            <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg>
+          </div>
+          <span class="tut-tool">Midjourney · DALL·E</span>
+        </div>
+        <h3 data-i18n="t4.h">Create professional AI images: the complete 2025 guide</h3>
+        <p data-i18n="t4.d">Midjourney vs DALL·E 3 vs Stable Diffusion: visual prompting techniques and advanced parameters.</p>
+        <div class="tut-meta"><span>⏱ 30 min</span><span>👁 38k views</span></div>
+      </div>
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/api-development.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L2</div>
+          <span class="tut-level-badge lv-a" data-i18n="lv.a">Advanced</span>
+        </div>
+<<<<<<< HEAD
+        <div class="tut-tool-row">
+=======
+        <div class="tut-tool-row" data-url="/tutorials/prompt-engineering.html">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+          <div class="tut-tool-icon" style="background:#10a37f">
+            <svg viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M37.532 16.87a9.963 9.963 0 00-.856-8.184 10.078 10.078 0 00-10.855-4.835 9.964 9.964 0 00-7.505-3.35 10.078 10.078 0 00-9.614 6.977 9.967 9.967 0 00-6.664 4.834 10.08 10.08 0 001.24 11.817 9.965 9.965 0 00.856 8.185 10.079 10.079 0 0010.855 4.835 9.965 9.965 0 007.504 3.35 10.078 10.078 0 009.617-6.981 9.967 9.967 0 006.663-4.834 10.079 10.079 0 00-1.241-11.614zm-15.023 20.983a7.48 7.48 0 01-4.807-1.74l.239-.136 7.985-4.611a1.33 1.33 0 00.67-1.154v-11.26l3.377 1.95a.121.121 0 01.066.092v9.33a7.552 7.552 0 01-7.53 7.529zm-16.18-6.963a7.484 7.484 0 01-.894-5.049l.239.144 7.985 4.611a1.33 1.33 0 001.34 0l9.752-5.633v3.898a.12.12 0 01-.048.103l-8.084 4.671a7.552 7.552 0 01-10.29-2.745zm-2.109-17.499a7.48 7.48 0 013.908-3.278V19.7a1.33 1.33 0 00.67 1.154l9.752 5.633-3.377 1.95a.12.12 0 01-.114.012L8.077 23.64a7.551 7.551 0 01-.857-10.249zm27.658 6.437l-9.752-5.633 3.377-1.95a.12.12 0 01.114-.012l8.084 4.648a7.498 7.498 0 01-1.158 13.528v-9.476a1.33 1.33 0 00-.665-1.105zm3.362-5.082l-.239-.144-7.985-4.611a1.33 1.33 0 00-1.34 0L15.024 19.344v-3.898a.12.12 0 01.048-.103l8.084-4.648a7.498 7.498 0 0111.183 7.763zm-21.063 6.929l-3.377-1.95a.121.121 0 01-.066-.092v-9.33a7.498 7.498 0 0112.292-5.756l-.239.136-7.985 4.611a1.33 1.33 0 00-.67 1.154l-.012 11.227zm1.829-3.943l4.33-2.501 4.332 2.5v4.999l-4.331 2.5-4.331-2.5V18.732z" fill="white"/></svg>
+          </div>
+          <div class="tut-tool-icon" style="background:#c96442">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.153 3h-2.958L9.847 14.224h2.958L17.153 3zm-8.306 0H5.889L1.541 14.224H4.5l.806-2.249h4.501l.805 2.249h2.96L9.512 3H8.847zm-.612 6.808 1.458-4.073 1.458 4.073H8.235zm12.224 0c0 2.757-2.234 4.99-4.99 4.99a4.975 4.975 0 01-2.356-.588l-1.458 4.073A7.95 7.95 0 0015.47 21c4.418 0 8-3.582 8-8 0-1.758-.568-3.38-1.527-4.7l-1.484 1.508z"/></svg>
+          </div>
+          <span class="tut-tool">API · Node.js · Python</span>
+        </div>
+        <h3 data-i18n="t5.h">Build your own app with the OpenAI and Claude APIs</h3>
+        <p data-i18n="t5.d">Authentication, API calls, token management, streaming responses and production deployment.</p>
+        <div class="tut-meta"><span>⏱ 60 min</span><span>👁 28k views</span></div>
+      </div>
+
+<<<<<<< HEAD
+      <div class="tut-cell fade-up">
+=======
+      <a href="/tutorials/automation.html" class="tut-cell fade-up" style="text-decoration:none;display:flex;flex-direction:column;gap:12px">
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="tut-layer">/L1</div>
+          <span class="tut-level-badge lv-i" data-i18n="lv.i">Intermediate</span>
+        </div>
+        <div class="tut-tool-row">
+          <div class="tut-tool-icon" style="background:#a259ff">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm0 2a8 8 0 110 16A8 8 0 0112 4zm-1 3v6l5 3-1 1.73-6-3.46V7h2z"/></svg>
+          </div>
+          <div class="tut-tool-icon" style="background:#ff4a00">
+            <svg viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <span class="tut-tool">Make · Zapier · n8n</span>
+        </div>
+        <h3 data-i18n="t6.h">Automate your business with AI — no coding required</h3>
+        <p data-i18n="t6.d">Connect ChatGPT and Claude to your existing tools using Make, Zapier or n8n to automate repetitive tasks.</p>
+        <div class="tut-meta"><span>⏱ 40 min</span><span>👁 31k views</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIALS ══════ -->
+<section class="section section-dark section-border-t">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">💬</div>
+      <span data-i18n="tes.kicker">Community voices</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="tes.h">Trusted by <span class="italic">22,000+</span> Members</h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-cell fade-up">
+        <div class="test-quote" data-i18n="q1">"The AI How To completely changed how I use ChatGPT at work. The prompt library alone saved me hours every week. Highly recommend to anyone starting with AI."</div>
+        <div class="test-author">
+          <div class="test-av" style="background:rgba(45,138,138,.2);color:var(--teal3)">S</div>
+          <div class="test-info"><strong>Sarah Chen</strong><span>Marketing Manager · New York</span></div>
+        </div>
+      </div>
+      <div class="test-cell fade-up">
+        <div class="test-quote" data-i18n="q2">"Finally an AI guide that works for both English and Spanish speakers. The tutorials are clear, practical and the community is incredibly helpful."</div>
+        <div class="test-author">
+          <div class="test-av" style="background:rgba(193,101,74,.2);color:var(--terra2)">M</div>
+          <div class="test-info"><strong>Miguel Torres</strong><span>Software Developer · Mexico City</span></div>
+        </div>
+      </div>
+      <div class="test-cell fade-up">
+        <div class="test-quote" data-i18n="q3">"The comparison tables are exactly what I needed. I tested 6 AI tools before finding the right one for my workflow — The AI How To made that decision easy."</div>
+        <div class="test-author">
+          <div class="test-av" style="background:rgba(122,158,122,.2);color:var(--sage2)">A</div>
+          <div class="test-info"><strong>Amanda Foster</strong><span>Freelance Designer · Toronto</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ ARTICLES ══════ -->
+<section class="section section-border-t" id="articles">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">📰</div>
+      <span data-i18n="ar.kicker">News & analysis</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="ar.h">Latest in <span class="italic">AI</span></h2>
+    </div>
+    <div class="with-sidebar">
+      <div>
+        <div class="art-grid">
+          <div class="art-cell featured fade-up">
+            <span class="art-cat ac-n" data-i18n="c.n">News</span>
+            <h3 data-i18n="a1.h">GPT-5 vs Claude 4 Opus: the battle for the smartest AI model in 2025</h3>
+            <p data-i18n="a1.d">We analyze benchmarks, pricing and real-world capabilities of the two most powerful models. Independent testing, no sponsored rankings.</p>
+            <div class="art-meta">
+              <div class="art-av" style="background:rgba(45,138,138,.2);color:var(--teal3)">M</div>
+              <span>Maria S.</span><span>·</span>
+              <span data-i18n="a1.dt">May 12, 2025</span>
+              <a href="#" class="read-l" data-i18n="a.r">Read →</a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:1px;background:var(--line)">
+            <div class="art-cell fade-up" style="flex:1">
+              <span class="art-cat ac-g" data-i18n="c.g">Guide</span>
+              <h3 data-i18n="a2.h">How to use AI to 3x your productivity as a freelancer</h3>
+              <p data-i18n="a2.d">Tools and workflows top freelancers are using to earn more in less time — tested and proven.</p>
+              <div class="art-meta">
+                <div class="art-av" style="background:rgba(122,158,122,.2);color:var(--sage2)">A</div>
+                <span>Alex T.</span><span>·</span><span data-i18n="a2.dt">May 10</span>
+                <a href="#" class="read-l" data-i18n="a.r">Read →</a>
+              </div>
+            </div>
+            <div class="art-cell fade-up" style="flex:1">
+              <span class="art-cat ac-c" data-i18n="c.c">Comparison</span>
+              <h3 data-i18n="a3.h">7 best free AI chatbots in 2025 (tested for 3 weeks)</h3>
+              <p data-i18n="a3.d">Honest results from independently testing the top free chatbots. No sponsored content.</p>
+              <div class="art-meta">
+                <div class="art-av" style="background:rgba(232,133,74,.2);color:var(--orange)">R</div>
+                <span>Raul M.</span><span>·</span><span data-i18n="a3.dt">May 8</span>
+                <a href="#" class="read-l" data-i18n="a.r">Read →</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <div class="sb">
+          <div class="sb-title" data-i18n="sb.top">🔥 Most read this week</div>
+          <div class="top-list">
+            <div class="top-item"><span class="top-n">01</span><div class="top-info"><h4 data-i18n="tp1">How to use Claude API free tier</h4><span>8.4k</span></div></div>
+            <div class="top-item"><span class="top-n">02</span><div class="top-info"><h4 data-i18n="tp2">ChatGPT vs Gemini vs Claude comparison</h4><span>7.1k</span></div></div>
+            <div class="top-item"><span class="top-n">03</span><div class="top-info"><h4 data-i18n="tp3">Best 50 prompts for developers</h4><span>6.8k</span></div></div>
+            <div class="top-item"><span class="top-n">04</span><div class="top-info"><h4 data-i18n="tp4">Automate with Make + ChatGPT</h4><span>5.2k</span></div></div>
+          </div>
+        </div>
+        <div class="ad-slot ad-sq">
+          <div style="width:100%;height:250px;background:linear-gradient(160deg,#1a2840 0%,#2a2060 50%,#1a1a3a 100%);border-radius:var(--r);border:1px solid rgba(139,92,246,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;position:relative;overflow:hidden">
+            <div style="position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:180px;height:180px;background:radial-gradient(circle,rgba(139,92,246,.3),transparent 70%);pointer-events:none"></div>
+            <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#7c3aed,#4f46e5);display:flex;align-items:center;justify-content:center;margin-bottom:14px;position:relative">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" opacity="0"/><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7z" fill="white"/></svg>
+            </div>
+            <div style="font-size:.88rem;font-weight:700;color:#F0EBE0;font-family:'Plus Jakarta Sans',sans-serif;line-height:1.3;margin-bottom:8px;position:relative">Claude Pro — 5× more usage<br>+ priority access</div>
+            <div style="font-size:.72rem;color:#9095A8;line-height:1.5;margin-bottom:16px;position:relative">200k token context · Advanced reasoning · File analysis</div>
+            <a href="https://claude.ai" target="_blank" rel="noopener" style="background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;font-size:.75rem;font-weight:600;padding:8px 20px;border-radius:7px;font-family:'Plus Jakarta Sans',sans-serif;position:relative;transition:opacity .2s" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">Start free →</a>
+          </div>
+        </div>
+        <div class="sb">
+          <div class="sb-title" data-i18n="sb.tags">🏷️ Popular topics</div>
+          <div class="tag-cloud">
+            <span class="sb-tag">ChatGPT</span><span class="sb-tag">Claude</span>
+            <span class="sb-tag">Gemini</span><span class="sb-tag">Prompts</span>
+            <span class="sb-tag" data-i18n="tg.a">Automation</span>
+            <span class="sb-tag" data-i18n="tg.c">Coding</span>
+            <span class="sb-tag">API</span><span class="sb-tag">SEO</span>
+            <span class="sb-tag" data-i18n="tg.p">Productivity</span>
+            <span class="sb-tag">Local AI</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROMPTS ══════ -->
+<section class="section section-dark section-border-t" id="prompts">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">✍️</div>
+      <span data-i18n="pr.kicker">Prompt library</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="pr.h"><span class="italic">500+</span> Prompts Ready to Copy</h2>
+      <p data-i18n="pr.d">Click any prompt to copy it to your clipboard instantly. Tested and optimized for real results.</p>
+    </div>
+    <div class="prompt-grid">
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p1.l">📝 Professional email</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p1.t">Act as a professional business email writer. Write a [formal/informal] email to [recipient] about [topic]. Tone: [tone]. Include: compelling subject line, direct intro, clear body, and specific CTA. Max 150 words.</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag" data-i18n="tg.b">Business</span><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p2.l">💻 Python code</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p2.t">You are a senior Python developer. Create a function that [description]. Requirements: PEP 8, type hints, docstring with examples, custom exception handling, and pytest unit tests. Explain each design decision.</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag" data-i18n="tg.c">Coding</span><span class="ptag">Python</span><span class="ptag" data-i18n="lv.a">Advanced</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p3.l">🎨 Image — Midjourney</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p3.t">[subject], [art style], [lighting: golden hour/studio/cinematic], [composition: portrait/wide angle], [color palette], ultra-detailed, photorealistic, 8K --ar 16:9 --v 7 --style raw --q 2</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag" data-i18n="tg.img">Images</span><span class="ptag">Midjourney</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p4.l">📊 Data analysis</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p4.t">Analyze the following dataset: [data]. Provide: 1) statistical summary, 2) patterns or anomalies, 3) relevant correlations, 4) actionable business insights, 5) Python code with visualizations (matplotlib/seaborn).</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag" data-i18n="tg.d">Data</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p5.l">✍️ SEO blog post</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p5.t">Write a 1,500-word article about "[keyword]". SEO: keyword in H1 and first 100 chars, 3 H2 headings with LSI keywords, 1.5% density, 155-char meta description, and 3 CTAs. Tone: expert but accessible.</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag">SEO</span><span class="ptag">Blog</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+      <div class="p-cell fade-up">
+        <div class="p-label" data-i18n="p6.l">🎯 Business strategy</div>
+        <div class="p-text" onclick="copyPrompt(this)" data-i18n-p="p6.t">Act as a McKinsey consultant. Analyze: [business idea]. Create a SWOT analysis, estimate TAM/SAM/SOM, identify 3 biggest risks, propose a 90-day go-to-market strategy, and estimate minimum launch costs.</div>
+        <div class="p-meta"><div class="p-tags"><span class="ptag" data-i18n="tg.b">Business</span><span class="ptag" data-i18n="lv.a">Advanced</span></div><button class="copy-btn" onclick="copyPromptBtn(this)" data-i18n="btn.c">Copy</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ COMPARE ══════ -->
+<section class="section section-border-t" id="compare">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">⚡</div>
+      <span data-i18n="cm.kicker">2025 Comparison</span>
+    </div>
+    <div class="sh center">
+      <h2 data-i18n-html="cm.h">Which AI is <span class="italic">Right</span> for You?</h2>
+      <p data-i18n="cm.d">Updated comparison of the top AI models. Last reviewed: May 2025.</p>
+    </div>
+    <div class="cmp-wrap fade-up">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th data-i18n="cm.f">Feature</th>
+            <th>ChatGPT 4o</th>
+            <th class="hl">Claude Sonnet</th>
+            <th>Gemini 2.0</th>
+            <th>Copilot</th>
+            <th>Grok 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-i18n="cm.fv">Free version</td><td><span class="prt">Limited</span></td><td class="hl"><span class="prt">Limited</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="prt">Limited</span></td></tr>
+          <tr><td data-i18n="cm.cx">Max context</td><td>128k</td><td class="hl"><strong style="color:var(--teal3)">200k</strong></td><td>1M</td><td>128k</td><td>131k</td></tr>
+          <tr><td data-i18n="cm.vi">Image input</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
+          <tr><td data-i18n="cm.ig">Image generation</td><td><span class="chk">✓ DALL·E</span></td><td class="hl"><span class="crs">✗</span></td><td><span class="chk">✓ Imagen</span></td><td><span class="chk">✓ DALL·E</span></td><td><span class="chk">✓ Aurora</span></td></tr>
+          <tr><td data-i18n="cm.ws">Web search</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓ Native</span></td><td><span class="chk">✓ Bing</span></td><td><span class="chk">✓ X</span></td></tr>
+          <tr><td data-i18n="cm.ap">API</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="prt">Azure</span></td><td><span class="chk">✓</span></td></tr>
+          <tr><td data-i18n="cm.pr">Price/month</td><td>$20</td><td class="hl">$20</td><td>$19.99</td><td>$20</td><td>$30</td></tr>
+          <tr><td data-i18n="cm.sc">Score</td><td>9.2/10</td><td class="hl"><strong style="color:var(--teal3)">9.5/10</strong></td><td>8.9/10</td><td>8.5/10</td><td>8.3/10</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FORUM ══════ -->
+<section class="section section-dark section-border-t" id="forum">
+  <div class="container">
+    <div class="section-label">
+      <div class="sl-icon">💬</div>
+      <span data-i18n="fo.kicker">Community</span>
+    </div>
+    <div class="sh">
+      <h2 data-i18n-html="fo.h">Forum: Ask, Learn and <span class="italic">Share</span></h2>
+      <p data-i18n="fo.d">22,000+ active members from the US, Canada and Latin America discussing AI every single day.</p>
+    </div>
+    <div class="with-sidebar">
+      <div>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'fhot')" data-i18n="f.hot">🔥 Hot</button>
+          <button class="tab-btn" onclick="switchTab(this,'fnew')" data-i18n="f.new">🆕 New</button>
+          <button class="tab-btn" onclick="switchTab(this,'fask')" data-i18n="f.ask">❓ Questions</button>
+        </div>
+        <div id="fhot" class="tab-panel active">
+          <div class="forum-list">
+            <div class="fi"><div class="fi-av" style="background:rgba(45,138,138,.15);color:var(--teal3)">J</div><div class="fi-body"><div class="fi-title" data-i18n="fh1">How do I stop Claude from cutting off long responses?</div><div class="fi-sub" data-i18n="fh1s">In Claude · by juandev_99 · 2h ago</div></div><div class="fi-stat">💬 47<span class="fi-hot" data-i18n="hot">Hot</span></div></div>
+            <div class="fi"><div class="fi-av" style="background:rgba(122,158,122,.15);color:var(--sage2)">S</div><div class="fi-body"><div class="fi-title" data-i18n="fh2">My complete AI content creation workflow (sharing everything)</div><div class="fi-sub" data-i18n="fh2s">In Productivity · by sara_content · 5h ago</div></div><div class="fi-stat">💬 89<span class="fi-hot" data-i18n="hot">Hot</span></div></div>
+            <div class="fi"><div class="fi-av" style="background:rgba(232,133,74,.15);color:var(--orange)">M</div><div class="fi-body"><div class="fi-title" data-i18n="fh3">Is ChatGPT Plus $20/month worth it in 2025? My analysis</div><div class="fi-sub" data-i18n="fh3s">In ChatGPT · by miguel_ia · 8h ago</div></div><div class="fi-stat">💬 134</div></div>
+            <div class="fi"><div class="fi-av" style="background:rgba(193,101,74,.15);color:var(--terra2)">A</div><div class="fi-body"><div class="fi-title" data-i18n="fh4">Tutorial: Run Llama 3.3 70B locally with Ollama (step by step)</div><div class="fi-sub" data-i18n="fh4s">In Open Source · by alextech · 1d ago</div></div><div class="fi-stat">💬 61</div></div>
+            <div class="fi"><div class="fi-av" style="background:rgba(45,138,138,.15);color:var(--teal3)">C</div><div class="fi-body"><div class="fi-title" data-i18n="fh5">Same prompt tested in 6 different AI tools — surprising results</div><div class="fi-sub" data-i18n="fh5s">In Prompts · by carmen_t · 2d ago</div></div><div class="fi-stat">💬 203<span class="fi-hot" data-i18n="hot">Hot</span></div></div>
+          </div>
+        </div>
+        <div id="fnew" class="tab-panel">
+          <div class="forum-list">
+            <div class="fi"><div class="fi-av" style="background:rgba(45,138,138,.15);color:var(--teal3)">P</div><div class="fi-body"><div class="fi-title" data-i18n="fn1">New comparison: Claude vs GPT-4o for coding tasks</div><div class="fi-sub">30 min ago</div></div><div class="fi-stat">💬 5</div></div>
+            <div class="fi"><div class="fi-av" style="background:rgba(122,158,122,.15);color:var(--sage2)">R</div><div class="fi-body"><div class="fi-title" data-i18n="fn2">Best AI tools for small businesses in the US?</div><div class="fi-sub">1h ago</div></div><div class="fi-stat">💬 14</div></div>
+          </div>
+        </div>
+        <div id="fask" class="tab-panel">
+          <div class="forum-list">
+            <div class="fi"><div class="fi-av" style="background:rgba(122,158,122,.15);color:var(--sage2)">N</div><div class="fi-body"><div class="fi-title" data-i18n="fa1">❓ How do I use the Claude API with Node.js?</div><div class="fi-sub">3h ago</div></div><div class="fi-stat">💬 8</div></div>
+          </div>
+        </div>
+        <div style="margin-top:18px;text-align:left">
+          <button class="btn-main" onclick="alert('Register to post!')" data-i18n="fo.new">+ Start new thread</button>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <div class="sb">
+          <div class="sb-title" data-i18n="fo.stats">📊 Forum stats</div>
+          <div style="display:flex;flex-direction:column;gap:9px">
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)" data-i18n="st.m">Members</span><strong>22,431</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)" data-i18n="st.t">Threads</span><strong>4,891</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)" data-i18n="st.r">Replies</span><strong>31,204</strong></div>
+            <div style="display:flex;justify-content:space-between;font-size:.82rem"><span style="color:var(--muted)" data-i18n="st.o">Online now</span><strong style="color:var(--sage2)">● 312</strong></div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ NEWSLETTER ══════ -->
+<section class="section section-border-t" id="newsletter">
+  <div class="container">
+    <div class="nl-wrap fade-up">
+      <div class="nl-orbs">
+        <div class="orb orb-teal nl-o1"></div>
+        <div class="orb orb-terra nl-o2"></div>
+      </div>
+      <div class="nl-content">
+        <div class="nl-label">📬 <span data-i18n="nl.tag">Weekly newsletter</span></div>
+        <h2 data-i18n-html="nl.h">Stay Ahead of Every<br><em>AI Breakthrough</em></h2>
+        <p data-i18n="nl.d">Every Monday: the 5 biggest AI stories, one in-depth tutorial, and the best prompts of the week. No spam, ever.</p>
+        <form class="nl-form" onsubmit="subNL(event)">
+          <input type="email" data-i18n-ph="nl.ph" placeholder="your@email.com" required/>
+          <button type="submit" data-i18n="nl.btn">Subscribe free →</button>
+        </form>
+        <p class="nl-note" data-i18n="nl.note">8,200+ subscribers · No spam · Unsubscribe anytime</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo">
+          <div class="logo-icon"><span>✦</span></div>
+          <span class="logo-name">The AI How To</span>
+        </div>
+        <p class="fb-desc" data-i18n="ft.d">The bilingual AI community for English and Spanish speakers. Learn, share and grow with us.</p>
+        <div class="social-row">
+          <a href="#" class="s-btn">𝕏</a>
+          <a href="#" class="s-btn">▶</a>
+          <a href="#" class="s-btn">💬</a>
+          <a href="#" class="s-btn">in</a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft.tools">Tools</h4>
+        <ul>
+          <li><a href="#">ChatGPT</a></li>
+          <li><a href="#">Claude</a></li>
+          <li><a href="#">Gemini</a></li>
+          <li><a href="#">Copilot</a></li>
+          <li><a href="#" data-i18n="ft.all">View all →</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft.learn">Learn</h4>
+        <ul>
+          <li><a href="#" data-i18n="nav.tut">Tutorials</a></li>
+          <li><a href="#" data-i18n="nav.pro">Prompts</a></li>
+          <li><a href="#" data-i18n="nav.cmp">Compare</a></li>
+<<<<<<< HEAD
+          <li><a href="#" data-i18n="ft.courses">Courses</a></li>
+=======
+          <li><a href="#" data-i18n="ft.courses" href="/courses.html">Courses</a></li>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="ft.co">Company</h4>
+        <ul>
+<<<<<<< HEAD
+          <li><a href="#" data-i18n="ft.ab">About</a></li>
+          <li><a href="#" data-i18n="ft.adv">Advertise</a></li>
+          <li><a href="#" data-i18n="ft.con">Contact</a></li>
+=======
+          <li><a href="#" data-i18n="ft.ab" href="/about.html">About</a></li>
+          <li><a href="#" data-i18n="ft.adv" href="/contact.html">Advertise</a></li>
+          <li><a href="#" data-i18n="ft.con" href="/contact.html">Contact</a></li>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+          <li><a href="#">English</a></li>
+          <li><a href="#">Español</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 The AI How To · <span data-i18n="ft.r">All rights reserved</span></span>
+      <div class="foot-links">
+<<<<<<< HEAD
+        <a href="#" data-i18n="ft.pr">Privacy</a>
+        <a href="#" data-i18n="ft.te">Terms</a>
+        <a href="#" data-i18n="ft.ck">Cookies</a>
+=======
+        <a href="#" data-i18n="ft.pr" href="/privacy.html">Privacy</a>
+        <a href="#" data-i18n="ft.te" href="/terms.html">Terms</a>
+        <a href="#" data-i18n="ft.ck" href="/privacy.html">Cookies</a>
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">✓ <span id="toastMsg">Copied</span></div>
+
+<script>
+/* ── i18n ── */
+const T = {
+  en:{
+    'nav.tools':'Tools','nav.tut':'Tutorials','nav.art':'Articles','nav.pro':'Prompts','nav.cmp':'Compare','nav.for':'Forum','nav.si':'Sign in','nav.cta':'Get started',
+    'hero.badge':'Updated May 2025 · Bilingual EN / ES',
+    'hero.h1':'Your Step-by-Step Guide<br>to <span class="italic">Mastering</span> <span class="terra">AI</span>',
+    'hero.sub':'Compare tools. Follow tutorials from beginner to advanced. Join 22,000+ members who use AI to work smarter every day.',
+    'hero.c1':'Explore AI Tools →','hero.c2':'View tutorials',
+    'm1':'AI Tools reviewed','m2':'Step-by-step tutorials','m3':'Active community members','m4':'Tested AI prompts',
+    'tick.label':'Tools covered in depth',
+    'tl.kicker':'Complete AI directory',
+    'tl.h':'The Best <span class="italic">AI Tools</span> of 2025',
+    'tl.d':'From chatbots to image generators, coding assistants, video and audio AI — every tool reviewed.',
+    'tl.search':'Search AI tools...',
+    'f.all':'All','f.chat':'Chatbots','f.img':'Images','f.code':'Coding','f.vid':'Video','f.aud':'Audio','f.free':'Free',
+    'b.top':'★ Top','b.free':'Free','b.paid':'Paid',
+    't.try':'Try it →',
+    'cg.d':'World\'s most used AI chatbot. GPT-4o combines text, images and code in one powerful interface.','cg.f1':'Free GPT-4o with daily limit','cg.f2':'Image generation via DALL·E','cg.f3':'Custom GPTs & persistent memory',
+    'cl.d':'200k token context window, superior document analysis and exceptional code generation.','cl.f1':'200k token context window','cl.f2':'PDF & document analysis','cl.f3':'Top-quality code generation',
+    'gm.d':'Google\'s multimodal AI with native real-time web search and deep Google Workspace integration.','gm.f1':'Real-time web search built in','gm.f2':'Google Workspace integration','gm.f3':'Free with any Google account',
+    'cp.d':'GPT-4o built into Windows, Edge and Office 365. Free image generation included.','cp.f1':'Completely free GPT-4o access','cp.f2':'Native Microsoft Office integration','cp.f3':'Bing-powered real-time search',
+    'px.d':'AI-powered search engine that answers with verified, cited sources in real time.','px.f1':'Answers with cited sources','px.f2':'Deep Research mode','px.f3':'Access to multiple AI models',
+    'mj.d':'Highest-quality AI image generator. Professional-grade artistic output.','mj.f1':'Industry-leading image quality','mj.f2':'V7 with precise style control','mj.f3':'Web app + Discord interface',
+    'gh.d':'The most widely used AI coding assistant. VS Code, JetBrains and GitHub.','gh.f1':'Intelligent code autocomplete','gh.f2':'In-editor AI chat','gh.f3':'Free for verified students',
+    'su.d':'Generate complete songs with realistic vocals from a simple text prompt.','su.f1':'Full songs from text prompts','su.f2':'All genres supported','su.f3':'50 free credits per day',
+    'tu.kicker':'Learn step by step','tu.h':'Tutorials: <span class="italic">Beginner</span> to Expert','tu.d':'From your first AI conversation to building apps with AI APIs and automating your workflow.',
+    'lv.b':'Beginner','lv.i':'Intermediate','lv.a':'Advanced',
+    't1.h':'Complete ChatGPT guide for absolute beginners','t1.d':'Sign up, start your first conversation, and get the most out of ChatGPT from day one.',
+    't2.h':'Getting started with Claude: the smartest AI assistant','t2.d':'Analyze documents, write complex texts and leverage the powerful 200k token context window.',
+    't3.h':'Prompt engineering: advanced techniques that actually work','t3.d':'Chain-of-thought, few-shot prompting, role prompting and more for extraordinary results.',
+    't4.h':'Create professional AI images: the complete 2025 guide','t4.d':'Midjourney vs DALL·E 3 vs Stable Diffusion: visual prompting and advanced parameters.',
+    't5.h':'Build your own app with the OpenAI and Claude APIs','t5.d':'Authentication, API calls, token management, streaming and production deployment.',
+    't6.h':'Automate your business with AI — no coding required','t6.d':'Connect ChatGPT and Claude to your tools using Make, Zapier or n8n.',
+    'tes.kicker':'Community voices','tes.h':'Trusted by <span class="italic">22,000+</span> Members',
+    'q1':'"The AI How To completely changed how I use ChatGPT at work. The prompt library alone saved me hours every week."',
+    'q2':'"Finally an AI guide that works for both English and Spanish speakers. The tutorials are clear, practical and the community is incredibly helpful."',
+    'q3':'"The comparison tables are exactly what I needed. The AI How To made choosing the right AI tool easy."',
+    'ar.kicker':'News & analysis','ar.h':'Latest in <span class="italic">AI</span>',
+    'c.n':'News','c.g':'Guide','c.c':'Comparison','c.o':'Opinion',
+    'a1.h':'GPT-5 vs Claude 4 Opus: the battle for the smartest AI model in 2025','a1.d':'We analyze benchmarks, pricing and real-world capabilities of the two most powerful models. Independent testing, no sponsored rankings.','a1.dt':'May 12, 2025',
+    'a2.h':'How to use AI to 3x your productivity as a freelancer','a2.d':'Tools and workflows top freelancers are using to earn more in less time.','a2.dt':'May 10',
+    'a3.h':'7 best free AI chatbots in 2025 (tested for 3 weeks)','a3.d':'Honest results from independently testing the top free chatbots.','a3.dt':'May 8',
+    'a.r':'Read →',
+    'sb.top':'🔥 Most read this week','sb.tags':'🏷️ Popular topics',
+    'tp1':'How to use Claude API free tier','tp2':'ChatGPT vs Gemini vs Claude','tp3':'Best 50 prompts for developers','tp4':'Automate with Make + ChatGPT',
+    'tg.a':'Automation','tg.c':'Coding','tg.p':'Productivity','tg.b':'Business','tg.d':'Data','tg.img':'Images',
+    'pr.kicker':'Prompt library','pr.h':'<span class="italic">500+</span> Prompts Ready to Copy','pr.d':'Click any prompt to copy instantly. Tested and optimized for real results.',
+    'p1.l':'📝 Professional email','p1.t':'Act as a professional business email writer. Write a [formal/informal] email to [recipient] about [topic]. Tone: [tone]. Include: compelling subject line, direct intro, clear body, and specific CTA. Max 150 words.',
+    'p2.l':'💻 Python code','p2.t':'You are a senior Python developer. Create a function that [description]. Requirements: PEP 8, type hints, docstring with examples, custom exception handling, and pytest unit tests. Explain each design decision.',
+    'p3.l':'🎨 Image — Midjourney','p3.t':'[subject], [art style], [lighting: golden hour/studio/cinematic], [composition: portrait/wide angle], [color palette], ultra-detailed, photorealistic, 8K --ar 16:9 --v 7 --style raw --q 2',
+    'p4.l':'📊 Data analysis','p4.t':'Analyze the following dataset: [data]. Provide: 1) statistical summary, 2) patterns or anomalies, 3) relevant correlations, 4) actionable business insights, 5) Python code with visualizations (matplotlib/seaborn).',
+    'p5.l':'✍️ SEO blog post','p5.t':'Write a 1,500-word article about "[keyword]". SEO: keyword in H1 and first 100 chars, 3 H2 headings with LSI keywords, 1.5% density, 155-char meta description, and 3 CTAs. Tone: expert but accessible.',
+    'p6.l':'🎯 Business strategy','p6.t':'Act as a McKinsey consultant. Analyze: [business idea]. Create a SWOT analysis, estimate TAM/SAM/SOM, identify 3 biggest risks, propose a 90-day go-to-market strategy, and estimate minimum launch costs.',
+    'btn.c':'Copy',
+    'cm.kicker':'2025 Comparison','cm.h':'Which AI is <span class="italic">Right</span> for You?','cm.d':'Updated comparison of the top AI models. Last reviewed: May 2025.',
+    'cm.f':'Feature','cm.fv':'Free version','cm.cx':'Max context','cm.vi':'Image input','cm.ig':'Image gen','cm.ws':'Web search','cm.ap':'API','cm.pr':'Price/month','cm.sc':'Score',
+    'fo.kicker':'Community','fo.h':'Forum: Ask, Learn and <span class="italic">Share</span>','fo.d':'22,000+ active members from the US, Canada and Latin America discussing AI every day.',
+    'f.hot':'🔥 Hot','f.new':'🆕 New','f.ask':'❓ Questions','fo.new':'+ Start new thread','fo.stats':'📊 Forum stats',
+    'fh1':'How do I stop Claude from cutting off long responses?','fh1s':'In Claude · by juandev_99 · 2h ago',
+    'fh2':'My complete AI content creation workflow (sharing everything)','fh2s':'In Productivity · by sara_content · 5h ago',
+    'fh3':'Is ChatGPT Plus $20/month worth it in 2025? My analysis','fh3s':'In ChatGPT · by miguel_ia · 8h ago',
+    'fh4':'Tutorial: Run Llama 3.3 70B locally with Ollama (step by step)','fh4s':'In Open Source · by alextech · 1d ago',
+    'fh5':'Same prompt tested in 6 different AI tools — surprising results','fh5s':'In Prompts · by carmen_t · 2d ago',
+    'fn1':'New comparison: Claude vs GPT-4o for coding tasks','fn2':'Best AI tools for small businesses in the US?',
+    'fa1':'❓ How do I use the Claude API with Node.js?',
+    'hot':'Hot','st.m':'Members','st.t':'Threads','st.r':'Replies','st.o':'Online now',
+    'nl.tag':'Weekly newsletter','nl.h':'Stay Ahead of Every<br><em>AI Breakthrough</em>',
+    'nl.d':'Every Monday: the 5 biggest AI stories, one in-depth tutorial, and the best prompts of the week. No spam, ever.',
+    'nl.ph':'your@email.com','nl.btn':'Subscribe free →','nl.note':'8,200+ subscribers · No spam · Unsubscribe anytime',
+    'ft.d':'The bilingual AI community for English and Spanish speakers.','ft.tools':'Tools','ft.learn':'Learn','ft.co':'Company',
+    'ft.all':'View all →','ft.courses':'Courses','ft.ab':'About','ft.adv':'Advertise','ft.con':'Contact',
+    'ft.r':'All rights reserved','ft.pr':'Privacy','ft.te':'Terms','ft.ck':'Cookies',
+    'ad.sq':'Advertisement 300×250','toast.cp':'✓ Copied to clipboard','nl.ok':'✓ Subscribed!',
+  },
+  es:{
+    'nav.tools':'Herramientas','nav.tut':'Tutoriales','nav.art':'Artículos','nav.pro':'Prompts','nav.cmp':'Comparar','nav.for':'Foro','nav.si':'Iniciar sesión','nav.cta':'Empezar',
+    'hero.badge':'Actualizado mayo 2025 · Bilingüe EN / ES',
+    'hero.h1':'Tu Guía Paso a Paso<br>para <span class="italic">Dominar</span> la <span class="terra">IA</span>',
+    'hero.sub':'Compara herramientas. Sigue tutoriales de principiante a avanzado. Únete a más de 22.000 miembros que usan IA para trabajar mejor.',
+    'hero.c1':'Explorar herramientas →','hero.c2':'Ver tutoriales',
+    'm1':'Herramientas IA revisadas','m2':'Tutoriales paso a paso','m3':'Miembros activos en la comunidad','m4':'Prompts de IA probados',
+    'tick.label':'Herramientas cubiertas en profundidad',
+    'tl.kicker':'Directorio completo de IA',
+    'tl.h':'Las Mejores <span class="italic">Herramientas IA</span> de 2025',
+    'tl.d':'Desde chatbots hasta generadores de imágenes, asistentes de código, vídeo y audio IA.',
+    'tl.search':'Buscar herramientas de IA...',
+    'f.all':'Todas','f.chat':'Chatbots','f.img':'Imágenes','f.code':'Código','f.vid':'Vídeo','f.aud':'Audio','f.free':'Gratis',
+    'b.top':'★ Popular','b.free':'Gratis','b.paid':'De pago',
+    't.try':'Probar →',
+    'cg.d':'El chatbot de IA más usado del mundo. GPT-4o combina texto, imágenes y código en una interfaz potente.','cg.f1':'GPT-4o gratis con límite diario','cg.f2':'Generación de imágenes con DALL·E','cg.f3':'GPTs personalizados y memoria',
+    'cl.d':'Ventana de contexto de 200k tokens, análisis de documentos y generación de código excepcional.','cl.f1':'Ventana de contexto de 200k tokens','cl.f2':'Análisis de PDFs y documentos','cl.f3':'Código de altísima calidad',
+    'gm.d':'IA multimodal de Google con búsqueda web en tiempo real e integración con Google Workspace.','gm.f1':'Búsqueda web en tiempo real integrada','gm.f2':'Integración con Google Workspace','gm.f3':'Gratis con cualquier cuenta Google',
+    'cp.d':'GPT-4o integrado en Windows, Edge y Office 365. Generación de imágenes gratuita incluida.','cp.f1':'Acceso a GPT-4o completamente gratis','cp.f2':'Integración nativa con Microsoft Office','cp.f3':'Búsqueda web con Bing',
+    'px.d':'Motor de búsqueda con IA que responde con fuentes verificadas y citadas en tiempo real.','px.f1':'Respuestas con fuentes citadas','px.f2':'Modo Deep Research','px.f3':'Acceso a múltiples modelos de IA',
+    'mj.d':'Generador de imágenes IA de mayor calidad. Resultados de nivel profesional.','mj.f1':'Calidad de imagen líder en la industria','mj.f2':'V7 con control de estilo preciso','mj.f3':'App web + interfaz Discord',
+    'gh.d':'El asistente de código IA más utilizado. VS Code, JetBrains y GitHub.','gh.f1':'Autocompletado de código inteligente','gh.f2':'Chat IA en el editor','gh.f3':'Gratis para estudiantes verificados',
+    'su.d':'Genera canciones completas con vocales realistas a partir de un texto.','su.f1':'Canciones completas desde texto','su.f2':'Todos los géneros musicales','su.f3':'50 créditos gratis al día',
+    'tu.kicker':'Aprende paso a paso','tu.h':'Tutoriales: de <span class="italic">Principiante</span> a Experto','tu.d':'Desde tu primera conversación con IA hasta crear aplicaciones con APIs de IA.',
+    'lv.b':'Principiante','lv.i':'Intermedio','lv.a':'Avanzado',
+    't1.h':'Guía completa de ChatGPT para principiantes absolutos','t1.d':'Regístrate, inicia tu primera conversación y saca el máximo partido desde el primer día.',
+    't2.h':'Primeros pasos con Claude: el asistente IA más inteligente','t2.d':'Analiza documentos, redacta textos complejos y aprovecha la poderosa ventana de contexto de 200k tokens.',
+    't3.h':'Prompt engineering: técnicas avanzadas que realmente funcionan','t3.d':'Chain-of-thought, few-shot prompting, role prompting y más para resultados extraordinarios.',
+    't4.h':'Crea imágenes profesionales con IA: la guía completa 2025','t4.d':'Midjourney vs DALL·E 3 vs Stable Diffusion: técnicas de prompting visual y parámetros avanzados.',
+    't5.h':'Crea tu propia app con las APIs de OpenAI y Claude','t5.d':'Autenticación, llamadas a la API, gestión de tokens, streaming y deploy en producción.',
+    't6.h':'Automatiza tu negocio con IA — sin escribir código','t6.d':'Conecta ChatGPT y Claude a tus herramientas con Make, Zapier o n8n.',
+    'tes.kicker':'Voces de la comunidad','tes.h':'Confiado por más de <span class="italic">22.000</span> Miembros',
+    'q1':'"The AI How To cambió completamente cómo uso ChatGPT en el trabajo. La biblioteca de prompts por sí sola me ahorra horas cada semana."',
+    'q2':'"Por fin una guía de IA que funciona tanto en inglés como en español. Los tutoriales son claros, prácticos y la comunidad es increíblemente útil."',
+    'q3':'"Las tablas de comparación eran exactamente lo que necesitaba. The AI How To hizo fácil elegir la herramienta de IA adecuada para mí."',
+    'ar.kicker':'Noticias y análisis','ar.h':'Lo Último en <span class="italic">IA</span>',
+    'c.n':'Noticias','c.g':'Guía','c.c':'Comparativa','c.o':'Opinión',
+    'a1.h':'GPT-5 vs Claude 4 Opus: la batalla por el modelo de IA más inteligente de 2025','a1.d':'Analizamos benchmarks, precios y capacidades reales de los dos modelos más potentes del mercado.','a1.dt':'12 mayo 2025',
+    'a2.h':'Cómo usar IA para triplicar tu productividad como freelancer','a2.d':'Herramientas y flujos de trabajo que usan los mejores freelancers para facturar más en menos tiempo.','a2.dt':'10 mayo',
+    'a3.h':'Los 7 mejores chatbots de IA gratuitos en 2025 (probados 3 semanas)','a3.d':'Resultados honestos probando los principales chatbots gratuitos. Sin contenido patrocinado.','a3.dt':'8 mayo',
+    'a.r':'Leer →',
+    'sb.top':'🔥 Más leídos esta semana','sb.tags':'🏷️ Temas populares',
+    'tp1':'Cómo usar Claude API gratis','tp2':'ChatGPT vs Gemini vs Claude','tp3':'Los mejores 50 prompts para programadores','tp4':'Automatiza con Make + ChatGPT',
+    'tg.a':'Automatización','tg.c':'Código','tg.p':'Productividad','tg.b':'Negocios','tg.d':'Datos','tg.img':'Imágenes',
+    'pr.kicker':'Biblioteca de prompts','pr.h':'<span class="italic">500+</span> Prompts Listos para Copiar','pr.d':'Haz clic en cualquier prompt para copiarlo al instante. Probados y optimizados para resultados reales.',
+    'p1.l':'📝 Correo profesional','p1.t':'Actúa como redactor profesional de correos de negocios. Escribe un correo [formal/informal] para [destinatario] sobre [tema]. Tono: [tono]. Incluye: asunto llamativo, introducción directa, cuerpo claro y CTA específico. Máximo 150 palabras.',
+    'p2.l':'💻 Código Python','p2.t':'Eres un desarrollador Python senior. Crea una función que [descripción]. Requisitos: PEP 8, type hints, docstring con ejemplos, manejo de errores personalizado y tests unitarios con pytest. Explica cada decisión de diseño.',
+    'p3.l':'🎨 Imagen — Midjourney','p3.t':'[sujeto], [estilo artístico], [iluminación: golden hour/studio/cinematic], [composición: portrait/wide angle], [paleta de colores], ultra-detailed, photorealistic, 8K --ar 16:9 --v 7 --style raw --q 2',
+    'p4.l':'📊 Análisis de datos','p4.t':'Analiza el siguiente dataset: [datos]. Proporciona: 1) resumen estadístico, 2) patrones o anomalías, 3) correlaciones relevantes, 4) insights de negocio accionables, 5) código Python con visualizaciones (matplotlib/seaborn).',
+    'p5.l':'✍️ Blog SEO','p5.t':'Escribe un artículo de 1.500 palabras sobre "[keyword]". SEO: keyword en H1 y primeros 100 caracteres, 3 subtítulos H2 con keywords LSI, densidad 1.5%, meta description de 155 caracteres y 3 CTAs. Tono: experto pero accesible.',
+    'p6.l':'🎯 Estrategia de negocio','p6.t':'Actúa como consultor de McKinsey. Analiza: [idea de negocio]. Crea análisis FODA, calcula TAM/SAM/SOM, identifica los 3 mayores riesgos, propón estrategia go-to-market en 90 días y estima costes mínimos de lanzamiento.',
+    'btn.c':'Copiar',
+    'cm.kicker':'Comparativa 2025','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos de IA. Última revisión: mayo 2025.',
+    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación',
+    'fo.kicker':'Comunidad','fo.h':'Foro: Pregunta, Aprende y <span class="italic">Comparte</span>','fo.d':'Más de 22.000 miembros activos de todo el mundo discutiendo IA cada día.',
+    'f.hot':'🔥 Popular','f.new':'🆕 Nuevo','f.ask':'❓ Preguntas','fo.new':'+ Crear nuevo hilo','fo.stats':'📊 Estadísticas del foro',
+    'fh1':'¿Cómo consigo que Claude no corte sus respuestas largas?','fh1s':'En Claude · por juandev_99 · hace 2h',
+    'fh2':'Mi flujo de trabajo completo para crear contenido con IA (comparto todo)','fh2s':'En Productividad · por sara_content · hace 5h',
+    'fh3':'¿Vale la pena pagar $20/mes por ChatGPT Plus en 2025? Mi análisis','fh3s':'En ChatGPT · por miguel_ia · hace 8h',
+    'fh4':'Tutorial: Ejecutar Llama 3.3 70B localmente con Ollama (paso a paso)','fh4s':'En Open Source · por alextech · hace 1 día',
+    'fh5':'El mismo prompt probado en 6 herramientas de IA distintas — resultados sorprendentes','fh5s':'En Prompts · por carmen_t · hace 2 días',
+    'fn1':'Nueva comparativa: Claude vs GPT-4o para tareas de código','fn2':'¿Las mejores herramientas IA para pequeñas empresas en EEUU?',
+    'fa1':'❓ ¿Cómo usar la API de Claude con Node.js?',
+    'hot':'Trending','st.m':'Miembros','st.t':'Hilos','st.r':'Respuestas','st.o':'Online ahora',
+    'nl.tag':'Newsletter semanal','nl.h':'Mantente al Día con Cada<br><em>Avance en IA</em>',
+    'nl.d':'Cada lunes: las 5 noticias más importantes de IA, un tutorial en profundidad y los mejores prompts. Sin spam.',
+    'nl.ph':'tu@email.com','nl.btn':'Suscribirse gratis →','nl.note':'+8.200 suscriptores · Sin spam · Date de baja cuando quieras',
+    'ft.d':'La comunidad de IA bilingüe para hispanohablantes y angloparlantes.','ft.tools':'Herramientas','ft.learn':'Aprender','ft.co':'Empresa',
+    'ft.all':'Ver todas →','ft.courses':'Cursos','ft.ab':'Sobre nosotros','ft.adv':'Anunciarse','ft.con':'Contacto',
+    'ft.r':'Todos los derechos reservados','ft.pr':'Privacidad','ft.te':'Términos','ft.ck':'Cookies',
+    'ad.sq':'Espacio publicitario 300×250','toast.cp':'✓ Copiado al portapapeles','nl.ok':'✓ ¡Suscrito!',
+  }
+};
+
+let lang = localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('en') ? 'en' : 'es');
+
+function applyLang(l) {
+  const t = T[l];
+  document.querySelectorAll('[data-i18n]').forEach(el => { if(t[el.dataset.i18n] !== undefined) el.textContent = t[el.dataset.i18n]; });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => { if(t[el.dataset.i18nHtml] !== undefined) el.innerHTML = t[el.dataset.i18nHtml]; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { if(t[el.dataset.i18nPh] !== undefined) el.placeholder = t[el.dataset.i18nPh]; });
+  document.querySelectorAll('[data-i18n-p]').forEach(el => { if(t[el.dataset.i18nP] !== undefined) el.textContent = t[el.dataset.i18nP]; });
+  document.documentElement.lang = l;
+  document.title = l === 'es' ? 'The AI How To — Aprende IA Paso a Paso' : 'The AI How To — Learn AI Tools Step by Step';
+}
+
+function setLang(l) {
+  lang = l;
+  localStorage.setItem('taht-lang', l);
+  ['en','es'].forEach(x => {
+    document.getElementById('btn-' + x)?.classList.toggle('active', x === l);
+    document.getElementById('mob-' + x)?.classList.toggle('active', x === l);
+  });
+  applyLang(l);
+}
+setLang(lang);
+
+function openMenu() { document.getElementById('mobMenu').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMenu() { document.getElementById('mobMenu').classList.remove('open'); document.body.style.overflow = ''; }
+
+function switchTab(btn, id) {
+  btn.parentElement.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const p = id.slice(0, -3);
+  document.querySelectorAll(`[id^="${p}"]`).forEach(el => el.classList.remove('active'));
+  document.getElementById(id)?.classList.add('active');
+}
+
+function filterTools(btn, cat) {
+  document.querySelectorAll('.f-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#toolsGrid .tool-cell').forEach(c => {
+    c.style.display = (cat === 'all' || (c.dataset.cat || '').split(' ').includes(cat)) ? '' : 'none';
+  });
+}
+
+document.getElementById('toolSearch').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  document.querySelectorAll('#toolsGrid .tool-cell').forEach(c => {
+    c.style.display = c.textContent.toLowerCase().includes(q) ? '' : 'none';
+  });
+});
+
+function showToast() {
+  const msg = (T[lang]['toast.cp'] || '✓ Copied').replace('✓ ', '');
+  document.getElementById('toastMsg').textContent = msg;
+  const el = document.getElementById('toast');
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2200);
+}
+
+function copyPrompt(el) {
+  navigator.clipboard.writeText(el.textContent.trim()).then(showToast).catch(() => {
+    const ta = document.createElement('textarea');
+    ta.value = el.textContent.trim();
+    document.body.appendChild(ta); ta.select();
+    document.execCommand('copy'); document.body.removeChild(ta);
+    showToast();
+  });
+}
+
+function copyPromptBtn(btn) {
+  const txt = btn.closest('.p-cell').querySelector('.p-text').textContent.trim();
+  navigator.clipboard.writeText(txt).then(() => {
+    const orig = btn.textContent; btn.textContent = '✓'; btn.classList.add('copied');
+    showToast();
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function subNL(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = T[lang]['nl.ok'] || '✓ Done!';
+  btn.style.background = 'var(--sage)';
+  setTimeout(() => { btn.textContent = T[lang]['nl.btn']; btn.style.background = ''; }, 3000);
+}
+
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('vis'), i * 50);
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.06 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+window.addEventListener('scroll', () => {
+  document.querySelector('.nav').style.borderBottomColor = window.scrollY > 40
+    ? 'rgba(45,138,138,.15)' : 'rgba(255,255,255,.07)';
+}, { passive: true });
+</script>
+<<<<<<< HEAD
+=======
+
+<script>
+// Wire tutorial cards
+(function(){
+  var urls = [
+    '/tutorials/chatgpt-beginners.html',
+    '/tutorials/claude-beginners.html',
+    '/tutorials/prompt-engineering.html',
+    '/tutorials/ai-images.html',
+    '/tutorials/api-development.html',
+    '/tutorials/automation.html'
+  ];
+  document.querySelectorAll('.tut-cell').forEach(function(cell, i){
+    if(urls[i]) cell.addEventListener('click', function(){ window.location.href = urls[i]; });
+  });
+  // Wire tool cards
+  var toolUrls = {
+    'chatgpt.html': '/tools/chatgpt.html',
+    'claude.html': '/tools/claude.html',
+    'gemini.html': '/tools/gemini.html',
+    'copilot.html': '/tools/copilot.html',
+    'perplexity.html': '/tools/perplexity.html',
+    'midjourney.html': '/tools/midjourney.html',
+    'github-copilot.html': '/tools/github-copilot.html',
+    'suno.html': '/tools/suno.html'
+  };
+})();
+</script>
+
+>>>>>>> e93118e (feat: add all 25 pages - tools, tutorials, articles, utility)
+</body>
+</html>
