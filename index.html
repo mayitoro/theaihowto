@@ -1342,34 +1342,135 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
     </div>
     <div class="sh center">
       <h2 data-i18n-html="cm.h">Which AI is <span class="italic">Right</span> for You?</h2>
-      <p data-i18n="cm.d">Updated comparison of the top AI models. Last reviewed: May 2026.</p>
+      <p data-i18n="cm.d">Updated comparison of the top AI models and tools. Last reviewed: May 2026.</p>
     </div>
-    <div class="cmp-wrap fade-up">
-      <table class="cmp-table">
+    <div class="cmp-wrap fade-up" style="overflow-x:auto">
+      <table class="cmp-table" style="min-width:860px">
         <thead>
           <tr>
-            <th data-i18n="cm.f">Feature</th>
-            <th>ChatGPT 4o</th>
-            <th class="hl">Claude Sonnet 4.5</th>
+            <th data-i18n="cm.f" style="min-width:140px">Feature</th>
+            <th>GPT-5.5</th>
+            <th class="hl">Claude 4.5</th>
             <th>Gemini 3 Pro</th>
             <th>Copilot</th>
+            <th>Claude Code</th>
             <th>Grok 4</th>
           </tr>
         </thead>
         <tbody>
-          <tr><td data-i18n="cm.fv">Free version</td><td><span class="prt">Limited</span></td><td class="hl"><span class="prt">Limited</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="prt">Limited</span></td></tr>
-          <tr><td data-i18n="cm.cx">Max context</td><td>128k</td><td class="hl"><strong style="color:var(--teal3)">200k</strong></td><td>1M</td><td>128k</td><td>131k</td></tr>
-          <tr><td data-i18n="cm.vi">Image input</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="chk">✓</span></td></tr>
-          <tr><td data-i18n="cm.ig">Image generation</td><td><span class="chk">✓ DALL·E</span></td><td class="hl"><span class="crs">✗</span></td><td><span class="chk">✓ Imagen</span></td><td><span class="chk">✓ DALL·E</span></td><td><span class="chk">✓ Aurora</span></td></tr>
-          <tr><td data-i18n="cm.ws">Web search</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓ Native</span></td><td><span class="chk">✓ Bing</span></td><td><span class="chk">✓ X</span></td></tr>
-          <tr><td data-i18n="cm.ap">API</td><td><span class="chk">✓</span></td><td class="hl"><span class="chk">✓</span></td><td><span class="chk">✓</span></td><td><span class="prt">Azure</span></td><td><span class="chk">✓</span></td></tr>
-          <tr><td data-i18n="cm.pr">Price/month</td><td>$20</td><td class="hl">$20</td><td>$19.99</td><td>$20</td><td>$30</td></tr>
-          <tr><td data-i18n="cm.sc">Score</td><td>9.2/10</td><td class="hl"><strong style="color:var(--teal3)">9.5/10</strong></td><td>8.9/10</td><td>8.5/10</td><td>8.3/10</td></tr>
+          <tr>
+            <td data-i18n="cm.best">Best for</td>
+            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b1">General use &amp; images</td>
+            <td class="hl" style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b2">Writing &amp; documents</td>
+            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b3">Google Workspace</td>
+            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b4">Free daily use</td>
+            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b5">Coding (terminal)</td>
+            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b6">Real-time &amp; X</td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.fv">Free version</td>
+            <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
+            <td class="hl"><span class="prt" data-i18n="cm.lim">Limited</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
+            <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.cx">Max context</td>
+            <td>128k</td>
+            <td class="hl"><strong style="color:var(--teal3)">200k</strong></td>
+            <td><strong style="color:var(--teal3)">1M</strong></td>
+            <td>128k</td>
+            <td><strong style="color:var(--teal3)">200k</strong></td>
+            <td>131k</td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.vi">Image input</td>
+            <td><span class="chk">✓</span></td>
+            <td class="hl"><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.ig">Image gen</td>
+            <td><span class="chk" style="font-size:.8rem">✓ DALL·E 3</span></td>
+            <td class="hl"><span class="crs">✗</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ Imagen 3</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ DALL·E 3</span></td>
+            <td><span class="crs">✗</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ Aurora</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.ws">Web search</td>
+            <td><span class="chk">✓</span></td>
+            <td class="hl"><span class="chk">✓</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ Native</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ Bing</span></td>
+            <td><span class="prt" data-i18n="cm.via_api">Via API</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ X/Web</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.cd">Code execution</td>
+            <td><span class="chk">✓</span></td>
+            <td class="hl"><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
+            <td><span class="chk" style="color:var(--teal3);font-weight:600">★ Terminal</span></td>
+            <td><span class="chk">✓</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.ide">IDE integration</td>
+            <td><span class="crs">✗</span></td>
+            <td class="hl"><span class="prt" data-i18n="cm.ext">Extension</span></td>
+            <td><span class="crs">✗</span></td>
+            <td><span class="chk" style="font-size:.8rem">✓ M365</span></td>
+            <td><span class="chk" style="color:var(--teal3);font-weight:600">★ Native</span></td>
+            <td><span class="crs">✗</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.vc">Voice mode</td>
+            <td><span class="chk">✓</span></td>
+            <td class="hl"><span class="crs">✗</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="crs">✗</span></td>
+            <td><span class="chk">✓</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.ap">API</td>
+            <td><span class="chk">✓</span></td>
+            <td class="hl"><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="prt">Azure</span></td>
+            <td><span class="chk">✓</span></td>
+            <td><span class="chk">✓</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.pr">Price/month</td>
+            <td>$20</td>
+            <td class="hl">$20</td>
+            <td>$19.99</td>
+            <td><span style="color:var(--sage2);font-weight:600" data-i18n="cm.free">Free</span></td>
+            <td>$20 <span style="font-size:.72rem;color:var(--dim)">Pro</span></td>
+            <td>$30</td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.sc">Score</td>
+            <td>⭐ 9.4</td>
+            <td class="hl"><strong style="color:var(--teal3)">⭐ 9.6</strong></td>
+            <td>⭐ 8.9</td>
+            <td>⭐ 8.7</td>
+            <td><strong style="color:var(--teal3)">⭐ 9.5</strong></td>
+            <td>⭐ 8.4</td>
+          </tr>
         </tbody>
       </table>
     </div>
+    <p style="font-size:.72rem;color:var(--dim);text-align:center;margin-top:16px" data-i18n="cm.note">⚠️ AI models update frequently. We review versions monthly — last reviewed May 2026.</p>
   </div>
-<p style="font-size:.72rem;color:var(--dim);text-align:center;margin-top:12px">⚠️ AI models update frequently. <a href="https://theaihowto.com" style="color:var(--teal3)">We review versions monthly</a> — last reviewed May 2026.</p>
 </section>
 
 <!-- ══════ FORUM ══════ -->
@@ -1569,8 +1670,8 @@ const T = {
     'p5.l':'✍️ SEO blog post','p5.t':'Write a 1,500-word article about "[keyword]". SEO: keyword in H1 and first 100 chars, 3 H2 headings with LSI keywords, 1.5% density, 155-char meta description, and 3 CTAs. Tone: expert but accessible.',
     'p6.l':'🎯 Business strategy','p6.t':'Act as a McKinsey consultant. Analyze: [business idea]. Create a SWOT analysis, estimate TAM/SAM/SOM, identify 3 biggest risks, propose a 90-day go-to-market strategy, and estimate minimum launch costs.',
     'btn.c':'Copy',
-    'cm.kicker':'2026 Comparison','cm.h':'Which AI is <span class="italic">Right</span> for You?','cm.d':'Updated comparison of the top AI models. Last reviewed: May 2026.',
-    'cm.f':'Feature','cm.fv':'Free version','cm.cx':'Max context','cm.vi':'Image input','cm.ig':'Image gen','cm.ws':'Web search','cm.ap':'API','cm.pr':'Price/month','cm.sc':'Score',
+    'cm.kicker':'Comparativa 2026','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos y herramientas de IA. Última revisión: mayo 2026.',
+    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
     'fo.kicker':'Community','fo.h':'Forum: Ask, Learn and <span class="italic">Share</span>','fo.d':'22,000+ active members from the US, Canada and Latin America discussing AI every day.',
     'f.hot':'🔥 Hot','f.new':'🆕 New','f.ask':'❓ Questions','fo.new':'+ Start new thread','fo.stats':'📊 Forum stats',
     'fh1':'How do I stop Claude from cutting off long responses?','fh1s':'In Claude · by juandev_99 · 2h ago',
@@ -1641,8 +1742,8 @@ const T = {
     'p5.l':'✍️ Blog SEO','p5.t':'Escribe un artículo de 1.500 palabras sobre "[keyword]". SEO: keyword en H1 y primeros 100 caracteres, 3 subtítulos H2 con keywords LSI, densidad 1.5%, meta description de 155 caracteres y 3 CTAs. Tono: experto pero accesible.',
     'p6.l':'🎯 Estrategia de negocio','p6.t':'Actúa como consultor de McKinsey. Analiza: [idea de negocio]. Crea análisis FODA, calcula TAM/SAM/SOM, identifica los 3 mayores riesgos, propón estrategia go-to-market en 90 días y estima costes mínimos de lanzamiento.',
     'btn.c':'Copiar',
-    'cm.kicker':'Comparativa 2026','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos de IA. Última revisión: mayo 2026.',
-    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación',
+    'cm.kicker':'Comparativa 2026','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos y herramientas de IA. Última revisión: mayo 2026.',
+    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
     'fo.kicker':'Comunidad','fo.h':'Foro: Pregunta, Aprende y <span class="italic">Comparte</span>','fo.d':'Más de 22.000 miembros activos de todo el mundo discutiendo IA cada día.',
     'f.hot':'🔥 Popular','f.new':'🆕 Nuevo','f.ask':'❓ Preguntas','fo.new':'+ Crear nuevo hilo','fo.stats':'📊 Estadísticas del foro',
     'fh1':'¿Cómo consigo que Claude no corte sus respuestas largas?','fh1s':'En Claude · por juandev_99 · hace 2h',
