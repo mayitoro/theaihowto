@@ -261,7 +261,7 @@ function buildList(items, cls, icon) {
 
 function buildFaq(faq) {
   return faq.map(function(f) {
-    return '<div class="faq-item" onclick="this.classList.toggle('open')">' +
+    return '<div class="faq-item" onclick="this.classList.toggle(\'open\')"><div class="sr-only"></div>'.replace('<div class="sr-only"></div>','') + '<div class="faq-item-inner" style="display:contents"></div>'.replace('<div class="faq-item-inner" style="display:contents"></div>','') + '<div class="faq-item" onclick="this.classList.toggle(\'open\')>' +
       '<div class="faq-q">' + f.q + '<span class="faq-arrow">▾</span></div>' +
       '<div class="faq-a">' + f.a + '</div></div>';
   }).join('');
