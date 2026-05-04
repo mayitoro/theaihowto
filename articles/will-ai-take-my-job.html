@@ -219,7 +219,10 @@ const T = {
   }
 };
 
-let lang = localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('en') ? 'en' : 'es');
+// Priority: 1) URL param  2) localStorage  3) browser language
+const urlLang = new URLSearchParams(window.location.search).get('lang');
+let lang = urlLang || localStorage.getItem('taht-lang') || ((navigator.language||'en').toLowerCase().startsWith('en') ? 'en' : 'es');
+if (urlLang) localStorage.setItem('taht-lang', urlLang); // save URL param to localStorage
 
 function applyLang(l) {
   const t = T[l];
