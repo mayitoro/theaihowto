@@ -1174,7 +1174,7 @@
       <span data-i18n="pr.kicker">Prompt library</span>
     </div>
     <div class="sh">
-      <h2 data-i18n-html="pr.h">42 <span class="italic">Tested Prompts</span> — Ready to Copy</h2>
+      <h2 data-i18n-html="pr.h">56+ <span class="italic">High-Demand Prompts</span> — Ready to Copy</h2>
       <p data-i18n="pr.d">Real prompts that work. Organized by category. Click any prompt to copy instantly.</p>
     </div>
     <div class="filter-bar" style="margin-bottom:24px" id="prompt-filters">
@@ -1187,209 +1187,281 @@
       <button class="f-btn" onclick="filterPrompts(this,'research')">🔍 Research</button>
       
     </div>
-    <div id="prompts-container">
-    <div class="prompt-cat-group" data-cat="writing"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Artículo SEO" data-text-es="Escribe un artículo de 1.500 palabras sobre &quot;[keyword]&quot;. Requisitos: keyword en H1 y primeros 100 caracteres, 3 subtítulos H2 con keywords LSI, densidad 1.5%, intro que enganche en la primera frase, meta description de 155 caracteres y 3 CTAs. Tono: experto pero conversacional. Termina con una sección FAQ de 3 preguntas.">
-        <div class="p-label">SEO Blog Post</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a 1,500-word article about "[keyword]". Requirements: keyword in H1 and first 100 characters, 3 H2 subheadings with LSI keywords, 1.5% keyword density, compelling intro that hooks in the first sentence, 155-character meta description, and 3 CTAs. Tone: expert but conversational. End with a FAQ section of 3 questions.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Post Viral para LinkedIn" data-text-es="Escribe un post de LinkedIn sobre [tema/logro/lección]. Formato: empieza con un gancho de una línea impactante (sin &quot;Yo&quot;), párrafos cortos (máx 2 líneas), incluye una historia personal o estadística sorprendente, termina con una pregunta que provoque comentarios. Tono: auténtico, directo. 150-200 palabras.">
-        <div class="p-label">Viral LinkedIn Post</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a LinkedIn post about [topic/achievement/lesson]. Format: start with a bold one-line hook (no "I" at the start), use short paragraphs (max 2 lines), include a personal story or surprising statistic, end with a thought-provoking question to drive comments. Tone: authentic, direct. 150-200 words.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Secuencia de Email en Frío" data-text-es="Escribe una secuencia de 3 emails en frío para [producto/servicio] dirigido a [cliente ideal]. Email 1 (Día 1): gancho de valor + insight relevante. Email 2 (Día 4): caso de éxito o prueba social. Email 3 (Día 8): petición final con salida fácil. Cada email máx 100 palabras. Asuntos de menos de 50 caracteres.">
-        <div class="p-label">Cold Email Sequence</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a 3-email cold outreach sequence for [product/service] targeting [ideal customer]. Email 1 (Day 1): Value hook + one insight relevant to them. Email 2 (Day 4): Case study or social proof. Email 3 (Day 8): Final ask with easy opt-out. Each email max 100 words. Subject lines must be under 50 characters.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Guión para YouTube" data-text-es="Escribe un guión de YouTube para un vídeo de [duración] minutos sobre [tema]. Incluye: gancho impactante (primeros 15 segundos), interrupción de patrón a los 30 segundos, contenido principal en 3-5 secciones con transiciones, llamada a participar a mitad del vídeo y CTA fuerte al final. Incluye sugerencias de [B-roll] entre corchetes.">
-        <div class="p-label">YouTube Script</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a YouTube script for a [duration]-minute video about [topic]. Include: attention-grabbing hook (first 15 seconds), pattern interrupt at 30 seconds, main content in 3-5 clear sections with transitions, engagement prompt at midpoint, and a strong CTA at the end. Include [B-roll] suggestions in brackets.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Descripción de Producto" data-text-es="Escribe una descripción de producto para [nombre del producto]. Cliente objetivo: [descripción]. Beneficios clave: [lista 3]. Tono: [premium/dinámico/técnico]. Formato: titular (máx 10 palabras), apertura de 3 frases con el beneficio principal, lista de 5 características redactadas como beneficios y CTA de una línea. Sin tecnicismos.">
-        <div class="p-label">Product Description</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a product description for [product name]. Target customer: [description]. Key benefits: [list 3]. Tone: [premium/playful/technical]. Format: headline (10 words max), 3-sentence opening that leads with the main benefit, bullet list of 5 features phrased as benefits, and a one-line CTA. No jargon.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Resumen de Libro" data-text-es="Resume el libro &quot;[título]&quot; de [autor]. Estructura: 1) Tesis central en una frase, 2) Las 5 ideas más accionables con un ejemplo concreto cada una, 3) Una cita que capture la esencia, 4) Quién debería leerlo y por qué, 5) Qué no cubre bien. Escribe para alguien que nunca leerá el libro pero necesita aplicar sus ideas.">
-        <div class="p-label">Book Summary</div>
-        <div class="p-text" onclick="copyPrompt(this)">Summarize the book "[book title]" by [author]. Structure: 1) Core thesis in one sentence, 2) The 5 most actionable ideas with a concrete example for each, 3) One quote that captures the essence, 4) Who should read it and why, 5) What it does not cover well. Write for someone who will never read the book but needs to apply its ideas.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="coding" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Revisión de Código" data-text-es="Revisa este código como ingeniero senior. Comprueba: 1) Bugs y casos borde, 2) Vulnerabilidades de seguridad, 3) Problemas de rendimiento, 4) Legibilidad y mantenibilidad, 5) Manejo de errores faltante. Para cada problema, explica POR QUÉ es un problema y muestra la versión corregida. Valora la calidad del 1 al 10.&#10;&#10;[pega el código]">
-        <div class="p-label">Code Review</div>
-        <div class="p-text" onclick="copyPrompt(this)">Review this code as a senior engineer. Check for: 1) Bugs and edge cases, 2) Security vulnerabilities, 3) Performance issues, 4) Code readability and maintainability, 5) Missing error handling. For each issue, explain WHY it is a problem and show the corrected version. Rate overall quality 1-10.
-
-[paste code]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Depurar Este Error" data-text-es="Obtengo este error: [mensaje de error]&#10;&#10;Contexto: [qué intentabas hacer]&#10;Lenguaje/Framework: [ej. Python 3.12 / React 19]&#10;Código relevante: [pega el código]&#10;&#10;Por favor: 1) Explica por qué ocurre este error, 2) Muestra el código corregido, 3) Explica qué cambió y por qué, 4) Sugiere cómo prevenir este error en el futuro.">
-        <div class="p-label">Debug This Error</div>
-        <div class="p-text" onclick="copyPrompt(this)">I am getting this error: [error message]
-
-Context: [what you were trying to do]
-Language/Framework: [e.g. Python 3.12 / React 19]
-Relevant code: [paste code]
-
-Please: 1) Explain exactly why this error occurs, 2) Show the fixed code, 3) Explain what changed and why, 4) Suggest how to prevent this error in the future.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span><span class="ptag">Copilot</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Diseño de API REST" data-text-es="Diseña una API RESTful para [tipo de aplicación]. Proporciona: 1) Lista completa de endpoints con métodos HTTP, patrones de URL, esquemas de request/response y códigos de estado, 2) Enfoque de autenticación, 3) Estrategia de rate limiting, 4) Formato de respuesta de error, 5) Ejemplo request/response de los 3 endpoints más importantes. Usa formato OpenAPI 3.0.">
-        <div class="p-label">REST API Design</div>
-        <div class="p-text" onclick="copyPrompt(this)">Design a RESTful API for [application type]. Provide: 1) Complete endpoint list with HTTP methods, URL patterns, request/response schemas, and status codes, 2) Authentication approach with implementation notes, 3) Rate limiting strategy, 4) Error response format, 5) Example request/response for the 3 most important endpoints. Use OpenAPI 3.0 spec format.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Escribir Tests Unitarios" data-text-es="Escribe tests unitarios completos para esta función usando [pytest/Jest/JUnit]. Cubre TODOS estos casos: 1) Camino feliz, 2) Casos borde (vacío, null, valores límite), 3) Casos de error (entradas inválidas, excepciones), 4) Rendimiento si aplica. Cada test con nombre descriptivo. Incluye setup/teardown si es necesario.&#10;&#10;[pega la función]">
-        <div class="p-label">Write Unit Tests</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write comprehensive unit tests for this function using [pytest/Jest/JUnit]. Cover ALL of these: 1) Happy path with typical inputs, 2) Edge cases (empty, null, boundary values), 3) Error cases (invalid inputs, exceptions), 4) Performance if applicable. Each test must have a descriptive name. Include setup/teardown if needed.
-
-[paste function]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">Copilot</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Optimizador de Consultas SQL" data-text-es="Analiza y optimiza esta consulta SQL. Proporciona: 1) Qué hace la consulta actual paso a paso, 2) Cuellos de botella (con interpretación del plan EXPLAIN), 3) Versión optimizada con cambios resaltados, 4) Recomendaciones de índices con sentencias CREATE INDEX, 5) Estimación de mejora de rendimiento. Base de datos: [MySQL/PostgreSQL/etc].&#10;&#10;[pega la consulta]">
-        <div class="p-label">SQL Query Optimizer</div>
-        <div class="p-text" onclick="copyPrompt(this)">Analyze and optimize this SQL query for performance. Provide: 1) What the current query does step by step, 2) Performance bottlenecks (with EXPLAIN plan interpretation), 3) Optimized version with changes highlighted, 4) Index recommendations with CREATE INDEX statements, 5) Expected performance improvement estimate. Database: [MySQL/PostgreSQL/etc].
-
-[paste query]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Explicar Código" data-text-es="Explica este código en dos niveles: Primero, un resumen en lenguaje sencillo (2-3 frases) para un stakeholder no técnico. Segundo, un análisis técnico línea por línea para un desarrollador junior explicando: qué hace cada sección, por qué se tomaron ciertas decisiones, patrones utilizados y posibles trampas.&#10;&#10;[pega el código]">
-        <div class="p-label">Explain Code</div>
-        <div class="p-text" onclick="copyPrompt(this)">Explain this code at two levels: First, a plain English summary (2-3 sentences) for a non-technical stakeholder. Second, a technical line-by-line walkthrough for a junior developer explaining: what each section does, why certain decisions were made, patterns used (e.g. factory, singleton), and potential gotchas.
-
-[paste code]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span><span class="ptag">Copilot</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="business" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Plan de Negocio para Startup" data-text-es="Crea un plan de negocio lean para [idea de startup] dirigido a [mercado]. Incluye: 1) Problema y solución (1 párrafo cada uno), 2) Perfil del cliente objetivo con demografía y puntos de dolor, 3) Modelo de ingresos con 3 opciones de precios, 4) Estrategia go-to-market para los primeros 90 días, 5) Métricas clave a seguir con objetivos realistas para los meses 1, 3 y 6, 6) Los 3 principales riesgos y estrategias de mitigación.">
-        <div class="p-label">Startup Business Plan</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a lean business plan for [startup idea] targeting [market]. Include: 1) Problem and solution (1 paragraph each), 2) Target customer persona with demographics and pain points, 3) Revenue model with 3 pricing options, 4) Go-to-market strategy for the first 90 days with specific channels, 5) Key metrics to track with realistic targets for months 1, 3, and 6, 6) Top 3 risks and mitigation strategies.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Análisis Competitivo" data-text-es="Realiza un análisis competitivo de [empresa/producto] frente a sus 3-4 principales competidores. Para cada competidor: posición en el mercado, cliente objetivo, modelo de precios, las 3 principales fortalezas y las 2 principales debilidades. Luego: 1) Huecos en el mercado que ninguno cubre, 2) El posicionamiento más defendible, 3) 3 características específicas que ganarían clientes a cada competidor.">
-        <div class="p-label">Competitive Analysis</div>
-        <div class="p-text" onclick="copyPrompt(this)">Conduct a competitive analysis of [company/product] vs its top 3-4 competitors. For each competitor provide: market position, target customer, pricing model, top 3 strengths, top 2 weaknesses. Then synthesize: 1) Gaps in the market none of them are filling, 2) The most defensible positioning for [company/product], 3) 3 specific features that would win customers from each competitor.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Perplexity</span><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Resumen de Reunión" data-text-es="Resume esta transcripción/notas de reunión. Formato:&#10;RESUMEN (máx 3 frases)&#10;DECISIONES TOMADAS (lista de viñetas)&#10;PUNTOS DE ACCIÓN (tabla: Responsable | Tarea | Fecha límite)&#10;PREGUNTAS ABIERTAS (asuntos sin resolver)&#10;PRÓXIMA REUNIÓN (agenda sugerida)&#10;&#10;[pega la transcripción/notas]">
-        <div class="p-label">Meeting Summary</div>
-        <div class="p-text" onclick="copyPrompt(this)">Summarize this meeting transcript/notes and extract key information. Output format:
-MEETING SUMMARY (3 sentences max)
-DECISIONS MADE (bullet list)
-ACTION ITEMS (table: Owner | Task | Deadline)
-OPEN QUESTIONS (unresolved items)
-NEXT MEETING (suggested agenda)
-
-[paste transcript/notes]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Estrategia de Precios" data-text-es="Ayúdame a desarrollar una estrategia de precios para [producto/servicio]. Contexto: [mercado objetivo, precios de competidores, costes]. Analiza y recomienda: 1) Mejor modelo de precios con razonamiento, 2) 3 niveles de precios con lo que incluye cada uno, 3) Tácticas de precios psicológicos, 4) Cómo comunicar aumentos de precios, 5) Ideas de A/B test para optimizar la conversión.">
-        <div class="p-label">Pricing Strategy</div>
-        <div class="p-text" onclick="copyPrompt(this)">Help me develop a pricing strategy for [product/service]. Context: [target market, competitors prices, our costs]. Analyze and recommend: 1) Best pricing model (subscription/one-time/usage-based/freemium) with reasoning, 2) 3 pricing tiers with what is included in each, 3) Psychological pricing tactics, 4) How to communicate price increases, 5) A/B test ideas to optimize conversion.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Preparación para Entrevista" data-text-es="Tengo una entrevista para [puesto] en [tipo de empresa]. Prepárame: 1) Las 10 preguntas de entrevista más probables con marcos de respuesta, 2) 3 historias en formato STAR (mi perfil: [breve descripción]), 3) 5 cosas que investigar sobre la empresa, 4) Las 3 mejores preguntas que hacer al entrevistador, 5) Errores comunes que cometen los candidatos para este rol.">
-        <div class="p-label">Job Interview Prep</div>
-        <div class="p-text" onclick="copyPrompt(this)">I have an interview for [job title] at [company type]. Prepare me: 1) List the 10 most likely interview questions with ideal answer frameworks, 2) Generate 3 STAR-format stories I should prepare (my background: [brief background]), 3) Identify 5 things to research about the company, 4) The 3 best questions to ask the interviewer, 5) Common mistakes candidates make for this role.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Generador de OKRs" data-text-es="Genera OKRs trimestrales para [equipo/departamento] en empresa [etapa] del sector [industria]. Objetivo principal: [objetivo]. Para cada Objetivo, crea 3-4 Resultados Clave: específicos, medibles con un número, alcanzables en 90 días y orientados a resultados. Sugiere las 3 principales iniciativas para lograr estos KRs. Formato de tabla.">
-        <div class="p-label">OKR Generator</div>
-        <div class="p-text" onclick="copyPrompt(this)">Generate quarterly OKRs for a [team/department] at a [company stage] company in [industry]. Our main goal this quarter: [goal]. For each Objective, create 3-4 Key Results that are: specific, measurable with a number, achievable in 90 days, and outcome-focused. Suggest the top 3 initiatives to achieve these KRs. Format as a clean table.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="marketing" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Calendario de Redes Sociales" data-text-es="Crea un calendario de contenido de 2 semanas para [marca/producto] en [sector]. Audiencia: [descripción]. Plataformas: [Instagram/LinkedIn/X/TikTok]. Para cada post: día, plataforma, tipo de contenido, caption listo para publicar, hashtags (máx 5) y mejor hora. Mezcla: 40% educativo, 30% engagement, 20% promocional, 10% behind-the-scenes.">
-        <div class="p-label">Social Media Calendar</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a 2-week social media content calendar for [brand/product] in [industry]. Target audience: [description]. Platforms: [Instagram/LinkedIn/X/TikTok]. For each post include: day, platform, content type (reel/carousel/text), caption (ready to publish), hashtags (max 5), and best posting time. Mix: 40% educational, 30% engagement, 20% promotional, 10% behind-the-scenes.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Variaciones de Copy para Anuncios" data-text-es="Escribe 3 variaciones de copy para anuncios de [producto/servicio]. Audiencia: [demografía + intereses]. Objetivo: [conversiones/reconocimiento/leads]. Para cada variación: Gancho (1 línea), Cuerpo (3-4 líneas), CTA (máx 5 palabras). Variación 1: miedo/problema. Variación 2: aspiración/beneficio. Variación 3: prueba social/FOMO.">
-        <div class="p-label">Ad Copy Variations</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write 3 variations of Facebook/Instagram ad copy for [product/service]. Target audience: [demographics + interests]. Objective: [conversions/awareness/leads]. For each variation: Hook (1 line), Body (3-4 lines), CTA (5 words max). Variation 1: Fear/problem-focused. Variation 2: Aspiration/benefit-focused. Variation 3: Social proof/FOMO-focused.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Guía de Voz de Marca" data-text-es="Crea una guía de voz de marca para [nombre de marca] en [sector]. Valores: [valores], audiencia: [descripción]. Define: 1) Personalidad de marca (5 adjetivos con explicaciones), 2) Tono para distintos contextos (redes sociales vs servicio vs ventas), 3) Palabras/frases que siempre usar, 4) Palabras/frases que nunca usar, 5) Ejemplos antes/después para 3 escenarios comunes.">
-        <div class="p-label">Brand Voice Guide</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a brand voice guide for [brand name] in [industry]. Brand values: [values], target audience: [description]. Define: 1) Brand personality (5 adjectives with explanations), 2) Tone for different contexts (social media vs customer service vs sales), 3) Words/phrases to always use, 4) Words/phrases to never use, 5) Before/after examples for 3 common scenarios.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Newsletter por Email" data-text-es="Escribe una newsletter semanal para [nicho/sector]. Tema: [tema]. Audiencia: [suscriptores]. Formato: 1) Asunto (menos de 50 caracteres), 2) Texto de vista previa (menos de 90 caracteres), 3) Apertura personal (2-3 frases), 4) Insight o historia principal (200-250 palabras), 5) 3 recursos seleccionados (título + 1 frase), 6) Un consejo accionable para hoy, 7) Cierre.">
-        <div class="p-label">Email Newsletter</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a weekly email newsletter for [niche/industry]. Topic: [topic]. Audience: [subscribers]. Format: 1) Subject line (under 50 chars, curiosity-driven), 2) Preview text (under 90 chars), 3) Personal opening (2-3 sentences), 4) Main insight or story (200-250 words), 5) 3 curated resources (title + 1-sentence description), 6) One actionable tip for today, 7) Sign-off.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Estrategia de Hashtags" data-text-es="Crea una estrategia de hashtags para [marca/contenido] en [plataforma]. Nicho: [descripción]. Objetivo: máximo alcance orgánico. Proporciona: 1) 5 hashtags grandes (+1M) para descubrimiento, 2) 10 hashtags medianos (100K-1M) para relevancia, 3) 10 hashtags de nicho (-100K) para engagement, 4) 3 ideas de hashtags de marca, 5) Reglas para combinarlos.">
-        <div class="p-label">Hashtag Strategy</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a hashtag strategy for [brand/content type] on [platform]. Niche: [description]. Goal: maximum organic reach. Provide: 1) 5 large hashtags (1M+ posts) for discovery, 2) 10 medium hashtags (100K-1M) for relevance, 3) 10 small niche hashtags (under 100K) for engagement, 4) 3 branded hashtag ideas, 5) Rules for combining them for optimal reach.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Perplexity</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Copy para Landing Page" data-text-es="Escribe copy de alta conversión para landing page de [producto/servicio]. Cliente objetivo: [avatar]. Punto de dolor: [problema]. Beneficio clave: [transformación]. Estructura: 1) Headline principal + subheadline, 2) Agitación del problema (3 puntos de dolor), 3) Introducción de la solución, 4) 4 beneficios clave con iconos, 5) Sección de testimonios (3 placeholders), 6) FAQ de objeciones (3 preguntas), 7) CTA con urgencia.">
-        <div class="p-label">Landing Page Copy</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write high-converting landing page copy for [product/service]. Target customer: [avatar]. Pain point: [problem]. Key benefit: [transformation]. Structure: 1) Hero headline + subheadline, 2) Problem agitation (3 pain points), 3) Solution intro, 4) 4 key benefits with icons, 5) Social proof section (3 testimonials placeholder), 6) Objection handling FAQ (3 questions), 7) CTA with urgency.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="productivity" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Aprender Cualquier Cosa Rápido" data-text-es="Quiero aprender [habilidad/tema] y tengo [X horas/semanas] disponibles. Nivel actual: principiante completo / ya sé [conocimiento]. Crea un plan de aprendizaje: 1) El 20% de conceptos que dan el 80% de resultados (Pareto), 2) Horario día a día para la semana 1 con recursos específicos, 3) Un proyecto para practicar, 4) Cómo saber cuándo pasar al siguiente nivel, 5) Los 3 errores más comunes.">
-        <div class="p-label">Learn Anything Fast</div>
-        <div class="p-text" onclick="copyPrompt(this)">I want to learn [skill/topic] and have [X hours/weeks] available. Current level: complete beginner / I already know [existing knowledge]. Create a structured learning plan: 1) The 20% of concepts that give 80% of results (Pareto), 2) Day-by-day schedule for week 1 with specific resources, 3) A practice project to build, 4) How to know when ready for the next level, 5) The 3 most common beginner mistakes.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Planificación Diaria" data-text-es="Ayúdame a planificar mi día. Tareas: [lista tus tareas]. Restricciones: [horas disponibles, reuniones fijas, niveles de energía]. Usando time-blocking y el método MIT: 1) Identifica mis 3 prioridades principales, 2) Crea un horario hora a hora con estimaciones realistas, 3) Marca las tareas que delegar o eliminar, 4) Sugiere una victoria rápida para empezar, 5) Identifica distracciones probables y cómo prevenirlas.">
-        <div class="p-label">Daily Planning</div>
-        <div class="p-text" onclick="copyPrompt(this)">Help me plan my day. Tasks: [list your tasks]. Constraints: [available hours, fixed meetings, energy levels]. Using time-blocking and the MIT method: 1) Identify my top 3 priorities that will move the needle most, 2) Create an hour-by-hour schedule with realistic time estimates, 3) Flag tasks to delegate or delete, 4) Suggest one quick win to start with, 5) Identify likely distractions and how to prevent them.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Resumir y Extraer" data-text-es="Analiza este documento/artículo/informe. Proporciona: 1) TL;DR - el punto más importante en una frase, 2) Hechos y estadísticas clave (lista numerada), 3) Argumentos o recomendaciones principales con evidencia, 4) En qué se equivocó el autor o qué falta, 5) 3 puntos de acción que puedo tomar, 6) 3 preguntas de seguimiento para investigar.&#10;&#10;[pega el contenido]">
-        <div class="p-label">Summarize and Extract</div>
-        <div class="p-text" onclick="copyPrompt(this)">Analyze this document/article/report and extract the most valuable information. Provide: 1) TL;DR - the single most important takeaway in one sentence, 2) Key facts and statistics (numbered list), 3) Main arguments or recommendations (with evidence), 4) What the author got wrong or what is missing, 5) 3 action items I can take based on this content, 6) 3 follow-up questions to research.
-
-[paste content]</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Lluvia de Ideas" data-text-es="Necesito ideas creativas para [problema/proyecto/desafío]. Contexto: [antecedentes]. Restricciones: [presupuesto, tiempo, recursos]. Genera ideas en 3 rondas: Ronda 1 - 10 ideas obvias/convencionales. Ronda 2 - 10 ideas no convencionales/sorprendentes. Ronda 3 - 5 ideas &quot;¿qué pasaría si combinamos X + Y?&quot; con breve explicación de por qué podrían funcionar. No filtres por factibilidad.">
-        <div class="p-label">Brainstorm Ideas</div>
-        <div class="p-text" onclick="copyPrompt(this)">I need creative ideas for [problem/project/challenge]. Context: [relevant background]. Constraints: [budget, time, resources]. Generate ideas in 3 rounds: Round 1 - 10 obvious/conventional ideas. Round 2 - 10 unconventional/surprising ideas. Round 3 - 5 "what if we combined X + Y" ideas with brief explanations of why they might work. Do not filter by feasibility.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Marco de Decisión" data-text-es="Ayúdame a tomar una decisión sobre [decisión]. Opciones: [opción A vs opción B vs opción C]. Lo que me importa: [criterios/valores]. Por favor: 1) Crea una matriz de decisión ponderada, 2) Haz de abogado del diablo para cada opción, 3) Identifica qué información me falta, 4) Qué harías en mi situación y por qué, 5) ¿Qué es probable que lamente NO haber hecho en 5 años?">
-        <div class="p-label">Decision Framework</div>
-        <div class="p-text" onclick="copyPrompt(this)">Help me make a decision about [decision]. Options I am considering: [option A vs option B vs option C]. What matters to me: [your criteria/values]. Please: 1) Create a weighted decision matrix, 2) Play devil's advocate for each option, 3) Identify what information I am missing, 4) What would you do in my situation and why, 5) What will I likely regret NOT doing in 5 years?</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Crear una Guía de Estudio" data-text-es="Crea una guía de estudio completa para [examen/certificación/materia]. Tengo [X días] para prepararme. Nivel actual: [principiante/intermedio]. Incluye: 1) Resumen del tema y conceptos importantes ordenados por peso en el examen, 2) Hoja de referencia de una página, 3) 10 preguntas de práctica con explicaciones detalladas, 4) Técnicas de memorización para los conceptos más difíciles, 5) Plan de estudio día a día.">
-        <div class="p-label">Build a Study Guide</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a comprehensive study guide for [exam/certification/subject]. I have [X days] to prepare. Current knowledge level: [beginner/intermediate]. Include: 1) Topic overview and most important concepts ranked by exam weight, 2) One-page cheat sheet of formulas, terms, or key facts, 3) 10 practice questions with detailed answer explanations, 4) Memory techniques for the hardest concepts, 5) Day-by-day study schedule.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="creative" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Midjourney Fotorrealista" data-text-es="[Sujeto: ej. mujer de 30 años], [contexto: ej. caminando por Tokio bajo la lluvia], estilo fotografía callejera, Leica Q2, lente 35mm, f/2.8, luz ambiental natural, reflejos mojados en el pavimento, gradación de color cinematográfica, textura de grano, hiperrealista --ar 4:5 --v 7 --style raw --q 2">
-        <div class="p-label">Midjourney Photorealistic</div>
-        <div class="p-text" onclick="copyPrompt(this)">[Subject: e.g. woman in her 30s], [context: e.g. walking through rainy Tokyo], street photography style, Leica Q2, 35mm lens, f/2.8, natural ambient light, wet reflections on pavement, cinematic color grade, grain texture, hyper-realistic --ar 4:5 --v 7 --style raw --q 2</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Midjourney</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Midjourney Foto de Producto" data-text-es="[Producto: ej. frasco de perfume de vidrio minimalista], fotografía de producto en estudio, fondo blanco continuo, iluminación de tres puntos, sombras suaves, enfoque nítido, estética de marca de lujo, calidad comercial de alta resolución, formato medio Phase One --ar 1:1 --v 7 --style raw --q 2 --no text logos watermarks">
-        <div class="p-label">Midjourney Product Photo</div>
-        <div class="p-text" onclick="copyPrompt(this)">[Product: e.g. minimalist glass perfume bottle], studio product photography, white seamless background, three-point lighting setup, soft shadows, sharp focus on product, luxury brand aesthetic, high resolution commercial quality, shot on Phase One medium format --ar 1:1 --v 7 --style raw --q 2 --no text logos watermarks</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Midjourney</span><span class="ptag">DALL-E</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Concepto de Logo de Marca" data-text-es="Diseño de logo minimalista para [nombre de marca] en [sector], estilo vector plano, paleta de colores [color primario] y [color secundario], formas geométricas limpias, escalable, funciona en fondos claros y oscuros, profesional y moderno, sin texto, solo icono, fondo blanco --ar 1:1 --v 7 --style raw">
-        <div class="p-label">Brand Logo Concept</div>
-        <div class="p-text" onclick="copyPrompt(this)">Minimalist logo design for [brand name] in [industry], flat vector style, [primary color] and [secondary color] color palette, clean geometric shapes, scalable, works on both light and dark backgrounds, professional and modern, no text, icon only, white background --ar 1:1 --v 7 --style raw</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Midjourney</span><span class="ptag">DALL-E</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Historia Corta" data-text-es="Escribe una historia corta de [género: thriller/romance/ciencia ficción/literario] de exactamente 800 palabras. Escenario: [tiempo y lugar]. Protagonista: [breve descripción con un defecto]. Conflicto: [el problema central]. Requisitos: empieza in medias res (en plena acción), usa detalles sensoriales específicos, construye hacia un giro en las últimas 150 palabras, termina con una imagen, no con una lección.">
-        <div class="p-label">Short Story</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a [genre: thriller/romance/sci-fi/literary] short story of exactly 800 words. Setting: [time and place]. Protagonist: [brief character description with one flaw]. Conflict: [the central problem]. Requirements: Start in medias res (mid-action), use specific sensory details, build to a twist in the final 150 words, end on an image not a lesson.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="DALL-E Imagen con Texto" data-text-es="Crea un [póster/miniatura/banner] para [evento/contenido/producto]. Estilo: [diseño plano moderno/ilustrado/fotográfico]. Colores: [colores]. Debe incluir este texto en letras grandes y en negrita: &quot;[TU TEXTO]&quot;. Diseño: texto en la parte [superior/central/inferior], sujeto ocupando el [60/70/80]% del encuadre. Ambiente: [enérgico/profesional/tranquilo]. Formato: [16:9 YouTube / 1:1 Instagram / 4:5 Stories].">
-        <div class="p-label">DALL-E Image with Text</div>
-        <div class="p-text" onclick="copyPrompt(this)">Create a [poster/thumbnail/banner] for [event/content/product]. Style: [modern flat/illustrated/photographic]. Color scheme: [colors]. Must include this text in large bold letters: "[YOUR TEXT]". Layout: text at the [top/center/bottom], subject taking up [60/70/80]% of the frame. Mood: [energetic/professional/calm]. Format: [16:9 for YouTube / 1:1 for Instagram / 4:5 for Stories].</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">DALL-E</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Guión de Podcast" data-text-es="Escribe un guión para episodio de podcast de [nombre/nicho]. Tema: [tema]. Duración: [15/30/45 minutos]. Formato: [solo/entrevista/co-presentadores]. Incluye: 1) Gancho de introducción con un dato sorprendente, 2) Resumen del episodio, 3) Contenido principal en 3 capítulos con transiciones naturales, 4) Ejemplos o historias para cada capítulo, 5) Desafío o takeaway para el oyente, 6) Cierre con CTA. Lenguaje conversacional, sin jerga.">
-        <div class="p-label">Podcast Script</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write a podcast episode script for [podcast name/niche]. Topic: [topic]. Duration: [15/30/45 minutes]. Format: [solo/interview/co-host]. Include: 1) Intro hook with a surprising fact, 2) Episode overview, 3) Main content in 3 chapters with natural transitions, 4) Specific examples or stories for each chapter, 5) Listener challenge or takeaway, 6) Outro with CTA. Use conversational language, no jargon.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
-    <div class="prompt-cat-group" data-cat="research" style="display:none"><div class="prompt-grid"><div class="p-cell fade-up" data-title-es="Investigación en Profundidad" data-text-es="Investiga [tema] de forma exhaustiva. Proporciona: 1) Resumen ejecutivo (5 frases), 2) Contexto histórico y evolución, 3) Estado actual en 2026 con los desarrollos más recientes, 4) Estadísticas y datos clave con fuentes, 5) Principales debates o controversias, 6) Expertos y organizaciones líderes, 7) Perspectiva futura (próximos 2-3 años), 8) Vacíos en la investigación actual. Cita todas las fuentes con fechas.">
-        <div class="p-label">In-depth Research</div>
-        <div class="p-text" onclick="copyPrompt(this)">Research [topic] comprehensively. Provide: 1) Executive summary (5 sentences), 2) Historical context and evolution, 3) Current state in 2026 with the most recent developments, 4) Key statistics and data points with sources, 5) Main debates or controversies, 6) Leading experts and organizations, 7) Future outlook (next 2-3 years), 8) Gaps in current research. Cite all sources with dates.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Perplexity</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Verificación de Hechos" data-text-es="Verifica exhaustivamente esta afirmación: &quot;[afirmación]&quot;&#10;&#10;Proporciona: 1) Veredicto: VERDADERO / MAYORMENTE VERDADERO / MIXTO / MAYORMENTE FALSO / FALSO, 2) Evidencia A FAVOR con fuentes, 3) Evidencia EN CONTRA con fuentes, 4) Contexto importante que cambia la interpretación, 5) Lo que dicen las fuentes más creíbles, 6) Nivel de confianza en tu veredicto (alto/medio/bajo) y por qué.">
-        <div class="p-label">Fact Check</div>
-        <div class="p-text" onclick="copyPrompt(this)">Fact-check this claim thoroughly: "[claim]"
-
-Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evidence FOR the claim (with sources), 3) Evidence AGAINST the claim (with sources), 4) Important context that changes how we should interpret it, 5) What the most credible sources say, 6) Confidence level in your verdict (high/medium/low) and why.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Perplexity</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Análisis DAFO" data-text-es="Realiza un análisis DAFO detallado para [empresa/producto/proyecto/persona]. Para cada cuadrante proporciona al menos 5 puntos específicos y no obvios. Luego: 1) Clasifica los 3 elementos más críticos en todos los cuadrantes, 2) Identifica 2 estrategias FO (fortalezas para aprovechar oportunidades), 3) Identifica 2 estrategias DA (minimizar debilidades para evitar amenazas), 4) La acción más importante en los próximos 30 días.">
-        <div class="p-label">SWOT Analysis</div>
-        <div class="p-text" onclick="copyPrompt(this)">Conduct a detailed SWOT analysis for [company/product/project/person]. For each quadrant provide at least 5 specific, non-obvious points. Then: 1) Rank the top 3 most critical items across all quadrants, 2) Identify 2 SO strategies (use strengths to exploit opportunities), 3) Identify 2 WT strategies (minimize weaknesses to avoid threats), 4) The single most important action to take in the next 30 days.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span><span class="ptag">Perplexity</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Revisión de Literatura" data-text-es="Escribe una revisión de literatura académica sobre [tema de investigación]. Alcance: [últimos 5-10 años / obras fundamentales]. Estructura: 1) Introducción que define el alcance y por qué importa, 2) Síntesis temática de las principales corrientes de investigación, 3) Enfoques metodológicos utilizados, 4) Hallazgos clave y puntos de consenso, 5) Contradicciones y vacíos en la literatura, 6) Direcciones para investigaciones futuras. Tono académico.">
-        <div class="p-label">Literature Review</div>
-        <div class="p-text" onclick="copyPrompt(this)">Write an academic literature review on [research topic]. Scope: [last 5-10 years / seminal works]. Structure: 1) Introduction defining scope and why this topic matters, 2) Thematic synthesis of major research streams, 3) Methodological approaches used in the field, 4) Key findings and consensus points, 5) Contradictions and gaps in the literature, 6) Directions for future research. Use academic tone.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Perplexity</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Diseño de Encuesta" data-text-es="Diseña una encuesta para medir [lo que quieres aprender] para [encuestados objetivo]. Requisitos: máximo 10 preguntas, 5 minutos de finalización. Incluye: 2-3 preguntas demográficas, 4-5 preguntas de investigación con escalas Likert, 1-2 preguntas abiertas y 1 pregunta NPS. Evita: preguntas tendenciosas, de doble cañón, jerga. Proporciona la encuesta + explicación de por qué se incluyó cada pregunta.">
-        <div class="p-label">Survey Design</div>
-        <div class="p-text" onclick="copyPrompt(this)">Design a survey to measure [what you want to learn] for [target respondents]. Requirements: max 10 questions, 5-minute completion time. Include: 2-3 demographic questions, 4-5 core research questions using Likert scales where appropriate, 1-2 open-ended questions, and 1 NPS question. Avoid: leading questions, double-barreled questions, jargon. Provide the survey + a brief explanation of why each question was included.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">ChatGPT</span><span class="ptag">Claude</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div><div class="p-cell fade-up" data-title-es="Ingeniería de Prompts" data-text-es="Necesito escribir un prompt para [tarea específica]. La IA se usará para [contexto/aplicación]. El resultado debe ser [formato/longitud/tono]. Ayúdame: 1) Identificando las 3 variables clave, 2) Sugiriendo el mejor rol/persona para la IA, 3) Escribiendo un primer borrador del prompt, 4) Probándolo contra 2 casos borde y refinándolo, 5) Proporcionando el prompt final optimizado con explicación de por qué se incluyó cada elemento.">
-        <div class="p-label">AI Prompt Engineering</div>
-        <div class="p-text" onclick="copyPrompt(this)">I need to write a prompt for [specific task]. The AI will be used for [context/application]. The output must be [format/length/tone]. Help me: 1) Identify the 3 key variables in this task, 2) Suggest the best role/persona for the AI, 3) Write a first draft of the prompt, 4) Test it against 2 edge cases and refine, 5) Provide the final optimized prompt with an explanation of why each element is included.</div>
-        <div class="p-meta"><div class="p-tags"><span class="ptag">Claude</span><span class="ptag">ChatGPT</span></div><button class="copy-btn" onclick="copyPromptBtn(this)">Copy</button></div>
-      </div></div></div>
     
+    <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px 20px;margin-bottom:22px;font-size:.78rem;color:var(--dim);display:flex;flex-wrap:wrap;gap:10px;align-items:center">
+      <span style="color:var(--muted);font-weight:600">📚 Curated from:</span>
+      <a href="https://prompthero.com" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">PromptHero</a>
+      <span>·</span>
+      <a href="https://flowgpt.com" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">FlowGPT</a>
+      <span>·</span>
+      <a href="https://promptbase.com" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">PromptBase</a>
+      <span>·</span>
+      <a href="https://godofprompt.ai" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">God of Prompt</a>
+      <span>·</span>
+      <a href="https://www.aiprm.com" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">AIPRM</a>
+      <span>·</span>
+      <a href="https://docs.anthropic.com/claude/prompt-library" target="_blank" rel="noopener" style="color:var(--teal3);text-decoration:none">Anthropic Library</a>
     </div>
+    <div id="prompts-container">
+<div class="prompt-cat-group" data-cat="writing"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Artículo SEO" data-text-es="Escribe un artículo de 1.500 palabras sobre &quot;[keyword]&quot;. Requisitos: keyword en H1 y primeros 100 caracteres, 3 subtítulos H2 con keywords LSI, define el término en el primer párrafo, incluye 2 ejemplos prácticos, termina con un CTA accionable. Tono: experto pero accesible. Sin relleno. Lector objetivo: [describir audiencia].">
+<div class="p-label">SEO Blog Post</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a 1,500-word article about &quot;[keyword]&quot;. Requirements: keyword in H1 and first 100 characters, 3 H2 subtitles with LSI keywords, define the term in the first paragraph, include 2 practical examples, end with an actionable CTA. Tone: expert but accessible. No fluff or filler. Target reader: [describe audience].</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Email en frío que genera respuestas" data-text-es="Escribe un email de prospección en frío para [cargo] en [tipo de empresa]. Objetivo: agendar una llamada de 15 minutos. Abre con un problema específico — no con halagos. Menos de 100 palabras. Un CTA claro. Sin &quot;Espero que este email te encuentre bien.&quot; Asunto: menos de 6 palabras con urgencia. Tono: seguro y directo.">
+<div class="p-label">Cold Email That Gets Replies</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a cold outreach email to [job title] at [company type]. Goal: book a 15-minute call. Open with a specific pain point — not a compliment. Under 100 words. One clear CTA. No &quot;I hope this finds you well.&quot; Subject line: under 6 words, create urgency. Tone: confident and direct.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Post de LinkedIn con engagement" data-text-es="Escribe un post de LinkedIn sobre [tema]. Línea 1: gancho — afirmación audaz o dato sorprendente (SIN preguntas). Líneas 2-4: historia o contexto. Líneas 5-8: 3-4 insights numerados. Línea final: conclusión simple (no pregunta). Sin emojis ni hashtags. Máx 250 palabras. Tono conversacional.">
+<div class="p-label">LinkedIn Post That Gets Engagement</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a LinkedIn post about [topic]. Line 1: hook — a bold statement or surprising fact (NO questions). Lines 2-4: story or context. Lines 5-8: 3-4 numbered insights. Final line: simple takeaway (not a question). No emojis. No hashtags. Max 250 words. Conversational tone.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Asuntos de email A/B" data-text-es="Escribe 10 asuntos de email para una campaña sobre [tema/oferta]. Mezcla: urgencia (2), curiosidad (2), número/lista (2), personalización (2), beneficio primero (2). Para cada uno, escribe un preview de 90 caracteres. Señala cuáles 3 probarías en A/B primero y por qué.">
+<div class="p-label">Email Subject Lines A/B Test</div>
+<div class="p-text" onclick="copyPrompt(this)">Write 10 subject lines for an email campaign about [topic/offer]. Mix: urgency (2), curiosity gap (2), number/list (2), personalization (2), benefit-first (2). For each, write a 90-character preview text. Mark the 3 you would A/B test first and why.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Descripción de producto que convierte" data-text-es="Escribe una descripción de producto para [nombre del producto]. Comprador: [persona]. Características clave: [lista 3-5]. Transformación principal: [antes → después]. Formato: gancho (1 oración), lista de 3 beneficios comenzando con verbo, marcador de prueba social y CTA. Menos de 150 palabras. Sin jerga. Enfócate en resultados.">
+<div class="p-label">Product Description That Converts</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a product description for [product]. Buyer: [persona]. Key features: [list 3-5]. Main transformation: [before → after]. Format: opening hook (1 sentence), 3-bullet benefit list (each starting with a verb), social proof placeholder, CTA. Under 150 words. Zero jargon. Focus on outcomes, not specs.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Hilo de Twitter / X viral" data-text-es="Escribe un hilo de 8 tweets sobre [tema]. Tweet 1: afirmación audaz o dato contraintuitivo. Tweets 2-7: un insight específico por tweet con datos o ejemplos. Cada uno de menos de 280 caracteres. Tweet 8: resumen + CTA suave de seguir. Sin relleno. Empieza fuerte.">
+<div class="p-label">Thread Twitter / X Viral</div>
+<div class="p-text" onclick="copyPrompt(this)">Write an 8-tweet thread about [topic]. Tweet 1: bold claim or counterintuitive fact. Tweets 2-7: one specific insight per tweet with data or examples. Each under 280 chars. Tweet 8: summary + soft CTA to follow. No filler. Start strong.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Plantilla de caso de éxito" data-text-es="Escribe un caso de éxito para [empresa/producto] sobre cliente [industria]. Estructura: (1) El desafío (contexto específico), (2) Por qué nos eligieron (3 razones específicas), (3) Implementación (cronograma), (4) Resultados (números específicos: mejoras %, tiempo ahorrado, impacto en ingresos), (5) Cita atribuida. Tono: creíble y específico.">
+<div class="p-label">Case Study Template</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a customer case study for [company/product] about client [industry]. Structure: (1) Challenge (specific context), (2) Why they chose us (3 specific reasons), (3) Implementation (timeline), (4) Results (specific numbers: % improvements, time saved, revenue impact), (5) Attributed quote. Tone: credible and specific.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Newsletter semanal" data-text-es="Escribe una newsletter semanal para [audiencia] sobre [tema]. Esta semana: [tema]. Incluye: asunto (menos de 50 caracteres), apertura personal de 2 oraciones, un insight principal (200 palabras con ejemplo), un consejo práctico y una oración reflexiva de cierre. Menos de 400 palabras en total.">
+<div class="p-label">Weekly Newsletter</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a weekly newsletter for [audience] about [topic]. This week: [theme]. Include: subject (under 50 chars), 2-sentence personal opening, one main insight (200 words with example), one practical tip, and a single thought-provoking closing sentence. Under 400 words total.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Esquema de libro" data-text-es="Crea un esquema de 10 capítulos para un libro de no ficción sobre [tema] para [lector]. Argumento central: [tesis]. Para cada capítulo: título, descripción de 3 oraciones, transformación del lector en ese capítulo y 2 ejemplos o historias específicas a incluir.">
+<div class="p-label">Book Chapter Outline</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a 10-chapter outline for a non-fiction book about [topic] for [reader]. Central argument: [thesis]. For each chapter: title, 3-sentence description, reader transformation in that chapter, and 2 specific examples or stories to include.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Guión de discurso" data-text-es="Escribe un discurso de [duración] minutos sobre [tema] para [audiencia]. Apertura: una historia o escenario (no estadística). Cuerpo: 3 puntos clave, cada uno con un ejemplo y una frase memorable. Cierre: retoma la apertura + un CTA claro. Incluye marcadores [PAUSA] y [ÉNFASIS]. Tono: [autoritario/inspirador/conversacional].">
+<div class="p-label">Speech Script</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a [duration]-minute speech about [topic] for [audience]. Opening: a story or scenario (not a statistic). Body: 3 key points, each with one example and a memorable phrase. Closing: call back to the opening + one clear CTA. Include [PAUSE] and [EMPHASIS] markers. Tone: [authoritative/inspiring/conversational].</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="coding"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Revisión de código completa" data-text-es="Revisa este código en [lenguaje] como ingeniero senior. Para cada problema: categoriza como [BUG], [SEGURIDAD], [RENDIMIENTO], [LEGIBILIDAD] o [MEJORA]. Para cada uno: explica el problema, por qué importa y muestra la versión corregida. Termina con un párrafo de evaluación general.
+
+Código: [pega el código]">
+<div class="p-label">Full Code Review</div>
+<div class="p-text" onclick="copyPrompt(this)">Review this [language] code as a senior engineer. For each issue: categorize as [BUG], [SECURITY], [PERFORMANCE], [READABILITY], or [IMPROVEMENT]. For each: explain the problem, why it matters, and show the corrected version. End with a 1-paragraph overall assessment.
+
+Code: [paste code]</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Escribir tests unitarios" data-text-es="Escribe tests unitarios completos para esta función en [lenguaje] usando [Jest/pytest/JUnit]. Cubre: (1) camino feliz, (2) casos borde (entrada vacía, null, valores límite), (3) manejo de errores, (4) comportamiento asíncrono si aplica. Simula dependencias externas. Nombra cada test descriptivamente.
+
+Función: [pega el código]">
+<div class="p-label">Write Unit Tests</div>
+<div class="p-text" onclick="copyPrompt(this)">Write comprehensive unit tests for this [language] function using [Jest/pytest/JUnit]. Cover: (1) happy path, (2) edge cases (empty input, null, boundary values), (3) error handling, (4) async behavior if applicable. Mock external dependencies. Name each test descriptively.
+
+Function: [paste code]</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Depurar este error" data-text-es="Obtengo este error: [pega el error + stack trace]. El código relevante es: [pega el código]. Contexto del sistema: [describe tu stack/entorno]. Dame: (1) causa raíz (específica), (2) por qué ocurre en este contexto, (3) la solución exacta con código corregido, (4) cómo prevenir este tipo de error. Si hay múltiples causas posibles, ordénalas por probabilidad.">
+<div class="p-label">Debug This Error</div>
+<div class="p-text" onclick="copyPrompt(this)">I am getting this error: [paste error + stack trace]. The relevant code is: [paste code]. System context: [describe stack/environment]. Give me: (1) root cause (specific), (2) why it happens in this context, (3) the exact fix with corrected code, (4) how to prevent this type of error. If multiple possible causes, rank by likelihood.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Diseño de API REST" data-text-es="Diseña una API RESTful para [sistema]. Para cada endpoint: método HTTP + ruta, esquema del cuerpo de solicitud (tipos de campo + requerido/opcional), esquema de respuesta exitosa, respuestas de error (códigos de estado + formato), limitación de tasa y requisitos de autenticación. Incluye convenciones de nomenclatura, estrategia de versionado y un ejemplo cURL por endpoint. Sé categórico — explica tus decisiones de diseño.">
+<div class="p-label">API Design</div>
+<div class="p-text" onclick="copyPrompt(this)">Design a RESTful API for [system]. For each endpoint: HTTP method + path, request body schema (field types + required/optional), success response schema, error responses (status codes + body format), rate limiting, and auth requirements. Include naming conventions, versioning strategy, and one cURL example per endpoint. Be opinionated — explain your design decisions.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Refactorizar código heredado" data-text-es="Refactoriza este código en [lenguaje]. Problemas conocidos: [lista]. Aplica: (1) reemplaza antipatrones con equivalentes modernos, (2) mejora los nombres, (3) reduce la complejidad (objetivo: complejidad ciclomática menor a 10), (4) agrega manejo de errores, (5) hazlo testeable. Muestra antes/después lado a lado. Explica cada cambio. No cambies el comportamiento.
+
+Código: [pega]">
+<div class="p-label">Refactor Legacy Code</div>
+<div class="p-text" onclick="copyPrompt(this)">Refactor this [language] code. Known issues: [list]. Apply: (1) replace anti-patterns with modern equivalents, (2) improve naming, (3) reduce complexity (target cyclomatic complexity under 10), (4) add error handling, (5) make it testable. Show before/after side by side. Explain each change. Do not change behavior.
+
+Code: [paste]</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Arquitectura de sistema" data-text-es="Diseña la arquitectura para [sistema] que maneja [escala: usuarios/solicitudes por segundo]. Incluye: (1) diagrama de componentes en formato texto, (2) elecciones tecnológicas con justificación, (3) flujo de datos entre componentes, (4) diseño de base de datos (relacional/NoSQL con esquema borrador), (5) cómo manejas [desafío específico], (6) costo estimado de infraestructura a escala. Nombra tecnologías específicas.">
+<div class="p-label">System Architecture</div>
+<div class="p-text" onclick="copyPrompt(this)">Design the architecture for [system] that handles [scale: users/req per second]. Include: (1) component diagram in text format, (2) technology choices with justification, (3) data flow between components, (4) database design (relational/NoSQL with schema sketch), (5) how you handle [specific challenge], (6) estimated infrastructure cost at scale. Name specific technologies.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Consulta SQL optimizada" data-text-es="Escribe una consulta SQL para: [descripción de la tarea]. Esquema: [pega las definiciones de tablas]. Requisitos: (1) optimiza para rendimiento (índices apropiados, evita N+1), (2) maneja NULLs explícitamente, (3) comenta partes complejas, (4) muestra la salida esperada con datos de ejemplo. Si existen múltiples enfoques, muestra el más eficiente y explica los compromisos.">
+<div class="p-label">SQL Query Optimization</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a SQL query for: [task description]. Schema: [paste table definitions]. Requirements: (1) optimize for performance (appropriate indexes, avoid N+1), (2) handle NULLs explicitly, (3) comment complex parts, (4) show expected output with example data. If multiple approaches exist, show the most performant and explain the trade-offs.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Auditoría de seguridad de código" data-text-es="Realiza una auditoría de seguridad en este código en [lenguaje]. Verifica: (1) vulnerabilidades de inyección (SQL, NoSQL, comandos), (2) problemas de autenticación/autorización, (3) exposición de datos sensibles, (4) dependencias inseguras, (5) brechas de validación de entrada, (6) OWASP Top 10. Para cada vulnerabilidad: gravedad, descripción, escenario de ataque y corrección con código seguro.
+
+Código: [pega]">
+<div class="p-label">Security Audit</div>
+<div class="p-text" onclick="copyPrompt(this)">Perform a security audit on this [language] code. Check for: (1) injection vulnerabilities (SQL, NoSQL, command), (2) auth/authorization issues, (3) sensitive data exposure, (4) insecure dependencies, (5) input validation gaps, (6) OWASP Top 10. For each vulnerability: severity (Critical/High/Medium/Low), description, attack scenario, and fix with secure code example.
+
+Code: [paste]</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Escribe un README" data-text-es="Escribe un README.md completo para [nombre del proyecto]. Incluye: (1) descripción de una línea, (2) problema que resuelve, (3) requisitos previos con versiones exactas, (4) instalación paso a paso (comandos para copiar), (5) ejemplos de uso con código real, (6) tabla de opciones de configuración (opción, tipo, predeterminado, descripción), (7) guías de contribución, (8) licencia. Escríbelo para alguien que nunca ha oído de este proyecto.">
+<div class="p-label">Write a README</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a complete README.md for [project name]. Include: (1) one-line description, (2) problem it solves, (3) prerequisites with exact versions, (4) step-by-step installation (copy-paste commands), (5) usage examples with real code, (6) configuration options table (option, type, default, description), (7) contributing guidelines, (8) license. Write for someone who has never heard of this project.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Optimización de rendimiento" data-text-es="Analiza este código en busca de problemas de rendimiento: [pega el código]. Contexto: se ejecuta [cuándo/frecuencia] con [tamaño de datos]. Para cada problema: estima el impacto (crítico/alto/medio/bajo), explica por qué es lento, proporciona la versión optimizada y estima la mejora. Dame una lista ordenada por prioridad: qué arreglar primero para el máximo impacto.">
+<div class="p-label">Performance Optimization</div>
+<div class="p-text" onclick="copyPrompt(this)">Analyze this code for performance issues: [paste code]. Context: runs [when/how often] with [data size]. For each issue: estimate impact (critical/high/medium/low), explain why it is slow, provide the optimized version, and estimate improvement. Give a priority-ordered list: what to fix first for maximum impact.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Explica código de forma simple" data-text-es="Explica qué hace este código a alguien que conoce los básicos de programación pero nunca ha visto [lenguaje/framework]. Usa una analogía del mundo real para el propósito general. Recorre cada sección: qué hace, por qué está escrito así y qué pasa si se quita. Destaca patrones que un principiante debería conocer.
+
+Código: [pega]">
+<div class="p-label">Explain Code Simply</div>
+<div class="p-text" onclick="copyPrompt(this)">Explain what this code does to someone who knows programming basics but has never seen [language/framework]. Use a real-world analogy for the overall purpose. Walk through each section: what it does, why it is written this way, and what happens if removed. Highlight patterns a beginner should know.
+
+Code: [paste]</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="business"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Resumen ejecutivo" data-text-es="Escribe un resumen ejecutivo para [nombre de empresa], un [tipo de negocio] dirigido a [mercado]. Cubre: (1) problema resuelto (específico), (2) solución y ventaja única, (3) tamaño de mercado (TAM/SAM/SOM con estimaciones realistas), (4) modelo de negocio e ingresos, (5) tracción/estrategia go-to-market, (6) credenciales del equipo, (7) solicitud de financiación y uso. Menos de 600 palabras. Escribe para un inversor escéptico.">
+<div class="p-label">Business Plan Executive Summary</div>
+<div class="p-text" onclick="copyPrompt(this)">Write an executive summary for [company name], a [business type] targeting [market]. Cover: (1) problem solved (specific), (2) solution and unique advantage, (3) market size (TAM/SAM/SOM with realistic estimates), (4) business model and revenue streams, (5) traction/go-to-market strategy, (6) team credentials, (7) funding ask and use. Under 600 words. Write for a skeptical investor.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Análisis DAFO / SWOT" data-text-es="Realiza un análisis DAFO detallado para [empresa/producto]. Para cada cuadrante: 5 puntos específicos y sustanciales — no observaciones genéricas. Para Debilidades y Amenazas: sé brutalmente honesto. Para Oportunidades: enfócate en las accionables dentro de [plazo]. Termina con: 2 principales prioridades estratégicas y 2 principales riesgos a mitigar.">
+<div class="p-label">SWOT Analysis</div>
+<div class="p-text" onclick="copyPrompt(this)">Conduct a detailed SWOT analysis for [company/product]. For each quadrant: 5 specific, substantive points — not generic observations. For Weaknesses and Threats: be brutally honest. For Opportunities: focus on actionable ones within [timeframe]. End with: top 2 strategic priorities (SO strategy) and top 2 risks to mitigate (WT strategy).</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Framework de OKRs" data-text-es="Escribe OKRs para [departamento] para [trimestre]. Proporciona 3 Objetivos (inspiradores, cualitativos, alcanzables). Cada uno con 3-4 Resultados Clave que sean: medibles con un número específico, binarios (logrado o no), directamente vinculados al objetivo. Para cada RC: línea base, objetivo y cómo se medirá. Evita métricas de vanidad.">
+<div class="p-label">OKR Framework</div>
+<div class="p-text" onclick="copyPrompt(this)">Write OKRs for [department] for [quarter]. Provide 3 Objectives (inspiring, qualitative, achievable). Each with 3-4 Key Results that are: measurable with a specific number, binary (achieved or not), tied directly to the objective. For each KR: baseline (current state), target, and how it will be measured. Avoid vanity metrics.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Análisis de competencia" data-text-es="Crea un análisis competitivo de [tu producto] vs [competidor 1], [competidor 2], [competidor 3]. Para cada competidor: posicionamiento, características clave, precios, fortalezas, debilidades y estrategia de crecimiento. Luego: (1) ¿Dónde ganamos? (2) ¿Dónde somos más vulnerables? (3) ¿Qué brecha del mercado nadie está llenando? (4) ¿Qué pasa si el mayor competidor reduce precios un 30%?">
+<div class="p-label">Competitive Analysis</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a competitive analysis of [your product] vs [competitor 1], [competitor 2], [competitor 3]. For each competitor: positioning, key features, pricing, strengths, weaknesses, and growth strategy. Then: (1) Where do we win? (2) Where are we most vulnerable? (3) What market gap are none of them filling? (4) What happens if the biggest competitor cuts prices 30%?</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Esquema de pitch deck para inversores" data-text-es="Crea un esquema de pitch deck de 12 diapositivas para [nombre de startup], una startup de [categoría] en etapa [pre-seed/seed/Serie A]. Para cada diapositiva: título, 3-4 puntos de contenido, lo que un inversor debe sentir/entender y la pregunta que debe responder. Diapositivas: Problema, Solución, Tamaño de mercado, Producto, Modelo de negocio, Tracción, Go-To-Market, Equipo, Competencia, Finanzas (3 años), La solicitud, Apéndice.">
+<div class="p-label">Investor Pitch Deck Outline</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a 12-slide investor pitch deck outline for [startup name], a [category] startup at [stage: pre-seed/seed/Series A]. For each slide: title, 3-4 bullet points of content, what an investor should feel/understand, and the one question this slide must answer. Slides: Problem, Solution, Market Size, Product, Business Model, Traction, Go-To-Market, Team, Competition, Financials (3-year projection), The Ask, Appendix.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Evaluación de desempeño" data-text-es="Escribe una evaluación de desempeño para [empleado/cargo] cubriendo [período]. Sus proyectos: [lista]. Sus objetivos eran: [lista]. Escribe 3 versiones: (1) superó expectativas — reconocimiento específico, (2) cumplió expectativas — reconocimiento honesto, (3) necesita mejorar — constructivo con expectativas claras. Cada una: 300 palabras con Fortalezas, Áreas de Desarrollo, Objetivos para el Próximo Período.">
+<div class="p-label">Performance Review</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a performance review for [employee/role] covering [period]. Their projects: [list]. Their goals were: [list]. Write 3 versions: (1) exceeded expectations — specific praise, (2) met expectations — honest recognition, (3) needs improvement — constructive with clear next expectations. Each: 300 words with Strengths, Areas for Development, Goals for Next Period.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Marco de toma de decisiones" data-text-es="Ayúdame a decidir sobre [decisión]. Opciones: [lista 2-4]. Restricciones: [presupuesto/tiempo/recursos]. Prioridades (ordenadas): [lista]. Aplica: (1) matriz de decisión ponderada, (2) pre-mortem (imagina que cada opción falló — ¿qué salió mal?), (3) prueba de minimización del arrepentimiento (¿qué elección lamentarías más en 10 años?). Termina con una recomendación clara y el por qué.">
+<div class="p-label">Decision Framework</div>
+<div class="p-text" onclick="copyPrompt(this)">Help me decide about [decision]. Options: [list 2-4]. Constraints: [budget/time/resources]. Priorities (ranked): [list]. Apply: (1) weighted decision matrix, (2) pre-mortem (imagine each option failed — what went wrong?), (3) regret minimization test (which choice would I regret more in 10 years?). End with a clear recommendation and why.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Agenda de reunión" data-text-es="Crea una agenda para una reunión de [duración] minutos de [tipo] con [participantes]. Objetivo: [resultado específico]. Formato: bienvenida + objetivos (2 min), 3-5 puntos del orden del día con tema, responsable, tiempo y resultado deseado (decisión/info/alineación), puntos de acción (5 min), próximos pasos. Para cada punto, agrega 2 preguntas de discusión.">
+<div class="p-label">Meeting Agenda</div>
+<div class="p-text" onclick="copyPrompt(this)">Create an agenda for a [duration]-minute [meeting type] with [participants]. Goal: [specific outcome]. Format: welcome + objectives (2 min), 3-5 agenda items each with topic, owner, time, and desired outcome (decision/info/alignment), action items (5 min), next steps. For each item, add 2 discussion questions to keep it focused.</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="marketing"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Framework de copy para anuncios" data-text-es="Escribe 5 variaciones de anuncio para [producto] dirigido a [audiencia]. Cada una sigue un framework diferente: (1) PAS (Problema-Agitación-Solución), (2) AIDA (Atención-Interés-Deseo-Acción), (3) Antes/Después/Puente, (4) Características-Ventajas-Beneficios, (5) Prueba Social + CTA. Para cada uno: titular (menos de 8 palabras), cuerpo (menos de 100 palabras), CTA (menos de 5 palabras). Marca cuáles 2 probarías en A/B primero.">
+<div class="p-label">Ad Copy Framework</div>
+<div class="p-text" onclick="copyPrompt(this)">Write 5 ad variations for [product] targeting [audience]. Each follows a different framework: (1) PAS (Problem-Agitation-Solution), (2) AIDA (Attention-Interest-Desire-Action), (3) Before/After/Bridge, (4) Features-Advantages-Benefits, (5) Social Proof + CTA. For each: headline (under 8 words), body (under 100 words), CTA (under 5 words). Mark which 2 to A/B test first.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Calendario de contenido (1 mes)" data-text-es="Crea un calendario de contenido de 1 mes para [marca] en [industria]. Canales: [lista]. Para cada semana: 1 post educativo (80%), 1 post de engagement (pregunta/encuesta), 1 post promocional (20%), 1 post de confianza (behind the scenes/historia de cliente). Para cada post: tema, formato, mensaje clave y CTA. Alinea al [tema mensual].">
+<div class="p-label">Content Calendar (1 Month)</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a 1-month content calendar for [brand] in [industry]. Channels: [list]. For each week: 1 educational post (80%), 1 engagement post (question/poll), 1 promotional post (20%), 1 trust-building post (behind the scenes/customer story). For each post: topic, format, key message, and CTA. Align to [monthly theme].</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Estrategia de palabras clave SEO" data-text-es="Construye una estrategia de palabras clave SEO para [sitio web] en [nicho] enfocado en [tema principal]. Proporciona: (1) 5 keywords pillar (alto volumen, más difíciles), (2) 15 keywords de cola larga (menor volumen, más fáciles, alta intención), (3) 5 keywords en forma de pregunta para fragmentos destacados, (4) 3 keywords de brecha competitiva. Para cada una: volumen mensual estimado, dificultad (1-10), intención de búsqueda, formato de contenido sugerido.">
+<div class="p-label">SEO Keyword Strategy</div>
+<div class="p-text" onclick="copyPrompt(this)">Build an SEO keyword strategy for [website] in [niche] targeting [main topic]. Provide: (1) 5 pillar keywords (high volume, harder to rank), (2) 15 long-tail keywords (lower volume, easier, high intent), (3) 5 question-based keywords for featured snippets, (4) 3 competitor gap keywords. For each: estimated monthly volume, difficulty (1-10), search intent, suggested content format.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Secuencia de email marketing" data-text-es="Escribe una secuencia de 5 emails de bienvenida para nuevos suscriptores de [marca]. Objetivo: convertir en [acción deseada] en 7 días. Email 1 (Día 0): Bienvenida + victoria rápida. Email 2 (Día 2): Tu historia (no pitch de ventas). Email 3 (Día 4): 2-3 resultados específicos de clientes. Email 4 (Día 6): mejor contenido educativo (sin venta). Email 5 (Día 7): la oferta con fecha límite y razón por la que ahora. Cada email: asunto, preview, cuerpo de 150-250 palabras.">
+<div class="p-label">Email Marketing Sequence</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a 5-email welcome sequence for new subscribers of [brand]. Goal: convert to [desired action] in 7 days. Email 1 (Day 0): Welcome + one quick win. Email 2 (Day 2): Your story — why this matters (not a sales pitch). Email 3 (Day 4): 2-3 specific customer results. Email 4 (Day 6): best educational content (no sell). Email 5 (Day 7): the offer with deadline and reason why now. Each: subject, preview text, 150-250 word body.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Guía de voz de marca" data-text-es="Crea una guía de voz de marca para [empresa] en [industria]. Somos: [3 adjetivos]. NO somos: [3 adjetivos]. Documenta: (1) Distinción Voz vs. Tono, (2) 4 pilares de voz con nombre, descripción, ejemplos de qué hacer/no hacer y comparación suena como/no suena como, (3) guía de vocabulario (10 palabras que usamos, 10 que evitamos), (4) preferencias de estructura, (5) 3 reescrituras antes/después.">
+<div class="p-label">Brand Voice Guide</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a brand voice guide for [company] in [industry]. We are: [3 adjectives]. We are NOT: [3 adjectives]. Document: (1) Voice vs Tone distinction, (2) 4 voice pillars with name, description, do/don't examples, and sounds-like/doesn't-sound-like comparison, (3) vocabulary guide (10 words we use, 10 we avoid), (4) sentence structure preferences, (5) 3 before/after rewrites showing the voice in action.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Plan de lanzamiento de producto" data-text-es="Crea un plan de lanzamiento de producto de 4 semanas para [producto]. Fecha: [fecha]. Objetivo: [audiencia]. Semana 1 (Teaser): 3 acciones para generar anticipación. Semana 2 (Revelación): 3 acciones para anunciar y educar. Semana 3 (Lanzamiento): 5 acciones en email, social, pagado, PR. Semana 4 (Post-lanzamiento): 3 acciones de retención. Para cada una: tipo de contenido, plataforma, momento, métrica. Incluye contingente si el lanzamiento no cumple expectativas.">
+<div class="p-label">Product Launch Plan</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a 4-week product launch plan for [product]. Launch date: [date]. Target: [audience]. Week 1 (Teaser): 3 specific actions to build anticipation. Week 2 (Reveal): 3 actions to announce and educate. Week 3 (Launch): 5 actions across email, social, paid, PR. Week 4 (Post-launch): 3 retention actions. For each: content type, platform, timing, success metric. Include a contingency if launch underperforms.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Gancho de guión de vídeo" data-text-es="Escribe 5 ganchos diferentes para un vídeo de [duración] sobre [tema] para [plataforma]. Tipos de gancho: (1) Afirmación contraria audaz, (2) Número/estadística específica, (3) Dirección directa al problema del espectador, (4) Apertura con historia (2 oraciones convincentes), (5) Brecha de curiosidad (sin &quot;¿Alguna vez...&quot;). Para cada gancho, escribe las primeras 30 palabras que seguirían. Marca para qué plataforma funciona mejor cada uno.">
+<div class="p-label">Video Script Hook</div>
+<div class="p-text" onclick="copyPrompt(this)">Write 5 different hooks for a [duration] video about [topic] for [platform]. Each hook type: (1) Bold contrarian claim, (2) Specific number/statistic, (3) Direct address to viewer's problem, (4) Story opening (2 compelling sentences), (5) Curiosity gap (no &quot;Have you ever...&quot;). For each hook, write the first 30 words that follow. Mark which platform each works best for.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Brief para influencer" data-text-es="Escribe un brief para una campaña de influencers para [marca] promocionando [producto]. Incluye: contexto de la campaña (1 párrafo), 3 conceptos de contenido con formato, mensajes clave (y qué NO decir), menciones obligatorias y divulgaciones FTC, hashtags y handles, derechos de uso, entregables y cronograma, estructura de compensación. Tono: profesional pero amigable para el creador.">
+<div class="p-label">Influencer Brief</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a creator brief for an influencer campaign for [brand] promoting [product]. Include: campaign background (1 paragraph), 3 content concepts with format, key messages (and what NOT to say), mandatory mentions and FTC disclosures, hashtags and handles, usage rights, deliverables and timeline, compensation structure. Tone: professional but creator-friendly.</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="productivity"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Sesión de planificación semanal" data-text-es="Actúa como mi coach de productividad. Hoy: [fecha]. Mis prioridades esta semana: [lista 3-5]. Horas disponibles: [por día]. Mis mayores pérdidas de tiempo: [lista]. Planifica mi semana con bloques de tiempo: para cada día, 3 bloques (trabajo profundo mañana, colaborativo/administrativo tarde, revisión al final). Para cada bloque: en qué trabajar, por qué ese horario encaja y cómo se ve &quot;terminado&quot;. Identifica la única tarea que haría la semana un éxito.">
+<div class="p-label">Weekly Planning Session</div>
+<div class="p-text" onclick="copyPrompt(this)">Act as my productivity coach. Today: [date]. My priorities this week: [list 3-5]. Available hours: [per day]. My biggest time wasters: [list]. Plan my week with time-blocking: for each day, 3 blocks (morning deep work, afternoon collaborative/admin, end-of-day review). For each block: what to work on, why that time fits that task, and what &quot;done&quot; looks like. Identify the one task that would make the week a success.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Resumen de reunión" data-text-es="Basándote en estas notas de reunión: [pega las notas]. Genera: (1) Resumen ejecutivo (3 oraciones — discutido, decidido, impacto), (2) Decisiones tomadas (específicas, no solo discutidas), (3) Tabla de puntos de acción: QUIÉN | QUÉ | PARA CUÁNDO | PRIORIDAD, (4) Preguntas abiertas pendientes, (5) Recomendación de reunión de seguimiento (sí/no y por qué). Formato para compartir en Slack o email.">
+<div class="p-label">Meeting Summary &amp; Action Items</div>
+<div class="p-text" onclick="copyPrompt(this)">Based on these meeting notes: [paste notes]. Generate: (1) Executive summary (3 sentences — discussed, decided, impact), (2) Decisions made (specific, not just discussed), (3) Action items table: WHO | WHAT | BY WHEN | PRIORITY, (4) Open questions still needing resolution, (5) Follow-up meeting recommendation (yes/no and why). Format for sharing in Slack or email.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Framework de delegación" data-text-es="Necesito delegar [tarea/proyecto] a [miembro del equipo/cargo]. Crea: (1) brief de la tarea (alcance claro, qué incluye y qué NO), (2) criterios de éxito (¿cómo sabremos que está bien hecho?), (3) recursos que necesitan y dónde encontrarlos, (4) decisiones que pueden tomar independientemente vs. las que deben escalar, (5) calendario de seguimiento, (6) fecha límite y hitos. También: qué preguntas esperar de ellos y cómo responderlas.">
+<div class="p-label">Delegation Framework</div>
+<div class="p-text" onclick="copyPrompt(this)">I need to delegate [task/project] to [team member/role]. Create: (1) task brief (clear scope, what's included and NOT included), (2) success criteria (how will we know it's done well?), (3) resources they need and where to find them, (4) decisions they can make independently vs. must escalate, (5) check-in schedule, (6) deadline and milestones. Also: what questions to expect from them and how to answer them.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Sistema de triaje de email" data-text-es="Ayúdame a construir un sistema de triaje de email. Mi inbox: [volumen, tipos, fuentes]. Mi rol: [describe]. Diseña: (1) 4-5 categorías de carpetas con reglas claras, (2) un árbol de decisión de 3 preguntas para cada email, (3) 5 plantillas de respuesta para los más comunes, (4) una rutina diaria de procesamiento de email de 20 minutos. Hazlo sostenible para más de 80 emails al día.">
+<div class="p-label">Email Triage System</div>
+<div class="p-text" onclick="copyPrompt(this)">Help me build an email triage system. My inbox: [volume, types, sources]. My role: [describe]. Design: (1) 4-5 folder categories with clear rules, (2) a 3-question decision tree for every email, (3) 5 response templates for most common replies, (4) a daily 20-minute email processing routine. Make it sustainable for 80+ emails per day.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Plan de aprendizaje en 30 días" data-text-es="Crea un plan de aprendizaje de 30 días para [habilidad]. Mi nivel: [principiante/intermedio]. Tiempo: [horas/semana]. Objetivo: [qué quiero poder hacer al final]. Semanas: (1) Fundamentos, (2) Conceptos clave, (3) Aplicación, (4) Avanzado + proyecto. Para cada semana: 3 recursos específicos (con tipo de fuente), 2 ejercicios prácticos, un desafío semanal y algo para construir. Hazlo alcanzable a mi ritmo.">
+<div class="p-label">Learning Plan</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a 30-day learning plan for [skill]. My level: [beginner/intermediate]. Time: [hours/week]. Goal: [what to be able to do by end]. Weeks: (1) Foundation, (2) Core concepts, (3) Application, (4) Advanced + project. For each week: 3 specific resources (with source type), 2 practical exercises, a weekly test challenge, and one thing to build. Make it achievable at my pace.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Guión para conversación difícil" data-text-es="Prepárame para una conversación difícil con [rol: jefe/colega/cliente] sobre [tema]. Mi objetivo: [resultado específico]. Escribe: (1) declaración de apertura (30-45 segundos — clara, calmada, directa), (2) 3 puntos clave que necesito hacer con evidencia, (3) sus 3 principales objeciones y mis respuestas, (4) lo que NO diré, (5) cómo cerrar la conversación de forma productiva.">
+<div class="p-label">Difficult Conversation Script</div>
+<div class="p-text" onclick="copyPrompt(this)">Prepare me for a difficult conversation with [role: manager/colleague/client] about [topic]. My goal: [specific outcome]. Write: (1) opening statement (30-45 seconds — clear, calm, direct), (2) 3 key points I need to make with supporting evidence, (3) their likely top 3 objections and my responses, (4) what I will NOT say, (5) how to close productively.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Auditoría de finanzas personales" data-text-es="Actúa como asesor de finanzas personales. Mi situación: ingresos [cantidad], gastos mensuales [categorías + cantidades], ahorros actuales [cantidad], deudas [tipos + cantidades], objetivos financieros [lista]. Proporciona: (1) puntuación de salud financiera (1-10) con explicación, (2) a dónde va mi dinero vs. a dónde debería ir (50/30/20 o tu asignación recomendada), (3) los 3 principales gastos innecesarios a corregir, (4) pasos específicos para los próximos 30/60/90 días, (5) un hábito para empezar y uno para parar inmediatamente. Sé directo.">
+<div class="p-label">Personal Finance Audit</div>
+<div class="p-text" onclick="copyPrompt(this)">Act as a personal finance advisor. My situation: income [amount], monthly expenses [categories + amounts], current savings [amount], debts [types + amounts], financial goals [list]. Provide: (1) financial health score (1-10) with explanation, (2) where my money goes vs. where it should go (50/30/20 or your recommended allocation), (3) top 3 money leaks to fix this month, (4) specific steps for the next 30/60/90 days, (5) one habit to start and one to stop immediately. Be direct.</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="creative"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Prompt de imagen: fotorrealismo" data-text-es="Crea un prompt detallado para FLUX 1.1 Pro / Midjourney v7 de [sujeto] fotorrealista. Incluye: sujeto principal (muy específico), entorno, iluminación (tipo, dirección, calidad), cámara (focal, apertura, ángulo), estado de ánimo, marcadores de calidad técnica (8K/hiperrealista/calidad de estudio). Ejemplo: &quot;Foto de perfil corporativa, mujer de 40s, sonrisa segura, blazer azul marino, fondo de oficina desenfocado, iluminación Rembrandt, Canon 85mm f/1.8, ángulo ligeramente elevado, tono cálido, 8K, hiperrealista&quot;">
+<div class="p-label">Image Prompt: Photorealism</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a detailed prompt for FLUX 1.1 Pro / Midjourney v7 for a photorealistic [subject]. Include: main subject (highly specific), setting and environment, lighting (type, direction, quality), camera specs (lens focal length, aperture, shot angle), mood and atmosphere, technical quality markers (8K/hyperrealistic/studio quality). Example: &quot;Corporate headshot of a woman in her 40s, confident smile, navy blazer, blurred modern office background, Rembrandt lighting from upper left, Canon 85mm f/1.8, slight upward angle, warm tone, 8K, hyperrealistic&quot;</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Apertura de cuento corto" data-text-es="Escribe los primeros 300 palabras de un cuento corto de [género: thriller/ficción literaria/ciencia ficción/romance]. Personaje principal: [descripción breve]. Escenario: [dónde y cuándo]. Comienza en medio de acción o tensión — sin backstory ni exposición. Al final: el lector sabe de quién es la historia, siente algo (pavor/curiosidad/deseo) y no puede dejar de leer. Evita: aperturas con clima, despertando, &quot;Me llamo&quot;.">
+<div class="p-label">Short Story Opening</div>
+<div class="p-text" onclick="copyPrompt(this)">Write the opening 300 words of a [genre: thriller/literary fiction/sci-fi/romance] short story. Main character: [brief description]. Setting: [where and when]. Start in the middle of action or tension — no backstory or exposition. By the end: reader knows whose story this is, feels something (dread/curiosity/desire), and cannot stop reading. Avoid: weather openings, waking up openings, &quot;My name is&quot; openings.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Generador de nombres de marca" data-text-es="Genera 20 opciones de nombres de marca para [descripción del negocio]. La marca debe sentirse [adjetivos]. Evita: sufijos tecnológicos genéricos (-ly, -ify, -io), marcas importantes existentes, nombres difíciles de deletrear. Para cada uno: nombre, concepto/etimología, sugerencia de dominio, posibles problemas de marca. Categorías: (1) Abstractas/inventadas (5), (2) Combinaciones descriptivas (5), (3) Basadas en metáforas (5), (4) Inspiradas en fundadores/lugar (5). Marca los 5 mejores.">
+<div class="p-label">Brand Name Generator</div>
+<div class="p-text" onclick="copyPrompt(this)">Generate 20 brand name options for [business description]. The brand should feel [adjectives]. Avoid: generic tech suffixes (-ly, -ify, -io), existing major brands, names hard to spell or say. For each: name, concept/etymology, domain check suggestion, trademark concerns. Categories: (1) Abstract/invented (5), (2) Descriptive combinations (5), (3) Metaphor-based (5), (4) Founder/place-inspired (5). Mark top 5 with a star.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Creación de tagline" data-text-es="Crea 15 taglines para [empresa/producto]. Personalidad de marca: [adjetivos]. Beneficio principal: [valor primario]. Objetivo: [describe]. Tono: [directo/ingenioso/inspirador/audaz]. Reglas: menos de 7 palabras, sin rimas artificiales, sin palabras sobreusadas (innovador, revolucionario). Organiza: (1) Enfocados en el beneficio (5), (2) Enfocados en la identidad del cliente (5), (3) Contraste/tensión (5). Marca los 3 que recomendarías y explica por qué.">
+<div class="p-label">Tagline Creation</div>
+<div class="p-text" onclick="copyPrompt(this)">Create 15 taglines for [company/product]. Brand personality: [adjectives]. Main benefit: [primary value]. Target: [describe]. Tone: [direct/witty/inspirational/bold]. Rules: under 7 words each, no rhyming unless natural, no overused words (innovative, revolutionary, next-level). Organize: (1) Benefit-focused (5), (2) Identity-focused — who the customer becomes (5), (3) Contrast/tension — two opposing ideas (5). Mark the 3 you recommend and explain why.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Esquema de episodio de podcast" data-text-es="Crea un esquema completo de episodio de podcast para [nombre del programa] sobre [tema]. Título: convincente, SEO, menos de 60 caracteres. Formato: [entrevista/solo/panel]. Duración: [30/45/60] min. Estructura: (1) Apertura en frío — momento más interesante como gancho (30 seg), (2) Intro con propuesta de valor (1 min), (3) Contenido principal en 3-4 segmentos con transiciones, (4) 3 preguntas de discusión por segmento, (5) Espacio de patrocinador, (6) Outro con CTA. Incluye 3 clips para redes sociales de este episodio.">
+<div class="p-label">Podcast Episode Outline</div>
+<div class="p-text" onclick="copyPrompt(this)">Create a complete podcast episode outline for [show name] about [topic]. Title: compelling, SEO-optimized, under 60 chars. Format: [interview/solo/panel]. Duration: [30/45/60] min. Structure: (1) Cold open — most interesting moment as hook (30 sec), (2) Intro with value prop (1 min), (3) Main content in 3-4 segments with transitions, (4) 3 discussion questions per segment, (5) Sponsor placement, (6) Outro with CTA. Include 3 social media clips to pull from this episode.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Brief creativo" data-text-es="Escribe un brief creativo para [proyecto: campaña publicitaria/renovación de marca/vídeo de producto/rediseño web]. Incluye: antecedentes del cliente (2 oraciones), objetivo del trabajo creativo (resultado específico y medible), audiencia (demográfico + psicográfico), mensaje más importante, percepción actual de la audiencia, cambio de percepción deseado, obligatorios (logo, textos legales, colores), tono (3 adjetivos) y criterios de éxito.">
+<div class="p-label">Creative Brief</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a creative brief for [project: ad campaign/brand refresh/product video/website redesign]. Include: client background (2 sentences), goal of creative work (specific measurable outcome), audience (demographic + psychographic), single most important message, current audience perception, desired shift in perception, mandatories (logo, legal, colors), tone (3 adjectives), and success criteria (how we measure this creative worked).</div>
+</div>
+</div></div>
+<div class="prompt-cat-group" data-cat="research"><div class="prompt-grid">
+<div class="p-cell fade-up" data-title-es="Resumen de investigación" data-text-es="Resume los hallazgos clave de: [pega artículo/paper/informe]. Salida: (1) TL;DR — máximo 2 oraciones con el insight más importante, (2) Hallazgos clave — 5 puntos específicos y respaldados por datos, (3) Implicaciones prácticas para [tu contexto] — 3 conclusiones accionables, (4) Lo que esta investigación NO nos dice — limitaciones o brechas, (5) Nivel de confianza (Alto/Medio/Bajo) y por qué. Sé escéptico — cuestiona afirmaciones sin evidencia.">
+<div class="p-label">Research Summary</div>
+<div class="p-text" onclick="copyPrompt(this)">Summarize the key findings from: [paste article/paper/report]. Output: (1) TL;DR — 2 sentences max with the single most important insight, (2) Key findings — 5 specific, data-backed bullet points, (3) Practical implications for [your context] — 3 actionable takeaways, (4) What this research does NOT tell us — limitations or gaps, (5) Confidence level (High/Medium/Low) and why. Be skeptical — challenge claims that lack evidence.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Preguntas para entrevista de experto" data-text-es="Voy a entrevistar a [rol del experto] sobre [tema]. Objetivo: [objetivo de investigación]. Audiencia: [quién lo lee/ve]. Crea 15 preguntas: (1) Apertura — 3 preguntas para rapport y credenciales, (2) Principales — 8 preguntas para profundizar, cuestionar supuestos y obtener historias específicas, (3) Prospectivas — 3 preguntas sobre predicciones y consejos, (4) Cierre — 1 pregunta: lo que desearía que más personas supieran. Para cada una, agrega una pregunta de sondeo.">
+<div class="p-label">Expert Interview Questions</div>
+<div class="p-text" onclick="copyPrompt(this)">I am interviewing [expert role] about [topic]. Goal: [research objective]. Audience: [who reads/watches]. Create 15 questions: (1) Opener — 3 questions to build rapport and establish credentials, (2) Core — 8 questions to dig into the topic, challenge assumptions, and get specific stories, (3) Forward-looking — 3 questions on predictions and advice, (4) Closer — 1 question: what they wish more people knew. For each, add a follow-up probe.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Verificar este dato" data-text-es="Verifica el dato: &quot;[pega el dato]&quot;. Proporciona: (1) Veredicto: Verdadero / Mayormente verdadero / Engañoso / Falso / No verificable, (2) Evidencia específica que lo apoya o contradice, (3) Contexto importante que el dato omite o tergiversa, (4) Evaluación de calidad de la fuente (primaria/revisada por pares/secundaria), (5) Qué diría una versión justa y precisa de este dato. Separa lo que es claramente verdad de lo que es opinión o inferencia.">
+<div class="p-label">Fact-Check This Claim</div>
+<div class="p-text" onclick="copyPrompt(this)">Fact-check: &quot;[paste claim]&quot;. Provide: (1) Verdict: True / Mostly True / Misleading / False / Unverifiable, (2) Specific evidence that supports or contradicts it, (3) Important context that the claim omits or misrepresents, (4) Source quality assessment (primary/peer-reviewed/secondary?), (5) What a fair, accurate version of this claim would say. Separate what is clearly true from what is opinion or inference. If uncertain, say so explicitly.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Análisis de tendencias" data-text-es="Analiza la tendencia: [nombre de la tendencia]. Proporciona: (1) Estado actual con métricas específicas, (2) 3-5 impulsores (tecnológicos, económicos, sociales, regulatorios), (3) Clasificación de línea de tiempo — etapa temprana/crecimiento/madurez/declive, y por qué, (4) Implicaciones — quién gana y quién pierde, (5) Escenarios — mejor caso, caso base, peor caso para los próximos 3 años, (6) Opciones estratégicas — 3 respuestas realistas para [tipo de organización]. Sé concreto y específico.">
+<div class="p-label">Trend Analysis</div>
+<div class="p-text" onclick="copyPrompt(this)">Analyze the trend: [trend name]. Provide: (1) Current state with specific metrics, (2) 3-5 drivers (technological, economic, social, regulatory), (3) Timeline classification — early stage/growth/mature/declining, and why, (4) Implications — who wins and who loses, (5) Scenarios — best case, base case, worst case for the next 3 years, (6) Strategic options — 3 realistic responses for [type of organization]. Be concrete and specific.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Brief de investigación de mercado" data-text-es="Escribe un brief de investigación de mercado para [empresa] ingresando a [mercado/geografía]. Preguntas de negocio: [lista 3-5]. Recomienda: (1) Fuentes de investigación secundaria (bases de datos/informes específicos), (2) Investigación primaria (encuesta + entrevistas — a quién reclutar, tamaño de muestra, preguntas clave), (3) Enfoque de inteligencia competitiva. Entregables: qué debe incluir el informe final. Cronograma: [semanas], presupuesto: [cantidad]. Criterios de éxito: cómo sabemos que respondió nuestras preguntas.">
+<div class="p-label">Market Research Brief</div>
+<div class="p-text" onclick="copyPrompt(this)">Write a market research brief for [company] entering [market/geography]. Business questions: [list 3-5]. Recommend: (1) Secondary research sources to mine (specific databases/reports), (2) Primary research (survey + interviews — who to recruit, sample size, key questions), (3) Competitive intelligence approach. Deliverables: what the final report should include. Timeline: [weeks], budget: [$amount]. Success criteria: how we know this research answered our questions.</div>
+</div>
+<div class="p-cell fade-up" data-title-es="Interpretación de análisis de datos" data-text-es="Analiza este conjunto de datos: [pega los datos o descríbelos]. Proporciona: (1) Los 3 patrones o tendencias más significativos, (2) Anomalías o puntos de datos que necesitan investigación, (3) Las 3 preguntas más importantes que estos datos plantean pero no pueden responder solos, (4) Datos adicionales necesarios para conclusiones confiables, (5) Interpretación de nivel ejecutivo: qué significa para [contexto de negocio]. Distingue entre lo que los datos muestran claramente vs. lo que es interpretación.">
+<div class="p-label">Data Analysis Interpretation</div>
+<div class="p-text" onclick="copyPrompt(this)">Analyze this dataset: [paste data or describe]. Provide: (1) 3 most significant patterns or trends, (2) Anomalies or data points that need investigation, (3) 3 important questions this data raises but cannot answer alone, (4) Additional data needed for confident conclusions, (5) Executive-level interpretation: what this means for [business context]. Distinguish between what the data clearly shows vs. what is interpretation.</div>
+</div>
+</div></div>
+</div>
   </div>
 </section>
 
@@ -1405,27 +1477,29 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
       <p data-i18n="cm.d">Updated comparison of the top AI models and tools. Last reviewed: May 2026.</p>
     </div>
     <div class="cmp-wrap fade-up" style="overflow-x:auto">
-      <table class="cmp-table" style="min-width:860px">
+      <table class="cmp-table" style="min-width:980px">
         <thead>
           <tr>
-            <th data-i18n="cm.f" style="min-width:140px">Feature</th>
+            <th data-i18n="cm.f" style="min-width:130px">Feature</th>
             <th>GPT-5.5</th>
             <th class="hl">Claude 4.5</th>
             <th>Gemini 3 Pro</th>
             <th>Copilot</th>
             <th>Claude Code</th>
+            <th style="background:rgba(108,71,255,.08)">Genspark</th>
             <th>Grok 4</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td data-i18n="cm.best">Best for</td>
-            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b1">General use &amp; images</td>
-            <td class="hl" style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b2">Writing &amp; documents</td>
-            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b3">Google Workspace</td>
-            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b4">Free daily use</td>
-            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b5">Coding (terminal)</td>
-            <td style="font-size:.75rem;color:var(--muted)" data-i18n="cm.b6">Real-time &amp; X</td>
+            <td style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b1">General &amp; images</td>
+            <td class="hl" style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b2">Writing &amp; docs</td>
+            <td style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b3">Google Workspace</td>
+            <td style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b4">Free daily use</td>
+            <td style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b5">Coding (terminal)</td>
+            <td style="font-size:.74rem;color:var(--muted);background:rgba(108,71,255,.04)" data-i18n="cm.b7">All-in-one AI WS</td>
+            <td style="font-size:.74rem;color:var(--muted)" data-i18n="cm.b6">Real-time &amp; X</td>
           </tr>
           <tr>
             <td data-i18n="cm.fv">Free version</td>
@@ -1434,6 +1508,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
             <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk">✓</span></td>
             <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
           </tr>
           <tr>
@@ -1443,6 +1518,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><strong style="color:var(--teal3)">1M</strong></td>
             <td>128k</td>
             <td><strong style="color:var(--teal3)">200k</strong></td>
+            <td style="background:rgba(108,71,255,.04)">128k</td>
             <td>131k</td>
           </tr>
           <tr>
@@ -1452,25 +1528,28 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
           </tr>
           <tr>
             <td data-i18n="cm.ig">Image gen</td>
-            <td><span class="chk" style="font-size:.8rem">✓ DALL·E 3</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ DALL·E 3</span></td>
             <td class="hl"><span class="crs">✗</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ Imagen 3</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ DALL·E 3</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ Imagen 4</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ DALL·E 3</span></td>
             <td><span class="crs">✗</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ Aurora</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk" style="color:var(--teal3);font-weight:600;font-size:.78rem">★ FLUX+Imagen4</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ Aurora</span></td>
           </tr>
           <tr>
             <td data-i18n="cm.ws">Web search</td>
             <td><span class="chk">✓</span></td>
             <td class="hl"><span class="chk">✓</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ Native</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ Bing</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ Native</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ Bing</span></td>
             <td><span class="prt" data-i18n="cm.via_api">Via API</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ X/Web</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk" style="color:var(--teal3);font-weight:600">★ Sparkpages</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ X/Web</span></td>
           </tr>
           <tr>
             <td data-i18n="cm.cd">Code execution</td>
@@ -1479,6 +1558,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="chk">✓</span></td>
             <td><span class="prt" data-i18n="cm.lim">Limited</span></td>
             <td><span class="chk" style="color:var(--teal3);font-weight:600">★ Terminal</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
           </tr>
           <tr>
@@ -1486,8 +1566,19 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="crs">✗</span></td>
             <td class="hl"><span class="prt" data-i18n="cm.ext">Extension</span></td>
             <td><span class="crs">✗</span></td>
-            <td><span class="chk" style="font-size:.8rem">✓ M365</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ M365</span></td>
             <td><span class="chk" style="color:var(--teal3);font-weight:600">★ Native</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk" style="font-size:.78rem">✓ Office</span></td>
+            <td><span class="crs">✗</span></td>
+          </tr>
+          <tr>
+            <td data-i18n="cm.vg">Video gen</td>
+            <td><span class="crs">✗</span></td>
+            <td class="hl"><span class="crs">✗</span></td>
+            <td><span class="chk" style="font-size:.78rem">✓ Veo 3</span></td>
+            <td><span class="crs">✗</span></td>
+            <td><span class="crs">✗</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="chk" style="color:var(--teal3);font-weight:600;font-size:.78rem">★ Sora2+Veo3</span></td>
             <td><span class="crs">✗</span></td>
           </tr>
           <tr>
@@ -1497,6 +1588,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="chk">✓</span></td>
             <td><span class="chk">✓</span></td>
             <td><span class="crs">✗</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="crs">✗</span></td>
             <td><span class="chk">✓</span></td>
           </tr>
           <tr>
@@ -1506,6 +1598,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td><span class="chk">✓</span></td>
             <td><span class="prt">Azure</span></td>
             <td><span class="chk">✓</span></td>
+            <td style="background:rgba(108,71,255,.04)"><span class="prt">Limited</span></td>
             <td><span class="chk">✓</span></td>
           </tr>
           <tr>
@@ -1514,7 +1607,8 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td class="hl">$20</td>
             <td>$19.99</td>
             <td><span style="color:var(--sage2);font-weight:600" data-i18n="cm.free">Free</span></td>
-            <td>$20 <span style="font-size:.72rem;color:var(--dim)">Pro</span></td>
+            <td>$20 <span style="font-size:.7rem;color:var(--dim)">Pro</span></td>
+            <td style="background:rgba(108,71,255,.04)">$24.99</td>
             <td>$30</td>
           </tr>
           <tr>
@@ -1524,6 +1618,7 @@ Provide: 1) Verdict: TRUE / MOSTLY TRUE / MIXED / MOSTLY FALSE / FALSE, 2) Evide
             <td>⭐ 8.9</td>
             <td>⭐ 8.7</td>
             <td><strong style="color:var(--teal3)">⭐ 9.5</strong></td>
+            <td style="background:rgba(108,71,255,.04)"><strong style="color:#a78bfa">⭐ 9.0</strong></td>
             <td>⭐ 8.4</td>
           </tr>
         </tbody>
@@ -1722,7 +1817,7 @@ const T = {
     'sb.top':'🔥 Most read this week','sb.tags':'🏷️ Popular topics',
     'tp1':'How to use Claude API free tier','tp2':'ChatGPT vs Gemini vs Claude','tp3':'Best 50 prompts for developers','tp4':'Automate with Make + ChatGPT',
     'tg.a':'Automation','tg.c':'Coding','tg.p':'Productivity','tg.b':'Business','tg.d':'Data','tg.img':'Images',
-    'pr.kicker':'Prompt library','pr.h':'42 <span class="italic">Tested Prompts</span> — Ready to Copy','pr.d':'Real prompts that work. Organized by category. Click any prompt to copy instantly.','pcat.writing':'✍️ Writing','pcat.coding':'💻 Coding','pcat.business':'💼 Business','pcat.marketing':'📣 Marketing','pcat.productivity':'⚡ Productivity','pcat.creative':'🎨 Creative','pcat.research':'🔍 Research',
+    'pr.kicker':'Prompt library','pr.h':'56+ <span class="italic">High-Demand Prompts</span> — Ready to Copy','pr.d':'Real prompts that work. Organized by category. Click any prompt to copy instantly.','pcat.writing':'✍️ Writing','pcat.coding':'💻 Coding','pcat.business':'💼 Business','pcat.marketing':'📣 Marketing','pcat.productivity':'⚡ Productivity','pcat.creative':'🎨 Creative','pcat.research':'🔍 Research',
     'p1.l':'📝 Professional email','p1.t':'Act as a professional business email writer. Write a [formal/informal] email to [recipient] about [topic]. Tone: [tone]. Include: compelling subject line, direct intro, clear body, and specific CTA. Max 150 words.',
     'p2.l':'💻 Python code','p2.t':'You are a senior Python developer. Create a function that [description]. Requirements: PEP 8, type hints, docstring with examples, custom exception handling, and pytest unit tests. Explain each design decision.',
     'p3.l':'🎨 Image — Midjourney','p3.t':'[subject], [art style], [lighting: golden hour/studio/cinematic], [composition: portrait/wide angle], [color palette], ultra-detailed, photorealistic, 8K --ar 16:9 --v 7 --style raw --q 2',
@@ -1731,7 +1826,7 @@ const T = {
     'p6.l':'🎯 Business strategy','p6.t':'Act as a McKinsey consultant. Analyze: [business idea]. Create a SWOT analysis, estimate TAM/SAM/SOM, identify 3 biggest risks, propose a 90-day go-to-market strategy, and estimate minimum launch costs.',
     'btn.c':'Copy',
     'cm.kicker':'Comparativa 2026','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos y herramientas de IA. Última revisión: mayo 2026.',
-    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
+    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.vg':'Generación vídeo','cm.b7':'Espacio IA todo en uno','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
     'fo.kicker':'Community','fo.h':'Forum: Ask, Learn and <span class="italic">Share</span>','fo.d':'22,000+ active members from the US, Canada and Latin America discussing AI every day.',
     'f.hot':'🔥 Hot','f.new':'🆕 New','f.ask':'❓ Questions','fo.new':'+ Start new thread','fo.stats':'📊 Forum stats',
     'fh1':'How do I stop Claude from cutting off long responses?','fh1s':'In Claude · by juandev_99 · 2h ago',
@@ -1794,7 +1889,7 @@ const T = {
     'sb.top':'🔥 Más leídos esta semana','sb.tags':'🏷️ Temas populares',
     'tp1':'Cómo usar Claude API gratis','tp2':'ChatGPT vs Gemini vs Claude','tp3':'Los mejores 50 prompts para programadores','tp4':'Automatiza con Make + ChatGPT',
     'tg.a':'Automatización','tg.c':'Código','tg.p':'Productividad','tg.b':'Negocios','tg.d':'Datos','tg.img':'Imágenes',
-    'pr.kicker':'Biblioteca de prompts','pr.h':'42 <span class="italic">Prompts Probados</span> — Listos para Copiar','pr.d':'Prompts reales que funcionan. Organizados por categoría. Haz clic en cualquier prompt para copiar al instante.','pcat.writing':'✍️ Escritura','pcat.coding':'💻 Código','pcat.business':'💼 Negocios','pcat.marketing':'📣 Marketing','pcat.productivity':'⚡ Productividad','pcat.creative':'🎨 Creatividad','pcat.research':'🔍 Investigación',
+    'pr.kicker':'Biblioteca de prompts','pr.h':'56+ <span class="italic">Prompts de Alta Demanda</span> — Listos para Copiar','pr.d':'Prompts reales que funcionan. Organizados por categoría. Haz clic en cualquier prompt para copiar al instante.','pcat.writing':'✍️ Escritura','pcat.coding':'💻 Código','pcat.business':'💼 Negocios','pcat.marketing':'📣 Marketing','pcat.productivity':'⚡ Productividad','pcat.creative':'🎨 Creatividad','pcat.research':'🔍 Investigación',
     'p1.l':'📝 Correo profesional','p1.t':'Actúa como redactor profesional de correos de negocios. Escribe un correo [formal/informal] para [destinatario] sobre [tema]. Tono: [tono]. Incluye: asunto llamativo, introducción directa, cuerpo claro y CTA específico. Máximo 150 palabras.',
     'p2.l':'💻 Código Python','p2.t':'Eres un desarrollador Python senior. Crea una función que [descripción]. Requisitos: PEP 8, type hints, docstring con ejemplos, manejo de errores personalizado y tests unitarios con pytest. Explica cada decisión de diseño.',
     'p3.l':'🎨 Imagen — Midjourney','p3.t':'[sujeto], [estilo artístico], [iluminación: golden hour/studio/cinematic], [composición: portrait/wide angle], [paleta de colores], ultra-detailed, photorealistic, 8K --ar 16:9 --v 7 --style raw --q 2',
@@ -1803,7 +1898,7 @@ const T = {
     'p6.l':'🎯 Estrategia de negocio','p6.t':'Actúa como consultor de McKinsey. Analiza: [idea de negocio]. Crea análisis FODA, calcula TAM/SAM/SOM, identifica los 3 mayores riesgos, propón estrategia go-to-market en 90 días y estima costes mínimos de lanzamiento.',
     'btn.c':'Copiar',
     'cm.kicker':'Comparativa 2026','cm.h':'¿Cuál IA es la <span class="italic">Correcta</span> para Ti?','cm.d':'Comparativa actualizada de los mejores modelos y herramientas de IA. Última revisión: mayo 2026.',
-    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
+    'cm.f':'Característica','cm.fv':'Versión gratuita','cm.cx':'Contexto máximo','cm.vi':'Entrada de imagen','cm.ig':'Genera imágenes','cm.ws':'Búsqueda web','cm.ap':'API','cm.pr':'Precio/mes','cm.sc':'Puntuación','cm.vg':'Generación vídeo','cm.b7':'Espacio IA todo en uno','cm.note':'⚠️ Los modelos de IA se actualizan frecuentemente. Revisamos versiones mensualmente — última revisión mayo 2026.','cm.free':'Gratis','cm.vc':'Modo de voz','cm.via_api':'Vía API','cm.ext':'Extensión','cm.ide':'Integración IDE','cm.cd':'Ejecución de código','cm.lim':'Limitado','cm.b6':'Tiempo real y X','cm.b5':'Programación (terminal)','cm.b4':'Uso diario gratuito','cm.b3':'Google Workspace','cm.b2':'Escritura y documentos','cm.b1':'Uso general e imágenes','cm.best':'Mejor para',
     'fo.kicker':'Comunidad','fo.h':'Foro: Pregunta, Aprende y <span class="italic">Comparte</span>','fo.d':'Más de 22.000 miembros activos de todo el mundo discutiendo IA cada día.',
     'f.hot':'🔥 Popular','f.new':'🆕 Nuevo','f.ask':'❓ Preguntas','fo.new':'+ Crear nuevo hilo','fo.stats':'📊 Estadísticas del foro',
     'fh1':'¿Cómo consigo que Claude no corte sus respuestas largas?','fh1s':'En Claude · por juandev_99 · hace 2h',
